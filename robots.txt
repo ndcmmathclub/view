@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ndcmmathclub.github.io/view/sitemap.xml
