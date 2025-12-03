@@ -76,12 +76,12 @@ const NEWS_SLIDES = [
 
 const EVENTS = [
     {
-        title: { en: "Discussion about Bangladesh Math Olympiad Contents", bn: "বাংলাদেশ গণিত অলিম্পিয়াডের পাঠ্যসূচি নিয়ে আলোচনা" },
-        date: { en: "DEC 03", bn: "০৩ ডিসেম্বর" },
+        title: { en: "Lectures on Mathematical Notations and their usage", bn: "গাণিতিক চিহ্নসমূহ ও তাদের ব্যবহারবিধি নিয়ে আলোচনা" },
+        date: { en: "DEC 10", bn: "১০ ডিসেম্বর" },
         time: { en: "12:00 PM", bn: "দুপুর ১২:০০" },
         location: { en: "Room 402", bn: "৪০২ নং কক্ষ" },
         type: { en: "Lecture", bn: "লেকচার" },
-        desc: { en: "An elaborative lectures and discussing about the problems came to BdMO past years and try to solve those questions according to ability", bn: "বিডিএমওতে আসা বিগত বছরের প্রশ্নপত্র নিয়ে বিস্তর আলোচনা এবং সামর্থ্য অনুযায়ী সেসব প্রশ্নের সমাধান করার চেষ্টা।" },
+        desc: { en: "Showing the notations that are frequently being used in Mathematics and make our calculation easier or how we can derrive a formula from calculations.", bn: "গাণিতিক প্রতীকের সাথে পরিচিত করানো যেগুলো প্রায়ই গণিতে ব্যবহৃত হচ্ছে এবং আমাদের হিসেবকে কিভাবে সহজ করছে কিংবা গাণিতিক সমাধান করে কিভাবে আমরা সূত্র নিয়ে আসতে পারি সেগুলো ব্যবহার করে।" },
         color: "bg-blue-100 text-blue-800"
     }
     /*{
