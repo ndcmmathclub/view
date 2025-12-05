@@ -873,23 +873,6 @@ async function handleChatSubmit(e) {
         removeTypingIndicator();
         console.error(error);
         
-        appendMessage("Sorry, I encountered a connection error. Please verify your Gemini API key and network connection.", 'bot');
-    }
-}
-
-        const data = await response.json();
-        removeTypingIndicator();
-        
-        if (data.choices && data.choices.length > 0) {
-            appendMessage(data.choices[0].message.content, 'bot');
-        } else {
-            appendMessage("I'm not sure how to answer that.", 'bot');
-        }
-
-    } catch (error) {
-        removeTypingIndicator();
-        console.error(error);
-        
         const fallbackMessage = error.message.startsWith('API Error') || error.message.includes('Authentication Error')
             ? error.message
             : "Sorry, I encountered a network error or the server is unreachable.";
