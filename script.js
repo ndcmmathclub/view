@@ -698,8 +698,8 @@ const CHAT_STATE = {
     messages: []
 };
 
-const DEEPSEEK_API_KEY = "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";
-const API_URL = "https://openrouter.ai/api/v1/chat/completions";
+const GEMINI_API_KEY = "AIzaSyBzGUZrHq_8onlyoVYn7gegYs1OvEkq8J0";
+const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + GEMINI_API_KEY;
 
 function toggleChat() {
     CHAT_STATE.isOpen = !CHAT_STATE.isOpen;
@@ -843,33 +843,39 @@ async function handleChatSubmit(e) {
         const response = await fetch(API_URL, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${DEEPSEEK_API_KEY}`
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                model: "deepseek/deepseek-chat", 
-                messages: [
-                    { 
-                        role: "system", 
-                        content: systemPrompt 
-                    },
-                    { role: "user", content: text }
+                contents: [
+                    { role: "user", parts: [{ text: systemPrompt + "\n\nUser Query: " + text }] }
                 ],
-                stream: false
+                config: {
+                    systemInstruction: systemPrompt
+                }
             })
         });
 
         if (!response.ok) {
-            let errorMessage = "Sorry, I encountered an error connecting to the server.";
-            if (response.status === 401 || response.status === 403) {
-                errorMessage = "Authentication Error: Please check your OpenRouter API key and credit balance.";
-            } else if (response.status === 400) {
-                 errorMessage = "Error: Invalid request format or parameters sent to the API.";
-            } else {
-                errorMessage = `API Error: Status ${response.status}. Check console for details.`;
-            }
-            throw new Error(errorMessage);
+            throw new Error(`API Error: Status ${response.status}. Check console for details.`);
         }
+
+        const data = await response.json();
+        removeTypingIndicator();
+        
+        if (data.candidates && data.candidates.length > 0 && data.candidates[0].content.parts.length > 0) {
+            const botMessageContent = data.candidates[0].content.parts[0].text;
+            appendMessage(botMessageContent, 'bot');
+        } else {
+            appendMessage("I'm sorry, I couldn't generate a response. Please ensure your Gemini API key is valid and has sufficient usage remaining in the free tier.", 'bot');
+        }
+
+    } catch (error) {
+        removeTypingIndicator();
+        console.error(error);
+        
+        appendMessage("Sorry, I encountered a connection error. Please verify your Gemini API key and network connection.", 'bot');
+    }
+}
 
         const data = await response.json();
         removeTypingIndicator();
