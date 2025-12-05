@@ -693,5 +693,211 @@ function initMathAnimation() {
     mathAnimationId = requestAnimationFrame(animate);
 }
 
+const CHAT_STATE = {
+    isOpen: false,
+    messages: []
+};
+
+const DEEPSEEK_API_KEY = "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";
+const API_URL = "https://openrouter.ai/api/v1/chat/completions";
+
+function toggleChat() {
+    CHAT_STATE.isOpen = !CHAT_STATE.isOpen;
+    const chatWindow = document.getElementById('chat-window');
+    
+    if (CHAT_STATE.isOpen) {
+        chatWindow.classList.remove('hidden', 'scale-95', 'opacity-0');
+        chatWindow.classList.add('flex', 'scale-100', 'opacity-100');
+        setTimeout(() => document.getElementById('chat-input').focus(), 100);
+    } else {
+        chatWindow.classList.remove('flex', 'scale-100', 'opacity-100');
+        chatWindow.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => chatWindow.classList.add('hidden'), 300);
+    }
+}
+
+function appendMessage(text, type) {
+    const container = document.getElementById('chat-messages');
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `flex items-start gap-2 max-w-[85%] ${type === 'user' ? 'ml-auto flex-row-reverse' : ''}`;
+    
+    const avatar = document.createElement('div');
+    avatar.className = `w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center text-[10px] font-bold text-white ${type === 'user' ? 'bg-slate-400' : 'bg-ndcm-primary'}`;
+    avatar.innerText = type === 'user' ? 'ME' : 'AI';
+    
+    const content = document.createElement('div');
+    content.className = `p-3 rounded-2xl text-sm shadow-sm border ${type === 'user' 
+        ? 'bg-ndcm-primary text-white rounded-tr-none border-ndcm-primary' 
+        : 'bg-white text-slate-700 rounded-tl-none border-gray-100'}`;
+    
+    if (type === 'bot') {
+        content.innerHTML = convertMarkdownToHtml(text);
+    } else {
+        content.innerText = text; 
+    }
+
+
+    if(text.includes('$')) {
+        setTimeout(() => {
+           if(window.renderMathInElement) {
+               renderMathInElement(content, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ]
+               });
+           }
+        }, 0);
+    }
+
+    msgDiv.appendChild(avatar);
+    msgDiv.appendChild(content);
+    container.appendChild(msgDiv);
+    container.scrollTop = container.scrollHeight;
+}
+
+function showTypingIndicator() {
+    const container = document.getElementById('chat-messages');
+    const indicator = document.createElement('div');
+    indicator.id = 'typing-indicator';
+    indicator.className = 'flex items-start gap-2 max-w-[85%]';
+    indicator.innerHTML = `
+        <div class="w-6 h-6 rounded-full bg-ndcm-primary flex-shrink-0 flex items-center justify-center text-white text-[10px] font-bold">AI</div>
+        <div class="bg-white p-3 rounded-2xl rounded-tl-none text-sm text-slate-500 shadow-sm border border-gray-100 flex gap-1">
+            <span class="animate-bounce">●</span>
+            <span class="animate-bounce" style="animation-delay: 0.1s">●</span>
+            <span class="animate-bounce" style="animation-delay: 0.2s">●</span>
+        </div>
+    `;
+    container.appendChild(indicator);
+    container.scrollTop = container.scrollHeight;
+}
+
+function removeTypingIndicator() {
+    const indicator = document.getElementById('typing-indicator');
+    if (indicator) indicator.remove();
+}
+
+async function fetchExternalInfo(filePath) {
+    try {
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            console.warn(`Could not fetch external file: ${filePath}. Status: ${response.status}`);
+            return `--- FILE READ ERROR: Could not load data from ${filePath}. ---`;
+        }
+        return await response.text();
+    } catch (error) {
+        console.error(`Network error while fetching ${filePath}:`, error);
+        return `--- FILE READ ERROR: Network failed to load data from ${filePath}. ---`;
+    }
+}
+
+async function generateSystemPrompt() {
+    const externalFilePath = "./assets/information/club_info.txt";
+    
+    const externalInfo = await fetchExternalInfo(externalFilePath);
+
+    const clubData = {
+        SITE_DATA: SITE_DATA,
+        NEWS_SLIDES: NEWS_SLIDES,
+        EVENTS: EVENTS,
+        COMMITTEE: COMMITTEE,
+        RESOURCES: RESOURCES,
+    };
+    
+    const dataString = JSON.stringify(clubData, null, 2);
+
+    return `You are a helpful and knowledgeable mathematics assistant for the Notre Dame College Math Club (NDCM). 
+    Your primary goal is to answer math questions and provide information about the club.
+    
+    IMPORTANT: You have the following up-to-date club information. Use it exclusively to answer questions about events, schedules, or members.
+    
+    --- Club Data (from JS constants) ---
+    ${dataString}
+    --- Club Data (from External File: ${externalFilePath}) ---
+    ${externalInfo}
+    --- End Club Data ---
+    
+    Rules for response:
+    1. Answer math questions clearly and use **LaTeX formatting** with single $ for inline and double $$ for block equations.
+    2. Answer club-specific questions using the provided data. For events, specify date, time, and location.
+    3. If a question is about general world events (non-math, non-club), state that your knowledge is based on your training data. For general web search, tell the user you do not have that capability.
+    `;
+}
+
+async function handleChatSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    
+    if (!text) return;
+
+    appendMessage(text, 'user');
+    input.value = '';
+
+    showTypingIndicator();
+
+    const systemPrompt = await generateSystemPrompt();
+
+    try {
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${DEEPSEEK_API_KEY}`
+            },
+            body: JSON.stringify({
+                model: "deepseek/deepseek-chat", 
+                messages: [
+                    { 
+                        role: "system", 
+                        content: systemPrompt 
+                    },
+                    { role: "user", content: text }
+                ],
+                stream: false
+            })
+        });
+
+        if (!response.ok) {
+            let errorMessage = "Sorry, I encountered an error connecting to the server.";
+            if (response.status === 401 || response.status === 403) {
+                errorMessage = "Authentication Error: Please check your OpenRouter API key and credit balance.";
+            } else if (response.status === 400) {
+                 errorMessage = "Error: Invalid request format or parameters sent to the API.";
+            } else {
+                errorMessage = `API Error: Status ${response.status}. Check console for details.`;
+            }
+            throw new Error(errorMessage);
+        }
+
+        const data = await response.json();
+        removeTypingIndicator();
+        
+        if (data.choices && data.choices.length > 0) {
+            appendMessage(data.choices[0].message.content, 'bot');
+        } else {
+            appendMessage("I'm not sure how to answer that.", 'bot');
+        }
+
+    } catch (error) {
+        removeTypingIndicator();
+        console.error(error);
+        
+        const fallbackMessage = error.message.startsWith('API Error') || error.message.includes('Authentication Error')
+            ? error.message
+            : "Sorry, I encountered a network error or the server is unreachable.";
+
+        appendMessage(fallbackMessage, 'bot');
+    }
+}
+
+function convertMarkdownToHtml(markdownText) {
+    let html = markdownText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    html = html.replace(/\n/g, '<br>');
+    return html;
+}
+
 window.onpopstate = (e) => e.state && navigate(e.state.view);
 init();
