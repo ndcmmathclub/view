@@ -39,6 +39,7 @@ const DICTIONARY = {
     'submit_proposal': { en: 'Submit Proposal', bn: 'প্রস্তাবনা জমা দিন' },
     'send_message': { en: 'Send Message', bn: 'বার্তা পাঠান' },
     'name': { en: 'Name', bn: 'নাম' },
+    'email': { en: 'Email', bn: 'ইমেইল' }, 
     'message': { en: 'Message', bn: 'বার্তা' },
     'equation_viz': { en: 'Equation Visualization', bn: 'সমীকরণ চিত্র' },
     'loading': { en: 'Loading...', bn: 'লোড হচ্ছে...' },
@@ -595,7 +596,7 @@ function renderContact() {
                 <div class="md:col-span-3 p-8">
                     <form action="https://formspree.io/f/${FORMSPREE_ID}" method="POST" class="space-y-4">
                         <input type="text" name="name" placeholder="${t('name')}" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-ndcm-primary" required>
-                        <input type="email" name="email" placeholder="Email" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-ndcm-primary" required>
+                        <input type="email" name="email" placeholder="${t('email')}" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-ndcm-primary" required>
                         <textarea name="message" rows="4" placeholder="${t('message')}" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-ndcm-primary" required></textarea>
                         <button type="submit" class="w-full bg-ndcm-primary text-white font-bold py-3 rounded-lg hover:bg-ndcm-accent transition-colors">
                             ${t('send_message')}
