@@ -8,7 +8,7 @@ const SITE_DATA = {
     address: { en: "City Bypass, Barera, Mymensingh", bn: "সিটি বাইপাস, বাড়েরা, ময়মনসিংহ" },
     copyright: { en: "All rights reserved.", bn: "সর্বস্বত্ত্ব সংরক্ষিত।"},
     phone: { en: "+880 1896-135846", bn: "+৮৮০ ১৮৯৬-৩২১৯৭০"},
-    year: { en: "2025", bn: "২০২৫"},
+    year: { en: "2026", bn: "২০২৬"},
     location: { en: "Mymensingh", bn: "ময়মনসিংহ"},
     events: { en: "Lectures, workshops and competitions.", bn: "লেকচার, কর্মশালা এবং প্রতিযোগিতা"},
     host: { en: "Want to host a talk?", bn: "আলোচক হতে আগ্রহী?" },
@@ -58,6 +58,7 @@ const ICONS = {
     chevronRight: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>`
 };
 
+
 const NEWS_SLIDES = [
     {
         id: 1,
@@ -76,7 +77,7 @@ const NEWS_SLIDES = [
 ];
 
 const EVENTS = [
-    {
+    /*{
         title: { en: "Lectures on Mathematical Notations and their usage", bn: "গাণিতিক চিহ্নসমূহ ও তাদের ব্যবহারবিধি নিয়ে আলোচনা" },
         date: { en: "DEC 10", bn: "১০ ডিসেম্বর" },
         time: { en: "12:00 PM", bn: "দুপুর ১২:০০" },
@@ -85,7 +86,7 @@ const EVENTS = [
         desc: { en: "Showing the notations that are frequently being used in Mathematics and make our calculation easier or how we can derrive a formula from calculations.", bn: "গাণিতিক প্রতীকের সাথে পরিচিত করানো যেগুলো প্রায়ই গণিতে ব্যবহৃত হচ্ছে এবং আমাদের হিসেবকে কিভাবে সহজ করছে কিংবা গাণিতিক সমাধান করে কিভাবে আমরা সূত্র নিয়ে আসতে পারি সেগুলো ব্যবহার করে।" },
         color: "bg-blue-100 text-blue-800"
     }
-    /*{
+    {
         title: { en: "Inter-College Integration Bee", bn: "আন্তঃকলেজ ইন্টিগ্রেশন বি" },
         date: { en: "NOV 02", bn: "০২ নভেম্বর" },
         time: { en: "2:30 PM", bn: "দুপুর ২:৩০" },
