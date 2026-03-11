@@ -8,7 +8,7 @@ const SITE_DATA = {
     address: { en: "City Bypass, Barera, Mymensingh", bn: "সিটি বাইপাস, বাড়েরা, ময়মনসিংহ" },
     copyright: { en: "All rights reserved.", bn: "সর্বস্বত্ত্ব সংরক্ষিত।"},
     phone: { en: "+880 1896-135846", bn: "+৮৮০ ১৮৯৬-৩২১৯৭০"},
-    year: { en: "2025", bn: "২০২৬"},
+    year: { en: "2026", bn: "২০২৬"},
     location: { en: "Mymensingh", bn: "ময়মনসিংহ"},
     events: { en: "Lectures, workshops and competitions.", bn: "লেকচার, কর্মশালা এবং প্রতিযোগিতা"},
     host: { en: "Want to host a talk?", bn: "আলোচক হতে আগ্রহী?" },
@@ -640,7 +640,7 @@ function initMathAnimation() {
     let t = 0;
     const labels = [
         "$$ x=A\\sin(at+\\delta), y=B\\sin(bt) $$", 
-        "$$ r = e^{\\sin\\theta} - 2\\cos(4\\theta) $$", 
+        "$$ r = e^{\\sin\\theta} - 2\\cos(4\\theta) + \\sin^5(\\frac{2\\theta - \\pi}{24})$$", 
         "$$ z = \\sin(x^2 + y^2) $$" 
     ];
 
