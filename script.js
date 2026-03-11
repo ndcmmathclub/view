@@ -8,7 +8,7 @@ const SITE_DATA = {
     address: { en: "City Bypass, Barera, Mymensingh", bn: "সিটি বাইপাস, বাড়েরা, ময়মনসিংহ" },
     copyright: { en: "All rights reserved.", bn: "সর্বস্বত্ত্ব সংরক্ষিত।"},
     phone: { en: "+880 1896-135846", bn: "+৮৮০ ১৮৯৬-৩২১৯৭০"},
-    year: { en: "2025", bn: "২০২৫"},
+    year: { en: "2025", bn: "২০২৬"},
     location: { en: "Mymensingh", bn: "ময়মনসিংহ"},
     events: { en: "Lectures, workshops and competitions.", bn: "লেকচার, কর্মশালা এবং প্রতিযোগিতা"},
     host: { en: "Want to host a talk?", bn: "আলোচক হতে আগ্রহী?" },
