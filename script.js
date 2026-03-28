@@ -148,7 +148,7 @@ const ARTICLES = [
             bn: `<h2 class="text-2xl font-bold">কম্বিনেটরিক্স কী?</h2>`
         }
     },
-       {
+   {
    id: 103,
    title: {
        en: "Combinatorics: The Art of Clever Counting",
@@ -171,7 +171,7 @@ const ARTICLES = [
        en: "Discover the beautiful world of counting, arrangements, and selections that powers probability, computer science, and olympiad mathematics.",
        bn: "গণনা, বিন্যাস ও নির্বাচনের সুন্দর জগত আবিষ্কার করুন — যা সম্ভাবনা, কম্পিউটার বিজ্ঞান এবং অলিম্পিয়াড গণিতকে চালিত করে।"
    },
-   image: "https://picsum.photos/id/1015/800/600",  
+   image: "https://picsum.photos/id/1015/800/600",   // You can change this later
    content: {
        bn: `
            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">কম্বিনেটরিক্স কী?</h2>
