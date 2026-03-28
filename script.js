@@ -191,15 +191,15 @@ const ARTICLES = [
             `
         }
     },
-        {
+    {
     id: 103,
     title: { 
         en: "Combinatorics: The Art of Clever Counting", 
         bn: "কম্বিনেটরিক্স: চতুর গণনার শিল্প" 
     },
     author: { 
-        en: "Muhammad Radif Hasan", 
-        bn: "মুহাম্মদ রাদিফ হাসান" 
+        en: "Md Radif Hasan", 
+        bn: "মোঃ রাদিফ হাসান" 
     },
     role: { en: "President", bn: "সভাপতি" },
     date: { 
@@ -230,12 +230,12 @@ const ARTICLES = [
 
             <div class="bg-gray-50 p-6 rounded-xl my-6">
                 <p class="font-semibold mb-2">২. বিন্যাস (Permutation)</p>
-                <p><strong>P(n, r) = n! / (n - r)!</strong> — nটি জিনিস থেকে rটি সাজানোর উপায়।</p>
+                <p>$$ P(n, r) = \frac{n!}{(n - r)!} $$ — nটি জিনিস থেকে rটি সাজানোর উপায়।</p>
             </div>
 
             <div class="bg-gray-50 p-6 rounded-xl my-6">
                 <p class="font-semibold mb-2">৩. সমাবেশ (Combination)</p>
-                <p><strong>C(n, r) = n! / (r! × (n - r)!)</strong> — ক্রম ছাড়া নির্বাচনের সংখ্যা।</p>
+                <p>$$ C(n, r) = \frac{n!}{r!(n - r)!} $$ — ক্রম ছাড়া নির্বাচনের সংখ্যা।</p>
             </div>
 
             <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">পায়রার খোপ নীতি (Pigeonhole Principle)</h2>
@@ -258,6 +258,49 @@ const ARTICLES = [
             </div>
 
             <p class="text-slate-700">আমাদের ম্যাথ ক্লাবে আমরা নিয়মিত কম্বিনেটরিক্সের সমস্যা নিয়ে আলোচনা করি। তুমিও তোমার প্রিয় কম্বিনেটরিক্স সমস্যাটি পরবর্তী মিটিংয়ে শেয়ার করো!</p>
+        `,
+        en: `<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">What is Combinatorics?</h2>
+            <p class="mb-6">Combinatorics is the branch of mathematics where we learn how to count in clever ways. It deals with the arrangement, selection, and probability of finite sets of objects.</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Fundamental Principles</h2>
+            
+            <div class="bg-gray-50 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">1. Multiplication Principle</p>
+                <p>If one task can be performed in $m$ ways and another task can be performed in $n$ ways, then both tasks together can be performed in $m \times n$ ways.</p>
+                <p class="text-sm text-slate-600 mt-3">Example: How many outfits can you make from 3 shirts and 4 pants? Answer: 12.</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">2. Permutation</p>
+                <p>$$ P(n, r) = \frac{n!}{(n - r)!} $$ — The number of ways to arrange $r$ items from a set of $n$ items where order matters.</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">3. Combination</p>
+                <p>$$ C(n, r) = \frac{n!}{r!(n - r)!} $$ — The number of ways to select $r$ items from a set of $n$ items where order does not matter.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">The Pigeonhole Principle</h2>
+            <p class="mb-6">If you have more pigeons than pigeonholes, then at least one pigeonhole must contain more than one pigeon.</p>
+            <p class="mb-6">Example: Among 367 people, at least two people must share the same birthday.</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Real-World Applications</h2>
+            <ul class="list-disc pl-6 space-y-3 mb-8">
+                <li>Cryptography and security systems</li>
+                <li>Computer algorithms and data structures</li>
+                <li>Genetics and DNA sequence analysis</li>
+                <li>Lotteries, scheduling, and sports fixtures</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Fun Problems to Solve</h2>
+            <p class="mb-4"><strong>1. The Handshake Problem:</strong> If everyone at a party of 10 people shakes hands with everyone else, how many handshakes occur in total?</p>
+            <p class="mb-4"><strong>2. Climbing Stairs:</strong> In how many ways can you climb a staircase of 10 steps if you can take either 1 or 2 steps at a time? (Hint: Fibonacci numbers!)</p>
+
+            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+                <p class="font-medium">Combinatorics teaches us that even simple counting can lead to profound mathematical discoveries.</p>
+            </div>
+
+            <p class="text-slate-700">In our Math Club, we regularly discuss fascinating combinatorial problems. Why not share your favorite one at our next meeting?</p>
         `
     }
 }
