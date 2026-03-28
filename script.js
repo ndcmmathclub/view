@@ -130,137 +130,138 @@ const ARTICLES = [
         desc: { en: "Combining e, i, pi, 1, and 0 into a single elegant statement.", bn: "e, i, pi, 1 এবং 0 এর এক বিস্ময়কর মিলন।" },
         image: "https://cdn.mos.cms.futurecdn.net/cv2W6h6obxouAgNzfnJ6w3-700-80.jpg.webp",
         content: {
-            en: `
-                <p>Often called the most beautiful equation in mathematics, Euler's identity connects five fundamental constants:</p>
-                <div class="bg-gray-50 p-4 rounded border border-gray-200 my-4 text-center">
-                    $$ e^{i\\pi} + 1 = 0 $$
-                </div>
-                <p>It is a special case of Euler's formula, which states that for any real number $x$:</p>
-                <div class="text-center my-2">$$ e^{ix} = \\cos x + i\\sin x $$</div>
-            `,
-            bn: `
-                <p>গণিতের সবচেয়ে সুন্দর সমীকরণ হিসেবে পরিচিত অয়লারের অভেদ পাঁচটি মৌলিক ধ্রুবককে সংযুক্ত করে:</p>
-                <div class="bg-gray-50 p-4 rounded border border-gray-200 my-4 text-center">
-                    $$ e^{i\\pi} + 1 = 0 $$
-                </div>
-                <p>এটি অয়লারের সূত্রের একটি বিশেষ রূপ, যেখানে যেকোনো বাস্তব সংখ্যা $x$ এর জন্য:</p>
-                <div class="text-center my-2">$$ e^{ix} = \\cos x + i\\sin x $$</div>
-            `
+            en: `<p>Often called the most beautiful equation in mathematics...</p>`,
+            bn: `<p>গণিতের সবচেয়ে সুন্দর সমীকরণ হিসেবে পরিচিত অয়লারের অভেদ পাঁচটি মৌলিক ধ্রুবককে সংযুক্ত করে:</p>`
         }
     },
     {
-    id: 103,
-    title: { 
-        en: "Combinatorics: The Art of Clever Counting", 
-        bn: "কম্বিনেটরিক্স: চতুর গণনার শিল্প" 
+        id: 103,
+        title: { en: "Combinatorics: The Art of Clever Counting", bn: "কম্বিনেটরিক্স: চতুর গণনার শিল্প" },
+        author: { en: "Md Radif Hasan", bn: "মোঃ রাদিফ হাসান" },
+        role: { en: "President", bn: "সভাপতি" },
+        date: { en: "March 28, 2026", bn: "২৮ মার্চ, ২০২৬" },
+        readTime: { en: "6 min read", bn: "৬ মিনিট পাঠ" },
+        desc: { en: "Discover the beautiful world of counting...", bn: "গণনা, বিন্যাস ও নির্বাচনের সুন্দর জগত আবিষ্কার করুন..." },
+        image: "https://picsum.photos/id/1015/800/600",
+        content: {
+            en: `<h2 class="text-2xl font-bold">What is Combinatorics?</h2>`,
+            bn: `<h2 class="text-2xl font-bold">কম্বিনেটরিক্স কী?</h2>`
+        }
     },
-    author: { 
-        en: "Md Radif Hasan", 
-        bn: "মোঃ রাদিফ হাসান" 
-    },
-    role: { en: "President", bn: "সভাপতি" },
-    date: { 
-        en: "March 28, 2026", 
-        bn: "২৮ মার্চ, ২০২৬" 
-    },
-    readTime: { 
-        en: "6 min read", 
-        bn: "৬ মিনিট পাঠ" 
-    },
-    desc: {
-        en: "Discover the beautiful world of counting, arrangements, and selections that powers probability, computer science, and olympiad mathematics.",
-        bn: "গণনা, বিন্যাস ও নির্বাচনের সুন্দর জগত আবিষ্কার করুন — যা সম্ভাবনা, কম্পিউটার বিজ্ঞান এবং অলিম্পিয়াড গণিতকে চালিত করে।"
-    },
-    image: "https://picsum.photos/id/1015/800/600",   // You can change this later
-    content: {
-        bn: `
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">কম্বিনেটরিক্স কী?</h2>
-            <p class="mb-6">কম্বিনেটরিক্স হলো গণিতের সেই শাখা যেখানে আমরা শিখি কীভাবে চতুর উপায়ে গণনা করতে হয়। এটি সীমিত বস্তুসমূহের বিন্যাস, নির্বাচন এবং সম্ভাবনা নিয়ে কাজ করে।</p>
+       {
+   id: 103,
+   title: {
+       en: "Combinatorics: The Art of Clever Counting",
+       bn: "কম্বিনেটরিক্স: চতুর গণনার শিল্প"
+   },
+   author: {
+       en: "Md Radif Hasan",
+       bn: "মোঃ রাদিফ হাসান"
+   },
+   role: { en: "President", bn: "সভাপতি" },
+   date: {
+       en: "March 28, 2026",
+       bn: "২৮ মার্চ, ২০২৬"
+   },
+   readTime: {
+       en: "6 min read",
+       bn: "৬ মিনিট পাঠ"
+   },
+   desc: {
+       en: "Discover the beautiful world of counting, arrangements, and selections that powers probability, computer science, and olympiad mathematics.",
+       bn: "গণনা, বিন্যাস ও নির্বাচনের সুন্দর জগত আবিষ্কার করুন — যা সম্ভাবনা, কম্পিউটার বিজ্ঞান এবং অলিম্পিয়াড গণিতকে চালিত করে।"
+   },
+   image: "https://picsum.photos/id/1015/800/600",  
+   content: {
+       bn: `
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">কম্বিনেটরিক্স কী?</h2>
+           <p class="mb-6">কম্বিনেটরিক্স হলো গণিতের সেই শাখা যেখানে আমরা শিখি কীভাবে চতুর উপায়ে গণনা করতে হয়। এটি সীমিত বস্তুসমূহের বিন্যাস, নির্বাচন এবং সম্ভাবনা নিয়ে কাজ করে।</p>
 
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">মৌলিক নীতিসমূহ</h2>
-            
-            <div class="bg-gray-50 p-6 rounded-xl my-6">
-                <p class="font-semibold mb-2">১. গুণন নীতি (Multiplication Principle)</p>
-                <p>যদি একটি কাজ m ভাবে এবং আরেকটি কাজ n ভাবে করা যায়, তাহলে দুটি একসাথে m × n ভাবে করা যায়।</p>
-                <p>উদাহরণ: ৩টি শার্ট ও ৪টি প্যান্ট থেকে কত রকমের পোশাক? উত্তর: ১২টি।</p>
-            </div>
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">মৌলিক নীতিসমূহ</h2>
+          
+           <div class="bg-gray-50 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">১. গুণন নীতি (Multiplication Principle)</p>
+               <p>যদি একটি কাজ m ভাবে এবং আরেকটি কাজ n ভাবে করা যায়, তাহলে দুটি একসাথে m × n ভাবে করা যায়।</p>
+               <p>উদাহরণ: ৩টি শার্ট ও ৪টি প্যান্ট থেকে কত রকমের পোশাক? উত্তর: ১২টি।</p>
+           </div>
 
-            <div class="bg-gray-50 p-6 rounded-xl my-6">
-                <p class="font-semibold mb-2">২. বিন্যাস (Permutation)</p>
-                <p>$$ P(n, r) = \\frac{n!}{(n - r)!} $$ — nটি জিনিস থেকে rটি সাজানোর উপায়।</p>
-            </div>
+           <div class="bg-gray-50 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">২. বিন্যাস (Permutation)</p>
+               <p>$$ P(n, r) = \\frac{n!}{(n - r)!} $$ — nটি জিনিস থেকে rটি সাজানোর উপায়।</p>
+           </div>
 
-            <div class="bg-gray-50 p-6 rounded-xl my-6">
-                <p class="font-semibold mb-2">৩. সমাবেশ (Combination)</p>
-                <p>$$ C(n, r) = \\frac{n!}{r!(n - r)!} $$ — ক্রম ছাড়া নির্বাচনের সংখ্যা।</p>
-            </div>
+           <div class="bg-gray-50 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">৩. সমাবেশ (Combination)</p>
+               <p>$$ C(n, r) = \\frac{n!}{r!(n - r)!} $$ — ক্রম ছাড়া নির্বাচনের সংখ্যা।</p>
+           </div>
 
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">পায়রার খোপ নীতি (Pigeonhole Principle)</h2>
-            <p class="mb-6">যদি পায়রার সংখ্যা খোপের চেয়ে বেশি হয়, তাহলে অন্তত একটি খোপে দুইয়ের বেশি পায়রা থাকবে।</p>
-            <p class="mb-6">উদাহরণ: ৩৬৭ জন মানুষের মধ্যে অন্তত দু’জনের জন্মদিন একই দিনে পড়বে।</p>
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">পায়রার খোপ নীতি (Pigeonhole Principle)</h2>
+           <p class="mb-6">যদি পায়রার সংখ্যা খোপের চেয়ে বেশি হয়, তাহলে অন্তত একটি খোপে দুইয়ের বেশি পায়রা থাকবে।</p>
+           <p class="mb-6">উদাহরণ: ৩৬৭ জন মানুষের মধ্যে অন্তত দু’জনের জন্মদিন একই দিনে পড়বে।</p>
 
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">বাস্তব জীবনে প্রয়োগ</h2>
-            <ul class="list-disc pl-6 space-y-3 mb-8">
-                <li>ক্রিপ্টোগ্রাফি ও নিরাপত্তা ব্যবস্থা</li>
-                <li>কম্পিউটার অ্যালগরিদম</li>
-                <li>জেনেটিক্স ও ডিএনএ বিশ্লেষণ</li>
-                <li>লটারি, সময়সূচি তৈরি, খেলার ফিক্সচার</li>
-            </ul>
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">মজার সমস্যা</h2>
-            <p class="mb-4"><strong>১. হ্যান্ডশেক সমস্যা:</strong> ১০ জনের পার্টিতে প্রত্যেকে প্রত্যেকের সাথে হাত মেলালে মোট কতটি হ্যান্ডশেক হবে?</p>
-            <p class="mb-4"><strong>২. সিঁড়ি ভাঙা:</strong> ১ বা ২ ধাপ করে ১০ ধাপের সিঁড়ি কতভাবে ভাঙা যায়? (ফিবোনাচ্চি সংখ্যা!)</p>
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">বাস্তব জীবনে প্রয়োগ</h2>
+           <ul class="list-disc pl-6 space-y-3 mb-8">
+               <li>ক্রিপ্টোগ্রাফি ও নিরাপত্তা ব্যবস্থা</li>
+               <li>কম্পিউটার অ্যালগরিদম</li>
+               <li>জেনেটিক্স ও ডিএনএ বিশ্লেষণ</li>
+               <li>লটারি, সময়সূচি তৈরি, খেলার ফিক্সচার</li>
+           </ul>
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">মজার সমস্যা</h2>
+           <p class="mb-4"><strong>১. হ্যান্ডশেক সমস্যা:</strong> ১০ জনের পার্টিতে প্রত্যেকে প্রত্যেকের সাথে হাত মেলালে মোট কতটি হ্যান্ডশেক হবে?</p>
+           <p class="mb-4"><strong>২. সিঁড়ি ভাঙা:</strong> ১ বা ২ ধাপ করে ১০ ধাপের সিঁড়ি কতভাবে ভাঙা যায়? (ফিবোনাচ্চি সংখ্যা!)</p>
 
-            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
-                <p class="font-medium">কম্বিনেটরিক্স আমাদের শেখায় যে — সাধারণ গণনাও গভীর আবিষ্কারের দিকে নিয়ে যেতে পারে।</p>
-            </div>
+           <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+               <p class="font-medium">কম্বিনেটরিক্স আমাদের শেখায় যে — সাধারণ গণনাও গভীর আবিষ্কারের দিকে নিয়ে যেতে পারে।</p>
+           </div>
 
-            <p class="text-slate-700">আমাদের ম্যাথ ক্লাবে আমরা নিয়মিত কম্বিনেটরিক্সের সমস্যা নিয়ে আলোচনা করি। তুমিও তোমার প্রিয় কম্বিনেটরিক্স সমস্যাটি পরবর্তী মিটিংয়ে শেয়ার করো!</p>
-        `,
-        en: `<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">What is Combinatorics?</h2>
-            <p class="mb-6">Combinatorics is the branch of mathematics where we learn how to count in clever ways. It deals with the arrangement, selection, and probability of finite sets of objects.</p>
+           <p class="text-slate-700">আমাদের ম্যাথ ক্লাবে আমরা নিয়মিত কম্বিনেটরিক্সের সমস্যা নিয়ে আলোচনা করি। তুমিও তোমার প্রিয় কম্বিনেটরিক্স সমস্যাটি পরবর্তী মিটিংয়ে শেয়ার করো!</p>
+       `,
+       en: `<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">What is Combinatorics?</h2>
+           <p class="mb-6">Combinatorics is the branch of mathematics where we learn how to count in clever ways. It deals with the arrangement, selection, and probability of finite sets of objects.</p>
 
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Fundamental Principles</h2>
-            
-            <div class="bg-gray-50 p-6 rounded-xl my-6">
-                <p class="font-semibold mb-2">1. Multiplication Principle</p>
-                <p>If one task can be performed in $m$ ways and another task can be performed in $n$ ways, then both tasks together can be performed in $m \\times n$ ways.</p>
-                <p>Example: How many outfits can you make from 3 shirts and 4 pants? Answer: 12.</p>
-            </div>
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Fundamental Principles</h2>
+          
+           <div class="bg-gray-50 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">1. Multiplication Principle</p>
+               <p>If one task can be performed in $m$ ways and another task can be performed in $n$ ways, then both tasks together can be performed in $m \\times n$ ways.</p>
+               <p>Example: How many outfits can you make from 3 shirts and 4 pants? Answer: 12.</p>
+           </div>
 
-            <div class="bg-gray-50 p-6 rounded-xl my-6">
-                <p class="font-semibold mb-2">2. Permutation</p>
-                <p>$$ P(n, r) = \\frac{n!}{(n - r)!} $$ — The number of ways to arrange $r$ items from a set of $n$ items where order matters.</p>
-            </div>
+           <div class="bg-gray-50 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">2. Permutation</p>
+               <p>$$ P(n, r) = \\frac{n!}{(n - r)!} $$ — The number of ways to arrange $r$ items from a set of $n$ items where order matters.</p>
+           </div>
 
-            <div class="bg-gray-50 p-6 rounded-xl my-6">
-                <p class="font-semibold mb-2">3. Combination</p>
-                <p>$$ C(n, r) = \\frac{n!}{r!(n - r)!} $$ — The number of ways to select $r$ items from a set of $n$ items where order does not matter.</p>
-            </div>
+           <div class="bg-gray-50 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">3. Combination</p>
+               <p>$$ C(n, r) = \\frac{n!}{r!(n - r)!} $$ — The number of ways to select $r$ items from a set of $n$ items where order does not matter.</p>
+           </div>
 
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">The Pigeonhole Principle</h2>
-            <p class="mb-6">If you have more pigeons than pigeonholes, then at least one pigeonhole must contain more than one pigeon.</p>
-            <p class="mb-6">Example: Among 367 people, at least two people must share the same birthday.</p>
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">The Pigeonhole Principle</h2>
+           <p class="mb-6">If you have more pigeons than pigeonholes, then at least one pigeonhole must contain more than one pigeon.</p>
+           <p class="mb-6">Example: Among 367 people, at least two people must share the same birthday.</p>
 
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Real-World Applications</h2>
-            <ul class="list-disc pl-6 space-y-3 mb-8">
-                <li>Cryptography and security systems</li>
-                <li>Computer algorithms and data structures</li>
-                <li>Genetics and DNA sequence analysis</li>
-                <li>Lotteries, scheduling, and sports fixtures</li>
-            </ul>
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Real-World Applications</h2>
+           <ul class="list-disc pl-6 space-y-3 mb-8">
+               <li>Cryptography and security systems</li>
+               <li>Computer algorithms and data structures</li>
+               <li>Genetics and DNA sequence analysis</li>
+               <li>Lotteries, scheduling, and sports fixtures</li>
+           </ul>
 
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Fun Problems to Solve</h2>
-            <p class="mb-4"><strong>1. The Handshake Problem:</strong> If everyone at a party of 10 people shakes hands with everyone else, how many handshakes occur in total?</p>
-            <p class="mb-4"><strong>2. Climbing Stairs:</strong> In how many ways can you climb a staircase of 10 steps if you can take either 1 or 2 steps at a time? (Hint: Fibonacci numbers!)</p>
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Fun Problems to Solve</h2>
+           <p class="mb-4"><strong>1. The Handshake Problem:</strong> If everyone at a party of 10 people shakes hands with everyone else, how many handshakes occur in total?</p>
+           <p class="mb-4"><strong>2. Climbing Stairs:</strong> In how many ways can you climb a staircase of 10 steps if you can take either 1 or 2 steps at a time? (Hint: Fibonacci numbers!)</p>
 
-            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
-                <p class="font-medium">Combinatorics teaches us that even simple counting can lead to profound mathematical discoveries.</p>
-            </div>
+           <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+               <p class="font-medium">Combinatorics teaches us that even simple counting can lead to profound mathematical discoveries.</p>
+           </div>
 
-            <p class="text-slate-700">In our Math Club, we regularly discuss fascinating combinatorial problems. Why not share your favorite one at our next meeting?</p>
-        `
-    }
+           <p class="text-slate-700">In our Math Club, we regularly discuss fascinating combinatorial problems. Why not share your favorite one at our next meeting?</p>
+       `
+   }
 }
+
 ];
 
 const COMMITTEE = [
@@ -283,7 +284,6 @@ let state = {
     graphMode: 0 
 };
 
-// --- ROUTING LOGIC ---
 function handleRouting() {
     const hash = window.location.hash.replace('#', '');
     const [view, id] = hash.split('/');
@@ -312,7 +312,6 @@ function navigate(viewName, params = null) {
     }
     
     window.scrollTo(0, 0);
-    // Note: window.location.hash triggers handleRouting via event listener
 }
 
 const t = (key) => DICTIONARY[key] ? DICTIONARY[key][state.lang] : key;
@@ -325,7 +324,9 @@ let sliderInterval;
 function init() {
     updateBodyLang();
     window.addEventListener('hashchange', handleRouting);
-    handleRouting(); // Initial load check
+    handleRouting(); 
+
+    
     startSlider();
 }
 
