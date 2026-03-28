@@ -190,7 +190,81 @@ const ARTICLES = [
                 <div class="text-center my-2">$$ e^{ix} = \\cos x + i\\sin x $$</div>
             `
         }
+    },
+    {
+    id: 103,
+    title: { 
+        en: "Combinatorics: The Art of Clever Counting", 
+        bn: "কম্বিনেটরিক্স: চতুর গণনার শিল্প" 
+    },
+    author: { 
+        en: "Muhammad Radif Hasan", 
+        bn: "মুহাম্মদ রাদিফ হাসান" 
+    },
+    role: { 
+        en: "President", 
+        bn: "সভাপতি" 
+    },
+    date: { 
+        en: "March 28, 2026", 
+        bn: "২৮ মার্চ, ২০২৬" 
+    },
+    readTime: { 
+        en: "6 min read", 
+        bn: "৬ মিনিট পাঠ" 
+    },
+    desc: {
+        en: "Discover the beautiful world of counting, arrangements, and selections that powers probability, computer science, and olympiad mathematics.",
+        bn: "গণনা, বিন্যাস ও নির্বাচনের সুন্দর জগত আবিষ্কার করুন — যা সম্ভাবনা, কম্পিউটার বিজ্ঞান এবং অলিম্পিয়াড গণিতকে চালিত করে।"
+    },
+    image: "https://picsum.photos/id/1015/800/600",   // You can change this later
+    content: {
+        bn: `
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">কম্বিনেটরিক্স কী?</h2>
+            <p class="mb-6">কম্বিনেটরিক্স হলো গণিতের সেই শাখা যেখানে আমরা শিখি কীভাবে চতুর উপায়ে গণনা করতে হয়। এটি সীমিত বস্তুসমূহের বিন্যাস, নির্বাচন এবং সম্ভাবনা নিয়ে কাজ করে।</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">মৌলিক নীতিসমূহ</h2>
+            
+            <div class="bg-gray-50 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">১. গুণন নীতি (Multiplication Principle)</p>
+                <p>যদি একটি কাজ m ভাবে এবং আরেকটি কাজ n ভাবে করা যায়, তাহলে দুটি একসাথে m × n ভাবে করা যায়।</p>
+                <p class="text-sm text-slate-600 mt-3">উদাহরণ: ৩টি শার্ট ও ৪টি প্যান্ট থেকে কত রকমের পোশাক? উত্তর: ১২টি।</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">২. বিন্যাস (Permutation)</p>
+                <p><strong>P(n, r) = n! / (n - r)!</strong> — nটি জিনিস থেকে rটি সাজানোর উপায়।</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">৩. সমাবেশ (Combination)</p>
+                <p><strong>C(n, r) = n! / (r! × (n - r)!)</strong> — ক্রম ছাড়া নির্বাচনের সংখ্যা।</p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">পায়রার খোপ নীতি (Pigeonhole Principle)</h2>
+            <p class="mb-6">যদি পায়রার সংখ্যা খোপের চেয়ে বেশি হয়, তাহলে অন্তত একটি খোপে দুইয়ের বেশি পায়রা থাকবে।</p>
+            <p class="mb-6">উদাহরণ: ৩৬৭ জন মানুষের মধ্যে অন্তত দু’জনের জন্মদিন একই দিনে পড়বে।</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">বাস্তব জীবনে প্রয়োগ</h2>
+            <ul class="list-disc pl-6 space-y-3 mb-8">
+                <li>ক্রিপ্টোগ্রাফি ও নিরাপত্তা ব্যবস্থা</li>
+                <li>কম্পিউটার অ্যালগরিদম</li>
+                <li>জেনেটিক্স ও ডিএনএ বিশ্লেষণ</li>
+                <li>লটারি, সময়সূচি তৈরি, খেলার ফিক্সচার</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">মজার সমস্যা</h2>
+            <p class="mb-4"><strong>১. হ্যান্ডশেক সমস্যা:</strong> ১০ জনের পার্টিতে প্রত্যেকে প্রত্যেকের সাথে হাত মেলালে মোট কতটি হ্যান্ডশেক হবে?</p>
+            <p class="mb-4"><strong>২. সিঁড়ি ভাঙা:</strong> ১ বা ২ ধাপ করে ১০ ধাপের সিঁড়ি কতভাবে ভাঙা যায়? (ফিবোনাচ্চি সংখ্যা!)</p>
+
+            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+                <p class="font-medium">কম্বিনেটরিক্স আমাদের শেখায় যে — সাধারণ গণনাও গভীর আবিষ্কারের দিকে নিয়ে যেতে পারে।</p>
+            </div>
+
+            <p class="text-slate-700">আমাদের ম্যাথ ক্লাবে আমরা নিয়মিত কম্বিনেটরিক্সের সমস্যা নিয়ে আলোচনা করি। তুমিও তোমার প্রিয় কম্বিনেটরিক্স সমস্যাটি পরবর্তী মিটিংয়ে শেয়ার করো!</p>
+        `
     }
+}
 ];
 
 const COMMITTEE = [
