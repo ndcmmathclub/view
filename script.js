@@ -134,20 +134,6 @@ const ARTICLES = [
             bn: `<p>গণিতের সবচেয়ে সুন্দর সমীকরণ হিসেবে পরিচিত অয়লারের অভেদ পাঁচটি মৌলিক ধ্রুবককে সংযুক্ত করে:</p>`
         }
     },
-    {
-        id: 103,
-        title: { en: "Combinatorics: The Art of Clever Counting", bn: "কম্বিনেটরিক্স: চতুর গণনার শিল্প" },
-        author: { en: "Md Radif Hasan", bn: "মোঃ রাদিফ হাসান" },
-        role: { en: "President", bn: "সভাপতি" },
-        date: { en: "March 28, 2026", bn: "২৮ মার্চ, ২০২৬" },
-        readTime: { en: "6 min read", bn: "৬ মিনিট পাঠ" },
-        desc: { en: "Discover the beautiful world of counting...", bn: "গণনা, বিন্যাস ও নির্বাচনের সুন্দর জগত আবিষ্কার করুন..." },
-        image: "https://picsum.photos/id/1015/800/600",
-        content: {
-            en: `<h2 class="text-2xl font-bold">What is Combinatorics?</h2>`,
-            bn: `<h2 class="text-2xl font-bold">কম্বিনেটরিক্স কী?</h2>`
-        }
-    },
    {
    id: 103,
    title: {
@@ -171,7 +157,7 @@ const ARTICLES = [
        en: "Discover the beautiful world of counting, arrangements, and selections that powers probability, computer science, and olympiad mathematics.",
        bn: "গণনা, বিন্যাস ও নির্বাচনের সুন্দর জগত আবিষ্কার করুন — যা সম্ভাবনা, কম্পিউটার বিজ্ঞান এবং অলিম্পিয়াড গণিতকে চালিত করে।"
    },
-   image: "https://picsum.photos/id/1015/800/600",   // You can change this later
+   image: "https://picsum.photos/id/1015/800/600",
    content: {
        bn: `
            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">কম্বিনেটরিক্স কী?</h2>
