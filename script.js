@@ -111,7 +111,7 @@ const EVENTS = [
         type: { en: "Lecture", bn: "লেকচার" },
         desc: { en: "Understanding shapes, surfaces, and why a coffee mug is a donut.", bn: "আকৃতি, তল এবং কেন একটি কফি মগ একটি ডোনাটের সমান তা বোঝা।" },
         color: "bg-blue-100 text-blue-800"
-    }
+    } */
 ];
 
 const RESOURCES = [
