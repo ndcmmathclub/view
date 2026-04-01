@@ -83,7 +83,8 @@ const NEWS_SLIDES = [
     }
 ];
 
-const EVENTS = [
+const EVENTS = [ 
+    
     {
         title: { en: "Intra Math Olympiad 2026", bn: "অভ্যন্তরীণ গণিত অলিম্পিয়াড ২০২৬" },
         date: { en: "APR 16", bn: "১৬ এপ্রিল" },
