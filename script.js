@@ -43,7 +43,7 @@ const DICTIONARY = {
     'register': { en: 'Register', bn: 'রেজিস্ট্রেশন' },
     'rsvp': { en: 'RSVP', bn: 'অংশগ্রহণ' },
     'activities': {en: 'Our Activities', bn: 'আমাদের কার্যক্রম' },
-    'view': {en: 'View', bn: 'দেখুন'},
+    'view': {en: 'VIEW', bn: 'দেখুন'},
     'submit_proposal': { en: 'Submit Proposal', bn: 'প্রস্তাবনা জমা দিন' },
     'send_message': { en: 'Send Message', bn: 'বার্তা পাঠান' },
     'name': { en: 'Name', bn: 'নাম' },
@@ -70,29 +70,29 @@ const NEWS_SLIDES = [
     {
         id: 1,
         tag: { en: "Latest Event", bn: "সর্বশেষ ইভেন্ট" },
-        title: { en: "National Math Olympiad Preparation", bn: "জাতীয় গণিত অলিম্পিয়াড প্রস্তুতি" },
-        desc: { en: "Preparation round upcoming Wednesday in Room 402.", bn: "আগামী বুধবার ৪০২ নং কক্ষে প্রস্তুতি পর্ব অনুষ্ঠিত হবে" },
+        title: { en: "Intra Math Olympiad 2026", bn: "অভ্যন্তরীণ গণিত অলিম্পিয়াড ২০২৬" },
+        desc: { en: "Held in Room 402.", bn: "৪০২ নং কক্ষে অনুষ্ঠিত হবে" },
         color: "bg-ndcm-accent"
     },
     {
         id: 2,
         tag: { en: "Announcement", bn: "ঘোষণা" },
         title: { en: "Weekly Problem Solving Round", bn: "সাপ্তাহিক সমস্যা সমাধান পর্ব" },
-        desc: { en: "Wednesday at 12:00 PM in Room 402.", bn: "বুধবার দুপুর ১২:০০ টায় ৪০২ নং কক্ষে।" },
+        desc: { en: "Every Wednesday at 12:00 PM in Room 402.", bn: "প্রতি বুধবার দুপুর ১২:০০ টায় ৪০২ নং কক্ষে।" },
         color: "bg-ndcm-primary"
     }
 ];
 
 const EVENTS = [
     {
-        title: { en: "Lectures on Mathematical Notations", bn: "গাণিতিক চিহ্নসমূহ ও তাদের ব্যবহারবিধি" },
-        date: { en: "DEC 10", bn: "১০ ডিসেম্বর" },
+        title: { en: "Intra Math Olympiad 2026", bn: "অভ্যন্তরীণ গণিত অলিম্পিয়াড ২০২৬" },
+        date: { en: "APR 16", bn: "১৬ এপ্রিল" },
         time: { en: "12:00 PM", bn: "দুপুর ১২:০০" },
         location: { en: "Room 402", bn: "৪০২ নং কক্ষ" },
-        type: { en: "Lecture", bn: "লেকচার" },
-        desc: { en: "Exploring notations that simplify complex calculations.", bn: "গাণিতিক প্রতীকের সাথে পরিচিতি যা গণনাকে সহজ করে।" },
+        type: { en: "Olympiad", bn: "অলিম্পিয়াড" },
+        desc: { en: "Participation on Math Olympiad", bn: "গণিত অলিম্পিয়াডে অংশগ্রহণ" },
         color: "bg-blue-100 text-blue-800",
-        banner: "https://images.unsplash.com/photo-1739675242031-cb6c3b076e4f?q=80&w=1951&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
+        banner: "./assets/activities/Announcement_NDCMC_MO2026.png", 
         rsvpLink: "https://forms.gle/your-link"
     }
 ];
