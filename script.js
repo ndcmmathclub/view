@@ -138,7 +138,7 @@ const ARTICLES = [
         date: { en: "Nov 26, 2025", bn: "২৬ নভেম্বর, ২০২৫" },
         readTime: { en: "1 min read", bn: "১ মিনিট পাঠ" },
         desc: { en: "Combining e, i, pi, 1, and 0 into a single elegant statement.", bn: "e, i, pi, 1 এবং 0 এর এক বিস্ময়কর মিলন।" },
-        image: "https://cdn.mos.cms.futurecdn.net/cv2W6h6obxouAgNzfnJ6w3-700-80.jpg.webp",
+        image: "https://upload.wikimedia.org/wikipedia/commons/3/33/Gamma_abs_3D.png",
         content: {
             en: `<p>Often called the most beautiful equation in mathematics...</p>`,
             bn: `<p>গণিতের সবচেয়ে সুন্দর সমীকরণ হিসেবে পরিচিত অয়লারের অভেদ পাঁচটি মৌলিক ধ্রুবককে সংযুক্ত করে:</p>`
