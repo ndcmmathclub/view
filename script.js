@@ -1,5 +1,11 @@
 const FORMSPREE_ID = "xdkvyoqy"; 
 
+const CLUB_PHOTOS = [
+    "https://images.unsplash.com/photo-1739675242031-cb6c3b076e4f?q=80&w=1951&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1727038104520-7249a8635fcf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
+    "https://images.unsplash.com/photo-1748861306630-e992b1b39627?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D"
+];
+
 const SITE_DATA = {
     name: { en: "Notre Dame College Math Club", bn: "নটর ডেম কলেজ গণিত ক্লাব" },
     college: { en: "Notre Dame College Mymensingh", bn: "নটর ডেম কলেজ ময়মনসিংহ" },
@@ -36,6 +42,8 @@ const DICTIONARY = {
     'view_schedule': { en: 'View Schedule', bn: 'সময়সূচী দেখুন' },
     'register': { en: 'Register', bn: 'রেজিস্ট্রেশন' },
     'rsvp': { en: 'RSVP', bn: 'অংশগ্রহণ' },
+    'activities': {en: 'Our Activities', bn: 'আমাদের কার্যক্রম' },
+    'view': {en: 'View', bn: 'দেখুন'},
     'submit_proposal': { en: 'Submit Proposal', bn: 'প্রস্তাবনা জমা দিন' },
     'send_message': { en: 'Send Message', bn: 'বার্তা পাঠান' },
     'name': { en: 'Name', bn: 'নাম' },
@@ -77,41 +85,16 @@ const NEWS_SLIDES = [
 
 const EVENTS = [
     {
-        title: { en: "Lectures on Mathematical Notations and their usage", bn: "গাণিতিক চিহ্নসমূহ ও তাদের ব্যবহারবিধি নিয়ে আলোচনা" },
+        title: { en: "Lectures on Mathematical Notations", bn: "গাণিতিক চিহ্নসমূহ ও তাদের ব্যবহারবিধি" },
         date: { en: "DEC 10", bn: "১০ ডিসেম্বর" },
         time: { en: "12:00 PM", bn: "দুপুর ১২:০০" },
         location: { en: "Room 402", bn: "৪০২ নং কক্ষ" },
         type: { en: "Lecture", bn: "লেকচার" },
-        desc: { en: "Showing the notations that are frequently being used in Mathematics and make our calculation easier or how we can derrive a formula from calculations.", bn: "গাণিতিক প্রতীকের সাথে পরিচিত করানো যেগুলো প্রায়ই গণিতে ব্যবহৃত হচ্ছে এবং আমাদের হিসেবকে কিভাবে সহজ করছে কিংবা গাণিতিক সমাধান করে কিভাবে আমরা সূত্র নিয়ে আসতে পারি সেগুলো ব্যবহার করে।" },
-        color: "bg-blue-100 text-blue-800"
+        desc: { en: "Exploring notations that simplify complex calculations.", bn: "গাণিতিক প্রতীকের সাথে পরিচিতি যা গণনাকে সহজ করে।" },
+        color: "bg-blue-100 text-blue-800",
+        banner: "https://images.unsplash.com/photo-1739675242031-cb6c3b076e4f?q=80&w=1951&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
+        rsvpLink: "https://forms.gle/your-link"
     }
-    /*{
-        title: { en: "Inter-College Integration Bee", bn: "আন্তঃকলেজ ইন্টিগ্রেশন বি" },
-        date: { en: "NOV 02", bn: "০২ নভেম্বর" },
-        time: { en: "2:30 PM", bn: "দুপুর ২:৩০" },
-        location: { en: "Main Hall", bn: "মেইন হল" },
-        type: { en: "Competition", bn: "প্রতিযোগিতা" },
-        desc: { en: "Test your calculus skills against the best minds in Mymensingh.", bn: "ময়মনসিংহের সেরা মেধাবীদের সাথে আপনার ক্যালকুলাস দক্ষতা যাচাই করুন।" },
-        color: "bg-purple-100 text-purple-800"
-    },
-    {
-        title: { en: "Math Olympiad Prep", bn: "গণিত অলিম্পিয়াড প্রস্তুতি" },
-        date: { en: "NOV 10", bn: "১০ নভেম্বর" },
-        time: { en: "3:00 PM", bn: "বিকেল ৩:০০" },
-        location: { en: "Room 201", bn: "কক্ষ ২০১" },
-        type: { en: "Workshop", bn: "কর্মশালা" },
-        desc: { en: "Problem-solving strategies for the upcoming National Math Olympiad.", bn: "আসন্ন জাতীয় গণিত অলিম্পিয়াডের জন্য সমস্যা সমাধানের কৌশল।" },
-        color: "bg-orange-100 text-orange-800"
-    },
-    {
-        title: { en: "Intro to Topology", bn: "টপোলজির পরিচিতি" },
-        date: { en: "NOV 18", bn: "১৮ নভেম্বর" },
-        time: { en: "4:00 PM", bn: "বিকেল ৪:০০" },
-        location: { en: "College Auditorium", bn: "কলেজ অডিটোরিয়াম" },
-        type: { en: "Lecture", bn: "লেকচার" },
-        desc: { en: "Understanding shapes, surfaces, and why a coffee mug is a donut.", bn: "আকৃতি, তল এবং কেন একটি কফি মগ একটি ডোনাটের সমান তা বোঝা।" },
-        color: "bg-blue-100 text-blue-800"
-    }*/
 ];
 
 const RESOURCES = [
@@ -127,7 +110,6 @@ const RESOURCES = [
     { title: "Reducible", type: {en: "Video", bn: "ভিডিও"}, desc: {en: "All about animating computer science concepts in a fun, interactive, and intuitive manner.", bn: "কম্পিউটার বিজ্ঞানের ধারণাগুলোকে মজার, অংশগ্রহণভিত্তিক এবং সহজবোধ্যভাবে গতিশীল চিত্রের মাধ্যমে উপস্থাপন করা।"}, link: "https://www.youtube.com/@Reducible" },
     { title: "Chamok Hasan", type: {en: "Video", bn: "ভিডিও"}, desc: {en: "Represnting the entire beauty and arising love for Mathematics through interactive discussion", bn: "অনশগ্রহনভিত্তিক আলোচনার মাধ্যমে গণিতের সম্পূর্ণ সৌন্দর্য উপস্থাপন করা এবং গণিতের প্রতি ভালোবাসা জাগিয়ে তোলা।"}, link: "https://www.youtube.com/@ChamokHasan"},
     { title: "BdMO", type:{en: "Catalog", bn: "তালিকা"}, desc: {en: "Math Olmypiad Booklists and Resources", bn: "গণিত অলিম্পিয়াডের বইয়ের তালিকা ও উপকরণসমূহ"}, link: "https://matholympiad.org.bd/math-related-book-list"}
-
 ];
 
 const ARTICLES = [
@@ -143,24 +125,9 @@ const ARTICLES = [
             bn: "ভাবুন এমন একটি হোটেল যার কক্ষ সংখ্যা অসীম এবং সবগুলোই পূর্ণ। নতুন অতিথি এলে কি হবে?" 
         },
         image: "https://imgs.search.brave.com/eya5oUzh8bfOlXm79fOZbzgGjQYzYCovr_CWi1zfQRA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1tYW5hZ2VyLnN0/YXJzaW5zaWRlci5j/b20vZ2FsbGVyeS8x/MDgwL25hXzY3ZGFk/NGMyZjM0MzkuanBn",
-
         content: {
-            en: `
-                <p>Hilbert's paradox of the Grand Hotel is a thought experiment which illustrates a counterintuitive property of infinite sets.</p>
-                <p>Consider a hotel with a countably infinite number of rooms, all of which are occupied. One might think that the hotel cannot accommodate any newly arriving guests. However, we can accommodate a new guest by moving the guest in room $n$ to room $n+1$.</p>
-                <div class="bg-gray-50 p-4 rounded border border-gray-200 my-4 text-center">
-                    $$ n \\rightarrow n + 1 $$
-                </div>
-                <p>This leaves room 1 empty for the new guest. This works because the set of integers $\\mathbb{Z}$ has the same cardinality as the set of natural numbers $\\mathbb{N}$.</p>
-            `,
-            bn: `
-                <p>হিলবার্টের গ্র্যান্ড হোটেলের প্যারাডক্স অসীম সেটের একটি অদ্ভুত বৈশিষ্ট্য তুলে ধরে।</p>
-                <p>ধরুন একটি হোটেলে অসীম সংখ্যক কক্ষ আছে এবং সবগুলোই পূর্ণ। আমরা মনে করতে পারি নতুন কোনো অতিথিকে জায়গা দেওয়া সম্ভব নয়। কিন্তু, আমরা যদি $n$ নম্বর কক্ষের অতিথিকে $n+1$ নম্বর কক্ষে পাঠিয়ে দেই:</p>
-                <div class="bg-gray-50 p-4 rounded border border-gray-200 my-4 text-center">
-                    $$ n \\rightarrow n + 1 $$
-                </div>
-                <p>তাহলে ১ নম্বর কক্ষটি খালি হয়ে যায়। এটি সম্ভব কারণ পূর্ণসংখ্যা $\\mathbb{Z}$ এবং স্বাভাবিক সংখ্যা $\\mathbb{N}$ এর কার্ডিনালিটি সমান।</p>
-            `
+            en: `<p>Hilbert's paradox of the Grand Hotel is a thought experiment...</p>`,
+            bn: `<p>হিলবার্টের গ্র্যান্ড হোটেলের প্যারাডক্স অসীম সেটের একটি অদ্ভুত বৈশিষ্ট্য তুলে ধরে।</p>`
         }
     },
     {
@@ -173,98 +140,124 @@ const ARTICLES = [
         desc: { en: "Combining e, i, pi, 1, and 0 into a single elegant statement.", bn: "e, i, pi, 1 এবং 0 এর এক বিস্ময়কর মিলন।" },
         image: "https://cdn.mos.cms.futurecdn.net/cv2W6h6obxouAgNzfnJ6w3-700-80.jpg.webp",
         content: {
-            en: `
-                <p>Often called the most beautiful equation in mathematics, Euler's identity connects five fundamental constants:</p>
-                <div class="bg-gray-50 p-4 rounded border border-gray-200 my-4 text-center">
-                    $$ e^{i\\pi} + 1 = 0 $$
-                </div>
-                <p>It is a special case of Euler's formula, which states that for any real number $x$:</p>
-                <div class="text-center my-2">$$ e^{ix} = \\cos x + i\\sin x $$</div>
-            `,
-            bn: `
-                <p>গণিতের সবচেয়ে সুন্দর সমীকরণ হিসেবে পরিচিত অয়লারের অভেদ পাঁচটি মৌলিক ধ্রুবককে সংযুক্ত করে:</p>
-                <div class="bg-gray-50 p-4 rounded border border-gray-200 my-4 text-center">
-                    $$ e^{i\\pi} + 1 = 0 $$
-                </div>
-                <p>এটি অয়লারের সূত্রের একটি বিশেষ রূপ, যেখানে যেকোনো বাস্তব সংখ্যা $x$ এর জন্য:</p>
-                <div class="text-center my-2">$$ e^{ix} = \\cos x + i\\sin x $$</div>
-            `
+            en: `<p>Often called the most beautiful equation in mathematics...</p>`,
+            bn: `<p>গণিতের সবচেয়ে সুন্দর সমীকরণ হিসেবে পরিচিত অয়লারের অভেদ পাঁচটি মৌলিক ধ্রুবককে সংযুক্ত করে:</p>`
         }
     },
-    {
-    id: 103,
-    title: { 
-        en: "Combinatorics: The Art of Clever Counting", 
-        bn: "কম্বিনেটরিক্স: চতুর গণনার শিল্প" 
-    },
-    author: { 
-        en: "Muhammad Radif Hasan", 
-        bn: "মুহাম্মদ রাদিফ হাসান" 
-    },
-    role: { 
-        en: "President", 
-        bn: "সভাপতি" 
-    },
-    date: { 
-        en: "March 28, 2026", 
-        bn: "২৮ মার্চ, ২০২৬" 
-    },
-    readTime: { 
-        en: "6 min read", 
-        bn: "৬ মিনিট পাঠ" 
-    },
-    desc: {
-        en: "Discover the beautiful world of counting, arrangements, and selections that powers probability, computer science, and olympiad mathematics.",
-        bn: "গণনা, বিন্যাস ও নির্বাচনের সুন্দর জগত আবিষ্কার করুন — যা সম্ভাবনা, কম্পিউটার বিজ্ঞান এবং অলিম্পিয়াড গণিতকে চালিত করে।"
-    },
-    image: "https://picsum.photos/id/1015/800/600",   // You can change this later
-    content: {
-        bn: `
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">কম্বিনেটরিক্স কী?</h2>
-            <p class="mb-6">কম্বিনেটরিক্স হলো গণিতের সেই শাখা যেখানে আমরা শিখি কীভাবে চতুর উপায়ে গণনা করতে হয়। এটি সীমিত বস্তুসমূহের বিন্যাস, নির্বাচন এবং সম্ভাবনা নিয়ে কাজ করে।</p>
+   {
+   id: 103,
+   title: {
+       en: "Combinatorics: The Art of Clever Counting",
+       bn: "কম্বিনেটরিক্স: চতুর গণনার শিল্প"
+   },
+   author: {
+       en: "Md Radif Hasan",
+       bn: "মোঃ রাদিফ হাসান"
+   },
+   role: { en: "President", bn: "সভাপতি" },
+   date: {
+       en: "March 28, 2026",
+       bn: "২৮ মার্চ, ২০২৬"
+   },
+   readTime: {
+       en: "6 min read",
+       bn: "৬ মিনিট পাঠ"
+   },
+   desc: {
+       en: "Discover the beautiful world of counting, arrangements, and selections that powers probability, computer science, and olympiad mathematics.",
+       bn: "গণনা, বিন্যাস ও নির্বাচনের সুন্দর জগত আবিষ্কার করুন — যা সম্ভাবনা, কম্পিউটার বিজ্ঞান এবং অলিম্পিয়াড গণিতকে চালিত করে।"
+   },
+   image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1679762948968%2F0735e987-8bdb-41cf-9b3d-63acddd282e9.png%3Fw%3D1600%26h%3D840%26fit%3Dcrop%26crop%3Dentropy%26auto%3Dcompress%2Cformat%26format%3Dwebp&f=1&nofb=1&ipt=9c6d9914341e12997390b7ab6950959691246968574f899d77a2f3f1a357919f",
+   content: {
+       bn: `
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">কম্বিনেটরিক্স কী?</h2>
+           <p class="mb-6">কম্বিনেটরিক্স হলো গণিতের সেই শাখা যেখানে আমরা শিখি কীভাবে চতুর উপায়ে গণনা করতে হয়। এটি সীমিত বস্তুসমূহের বিন্যাস, নির্বাচন এবং সম্ভাবনা নিয়ে কাজ করে।</p>
 
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">মৌলিক নীতিসমূহ</h2>
-            
-            <div class="bg-gray-50 p-6 rounded-xl my-6">
-                <p class="font-semibold mb-2">১. গুণন নীতি (Multiplication Principle)</p>
-                <p>যদি একটি কাজ m ভাবে এবং আরেকটি কাজ n ভাবে করা যায়, তাহলে দুটি একসাথে m × n ভাবে করা যায়।</p>
-                <p class="text-sm text-slate-600 mt-3">উদাহরণ: ৩টি শার্ট ও ৪টি প্যান্ট থেকে কত রকমের পোশাক? উত্তর: ১২টি।</p>
-            </div>
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">মৌলিক নীতিসমূহ</h2>
+          
+           <div class="bg-gray-50 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">১. গুণন নীতি (Multiplication Principle)</p>
+               <p>যদি একটি কাজ m ভাবে এবং আরেকটি কাজ n ভাবে করা যায়, তাহলে দুটি একসাথে m × n ভাবে করা যায়।</p>
+               <p>উদাহরণ: ৩টি শার্ট ও ৪টি প্যান্ট থেকে কত রকমের পোশাক? উত্তর: ১২টি।</p>
+           </div>
 
-            <div class="bg-gray-50 p-6 rounded-xl my-6">
-                <p class="font-semibold mb-2">২. বিন্যাস (Permutation)</p>
-                <p><strong>P(n, r) = n! / (n - r)!</strong> — nটি জিনিস থেকে rটি সাজানোর উপায়।</p>
-            </div>
+           <div class="bg-gray-50 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">২. বিন্যাস (Permutation)</p>
+               <p>$$ P(n, r) = \\frac{n!}{(n - r)!} $$ — nটি জিনিস থেকে rটি সাজানোর উপায়।</p>
+           </div>
 
-            <div class="bg-gray-50 p-6 rounded-xl my-6">
-                <p class="font-semibold mb-2">৩. সমাবেশ (Combination)</p>
-                <p><strong>C(n, r) = n! / (r! × (n - r)!)</strong> — ক্রম ছাড়া নির্বাচনের সংখ্যা।</p>
-            </div>
+           <div class="bg-gray-50 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">৩. সমাবেশ (Combination)</p>
+               <p>$$ C(n, r) = \\frac{n!}{r!(n - r)!} $$ — ক্রম ছাড়া নির্বাচনের সংখ্যা।</p>
+           </div>
 
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">পায়রার খোপ নীতি (Pigeonhole Principle)</h2>
-            <p class="mb-6">যদি পায়রার সংখ্যা খোপের চেয়ে বেশি হয়, তাহলে অন্তত একটি খোপে দুইয়ের বেশি পায়রা থাকবে।</p>
-            <p class="mb-6">উদাহরণ: ৩৬৭ জন মানুষের মধ্যে অন্তত দু’জনের জন্মদিন একই দিনে পড়বে।</p>
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">পায়রার খোপ নীতি (Pigeonhole Principle)</h2>
+           <p class="mb-6">যদি পায়রার সংখ্যা খোপের চেয়ে বেশি হয়, তাহলে অন্তত একটি খোপে দুইয়ের বেশি পায়রা থাকবে।</p>
+           <p class="mb-6">উদাহরণ: ৩৬৭ জন মানুষের মধ্যে অন্তত দু’জনের জন্মদিন একই দিনে পড়বে।</p>
 
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">বাস্তব জীবনে প্রয়োগ</h2>
-            <ul class="list-disc pl-6 space-y-3 mb-8">
-                <li>ক্রিপ্টোগ্রাফি ও নিরাপত্তা ব্যবস্থা</li>
-                <li>কম্পিউটার অ্যালগরিদম</li>
-                <li>জেনেটিক্স ও ডিএনএ বিশ্লেষণ</li>
-                <li>লটারি, সময়সূচি তৈরি, খেলার ফিক্সচার</li>
-            </ul>
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">বাস্তব জীবনে প্রয়োগ</h2>
+           <ul class="list-disc pl-6 space-y-3 mb-8">
+               <li>ক্রিপ্টোগ্রাফি ও নিরাপত্তা ব্যবস্থা</li>
+               <li>কম্পিউটার অ্যালগরিদম</li>
+               <li>জেনেটিক্স ও ডিএনএ বিশ্লেষণ</li>
+               <li>লটারি, সময়সূচি তৈরি, খেলার ফিক্সচার</li>
+           </ul>
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">মজার সমস্যা</h2>
+           <p class="mb-4"><strong>১. হ্যান্ডশেক সমস্যা:</strong> ১০ জনের পার্টিতে প্রত্যেকে প্রত্যেকের সাথে হাত মেলালে মোট কতটি হ্যান্ডশেক হবে?</p>
+           <p class="mb-4"><strong>২. সিঁড়ি ভাঙা:</strong> ১ বা ২ ধাপ করে ১০ ধাপের সিঁড়ি কতভাবে ভাঙা যায়? (ফিবোনাচ্চি সংখ্যা!)</p>
 
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">মজার সমস্যা</h2>
-            <p class="mb-4"><strong>১. হ্যান্ডশেক সমস্যা:</strong> ১০ জনের পার্টিতে প্রত্যেকে প্রত্যেকের সাথে হাত মেলালে মোট কতটি হ্যান্ডশেক হবে?</p>
-            <p class="mb-4"><strong>২. সিঁড়ি ভাঙা:</strong> ১ বা ২ ধাপ করে ১০ ধাপের সিঁড়ি কতভাবে ভাঙা যায়? (ফিবোনাচ্চি সংখ্যা!)</p>
+           <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+               <p class="font-medium">কম্বিনেটরিক্স আমাদের শেখায় যে — সাধারণ গণনাও গভীর আবিষ্কারের দিকে নিয়ে যেতে পারে।</p>
+           </div>
 
-            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
-                <p class="font-medium">কম্বিনেটরিক্স আমাদের শেখায় যে — সাধারণ গণনাও গভীর আবিষ্কারের দিকে নিয়ে যেতে পারে।</p>
-            </div>
+           <p class="text-slate-700">আমাদের ম্যাথ ক্লাবে আমরা নিয়মিত কম্বিনেটরিক্সের সমস্যা নিয়ে আলোচনা করি। তুমিও তোমার প্রিয় কম্বিনেটরিক্স সমস্যাটি পরবর্তী মিটিংয়ে শেয়ার করো!</p>
+       `,
+       en: `<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">What is Combinatorics?</h2>
+           <p class="mb-6">Combinatorics is the branch of mathematics where we learn how to count in clever ways. It deals with the arrangement, selection, and probability of finite sets of objects.</p>
 
-            <p class="text-slate-700">আমাদের ম্যাথ ক্লাবে আমরা নিয়মিত কম্বিনেটরিক্সের সমস্যা নিয়ে আলোচনা করি। তুমিও তোমার প্রিয় কম্বিনেটরিক্স সমস্যাটি পরবর্তী মিটিংয়ে শেয়ার করো!</p>
-        `
-    }
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Fundamental Principles</h2>
+          
+           <div class="bg-gray-50 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">1. Multiplication Principle</p>
+               <p>If one task can be performed in $m$ ways and another task can be performed in $n$ ways, then both tasks together can be performed in $m \\times n$ ways.</p>
+               <p>Example: How many outfits can you make from 3 shirts and 4 pants? Answer: 12.</p>
+           </div>
+
+           <div class="bg-gray-50 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">2. Permutation</p>
+               <p>$$ P(n, r) = \\frac{n!}{(n - r)!} $$ — The number of ways to arrange $r$ items from a set of $n$ items where order matters.</p>
+           </div>
+
+           <div class="bg-gray-50 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">3. Combination</p>
+               <p>$$ C(n, r) = \\frac{n!}{r!(n - r)!} $$ — The number of ways to select $r$ items from a set of $n$ items where order does not matter.</p>
+           </div>
+
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">The Pigeonhole Principle</h2>
+           <p class="mb-6">If you have more pigeons than pigeonholes, then at least one pigeonhole must contain more than one pigeon.</p>
+           <p class="mb-6">Example: Among 367 people, at least two people must share the same birthday.</p>
+
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Real-World Applications</h2>
+           <ul class="list-disc pl-6 space-y-3 mb-8">
+               <li>Cryptography and security systems</li>
+               <li>Computer algorithms and data structures</li>
+               <li>Genetics and DNA sequence analysis</li>
+               <li>Lotteries, scheduling, and sports fixtures</li>
+           </ul>
+
+           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Fun Problems to Solve</h2>
+           <p class="mb-4"><strong>1. The Handshake Problem:</strong> If everyone at a party of 10 people shakes hands with everyone else, how many handshakes occur in total?</p>
+           <p class="mb-4"><strong>2. Climbing Stairs:</strong> In how many ways can you climb a staircase of 10 steps if you can take either 1 or 2 steps at a time? (Hint: Fibonacci numbers!)</p>
+
+           <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+               <p class="font-medium">Combinatorics teaches us that even simple counting can lead to profound mathematical discoveries.</p>
+           </div>
+
+           <p class="text-slate-700">In our Math Club, we regularly discuss fascinating combinatorial problems. Why not share your favorite one at our next meeting?</p>
+       `
+   }
 }
+
 ];
 
 const COMMITTEE = [
@@ -273,13 +266,9 @@ const COMMITTEE = [
     { name: {en: "Fahmid Rahman Sakif", bn: "ফাহমিদ রহমান সাকিফ"}, pos: {en: "General Secretary", bn: "সাধারণ সম্পাদক"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=FS&backgroundColor=b45309" },
     { name: {en: "Arif Mahmud Fahad", bn: "আরিফ মাহমুদ ফাহাদ"}, pos: {en: "Organizing Secretary", bn: "সাংগঠনিক সম্পাদক"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "./assets/committee/fahad.jpg" },
     { name: {en: "Syedul Mursalin", bn: "সাইয়্যেদুল মুরসালিন"}, pos: {en: "General Member Representative", bn: "সাধারণ সদস্য প্রতিনিধি"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "./assets/committee/mursalin.jpg" },
-    { name: {en: "Masadunnobi Tapu", bn: "মাসাদুন্নবী তপু"}, pos: {en: "Publicity Secretary", bn: "প্রচার সম্পাদক"}, group: {en: 'Science 5', bn: 'বিজ্ঞান ৫'}, img: "./assets/committee/topu.jpg" },
+    { name: {en: "Masadunnobi Topu", bn: "মাসাদুন্নবী তপু"}, pos: {en: "Publicity Secretary", bn: "প্রচার সম্পাদক"}, group: {en: 'Science 5', bn: 'বিজ্ঞান ৫'}, img: "./assets/committee/topu.jpg" },
     { name: {en: "Siyam Sheikh", bn: "সিয়াম শেখ"}, pos: {en: "Treasurer", bn: "কোষাধ্যক্ষ"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "./assets/committee/siyam.png" },
     { name: {en: "Md Tamim Hasan", bn: "মোঃ তামিম হাসান"}, pos: {en: "Educational Tour Secretary", bn: "শিক্ষা সফর বিষয়ক সম্পাদক"}, group: {en: 'Science 2', bn: 'বিজ্ঞান ২'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=TH&backgroundColor=b45309" }
-
-
-
-    
 ];
 
 let state = {
@@ -288,13 +277,52 @@ let state = {
     lang: 'en', 
     menuOpen: false,
     currentSlide: 0,
-    graphMode: 0 
+    graphMode: 0,
+    eventSlideIndex: 0
 };
 
+function startEventSlideshow() {
+    setInterval(() => {
+        if (state.view === 'EVENTS') {
+            state.eventSlideIndex = (state.eventSlideIndex + 1) % CLUB_PHOTOS.length;
+            
+            render(); 
+        }
+    }, 3000); 
+}
+
+function handleRouting() {
+    const hash = window.location.hash.replace('#', '');
+    const [view, id] = hash.split('/');
+
+    if (!view || view === 'home') {
+        state.view = 'HOME';
+    } else if (view === 'articles' && id) {
+        state.view = 'ARTICLE_SINGLE';
+        state.articleId = parseInt(id);
+    } else {
+        const foundView = view.toUpperCase();
+        state.view = foundView;
+    }
+    render();
+}
+
+function navigate(viewName, params = null) {
+    state.view = viewName;
+    state.menuOpen = false;
+
+    if (params && params.id) {
+        state.articleId = params.id;
+        window.location.hash = `articles/${params.id}`;
+    } else {
+        window.location.hash = viewName.toLowerCase();
+    }
+    
+    window.scrollTo(0, 0);
+}
 
 const t = (key) => DICTIONARY[key] ? DICTIONARY[key][state.lang] : key;
 const getLang = (obj) => obj ? obj[state.lang] : '';
-
 
 const app = document.getElementById('app');
 let mathAnimationId;
@@ -302,8 +330,10 @@ let sliderInterval;
 
 function init() {
     updateBodyLang();
-    render();
+    window.addEventListener('hashchange', handleRouting);
+    handleRouting(); 
     startSlider();
+    startEventSlideshow(); 
 }
 
 function updateBodyLang() {
@@ -316,22 +346,6 @@ function toggleLanguage() {
     updateBodyLang();
     render();
     if(state.view === 'HOME') initMathAnimation(); 
-}
-
-function navigate(viewName, params = null) {
-    state.view = viewName;
-    if (params) state.articleId = params.id;
-    state.menuOpen = false;
-    window.scrollTo(0, 0);
-    render();
-    
-    
-    if (mathAnimationId) cancelAnimationFrame(mathAnimationId);
-    
-    if (viewName === 'HOME') {
-        startSlider();
-        initMathAnimation();
-    }
 }
 
 function renderMath() {
@@ -347,7 +361,6 @@ function renderMath() {
         });
     }
 }
-
 
 function render() {
     app.innerHTML = `
@@ -368,7 +381,6 @@ function render() {
 
 function renderHeader() {
     const navLinks = ['HOME', 'EVENTS', 'ARTICLES', 'RESOURCES', 'COMMITTEE', 'CONTACT'];
-    
     const logoHtml = SITE_DATA.logo 
         ? `<img src="${SITE_DATA.logo}" alt="Logo" class="w-10 h-10 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform bg-white">`
         : `<div class="w-10 h-10 bg-ndcm-primary text-white rounded-full flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-ndcm-accent transition-colors">Σ</div>`;
@@ -389,23 +401,20 @@ function renderHeader() {
                             </div>
                         </div>
                     </div>
-
                     <div class="hidden md:flex items-center gap-1">
                         ${navLinks.map(link => `
-                            <button onclick="navigate('${link}')" class="px-3 py-2 text-sm font-medium transition-colors duration-200 ${state.view === link ? 'text-ndcm-accent font-bold' : 'text-slate-600 hover:text-ndcm-primary'}">
+                            <button onclick="navigate('${link}')" class="px-3 py-2 text-sm font-medium transition-colors duration-200 ${state.view === link || (state.view === 'ARTICLE_SINGLE' && link === 'ARTICLES') ? 'text-ndcm-accent font-bold' : 'text-slate-600 hover:text-ndcm-primary'}">
                                 ${t(link.toLowerCase())}
                             </button>
                         `).join('')}
                     </div>
-
                     <div class="md:hidden flex items-center">
-                        <button onclick="state.menuOpen = !state.menuOpen; renderHeader();" class="text-slate-600 p-2">
+                        <button onclick="state.menuOpen = !state.menuOpen; render();" class="text-slate-600 p-2">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${state.menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}"></path></svg>
                         </button>
                     </div>
                 </div>
             </div>
-            
             ${state.menuOpen ? `
                 <div class="md:hidden bg-white border-t border-gray-100 mobile-menu-enter shadow-lg absolute w-full">
                     <div class="px-2 pt-2 pb-3 space-y-1">
@@ -434,13 +443,11 @@ function renderView() {
     }
 }
 
-
 function renderHome() {
     return `
         <div class="fade-in">
             <section class="relative pt-8 pb-20 overflow-hidden">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           
                     <div class="mb-12">
                         <div class="slider-container bg-slate-50 rounded-xl border border-gray-200 h-28 shadow-inner relative overflow-hidden">
                             <div class="slider-track h-full" id="slider-track">
@@ -459,16 +466,13 @@ function renderHome() {
                             </div>
                         </div>
                     </div>
-
                     <div class="grid lg:grid-cols-2 gap-12 items-center">
                         <div class="space-y-6">
                             <h1 class="text-4xl md:text-6xl font-bold text-slate-900 leading-tight">
                                 ${t('hero_title')} <br />
                                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-ndcm-primary to-ndcm-accent">${t('hero_highlight')}</span>
                             </h1>
-                            <p class="text-lg text-slate-600 leading-relaxed max-w-lg">
-                                ${t('hero_desc')}
-                            </p>
+                            <p class="text-lg text-slate-600 leading-relaxed max-w-lg">${t('hero_desc')}</p>
                             <div class="flex flex-wrap gap-4 pt-4">
                                 <button onclick="navigate('EVENTS')" class="px-8 py-3 bg-ndcm-primary text-white rounded-lg font-bold hover:bg-ndcm-accent transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
                                     ${t('view_schedule')}
@@ -478,12 +482,10 @@ function renderHome() {
                                 </button>
                             </div>
                         </div>
-                     
                         <div class="relative h-[400px] bg-slate-50 rounded-2xl border border-gray-200 overflow-hidden shadow-sm flex items-center justify-center cursor-pointer" onclick="toggleGraphMode()">
                             <svg id="math-vis" width="100%" height="100%" viewBox="0 0 400 400" class="absolute inset-0 text-ndcm-accent opacity-80">
                                 <path id="math-vis-path" d="" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                   
                             <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg border border-gray-100 shadow text-sm font-mono text-ndcm-primary pointer-events-none">
                                 <span id="math-label"></span>
                             </div>
@@ -499,10 +501,22 @@ function renderHome() {
 function renderEvents() {
     return `
         <div class="fade-in max-w-5xl mx-auto px-4 py-12">
+            <div class="mb-12 relative rounded-2xl overflow-hidden shadow-md h-64 md:h-80 bg-slate-100">
+                ${CLUB_PHOTOS.map((src, idx) => `
+                    <div class="absolute inset-0 transition-opacity duration-700 ${state.eventSlideIndex === idx ? 'opacity-100' : 'opacity-0'}">
+                        <img src="${src}" class="w-full h-full object-cover" alt="Club Activity">
+                        <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/50 to-transparent">
+                            <span class="text-white text-xs font-bold uppercase tracking-widest">${getLang(DICTIONARY.activities)}</span>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-slate-900">${t('events')}</h2>
                 <p class="text-slate-600 mt-2">${getLang(SITE_DATA.events)}</p>
             </div>
+
             <div class="space-y-6">
                 ${EVENTS.map(event => `
                     <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row gap-6 items-start md:items-center">
@@ -513,37 +527,25 @@ function renderEvents() {
                         <div class="flex-grow">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-[10px] font-bold uppercase px-2 py-1 rounded ${event.color}">${getLang(event.type)}</span>
-                                <div class="flex items-center gap-1 text-xs text-slate-500 font-medium">
-                                    ${ICONS.clock} ${getLang(event.time)}
-                                </div>
+                                <div class="flex items-center gap-1 text-xs text-slate-500 font-medium">${ICONS.clock} ${getLang(event.time)}</div>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-2">${getLang(event.title)}</h3>
                             <p class="text-slate-600 text-sm mb-3">${getLang(event.desc)}</p>
-                            <div class="flex items-center gap-1 text-xs text-slate-500 font-medium">
-                                ${ICONS.location} ${getLang(event.location)}
-                            </div>
+                            <div class="flex items-center gap-1 text-xs text-slate-500 font-medium">${ICONS.location} ${getLang(event.location)}</div>
                         </div>
-                        <div class="flex-shrink-0 w-full md:w-auto">
-                            ${event.link ? `
-                                <a href="${event.link}" target="_blank" class="block text-center w-full md:w-auto px-6 py-2 bg-ndcm-primary text-white text-sm font-bold rounded-lg hover:bg-ndcm-accent transition-all shadow-md">
-                                    ${t('register')}
+                        
+                        <div class="flex flex-col gap-2 w-full md:w-auto">
+                            ${event.banner ? `
+                                <a href="${event.banner}" target="_blank" class="w-full text-center px-6 py-2 bg-slate-100 text-ndcm-primary text-xs font-bold rounded-lg border border-ndcm-primary hover:bg-ndcm-primary hover:text-white transition-all">
+                                    ${getLang(DICTIONARY.view)}
                                 </a>
-                            ` : `
-                                <button class="w-full md:w-auto px-6 py-2 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg hover:bg-slate-50 hover:border-ndcm-primary hover:text-ndcm-primary transition-all">
-                                    ${t('rsvp')}
-                                </button>
-                            `}
+                            ` : ''}
+                            <button class="w-full md:w-auto px-6 py-2 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg hover:bg-slate-50 hover:border-ndcm-primary hover:text-ndcm-primary transition-all">
+                                ${t('rsvp')}
+                            </button>
                         </div>
                     </div>
                 `).join('')}
-            </div>
-            
-            <div class="mt-16 bg-slate-900 rounded-2xl p-8 text-center text-white">
-                <h3 class="text-xl font-bold mb-2">${getLang(SITE_DATA.host)}</h3>
-                <p class="text-slate-300 text-sm mb-6">${getLang(SITE_DATA.encouragement)}</p>
-                <button onclick="navigate('CONTACT')" class="bg-ndcm-gold hover:bg-yellow-600 text-white px-6 py-2 rounded-lg font-bold text-sm transition-colors">
-                    ${t('submit_proposal')}
-                </button>
             </div>
         </div>
     `;
@@ -555,7 +557,7 @@ function renderArticles() {
             <h2 class="text-3xl font-bold text-slate-900 text-center mb-16">${t('articles')}</h2>
             <div class="grid md:grid-cols-2 gap-8">
                 ${ARTICLES.map(article => `
-                    <div class="bg-white rounded-xl overflow-hidden border border-gray-100 card-hover flex flex-col md:flex-row h-full cursor-pointer" onclick="navigate('ARTICLE_SINGLE', {id: ${article.id}})">
+                    <div class="bg-white rounded-xl overflow-hidden border border-gray-100 card-hover flex flex-col md:flex-row h-full cursor-pointer" onclick="navigate('ARTICLES', {id: ${article.id}})">
                         <div class="md:w-2/5 h-48 md:h-auto bg-gray-200 relative overflow-hidden">
                             <img src="${article.image}" alt="Article" class="absolute inset-0 w-full h-full object-cover">
                         </div>
@@ -574,7 +576,6 @@ function renderArticles() {
                     </div>
                 `).join('')}
             </div>
-
             <div class="mt-12 text-center">
                 <p class="text-slate-600 mb-4">${t('article_prompt')}</p>
                 <button onclick="navigate('CONTACT')" class="inline-flex items-center gap-2 border border-ndcm-primary text-ndcm-primary px-6 py-2 rounded-full font-medium hover:bg-ndcm-primary hover:text-white transition-colors">
@@ -600,9 +601,7 @@ function renderSingleArticle() {
                 <span>•</span>
                 <span>${getLang(article.readTime)}</span>
             </div>
-            
             <img src="${article.image}" class="w-full h-64 md:h-96 object-cover rounded-xl mb-8 shadow-sm">
-            
             <div class="article-content text-slate-700 text-lg leading-relaxed">
                 ${getLang(article.content)}
             </div>
@@ -714,7 +713,7 @@ function initMathAnimation() {
     let t = 0;
     const labels = [
         "$$ x=A\\sin(at+\\delta), y=B\\sin(bt) $$", 
-        "$$ r = e^{\\sin\\theta} - 2\\cos(4\\theta) $$", 
+        "$$ r = e^{\\sin\\theta} - 2\\cos(4\\theta) + \\sin^5(\\frac{2\\theta - \\pi}{24})$$", 
         "$$ z = \\sin(x^2 + y^2) $$" 
     ];
 
@@ -768,5 +767,4 @@ function initMathAnimation() {
     mathAnimationId = requestAnimationFrame(animate);
 }
 
-window.onpopstate = (e) => e.state && navigate(e.state.view);
 init();
