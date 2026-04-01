@@ -1,5 +1,11 @@
 const FORMSPREE_ID = "xdkvyoqy"; 
 
+const CLUB_PHOTOS = [
+    "https://images.unsplash.com/photo-1739675242031-cb6c3b076e4f?q=80&w=1951&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1727038104520-7249a8635fcf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
+    "https://images.unsplash.com/photo-1748861306630-e992b1b39627?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D"
+];
+
 const SITE_DATA = {
     name: { en: "Notre Dame College Math Club", bn: "নটর ডেম কলেজ গণিত ক্লাব" },
     college: { en: "Notre Dame College Mymensingh", bn: "নটর ডেম কলেজ ময়মনসিংহ" },
@@ -36,6 +42,8 @@ const DICTIONARY = {
     'view_schedule': { en: 'View Schedule', bn: 'সময়সূচী দেখুন' },
     'register': { en: 'Register', bn: 'রেজিস্ট্রেশন' },
     'rsvp': { en: 'RSVP', bn: 'অংশগ্রহণ' },
+    'activities': {en: 'Our Activities', bn: 'আমাদের কার্যক্রম' },
+    'view': {en: 'View', bn: 'দেখুন'},
     'submit_proposal': { en: 'Submit Proposal', bn: 'প্রস্তাবনা জমা দিন' },
     'send_message': { en: 'Send Message', bn: 'বার্তা পাঠান' },
     'name': { en: 'Name', bn: 'নাম' },
@@ -77,13 +85,15 @@ const NEWS_SLIDES = [
 
 const EVENTS = [
     {
-        title: { en: "Lectures on Mathematical Notations and their usage", bn: "গাণিতিক চিহ্নসমূহ ও তাদের ব্যবহারবিধি নিয়ে আলোচনা" },
+        title: { en: "Lectures on Mathematical Notations", bn: "গাণিতিক চিহ্নসমূহ ও তাদের ব্যবহারবিধি" },
         date: { en: "DEC 10", bn: "১০ ডিসেম্বর" },
         time: { en: "12:00 PM", bn: "দুপুর ১২:০০" },
         location: { en: "Room 402", bn: "৪০২ নং কক্ষ" },
         type: { en: "Lecture", bn: "লেকচার" },
-        desc: { en: "Showing the notations that are frequently being used in Mathematics and make our calculation easier or how we can derrive a formula from calculations.", bn: "গাণিতিক প্রতীকের সাথে পরিচিত করানো যেগুলো প্রায়ই গণিতে ব্যবহৃত হচ্ছে এবং আমাদের হিসেবকে কিভাবে সহজ করছে কিংবা গাণিতিক সমাধান করে কিভাবে আমরা সূত্র নিয়ে আসতে পারি সেগুলো ব্যবহার করে।" },
-        color: "bg-blue-100 text-blue-800"
+        desc: { en: "Exploring notations that simplify complex calculations.", bn: "গাণিতিক প্রতীকের সাথে পরিচিতি যা গণনাকে সহজ করে।" },
+        color: "bg-blue-100 text-blue-800",
+        banner: "https://images.unsplash.com/photo-1739675242031-cb6c3b076e4f?q=80&w=1951&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
+        rsvpLink: "https://forms.gle/your-link"
     }
 ];
 
@@ -157,7 +167,7 @@ const ARTICLES = [
        en: "Discover the beautiful world of counting, arrangements, and selections that powers probability, computer science, and olympiad mathematics.",
        bn: "গণনা, বিন্যাস ও নির্বাচনের সুন্দর জগত আবিষ্কার করুন — যা সম্ভাবনা, কম্পিউটার বিজ্ঞান এবং অলিম্পিয়াড গণিতকে চালিত করে।"
    },
-   image: "https://picsum.photos/id/1015/800/600",
+   image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1679762948968%2F0735e987-8bdb-41cf-9b3d-63acddd282e9.png%3Fw%3D1600%26h%3D840%26fit%3Dcrop%26crop%3Dentropy%26auto%3Dcompress%2Cformat%26format%3Dwebp&f=1&nofb=1&ipt=9c6d9914341e12997390b7ab6950959691246968574f899d77a2f3f1a357919f",
    content: {
        bn: `
            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">কম্বিনেটরিক্স কী?</h2>
@@ -267,8 +277,19 @@ let state = {
     lang: 'en', 
     menuOpen: false,
     currentSlide: 0,
-    graphMode: 0 
+    graphMode: 0,
+    eventSlideIndex: 0
 };
+
+function startEventSlideshow() {
+    setInterval(() => {
+        if (state.view === 'EVENTS') {
+            state.eventSlideIndex = (state.eventSlideIndex + 1) % CLUB_PHOTOS.length;
+            
+            render(); 
+        }
+    }, 3000); 
+}
 
 function handleRouting() {
     const hash = window.location.hash.replace('#', '');
@@ -311,9 +332,8 @@ function init() {
     updateBodyLang();
     window.addEventListener('hashchange', handleRouting);
     handleRouting(); 
-
-    
     startSlider();
+    startEventSlideshow(); 
 }
 
 function updateBodyLang() {
@@ -481,10 +501,22 @@ function renderHome() {
 function renderEvents() {
     return `
         <div class="fade-in max-w-5xl mx-auto px-4 py-12">
+            <div class="mb-12 relative rounded-2xl overflow-hidden shadow-md h-64 md:h-80 bg-slate-100">
+                ${CLUB_PHOTOS.map((src, idx) => `
+                    <div class="absolute inset-0 transition-opacity duration-700 ${state.eventSlideIndex === idx ? 'opacity-100' : 'opacity-0'}">
+                        <img src="${src}" class="w-full h-full object-cover" alt="Club Activity">
+                        <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/50 to-transparent">
+                            <span class="text-white text-xs font-bold uppercase tracking-widest">${getLang(DICTIONARY.activities)}</span>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-slate-900">${t('events')}</h2>
                 <p class="text-slate-600 mt-2">${getLang(SITE_DATA.events)}</p>
             </div>
+
             <div class="space-y-6">
                 ${EVENTS.map(event => `
                     <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row gap-6 items-start md:items-center">
@@ -501,20 +533,19 @@ function renderEvents() {
                             <p class="text-slate-600 text-sm mb-3">${getLang(event.desc)}</p>
                             <div class="flex items-center gap-1 text-xs text-slate-500 font-medium">${ICONS.location} ${getLang(event.location)}</div>
                         </div>
-                        <div class="flex-shrink-0 w-full md:w-auto">
+                        
+                        <div class="flex flex-col gap-2 w-full md:w-auto">
+                            ${event.banner ? `
+                                <a href="${event.banner}" target="_blank" class="w-full text-center px-6 py-2 bg-slate-100 text-ndcm-primary text-xs font-bold rounded-lg border border-ndcm-primary hover:bg-ndcm-primary hover:text-white transition-all">
+                                    ${getLang(DICTIONARY.view)}
+                                </a>
+                            ` : ''}
                             <button class="w-full md:w-auto px-6 py-2 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg hover:bg-slate-50 hover:border-ndcm-primary hover:text-ndcm-primary transition-all">
                                 ${t('rsvp')}
                             </button>
                         </div>
                     </div>
                 `).join('')}
-            </div>
-            <div class="mt-16 bg-slate-900 rounded-2xl p-8 text-center text-white">
-                <h3 class="text-xl font-bold mb-2">${getLang(SITE_DATA.host)}</h3>
-                <p class="text-slate-300 text-sm mb-6">${getLang(SITE_DATA.encouragement)}</p>
-                <button onclick="navigate('CONTACT')" class="bg-ndcm-gold hover:bg-yellow-600 text-white px-6 py-2 rounded-lg font-bold text-sm transition-colors">
-                    ${t('submit_proposal')}
-                </button>
             </div>
         </div>
     `;
