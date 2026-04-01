@@ -84,7 +84,7 @@ const NEWS_SLIDES = [
 ];
 
 const EVENTS = [ 
-    
+
     {
         title: { en: "Intra Math Olympiad 2026", bn: "অভ্যন্তরীণ গণিত অলিম্পিয়াড ২০২৬" },
         date: { en: "APR 16", bn: "১৬ এপ্রিল" },
@@ -93,7 +93,7 @@ const EVENTS = [
         type: { en: "Olympiad", bn: "অলিম্পিয়াড" },
         desc: { en: "Participation on Math Olympiad", bn: "গণিত অলিম্পিয়াডে অংশগ্রহণ" },
         color: "bg-blue-100 text-blue-800",
-        banner: "./assets/activities/Announcement_NDCMC_MO2026.png", 
+        banner: "./assets/activities/Announcement_NDCMC_IMO2026.png", 
         rsvpLink: "https://forms.gle/your-link"
     }
 ];
