@@ -87,7 +87,7 @@ const EVENTS = [
 
     {
         title: { en: "Intra Math Olympiad 2026", bn: "অভ্যন্তরীণ গণিত অলিম্পিয়াড ২০২৬" },
-        date: { en: "APR 16", bn: "১৬ এপ্রিল" },
+        date: { en: "APR 15", bn: "১৬ এপ্রিল" },
         time: { en: "12:00 PM", bn: "দুপুর ১২:০০" },
         location: { en: "Room 402", bn: "৪০২ নং কক্ষ" },
         type: { en: "Olympiad", bn: "অলিম্পিয়াড" },
