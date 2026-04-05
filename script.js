@@ -83,16 +83,17 @@ const NEWS_SLIDES = [
     }
 ];
 
-const EVENTS = [
+const EVENTS = [ 
+    
     {
-        title: { en: "Lectures on Mathematical Notations", bn: "গাণিতিক চিহ্নসমূহ ও তাদের ব্যবহারবিধি" },
-        date: { en: "DEC 10", bn: "১০ ডিসেম্বর" },
+        title: { en: "Intra Math Olympiad 2026", bn: "অভ্যন্তরীণ গণিত অলিম্পিয়াড ২০২৬" },
+        date: { en: "APR 15", bn: "১৫ এপ্রিল" },
         time: { en: "12:00 PM", bn: "দুপুর ১২:০০" },
         location: { en: "Room 402", bn: "৪০২ নং কক্ষ" },
         type: { en: "Lecture", bn: "লেকচার" },
         desc: { en: "Exploring notations that simplify complex calculations.", bn: "গাণিতিক প্রতীকের সাথে পরিচিতি যা গণনাকে সহজ করে।" },
         color: "bg-blue-100 text-blue-800",
-        banner: "https://images.unsplash.com/photo-1739675242031-cb6c3b076e4f?q=80&w=1951&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
+        banner: "./assets/activities/Announcement_NDCMC_IMO2026.png", 
         rsvpLink: "https://forms.gle/your-link"
     }
 ];
