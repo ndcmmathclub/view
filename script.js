@@ -87,13 +87,13 @@ const EVENTS = [
     
     {
         title: { en: "Intra Math Olympiad 2026", bn: "অভ্যন্তরীণ গণিত অলিম্পিয়াড ২০২৬" },
-        date: { en: "APR 16", bn: "১৬ এপ্রিল" },
+        date: { en: "APR 15", bn: "১৫ এপ্রিল" },
         time: { en: "12:00 PM", bn: "দুপুর ১২:০০" },
         location: { en: "Room 402", bn: "৪০২ নং কক্ষ" },
         type: { en: "Lecture", bn: "লেকচার" },
         desc: { en: "Exploring notations that simplify complex calculations.", bn: "গাণিতিক প্রতীকের সাথে পরিচিতি যা গণনাকে সহজ করে।" },
         color: "bg-blue-100 text-blue-800",
-        banner: "./assets/activities/Announcement_NDCMC_MO2026.png", 
+        banner: "./assets/activities/Announcement_NDCMC_IMO2026.png", 
         rsvpLink: "https://forms.gle/your-link"
     }
 ];
