@@ -70,8 +70,8 @@ const NEWS_SLIDES = [
     {
         id: 1,
         tag: { en: "Latest Event", bn: "সর্বশেষ ইভেন্ট" },
-        title: { en: "National Math Olympiad Preparation", bn: "জাতীয় গণিত অলিম্পিয়াড প্রস্তুতি" },
-        desc: { en: "Preparation round upcoming Wednesday in Room 402.", bn: "আগামী বুধবার ৪০২ নং কক্ষে প্রস্তুতি পর্ব অনুষ্ঠিত হবে" },
+        title: { en: "Intra Math Olympiad 2026", bn: "অভ্যন্তরীণ গণিত অলিম্পিয়াড ২০২৬" },
+        desc: { en: "Held on 15 April in Room 402.", bn: "১৫ এপ্রিল ৪০২ নং কক্ষে অনুষ্ঠিত হবে" },
         color: "bg-ndcm-accent"
     },
     {
