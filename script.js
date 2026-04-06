@@ -251,26 +251,70 @@ const ARTICLES = [
 
            <p class="text-slate-700">আমাদের ম্যাথ ক্লাবে আমরা নিয়মিত কম্বিনেটরিক্সের সমস্যা নিয়ে আলোচনা করি। তুমিও তোমার প্রিয় কম্বিনেটরিক্স সমস্যাটি পরবর্তী মিটিংয়ে শেয়ার করো!</p>
        `,
-       en: `<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">What is Combinatorics?</h2>
-           <p class="mb-6">Combinatorics is the branch of mathematics where we learn how to count in clever ways. It deals with the arrangement, selection, and probability of finite sets of objects.</p>
+       en: `
+       <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">What is Combinatorics?</h2>
+<p class="mb-6">Along with the beginning of human civilization, the concept of counting also emerged. It is believed that our ancestors developed counting out of their daily needs — such as hunting, keeping track of animals, or measuring time for farming. Ancient humans initially counted using tally marks on sticks, stones, or cave walls. Later, when the numbers grew larger, they started using symbols.</p>
 
-           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Fundamental Principles</h2>
-          
-           <div class="bg-gray-50 p-6 rounded-xl my-6">
-               <p class="font-semibold mb-2">1. Multiplication Principle</p>
-               <p>If one task can be performed in $m$ ways and another task can be performed in $n$ ways, then both tasks together can be performed in $m \\times n$ ways.</p>
-               <p>Example: How many outfits can you make from 3 shirts and 4 pants? Answer: 12.</p>
-           </div>
+<p class="mb-6">The topic we are going to discuss may sound unfamiliar and quite strange to many, yet it has a grand name. Combinatorics is mainly the branch of mathematics that deals with counting. It is a part of discrete mathematics.</p>
 
-           <div class="bg-gray-50 p-6 rounded-xl my-6">
-               <p class="font-semibold mb-2">2. Permutation</p>
-               <p>$$ P(n, r) = \\frac{n!}{(n - r)!} $$ — The number of ways to arrange $r$ items from a set of $n$ items where order matters.</p>
-           </div>
+<p class="mb-6">Many might say, “We all know how to count, so why do we need a new way of counting?” But the more important question is: Where is the need for smart counting that saves both our time and resources? Today’s world is built upon two fundamental principles.</p>
 
-           <div class="bg-gray-50 p-6 rounded-xl my-6">
-               <p class="font-semibold mb-2">3. Combination</p>
-               <p>$$ C(n, r) = \\frac{n!}{r!(n - r)!} $$ — The number of ways to select $r$ items from a set of $n$ items where order does not matter.</p>
-           </div>
+<ol class="list-decimal space-y-3 mb-8 pl-6">
+    <li><span class="font-semibold">1. How efficiently, and with how much time and cost savings, a task can be performed.</span></li>
+    <li><span class="font-semibold">2. How quickly and accurately that task can be performed.</span></li>
+</ol>
+
+<p class="mb-6">There is a significant difference between ordinary counting and counting in combinatorics. This difference arises from the systematic rules of counting. Let’s clarify this with a small example.</p>
+
+<p class="mb-6">Suppose you are a coach and you have 10 students in your class named $A, B, C, \\dots, J$. You are going to participate in a competition with them. The rules of the competition are as follows:</p>
+
+<ol class="list-decimal space-y-3 mb-8 pl-6">
+    <li><span class="font-semibold">1. Whether a team wins or loses, the main attraction of the competition will be a single outstanding player.</span></li>
+    <li><span class="font-semibold">2. Each member of a team will have one special opponent against them.</span></li>
+    <li><span class="font-semibold">3. The winning team’s members will be awarded the top three winners based on their performance.</span></li>
+    <li><span class="font-semibold">4. The three winners from the winning team will be selected based on their highest efficiency.</span></li>
+</ol>
+
+<p class="mb-6">You tried hard to understand the first two rules but couldn’t figure out exactly how many ways you could select the best player or assign special opponents to each member. Later you realized who the winners might be. Then you started thinking about who could come 1st, 2nd, and 3rd.</p>
+
+<p class="mb-6">After thinking for a while, you gave up. Frustrated, you thought: If your team wins, how many ways can you form a winning group of 3 students out of 10? After a lot of effort and mistakes, you finally calculated that there are <strong>120</strong> possible ways to choose 3 winners out of 10.</p>
+
+<p class="mb-6">Then another question arose: If you arrange those 3 winners in 1st, 2nd, and 3rd position respectively, how many ways can that be done? You calculated that there are <strong>720</strong> possible ways.</p>
+
+<p class="mb-6">You became very excited and went to the competition with high hopes. But unfortunately, your team lost badly. All your hard work and emotions turned to dust in a moment.</p>
+
+<p class="mb-6">If you had known some mathematics and been a bit smarter, you could have calculated everything efficiently and controlled your emotions. Now, let’s take a look at the fundamental principles of counting in combinatorics.</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Fundamental Principles</h2>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-semibold mb-2">1. Addition Principle (Sum Rule)</p>
+    <p>According to the first rule, one best player will emerge from either of the two teams. Since the best player can be any member from team A or team B (each having 10 members), the total number of ways is $10 + 10 = 20$.</p>
+    <p>In general, if team A has $m$ members and team B has $n$ members, then the total number of ways is $m + n$.</p>
+    <p>Example: If there are $m$ types of fish curry and $n$ types of meat curry, you can choose either one in $m + n$ ways.</p>
+</div>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-semibold mb-2">2. Multiplication Principle (Product Rule)</p>
+    <p>According to the second rule, each member of one team will have one special opponent from the other team. Suppose team A has members $a_A, b_A, \\dots, j_A$ and team B has $a_B, b_B, \\dots, j_B$. Then the possible pairs are:</p>
+    <p>$(a_A a_B),\ (a_A b_B),\ \\dots,\ (a_A j_B),\ (b_A a_B),\ \\dots,\ (j_A j_B)$ — total $10 \\times 10 = 100$ ways.</p>
+    <p>This is the Cartesian product, written as:</p>
+    <p>$$A \\times B = \\{(a_A a_B),\ (a_A b_B),\ \\dots,\ (j_A j_B)\\}$$</p>
+    <p>Mathematically, it is $m \\times n$ ways.</p>
+    <p>Example: Choosing one fish curry and one meat curry together can be done in $m \\times n$ ways.</p>
+</div>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-semibold mb-2">3. Factorial (Permutations)</p>
+    <p>Suppose the three winners are $A, B,$ and $C$. We can arrange them in 1st, 2nd, and 3rd positions in all possible orders: $ABC,\ ACB,\ BAC,\ BCA,\ CAB,\ CBA$. There are 6 possible arrangements.</p>
+    <p>This is called factorial, denoted by $!$.</p>
+    <p>$$3! = 3 \\times 2 \\times 1 = 6$$</p>
+    <p>In general:</p>
+    <p>$$n! = n \\times (n-1) \\times (n-2) \\times \\dots \\times 3 \\times 2 \\times 1$$</p>
+    <p>Example: $n$ distinct objects can be arranged in $n!$ different ways.</p>
+    
+    <img src="./assets/articles/factorial.jpg" alt="Factorial Arrangement" style="display: block; margin-left: auto; margin-right: auto; width: 500px; height: auto;">
+</div>
 
            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">The Pigeonhole Principle</h2>
            <p class="mb-6">If you have more pigeons than pigeonholes, then at least one pigeonhole must contain more than one pigeon.</p>
