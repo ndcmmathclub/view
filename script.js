@@ -91,7 +91,7 @@ const EVENTS = [
         time: { en: "12:00 PM", bn: "দুপুর ১২:০০" },
         location: { en: "Room 402", bn: "৪০২ নং কক্ষ" },
         type: { en: "Lecture", bn: "লেকচার" },
-        desc: { en: "Exploring notations that simplify complex calculations.", bn: "গাণিতিক প্রতীকের সাথে পরিচিতি যা গণনাকে সহজ করে।" },
+        desc: { en: "Math Olympiad", bn: "গণিত অলিম্পিয়াড" },
         color: "bg-blue-100 text-blue-800",
         banner: "./assets/activities/Announcement_NDCMC_IMO2026.png", 
         rsvpLink: "https://forms.gle/your-link"
@@ -123,7 +123,7 @@ const ARTICLES = [
         readTime: { en: "1 min read", bn: "১ মিনিট পাঠ" },
         desc: { 
             en: "Imagine a hotel with infinite rooms, all occupied. What happens when a new guest arrives?", 
-            bn: "ভাবুন এমন একটি হোটেল যার কক্ষ সংখ্যা অসীম এবং সবগুলোই পূর্ণ। নতুন অতিথি এলে কি হবে?" 
+            bn: "এমন একটি হোটেলের কথা চিন্তা করো যার কক্ষ সংখ্যা অসীম এবং সবগুলোই পূর্ণ। নতুন অতিথি এলে কি হবে?" 
         },
         image: "https://imgs.search.brave.com/eya5oUzh8bfOlXm79fOZbzgGjQYzYCovr_CWi1zfQRA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1tYW5hZ2VyLnN0/YXJzaW5zaWRlci5j/b20vZ2FsbGVyeS8x/MDgwL25hXzY3ZGFk/NGMyZjM0MzkuanBn",
         content: {
@@ -133,13 +133,13 @@ const ARTICLES = [
     },
     {
         id: 102,
-        title: { en: "Euler's Identity", bn: "অয়লারের অভেদ" },
+        title: { en: "Prime Number", bn: "মৌলিক সংখ্যা" },
         author: { en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান" },
         role: { en: "President", bn: "সভাপতি" },
-        date: { en: "Nov 26, 2025", bn: "২৬ নভেম্বর, ২০২৫" },
+        date: { en: "Jan 13, 2026", bn: "১৩ জানুয়ারি, ২০২৬" },
         readTime: { en: "1 min read", bn: "১ মিনিট পাঠ" },
-        desc: { en: "Combining e, i, pi, 1, and 0 into a single elegant statement.", bn: "e, i, pi, 1 এবং 0 এর এক বিস্ময়কর মিলন।" },
-        image: "https://cdn.mos.cms.futurecdn.net/cv2W6h6obxouAgNzfnJ6w3-700-80.jpg.webp",
+        desc: { en: "One of the most interesting topics for mathematicians and computer scientists.", bn: "গণিতবিদ ও কম্পিউটার বিজ্ঞানীদের অন্যতম সবচেয়ে আগ্রহের বিষয়বস্তু" },
+        image: "https://plus.unsplash.com/premium_photo-1753191396890-bb83bf96fc3c?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         content: {
             en: `<p>Often called the most beautiful equation in mathematics...</p>`,
             bn: `<p>গণিতের সবচেয়ে সুন্দর সমীকরণ হিসেবে পরিচিত অয়লারের অভেদ পাঁচটি মৌলিক ধ্রুবককে সংযুক্ত করে:</p>`
@@ -165,8 +165,8 @@ const ARTICLES = [
        bn: "৬ মিনিট পাঠ"
    },
    desc: {
-       en: "Discover the beautiful world of counting, arrangements, and selections that powers probability, computer science, and olympiad mathematics.",
-       bn: "গণনা, বিন্যাস ও নির্বাচনের সুন্দর জগত আবিষ্কার করুন — যা সম্ভাবনা, কম্পিউটার বিজ্ঞান এবং অলিম্পিয়াড গণিতকে চালিত করে।"
+       en: "Can you really count?",
+       bn: "তুমি কি সত্যিই গুনতে পারো?"
    },
    image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1679762948968%2F0735e987-8bdb-41cf-9b3d-63acddd282e9.png%3Fw%3D1600%26h%3D840%26fit%3Dcrop%26crop%3Dentropy%26auto%3Dcompress%2Cformat%26format%3Dwebp&f=1&nofb=1&ipt=9c6d9914341e12997390b7ab6950959691246968574f899d77a2f3f1a357919f",
    content: {
