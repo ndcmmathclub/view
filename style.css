@@ -60,6 +60,22 @@ body.lang-bn {
     line-height: 1.7;
 }
 
+table.combinatorics-table,
+table.combinatorics-table th,
+table.combinatorics-table td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+table.combinatorics-table {
+    border-collapse: collapse;
+}
+
+table.combinatorics-table th,
+table.combinatorics-table td {
+    padding: 0.75rem;
+}
+
 .mobile-menu-enter {
     animation: slideDown 0.2s ease-out forwards;
 }
