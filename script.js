@@ -221,10 +221,33 @@ const ARTICLES = [
            </div>
 
            <div class="bg-gray-100 p-6 rounded-xl my-6">
-               <p class="font-semibold mb-2">৪. সমাবেশ (Combination)</p>
-               <p>$$ C(n, r) = \\frac{n!}{r!(n - r)!} $$ — ক্রম ছাড়া নির্বাচনের সংখ্যা।</p>
-           </div>
+          <p class="font-semibold mb-2">৪. সমাবেশ (Combination)</p>
+          <p>খেলার তৃতীয় নিয়মানুযায়ী যেকোনো তিনজন বিজয়ী হতে পারবে তাদের খেলার সর্বোচ্চ দক্ষতার ক্রমানুযায়ী। যদি তাই হয় তাহলে চলো সম্ভাব্য তিনজনের নাম নিচের টেবিল থেকে দেখা যাক।</p>
+               <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">টেবিল উদাহরণ</h2>
+               <p class="mb-6">টেবিলিটির প্রতিটি কলামে একজনকে প্রসঙ্গ কাঠামো হিসেবে ধরে বাকি দুইজনের সম্ভাব্য নাম দেওয়া হয়েছে:</p>
+               <table class="combinatorics-table w-full text-center">
 
+    <tr>
+        <th>$A$</th>
+        <th>$B$</th>
+        <th>$C$</th>
+        <th>$D$</th>
+        <th>$E$</th>
+        <th>$F$</th>
+        <th>$G$</th>
+        <th>$H$</th>
+    </tr>
+    <tr><td>$ABC$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$ACD$</td><td>$BCD$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$ADE$</td><td>$BDE$</td><td>$CDE$</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AEF$</td><td>$BEF$</td><td>$CEF$</td><td>$DEF$</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AFG$</td><td>$BFG$</td><td>$CFG$</td><td>$DFG$</td><td>$EFG$</td><td></td><td></td><td></td></tr>
+    <tr><td>$AGH$</td><td>$BGH$</td><td>$CGH$</td><td>$DGH$</td><td>$EGH$</td><td>$FGH$</td><td></td><td></td></tr>
+    <tr><td>$AHI$</td><td>$BHI$</td><td>$CHI$</td><td>$DHI$</td><td>$EHI$</td><td>$FHI$</td><td>$GHI$</td></tr>
+    <tr><td>$AIJ$</td><td>$BIJ$</td><td>$CIJ$</td><td>$DIJ$</td><td>$EIJ$</td><td>$FIJ$</td><td>$GIJ$</td><td>$HIJ$</td></tr>
+               </table>
+           </div>
+           
             <div class="bg-gray-100 p-6 rounded-xl my-6">
                <p class="font-semibold mb-2">৫. বিন্যাস (Permutation)</p>
              <p>$$ P(n, r) = \\frac{n!}{(n - r)!} $$ — nটি জিনিস থেকে rটি সাজানোর উপায়।</p>
@@ -250,7 +273,9 @@ const ARTICLES = [
            </div>
 
            <p class="text-slate-700">আমাদের ম্যাথ ক্লাবে আমরা নিয়মিত কম্বিনেটরিক্সের সমস্যা নিয়ে আলোচনা করি। তুমিও তোমার প্রিয় কম্বিনেটরিক্স সমস্যাটি পরবর্তী মিটিংয়ে শেয়ার করো!</p>
-       `,
+       `
+       //<p>$$ C(n, r) = \\frac{n!}{r!(n - r)!} $$ — ক্রম ছাড়া নির্বাচনের সংখ্যা।</p>
+       ,
        en: `
        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">What is Combinatorics?</h2>
 <p class="mb-6">Along with the beginning of human civilization, the concept of counting also emerged. It is believed that our ancestors developed counting out of their daily needs — such as hunting, keeping track of animals, or measuring time for farming. Ancient humans initially counted using tally marks on sticks, stones, or cave walls. Later, when the numbers grew larger, they started using symbols.</p>
