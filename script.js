@@ -238,15 +238,45 @@ const ARTICLES = [
         <th>$H$</th>
     </tr>
     <tr><td>$ABC$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$ACD$</td><td>$BCD$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$ADE$</td><td>$BDE$</td><td>$CDE$</td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AEF$</td><td>$BEF$</td><td>$CEF$</td><td>$DEF$</td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AFG$</td><td>$BFG$</td><td>$CFG$</td><td>$DFG$</td><td>$EFG$</td><td></td><td></td><td></td></tr>
-    <tr><td>$AGH$</td><td>$BGH$</td><td>$CGH$</td><td>$DGH$</td><td>$EGH$</td><td>$FGH$</td><td></td><td></td></tr>
-    <tr><td>$AHI$</td><td>$BHI$</td><td>$CHI$</td><td>$DHI$</td><td>$EHI$</td><td>$FHI$</td><td>$GHI$</td></tr>
-    <tr><td>$AIJ$</td><td>$BIJ$</td><td>$CIJ$</td><td>$DIJ$</td><td>$EIJ$</td><td>$FIJ$</td><td>$GIJ$</td><td>$HIJ$</td></tr>
-               </table>
-           </div>
+    <tr><td>$ABD$</td><td>$BCD$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$ABE$</td><td>$BCE$</td><td>$CDE$</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$ABF$</td><td>$BCF$</td><td>$CDF$</td><td>$DEF$</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$ABG$</td><td>$BCG$</td><td>$CDG$</td><td>$DEG$</td><td>$EFG$</td><td></td><td></td><td></td></tr>
+    <tr><td>$ABH$</td><td>$BCH$</td><td>$CDH$</td><td>$DEH$</td><td>$EFH$</td><td>$FGH$</td><td></td><td></td></tr>
+    <tr><td>$ABI$</td><td>$BCI$</td><td>$CDI$</td><td>$DEI$</td><td>$EFI$</td><td>$FGI$</td><td>$GHI$</td></tr>
+    <tr><td>$ABJ$</td><td>$BCJ$</td><td>$CDJ$</td><td>$DEJ$</td><td>$EFJ$</td><td>$FGJ$</td><td>$GHJ$</td><td>$HIJ$</td></tr>
+    
+    <!-- বাকি সব কম্বিনেশন (H এর পর ভাঙা সমস্যা সমাধান) -->
+    <tr><td>$ACD$</td><td>$BDE$</td><td>$CEF$</td><td>$DFG$</td><td>$EGH$</td><td>$FHI$</td><td>$GIJ$</td><td></td></tr>
+    <tr><td>$ACE$</td><td>$BDF$</td><td>$CEG$</td><td>$DFH$</td><td>$EGI$</td><td>$FHJ$</td><td></td><td></td></tr>
+    <tr><td>$ACF$</td><td>$BDG$</td><td>$CEH$</td><td>$DFI$</td><td>$EGJ$</td><td>$FIJ$</td><td></td><td></td></tr>
+    <tr><td>$ACG$</td><td>$BDH$</td><td>$CEI$</td><td>$DFJ$</td><td>$EHI$</td><td></td><td></td><td></td></tr>
+    <tr><td>$ACH$</td><td>$BDI$</td><td>$CEJ$</td><td>$DGH$</td><td>$EHJ$</td><td></td><td></td><td></td></tr>
+    <tr><td>$ACI$</td><td>$BDJ$</td><td>$CFG$</td><td>$DGI$</td><td>$EIJ$</td><td></td><td></td><td></td></tr>
+    <tr><td>$ACJ$</td><td>$BEF$</td><td>$CFH$</td><td>$DGJ$</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$ADE$</td><td>$BEG$</td><td>$CFI$</td><td>$DHI$</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$ADF$</td><td>$BEH$</td><td>$CFJ$</td><td>$DHJ$</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$ADG$</td><td>$BEI$</td><td>$CGH$</td><td>$DIJ$</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$ADH$</td><td>$BEJ$</td><td>$CGI$</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$ADI$</td><td>$BFG$</td><td>$CGJ$</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$ADJ$</td><td>$BFH$</td><td>$CHI$</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AEF$</td><td>$BFI$</td><td>$CHJ$</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AEG$</td><td>$BFJ$</td><td>$CIJ$</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AEH$</td><td>$BGH$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AEI$</td><td>$BGI$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AEJ$</td><td>$BGJ$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AFG$</td><td>$BHI$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AFH$</td><td>$BHJ$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AFI$</td><td>$BIJ$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AFJ$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AGH$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AGI$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AGJ$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AHI$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AHJ$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>$AIJ$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>           
+</div>
            
             <div class="bg-gray-100 p-6 rounded-xl my-6">
                <p class="font-semibold mb-2">৫. বিন্যাস (Permutation)</p>
