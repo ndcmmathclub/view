@@ -1,9 +1,9 @@
 const FORMSPREE_ID = "xdkvyoqy"; 
 
 const CLUB_PHOTOS = [
-    "https://images.unsplash.com/photo-1739675242031-cb6c3b076e4f?q=80&w=1951&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1727038104520-7249a8635fcf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
-    "https://images.unsplash.com/photo-1748861306630-e992b1b39627?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D"
+    "./assets/IMG_20260506_130711.jpg.jpeg",
+    "./assets/IMG_20260506_130705.jpg.jpeg",
+    "./assets/IMG_20260506_130700.jpg.jpeg"
 ];
 
 const SITE_DATA = {
