@@ -221,61 +221,24 @@ const ARTICLES = [
            </div>
 
            <div class="bg-gray-100 p-6 rounded-xl my-6">
-          <p class="font-semibold mb-2">৪. সমাবেশ (Combination)</p>
-          <p>খেলার তৃতীয় নিয়মানুযায়ী যেকোনো তিনজন বিজয়ী হতে পারবে তাদের খেলার সর্বোচ্চ দক্ষতার ক্রমানুযায়ী। যদি তাই হয় তাহলে চলো সম্ভাব্য তিনজনের নাম নিচের টেবিল থেকে দেখা যাক।</p>
+          <p class="font-semibold mb-2">৪. বিন্যাস (Permutation)</p>
+          <p>খেলার চতুর্থ নিয়মানুযায়ী দলের সদস্যদের সর্বোচ্চ কর্মদক্ষতার ভিত্তিতে যথাক্রমে তিনজন বিজয়ী হবে। যদি তাই হয় তাহলে চলো সম্ভাব্য তিনজনের নাম নিচের টেবিল থেকে দেখা যাক। হিসাবের সুবিধার্থে ধরা যাক ৪ জন সদস্য থেকে সম্ভাব্য ৩ জনের বিজয়ী সদস্য নিয়ে একটি দল গঠিত হবে।</p>
                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">টেবিল উদাহরণ</h2>
                <p class="mb-6">টেবিলিটির প্রতিটি কলামে একজনকে প্রসঙ্গ কাঠামো হিসেবে ধরে বাকি দুইজনের সম্ভাব্য নাম দেওয়া হয়েছে:</p>
                <table class="combinatorics-table w-full text-center">
-
-    <tr>
+<tr>
         <th>$A$</th>
         <th>$B$</th>
         <th>$C$</th>
         <th>$D$</th>
-        <th>$E$</th>
-        <th>$F$</th>
-        <th>$G$</th>
-        <th>$H$</th>
     </tr>
-    <tr><td>$ABC$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$ABD$</td><td>$BCD$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$ABE$</td><td>$BCE$</td><td>$CDE$</td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$ABF$</td><td>$BCF$</td><td>$CDF$</td><td>$DEF$</td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$ABG$</td><td>$BCG$</td><td>$CDG$</td><td>$DEG$</td><td>$EFG$</td><td></td><td></td><td></td></tr>
-    <tr><td>$ABH$</td><td>$BCH$</td><td>$CDH$</td><td>$DEH$</td><td>$EFH$</td><td>$FGH$</td><td></td><td></td></tr>
-    <tr><td>$ABI$</td><td>$BCI$</td><td>$CDI$</td><td>$DEI$</td><td>$EFI$</td><td>$FGI$</td><td>$GHI$</td></tr>
-    <tr><td>$ABJ$</td><td>$BCJ$</td><td>$CDJ$</td><td>$DEJ$</td><td>$EFJ$</td><td>$FGJ$</td><td>$GHJ$</td><td>$HIJ$</td></tr>
-    
-    <!-- বাকি সব কম্বিনেশন (H এর পর ভাঙা সমস্যা সমাধান) -->
-    <tr><td>$ACD$</td><td>$BDE$</td><td>$CEF$</td><td>$DFG$</td><td>$EGH$</td><td>$FHI$</td><td>$GIJ$</td><td></td></tr>
-    <tr><td>$ACE$</td><td>$BDF$</td><td>$CEG$</td><td>$DFH$</td><td>$EGI$</td><td>$FHJ$</td><td></td><td></td></tr>
-    <tr><td>$ACF$</td><td>$BDG$</td><td>$CEH$</td><td>$DFI$</td><td>$EGJ$</td><td>$FIJ$</td><td></td><td></td></tr>
-    <tr><td>$ACG$</td><td>$BDH$</td><td>$CEI$</td><td>$DFJ$</td><td>$EHI$</td><td></td><td></td><td></td></tr>
-    <tr><td>$ACH$</td><td>$BDI$</td><td>$CEJ$</td><td>$DGH$</td><td>$EHJ$</td><td></td><td></td><td></td></tr>
-    <tr><td>$ACI$</td><td>$BDJ$</td><td>$CFG$</td><td>$DGI$</td><td>$EIJ$</td><td></td><td></td><td></td></tr>
-    <tr><td>$ACJ$</td><td>$BEF$</td><td>$CFH$</td><td>$DGJ$</td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$ADE$</td><td>$BEG$</td><td>$CFI$</td><td>$DHI$</td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$ADF$</td><td>$BEH$</td><td>$CFJ$</td><td>$DHJ$</td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$ADG$</td><td>$BEI$</td><td>$CGH$</td><td>$DIJ$</td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$ADH$</td><td>$BEJ$</td><td>$CGI$</td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$ADI$</td><td>$BFG$</td><td>$CGJ$</td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$ADJ$</td><td>$BFH$</td><td>$CHI$</td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AEF$</td><td>$BFI$</td><td>$CHJ$</td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AEG$</td><td>$BFJ$</td><td>$CIJ$</td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AEH$</td><td>$BGH$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AEI$</td><td>$BGI$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AEJ$</td><td>$BGJ$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AFG$</td><td>$BHI$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AFH$</td><td>$BHJ$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AFI$</td><td>$BIJ$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AFJ$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AGH$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AGI$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AGJ$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AHI$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AHJ$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td>$AIJ$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-</table>           
+    <tr><td>$ABC$</td><td>$BAC$</td><td>$CAB$</td><td>$DAB$</td></tr>
+    <tr><td>$ACB$</td><td>$BAC$</td><td>$CAB$</td><td>$DAB$</td></tr>
+    <tr><td>$ACD$</td><td>$BAC$</td><td>$CAB$</td><td>$DAB$</td></tr>
+    <tr><td>$ADC$</td><td>$BAC$</td><td>$CAB$</td><td>$DAB$</td></tr>
+    <tr><td>$ABD$</td><td>$BAC$</td><td>$CAB$</td><td>$DAB$</td></tr>
+    <tr><td>$ADB$</td><td>$BAC$</td><td>$CAB$</td><td>$DAB$</td></tr>
+    </table> 
 </div>
            
             <div class="bg-gray-100 p-6 rounded-xl my-6">
