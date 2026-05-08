@@ -2,8 +2,6 @@ const FORMSPREE_ID = "xdkvyoqy";
 
 const CLUB_PHOTOS = [
     "./assets/IMG_20260506_130711.jpg.jpeg",
-    "./assets/IMG_20260506_130705.jpg.jpeg",
-    "./assets/IMG_20260506_130700.jpg.jpeg",
     "./assets/IMG_7932-1536x1024.jpg",
     "./assets/MG_7941-1536x1024.jpg",
     "./assets/IMG_7986-1536x1024.jpg.jpeg",
