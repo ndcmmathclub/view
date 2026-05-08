@@ -235,11 +235,11 @@ const ARTICLES = [
         <th>$D$</th>
     </tr>
     <tr><td>$ABC$</td><td>$BAC$</td><td>$CAB$</td><td>$DAB$</td></tr>
-    <tr><td>$ACB$</td><td>$BAC$</td><td>$CAB$</td><td>$DAB$</td></tr>
-    <tr><td>$ACD$</td><td>$BAC$</td><td>$CAB$</td><td>$DAB$</td></tr>
-    <tr><td>$ADC$</td><td>$BAC$</td><td>$CAB$</td><td>$DAB$</td></tr>
-    <tr><td>$ABD$</td><td>$BAC$</td><td>$CAB$</td><td>$DAB$</td></tr>
-    <tr><td>$ADB$</td><td>$BAC$</td><td>$CAB$</td><td>$DAB$</td></tr>
+    <tr><td>$ACB$</td><td>$BCA$</td><td>$CBA$</td><td>$DBA$</td></tr>
+    <tr><td>$ACD$</td><td>$BCD$</td><td>$CAD$</td><td>$DAC$</td></tr>
+    <tr><td>$ADC$</td><td>$BDC$</td><td>$CDA$</td><td>$DCA$</td></tr>
+    <tr><td>$ABD$</td><td>$BAD$</td><td>$CBD$</td><td>$DBC$</td></tr>
+    <tr><td>$ADB$</td><td>$BDA$</td><td>$CDB$</td><td>$DCB$</td></tr>
     </table> 
 </div>
            
