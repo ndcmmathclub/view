@@ -5,7 +5,8 @@ const CLUB_PHOTOS = [
     "./assets/IMG_7932-1536x1024.jpg",
     "./assets/MG_7941-1536x1024.jpg",
     "./assets/IMG_7986-1536x1024.jpg.jpeg",
-    "./assets/IMG_0009-1-1536x1024.jpg.jpeg"
+    "./assets/IMG_0009-1-1536x1024.jpg.jpeg",
+    "./assets/WhatsApp Image 2026-05-08 at 10.31.24 AM.jpeg"
 ];
 
 const SITE_DATA = {
@@ -242,6 +243,8 @@ const ARTICLES = [
     <tr><td>$ADB$</td><td>$BDA$</td><td>$CDB$</td><td>$DCB$</td></tr>
     </table> 
 </div>
+
+<p>দেখা যাচ্ছে সর্বমোট ৪ জনের দল থেকে ২৪ উপায়ে ৩ জনের দল নিয়ে প্রথম, দ্বিতীয় ও তৃতীয় অবস্থান নির্ণয় করা যায়। এই বিষয়টাকেই বলা হয় বিন্যাস। আরেকটু খেয়াল করলে দেখা যাবে আমি একটা সুনির্দিষ্ট নিয়ম মেনে কিন্তু বিন্যাসগুলো সাজিয়েছি, এলোমেলোভাবে সাজাইনি, মূলত এখানেই গণিতের সৌন্দর্য নিহিত। 
            
             <div class="bg-gray-100 p-6 rounded-xl my-6">
                <p class="font-semibold mb-2">৫. বিন্যাস (Permutation)</p>
