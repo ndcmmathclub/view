@@ -9,6 +9,28 @@ const CLUB_PHOTOS = [
     "./assets/WhatsApp Image 2026-05-08 at 10.31.24 AM.jpeg"
 ];
 
+const MESSAGES = [
+        {
+        role: { en: "Moderator's Message", bn: "পরিচালকের বাণী" },
+        name: { en: "Komol Chandra Sarker", bn: "কমল চন্দ্র সরকার" },
+        designation: { en: "Lecturer, Dept. of Mathematics", bn: "প্রভাষক, গণিত বিভাগ" },
+        content: {en: "The advancement of civilization has moved hand-in-hand with the progress of mathematics. Behind everything aesthetic that surrounds us, there lies the precise application of mathematical logic. Yet, in our childhood, mathematics is often presented to us as something fearsome, leaving an impact that lasts a lifetime. Consequently, the practical utility of math in our daily lives remains unknown. With the vision of highlighting its use in every stage of our daily existence and making mathematics a subject of joy for students, the Principal proposed the formation of a Math Club. Following this initiative, the Math Club began its journey on July 19, 2017.", 
+        bn: "গণিতের উন্নতির সাথে সাথে সভ্যতার উন্নতি হয়েছে। আমাদের চার পাশের যা কিছু নান্দনিক- এর অন্তরালে লুকিয়ে রয়েছে গাণিতিক যুক্তির সঠিক প্রয়োগ। অথচ শৈশবে আমাদের সামনে গণিতকে উপস্থাপন করা হয় ভীতিকর বিষয় হিসেবে। এর প্রভাব থেকে যায় সারা জীবন। ফলে গণিত আমাদের প্রাত্যহিক জীবনে কী কাজে লাগে তা অজানাই থেকে যায়। আমাদের দৈনন্দিন জীবনে প্রতিটি পর্যায়ে এর ব্যবহার ও গণিতকে আনন্দের বিষয় হিসেবে কিভাবে ছাত্রদের কাছে উপস্থাপন করা যায় সেই চিন্তা থেকে অধ্যক্ষ মহোদয় গণিত ক্লাবের প্রস্তাব করেন, এবং ১৯.০৭.২০১৭ তারিখ গণিত ক্লাবের শুরু হয।"
+        },
+        img: "./assets/committee/komol_sir.jpg"
+    },
+    {
+        role: { en: "President's Message", bn: "সভাপতির বাণী" },
+        name: { en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান" },
+        designation: { en: "President, NDCM Math Club", bn: "সভাপতি, এনডিসিএম গণিত ক্লাব" },
+        content: {
+            en: "It is a great privilege to lead this community of passionate learners. Our club is dedicated to breaking the stigma around mathematics and making it a subject of joy rather than fear. I firmly believe that knowledge is attained through collaboration rather than competition. This requires a collective effort and a mindset of mutual respect, through which we can realize the true greatness of mathematics, making it applicable at all levels of society to tackle various social challenges. Mathematics inspires us to solve problems; once that problem-solving mindset is established, there is no looking back. With this very spirit, we shall strive to solve the diverse problems of today’s world.",
+            bn: "আগ্রহী শিক্ষার্থীদের এই সংগঠনে নেতৃত্ব দেওয়া আমার জন্য এক বড় পাওয়া। আমাদের ক্লাবের মূল লক্ষ্য হলো গণিত বিষয়ক ভীতি দূর করে একে আনন্দের বিষয়ে পরিণত করা। আমরা সহযোগিতামূলক শিক্ষায় বিশ্বাসী। কারণ আমি এটা বিশ্বাস করি, প্রতিযোগিতা নয়, বরং সহযোগিতার মাধ্যমেই জ্ঞান অর্জন সম্ভব যার জন্য প্রয়োজন সম্মিলিত প্রচেষ্টা ও একে অপরকে সম্মান করার মানসিকতা যার মাধ্যমে গণিতের মাহাত্ম্য আমরা উপলব্ধি করে তা সমাজের সর্বস্তরে ব্যবহার উপযোগী করে তুলতে পারি এবং বিভিন্ন সামাজিক সমস্যার মোকাবেলা করতে পারি। গণিত আমাদের সমস্যার সমাধান করতে উদবুদ্ধ করে, একবার যদি সমস্যা সমাধান করার মানসিকতা এসে যায়, এরপর আর কখনো পেছনে ফিরে তাকানো লাগবে না, এই মানসিকতা নিয়েই আজকের পৃথিবীর বিভিন্ন সমস্যা সমাধানে আমরা সচেষ্ট হবো।"
+        },
+        img: "./assets/IMG_3345.png"
+    }
+];
+
 const SITE_DATA = {
     name: { en: "Notre Dame College Math Club", bn: "নটর ডেম কলেজ গণিত ক্লাব" },
     college: { en: "Notre Dame College Mymensingh", bn: "নটর ডেম কলেজ ময়মনসিংহ" },
@@ -28,6 +50,7 @@ const SITE_DATA = {
 
 const DICTIONARY = {
     'home': { en: 'Home', bn: 'হোম' },
+    'messages': { en: 'Messages', bn: 'বাণী'},
     'events': { en: 'Events', bn: 'অনুষ্ঠানসমূহ' },
     'articles': { en: 'Articles', bn: 'প্রবন্ধ' },
     'resources': { en: 'Resources', bn: 'উপকরনসমূহ' },
@@ -486,7 +509,7 @@ function render() {
 }
 
 function renderHeader() {
-    const navLinks = ['HOME', 'EVENTS', 'ARTICLES', 'RESOURCES', 'COMMITTEE', 'CONTACT'];
+    const navLinks = ['HOME', 'MESSAGES', 'EVENTS', 'ARTICLES', 'RESOURCES', 'COMMITTEE', 'CONTACT'];
     const logoHtml = SITE_DATA.logo 
         ? `<img src="${SITE_DATA.logo}" alt="Logo" class="w-10 h-10 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform bg-white">`
         : `<div class="w-10 h-10 bg-ndcm-primary text-white rounded-full flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-ndcm-accent transition-colors">Σ</div>`;
@@ -539,6 +562,7 @@ function renderHeader() {
 function renderView() {
     switch(state.view) {
         case 'HOME': return renderHome();
+        case 'MESSAGES' : return renderMessages();
         case 'EVENTS': return renderEvents();
         case 'ARTICLES': return renderArticles();
         case 'ARTICLE_SINGLE': return renderSingleArticle();
@@ -649,6 +673,41 @@ function renderEvents() {
                             <button class="w-full md:w-auto px-6 py-2 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg hover:bg-slate-50 hover:border-ndcm-primary hover:text-ndcm-primary transition-all">
                                 ${t('rsvp')}
                             </button>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+function renderMessages() {
+    return `
+        <div class="fade-in max-w-5xl mx-auto px-4 py-12">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-slate-900 border-b-2 border-ndcm-gold inline-block pb-2">${t('messages')}</h2>
+                <p class="text-slate-500 mt-4 italic">Words from our leadership</p>
+            </div>
+            
+            <div class="space-y-24">
+                ${MESSAGES.map((msg, idx) => `
+                    <div class="flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center">
+                        <div class="w-full md:w-1/3">
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-ndcm-primary rounded-2xl transform rotate-3 scale-105 opacity-10"></div>
+                                <img src="${msg.img}" alt="${getLang(msg.name)}" class="relative w-full aspect-square object-cover rounded-2xl shadow-xl border-4 border-white">
+                            </div>
+                        </div>
+                        <div class="w-full md:w-2/3 message-card p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
+                            <div class="quote-mark">“</div>
+                            <h3 class="text-sm font-bold text-ndcm-gold uppercase tracking-widest mb-2">${getLang(msg.role)}</h3>
+                            <div class="article-content text-slate-700 text-lg leading-relaxed italic mb-8">
+                                ${getLang(msg.content)}
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900">${getLang(msg.name)}</h4>
+                                <p class="text-sm text-slate-500 font-medium">${getLang(msg.designation)}</p>
+                            </div>
                         </div>
                     </div>
                 `).join('')}

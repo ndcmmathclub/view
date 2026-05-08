@@ -87,3 +87,24 @@ table.combinatorics-table td {
 input:focus, textarea:focus {
     box-shadow: 0 0 0 2px rgba(26, 54, 93, 0.1);
 }
+
+.message-card {
+    position: relative;
+    background: #fff;
+    border-left: 4px solid var(--ndcm-primary);
+}
+
+.quote-mark {
+    font-family: serif;
+    font-size: 8rem;
+    line-height: 1;
+    position: absolute;
+    top: -2rem;
+    left: -1rem;
+    color: rgba(0, 0, 0, 0.12); /* Modern semi-transparent black */
+    pointer-events: none;
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0 0 0 2px rgba(123, 141, 169, 0.1);
+}
