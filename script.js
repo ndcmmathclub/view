@@ -22,7 +22,7 @@ const MESSAGES = [
     {
         role: { en: "President's Message", bn: "সভাপতির বাণী" },
         name: { en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান" },
-        designation: { en: "President, NDCM Math Club", bn: "সভাপতি, এনডিসিএম গণিত ক্লাব" },
+        designation: { en: "President, Math Club", bn: "সভাপতি, গণিত ক্লাব" },
         content: {
             en: "It is a great privilege to lead this community of passionate learners. Our club is dedicated to breaking the stigma around mathematics and making it a subject of joy rather than fear. I firmly believe that knowledge is attained through collaboration rather than competition. This requires a collective effort and a mindset of mutual respect, through which we can realize the true greatness of mathematics, making it applicable at all levels of society to tackle various social challenges. Mathematics inspires us to solve problems; once that problem-solving mindset is established, there is no looking back. With this very spirit, we shall strive to solve the diverse problems of today’s world.",
             bn: "আগ্রহী শিক্ষার্থীদের এই সংগঠনে নেতৃত্ব দেওয়া আমার জন্য এক বড় পাওয়া। আমাদের ক্লাবের মূল লক্ষ্য হলো গণিত বিষয়ক ভীতি দূর করে একে আনন্দের বিষয়ে পরিণত করা। আমরা সহযোগিতামূলক শিক্ষায় বিশ্বাসী। কারণ আমি এটা বিশ্বাস করি, প্রতিযোগিতা নয়, বরং সহযোগিতার মাধ্যমেই জ্ঞান অর্জন সম্ভব যার জন্য প্রয়োজন সম্মিলিত প্রচেষ্টা ও একে অপরকে সম্মান করার মানসিকতা যার মাধ্যমে গণিতের মাহাত্ম্য আমরা উপলব্ধি করে তা সমাজের সর্বস্তরে ব্যবহার উপযোগী করে তুলতে পারি এবং বিভিন্ন সামাজিক সমস্যার মোকাবেলা করতে পারি। গণিত আমাদের সমস্যার সমাধান করতে উদবুদ্ধ করে, একবার যদি সমস্যা সমাধান করার মানসিকতা এসে যায়, এরপর আর কখনো পেছনে ফিরে তাকানো লাগবে না, এই মানসিকতা নিয়েই আজকের পৃথিবীর বিভিন্ন সমস্যা সমাধানে আমরা সচেষ্ট হবো।"
