@@ -10,6 +10,15 @@ const CLUB_PHOTOS = [
 ];
 
 const MESSAGES = [
+    {
+        role: { en: "Co-Moderator's Message", bn: "সহ-পরিচালকের বাণী" },
+        name: { en: "Golam Zakaria Torun", bn: "গোলাম জাকারিয়া তরুণ" },
+        designation: { en: "Lecturer, Dept. of Mathematics", bn: "প্রভাষক, গণিত বিভাগ" },
+        content: {en: "Mathematics is not only about numbers; it is the language of logic, creativity and discovery. Our Math Club always strives to transform fear of mathematics into curiosity and passion. I hope this small initiative will inspire everyone to explore the beauty of mathematics beyond the classroom.", 
+        bn: "গণিত মানেই সংখ্যার সাথে সম্পৃক্ত কিছু না। এটা হলো যুক্তি, সৃজনশীলতা ও আবিষ্কারের ভাষা। আমাদের গণিত ক্লাব সবসময়ই গণিতের প্রতি ভীতিকে কৌতূহল ও ভালোবাসায় রূপান্তর করার চেষ্টা করে। আমি আশা করি, এই ক্ষুদ্র উদ্যোগটি শ্রেণি কার্যক্রমের গণ্ডি ছাড়িয়ে গণিতের সৌন্দর্য অন্বেষণ করতে সবাইকে অনুপ্রাণিত করবে।",
+        },
+        img: "./assets/committee/torun_sir.jpg"
+    },
         {
         role: { en: "Moderator's Message", bn: "পরিচালকের বাণী" },
         name: { en: "Komol Chandra Sarker", bn: "কমল চন্দ্র সরকার" },
@@ -390,7 +399,7 @@ const ARTICLES = [
 ];
 
 const COMMITTEE = [
-    { name: {en: "Golam Zakaria Torun", bn: "গোলাম জাকারিয়া তরুণ"}, pos: {en: "Founding Co-Moderator", bn: "প্রতিষ্ঠাকালীন সহ-পরিচালক"}, group: {en: 'Lecturer at Mathematics Department', bn: 'প্রভাষক, গণিত বিভাগ'}, img: "./assets/committee/tarun_sir.jpg" },
+    { name: {en: "Golam Zakaria Torun", bn: "গোলাম জাকারিয়া তরুণ"}, pos: {en: "Founding Co-Moderator", bn: "প্রতিষ্ঠাকালীন সহ-পরিচালক"}, group: {en: 'Lecturer at Mathematics Department', bn: 'প্রভাষক, গণিত বিভাগ'}, img: "./assets/committee/torun_sir.jpg" },
     { name: {en: "Komol Chandra Sarker", bn: "কমল চন্দ্র সরকার"}, pos: {en: "Moderator", bn: "পরিচালক"}, group: {en: 'Lecturer at Mathematics Department', bn: 'প্রভাষক, গণিত বিভাগ'}, img: "./assets/committee/komol_sir.jpg" },
     { name: {en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান"}, pos: {en: "President", bn: "সভাপতি"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "./assets/committee/radif.jpg" },
     { name: {en: "Fahmid Rahman Sakif", bn: "ফাহমিদ রহমান সাকিফ"}, pos: {en: "General Secretary", bn: "সাধারণ সম্পাদক"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=FS&backgroundColor=b45309" },
