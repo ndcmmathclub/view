@@ -390,7 +390,7 @@ const ARTICLES = [
 ];
 
 const COMMITTEE = [
-    { name: {en: "Golam Zakaria Tarun", bn: "গোলাম জাকারিয়া তরুণ"}, pos: {en: "Founding Co-Moderator", bn: "প্রতিষ্ঠাকালীন সহ-পরিচালক"}, group: {en: 'Lecturer at Mathematics Department', bn: 'প্রভাষক, গণিত বিভাগ'}, img: "./assets/committee/tarun_sir.jpg" },
+    { name: {en: "Golam Zakaria Torun", bn: "গোলাম জাকারিয়া তরুণ"}, pos: {en: "Founding Co-Moderator", bn: "প্রতিষ্ঠাকালীন সহ-পরিচালক"}, group: {en: 'Lecturer at Mathematics Department', bn: 'প্রভাষক, গণিত বিভাগ'}, img: "./assets/committee/tarun_sir.jpg" },
     { name: {en: "Komol Chandra Sarker", bn: "কমল চন্দ্র সরকার"}, pos: {en: "Moderator", bn: "পরিচালক"}, group: {en: 'Lecturer at Mathematics Department', bn: 'প্রভাষক, গণিত বিভাগ'}, img: "./assets/committee/komol_sir.jpg" },
     { name: {en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান"}, pos: {en: "President", bn: "সভাপতি"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "./assets/committee/radif.jpg" },
     { name: {en: "Fahmid Rahman Sakif", bn: "ফাহমিদ রহমান সাকিফ"}, pos: {en: "General Secretary", bn: "সাধারণ সম্পাদক"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=FS&backgroundColor=b45309" },
