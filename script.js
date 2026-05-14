@@ -11,7 +11,7 @@ const CLUB_PHOTOS = [
 
 const MESSAGES = [
     {
-        role: { en: "Co-Moderator's Message", bn: "সহ-পরিচালকের বাণী" },
+        role: { en: "Founding Co-Moderator's Message", bn: "প্রতিষ্ঠাকালীন সহ-পরিচালকের বাণী" },
         name: { en: "Golam Zakaria Torun", bn: "গোলাম জাকারিয়া তরুণ" },
         designation: { en: "Lecturer, Dept. of Mathematics", bn: "প্রভাষক, গণিত বিভাগ" },
         content: {en: "Mathematics is not only about numbers; it is the language of logic, creativity and discovery. Our Math Club always strives to transform fear of mathematics into curiosity and passion. I hope this small initiative will inspire everyone to explore the beauty of mathematics beyond the classroom.", 
