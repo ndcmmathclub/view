@@ -267,7 +267,7 @@ const ARTICLES = [
     </table> 
 </div>
 
-<p>দেখা যাচ্ছে সর্বমোট ৪ জনের দল থেকে ২৪ উপায়ে ৩ জনের দল নিয়ে প্রথম, দ্বিতীয় ও তৃতীয় অবস্থান নির্ণয় করা যায়। এই বিষয়টাকেই বলা হয় বিন্যাস। আরেকটু খেয়াল করলে দেখা যাবে আমি একটা সুনির্দিষ্ট নিয়ম মেনে কিন্তু বিন্যাসগুলো সাজিয়েছি, এলোমেলোভাবে সাজাইনি, মূলত এখানেই গণিতের সৌন্দর্য নিহিত। 
+<p>দেখা যাচ্ছে সর্বমোট ৪ জনের দল থেকে ২৪ উপায়ে ৩ জনের দল নিয়ে প্রথম, দ্বিতীয় ও তৃতীয় অবস্থান নির্ণয় করা যায়। আবার ভালো করে খেয়াল করলে দেখা যাবে $ABC$, $BAC$ এবং $CAB$ এক নয় কারণ তারা প্রত্যেকে আলাদা আলাদা উপায়। এই ২৪ টি সম্ভাব্য নির্বাচনের উপায়কেই বলা বলা হয় বিন্যাস। আরেকটু খেয়াল করলে দেখা যাবে আমি একটা সুনির্দিষ্ট নিয়ম মেনে কিন্তু বিন্যাসগুলো সাজিয়েছি, এলোমেলোভাবে সাজাইনি, মূলত এখানেই গণিতের সৌন্দর্য নিহিত। 
            
             <div class="bg-gray-100 p-6 rounded-xl my-6">
                <p class="font-semibold mb-2">৫. বিন্যাস (Permutation)</p>
@@ -390,6 +390,7 @@ const ARTICLES = [
 ];
 
 const COMMITTEE = [
+    { name: {en: "Golam Zakaria Tarun", bn: "গোলাম জাকারিয়া তরুণ"}, pos: {en: "Founding Co-Moderator", bn: "প্রতিষ্ঠাকালীন সহ-পরিচালক"}, group: {en: 'Lecturer at Mathematics Department', bn: 'প্রভাষক, গণিত বিভাগ'}, img: "./assets/committee/tarun_sir.jpg" },
     { name: {en: "Komol Chandra Sarker", bn: "কমল চন্দ্র সরকার"}, pos: {en: "Moderator", bn: "পরিচালক"}, group: {en: 'Lecturer at Mathematics Department', bn: 'প্রভাষক, গণিত বিভাগ'}, img: "./assets/committee/komol_sir.jpg" },
     { name: {en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান"}, pos: {en: "President", bn: "সভাপতি"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "./assets/committee/radif.jpg" },
     { name: {en: "Fahmid Rahman Sakif", bn: "ফাহমিদ রহমান সাকিফ"}, pos: {en: "General Secretary", bn: "সাধারণ সম্পাদক"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=FS&backgroundColor=b45309" },
