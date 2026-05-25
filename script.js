@@ -1,7 +1,10 @@
 const FORMSPREE_ID = "xdkvyoqy"; 
 
 const CLUB_PHOTOS = [
+    "./asstes/IMG_3432.png",
     "./assets/IMG_20260506_130711.jpg.jpeg",
+    "./asstes/IMG_3451.jpg",
+    "./asstes/IMG_3423.jpg",
     "./assets/IMG_7932-1536x1024.jpg",
     "./assets/MG_7941-1536x1024.jpg",
     "./assets/IMG_7986-1536x1024.jpg.jpeg",
@@ -26,7 +29,7 @@ const MESSAGES = [
         content: {en: "The advancement of civilization has moved hand-in-hand with the progress of mathematics. Behind everything aesthetic that surrounds us, there lies the precise application of mathematical logic. Yet, in our childhood, mathematics is often presented to us as something fearsome, leaving an impact that lasts a lifetime. Consequently, the practical utility of math in our daily lives remains unknown. With the vision of highlighting its use in every stage of our daily existence and making mathematics a subject of joy for students, the Principal proposed the formation of a Math Club. Following this initiative, the Math Club began its journey on July 19, 2017.", 
         bn: "গণিতের উন্নতির সাথে সাথে সভ্যতার উন্নতি হয়েছে। আমাদের চার পাশের যা কিছু নান্দনিক- এর অন্তরালে লুকিয়ে রয়েছে গাণিতিক যুক্তির সঠিক প্রয়োগ। অথচ শৈশবে আমাদের সামনে গণিতকে উপস্থাপন করা হয় ভীতিকর বিষয় হিসেবে। এর প্রভাব থেকে যায় সারা জীবন। ফলে গণিত আমাদের প্রাত্যহিক জীবনে কী কাজে লাগে তা অজানাই থেকে যায়। আমাদের দৈনন্দিন জীবনে প্রতিটি পর্যায়ে এর ব্যবহার ও গণিতকে আনন্দের বিষয় হিসেবে কিভাবে ছাত্রদের কাছে উপস্থাপন করা যায় সেই চিন্তা থেকে অধ্যক্ষ মহোদয় গণিত ক্লাবের প্রস্তাব করেন, এবং ১৯.০৭.২০১৭ তারিখ গণিত ক্লাবের শুরু হয।"
         },
-        img: "./assets/committee/komol_sir.jpg"
+        img: "./assets/IMG_3423.png"
     },
     {
         role: { en: "President's Message", bn: "সভাপতির বাণী" },
@@ -394,20 +397,37 @@ const ARTICLES = [
            <p class="text-slate-700">In our Math Club, we regularly discuss fascinating combinatorial problems. Why not share your favorite one at our next meeting?</p>
        `
    }
-}
+},
+    {
+        id: 104,
+        title: { en: "How does finite shape become infinite?", bn: "সসীম ক্ষেত্রের ক্ষেত্রফল অসীম কি করে হলো?" },
+        author: { en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান" },
+        role: { en: "President", bn: "সভাপতি" },
+        date: { en: "Nov 26, 2025", bn: "২৬ নভেম্বর, ২০২৫" },
+        readTime: { en: "1 min read", bn: "১ মিনিট পাঠ" },
+        desc: { 
+            en: "Have you ever been thought, how do Equilateral Triangle and circle have infinite area?", 
+            bn: "একটি বৃত্তের কিংবা সমবাহু ত্রিভুজের ক্ষেত্রফল অসীম হয়, এটা কি ভেবে দেখেছো কখনো?" 
+        },
+        image: "https://miro.medium.com/v2/resize:fit:1400/1*XB_D-SxCetKz8f1-mFlAqg.png",
+        content: {
+            en: `<p>Have you ever been thought, how do Equilateral Triangle and circle have infinite area?</p>`,
+            bn: `<p>একটি বৃত্তের কিংবা সমবাহু ত্রিভুজের ক্ষেত্রফল অসীম হয়, এটা কি ভেবে দেখেছো কখনো?</p>`
+        }
+    }
 
 ];
 
 const COMMITTEE = [
     { name: {en: "Golam Zakaria Torun", bn: "গোলাম জাকারিয়া তরুণ"}, pos: {en: "Founding Co-Moderator", bn: "প্রতিষ্ঠাকালীন সহ-পরিচালক"}, group: {en: 'Lecturer at Mathematics Department', bn: 'প্রভাষক, গণিত বিভাগ'}, img: "./assets/committee/torun_sir.jpg" },
     { name: {en: "Komol Chandra Sarker", bn: "কমল চন্দ্র সরকার"}, pos: {en: "Moderator", bn: "পরিচালক"}, group: {en: 'Lecturer at Mathematics Department', bn: 'প্রভাষক, গণিত বিভাগ'}, img: "./assets/committee/komol_sir.jpg" },
-    { name: {en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান"}, pos: {en: "President", bn: "সভাপতি"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "./assets/committee/radif.jpg" },
-    { name: {en: "Fahmid Rahman Sakif", bn: "ফাহমিদ রহমান সাকিফ"}, pos: {en: "General Secretary", bn: "সাধারণ সম্পাদক"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=FS&backgroundColor=b45309" },
-    { name: {en: "Arif Mahmud Fahad", bn: "আরিফ মাহমুদ ফাহাদ"}, pos: {en: "Organizing Secretary", bn: "সাংগঠনিক সম্পাদক"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "./assets/committee/fahad.jpg" },
-    { name: {en: "Syedul Mursalin", bn: "সাইয়্যেদুল মুরসালিন"}, pos: {en: "General Member Representative", bn: "সাধারণ সদস্য প্রতিনিধি"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "./assets/committee/mursalin.jpg" },
-    { name: {en: "Yasir Amir", bn: "ইয়াসির আমির"}, pos: {en: "Publicity Secretary", bn: "প্রচার সম্পাদক"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=YA&backgroundColor=b45309" },
-    { name: {en: "Siyam Sheikh", bn: "সিয়াম শেখ"}, pos: {en: "Treasurer", bn: "কোষাধ্যক্ষ"}, group: {en: 'Science 1', bn: 'বিজ্ঞান ১'}, img: "./assets/committee/siyam.png" },
-    { name: {en: "Md Tamim Hasan", bn: "মোঃ তামিম হাসান"}, pos: {en: "Educational Tour Secretary", bn: "শিক্ষা সফর বিষয়ক সম্পাদক"}, group: {en: 'Science 2', bn: 'বিজ্ঞান ২'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=TH&backgroundColor=b45309" }
+    { name: {en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান"}, pos: {en: "President", bn: "সভাপতি"}, group: {en: '1271064', bn: '১২৭১০৬৪'}, img: "./assets/committee/radif.jpg" },
+    { name: {en: "Syedul Mursalin", bn: "সাইয়্যেদুল মুরসালিন"}, pos: {en: "General Secretary", bn: "সাধারণ সম্পাদক"}, group: {en: '1271002', bn: '১২৭১০০২'}, img: "./assets/committee/mursalin.jpg" },
+    { name: {en: "Arif Mahmud Fahad", bn: "আরিফ মাহমুদ ফাহাদ"}, pos: {en: "Organizing Secretary", bn: "সাংগঠনিক সম্পাদক"}, group: {en: '1271065', bn: '১২৭১০৬৫'}, img: "./assets/committee/fahad.jpg" },
+    { name: {en: "Abdur Rahim", bn: "আব্দুল রহিম"}, pos: {en: "General Member Representative", bn: "সাধারণ সদস্য প্রতিনিধি"}, group: {en: '1275025', bn: '১২৭৫০২৫'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=AR&backgroundColor=b45309" },
+    { name: {en: "Yasir Amir", bn: "ইয়াসির আমির"}, pos: {en: "Publicity Secretary", bn: "প্রচার সম্পাদক"}, group: {en: '1274029', bn: '১২৭১০২৯'}, img: "./assets/committee/yasir.jpg" },
+    { name: {en: "Md Fuad Hasan", bn: "মোঃ ফুয়াদ হাসান"}, pos: {en: "Treasurer", bn: "কোষাধ্যক্ষ"}, group: {en: '1274064', bn: '১২৭৪০৬৪'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=FH&backgroundColor=b45309" },
+    { name: {en: "Md Tamim Hasan", bn: "মোঃ তামিম হাসান"}, pos: {en: "Educational Tour Secretary", bn: "শিক্ষা সফর বিষয়ক সম্পাদক"}, group: {en: '1272065', bn: '১২৭২০৬৫'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=TH&backgroundColor=b45309" }
 ];
 
 let state = {
