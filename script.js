@@ -1,15 +1,15 @@
 const FORMSPREE_ID = "xdkvyoqy"; 
 
 const CLUB_PHOTOS = [
-    "./asstes/IMG_3432.png",
-    "./assets/IMG_20260506_130711.jpg.jpeg",
-    "./asstes/IMG_3451.jpg",
-    "./asstes/IMG_3423.jpg",
-    "./assets/IMG_7932-1536x1024.jpg",
-    "./assets/MG_7941-1536x1024.jpg",
-    "./assets/IMG_7986-1536x1024.jpg.jpeg",
-    "./assets/IMG_0009-1-1536x1024.jpg.jpeg",
-    "./assets/WhatsApp Image 2026-05-08 at 10.31.24 AM.jpeg"
+    "./assets/activities/image-01.jpeg",
+    "./assets/activities/image-02.jpeg",
+    "./assets/activities/image-03.jpeg",
+    "./assets/activities/image-04.jpeg",
+    "./assets/activities/image-05.jpeg",
+    "./assets/activities/image-06.jpeg",
+    "./assets/activities/image-07.jpeg",
+    "./assets/activities/image-08.jpeg",
+    "./assets/activities/image-09.jpeg"
 ];
 
 const MESSAGES = [
@@ -29,7 +29,7 @@ const MESSAGES = [
         content: {en: "The advancement of civilization has moved hand-in-hand with the progress of mathematics. Behind everything aesthetic that surrounds us, there lies the precise application of mathematical logic. Yet, in our childhood, mathematics is often presented to us as something fearsome, leaving an impact that lasts a lifetime. Consequently, the practical utility of math in our daily lives remains unknown. With the vision of highlighting its use in every stage of our daily existence and making mathematics a subject of joy for students, the Principal proposed the formation of a Math Club. Following this initiative, the Math Club began its journey on July 19, 2017.", 
         bn: "গণিতের উন্নতির সাথে সাথে সভ্যতার উন্নতি হয়েছে। আমাদের চার পাশের যা কিছু নান্দনিক- এর অন্তরালে লুকিয়ে রয়েছে গাণিতিক যুক্তির সঠিক প্রয়োগ। অথচ শৈশবে আমাদের সামনে গণিতকে উপস্থাপন করা হয় ভীতিকর বিষয় হিসেবে। এর প্রভাব থেকে যায় সারা জীবন। ফলে গণিত আমাদের প্রাত্যহিক জীবনে কী কাজে লাগে তা অজানাই থেকে যায়। আমাদের দৈনন্দিন জীবনে প্রতিটি পর্যায়ে এর ব্যবহার ও গণিতকে আনন্দের বিষয় হিসেবে কিভাবে ছাত্রদের কাছে উপস্থাপন করা যায় সেই চিন্তা থেকে অধ্যক্ষ মহোদয় গণিত ক্লাবের প্রস্তাব করেন, এবং ১৯.০৭.২০১৭ তারিখ গণিত ক্লাবের শুরু হয।"
         },
-        img: "./assets/IMG_3423.png"
+        img: "./assets/committee/IMG_3423.jpeg"
     },
     {
         role: { en: "President's Message", bn: "সভাপতির বাণী" },
@@ -39,14 +39,14 @@ const MESSAGES = [
             en: "It is a great privilege to lead this community of passionate learners. Our club is dedicated to breaking the stigma around mathematics and making it a subject of joy rather than fear. I firmly believe that knowledge is attained through collaboration rather than competition. This requires a collective effort and a mindset of mutual respect, through which we can realize the true greatness of mathematics, making it applicable at all levels of society to tackle various social challenges. Mathematics inspires us to solve problems; once that problem-solving mindset is established, there is no looking back. With this very spirit, we shall strive to solve the diverse problems of today’s world.",
             bn: "আগ্রহী শিক্ষার্থীদের এই সংগঠনে নেতৃত্ব দেওয়া আমার জন্য এক বড় পাওয়া। আমাদের ক্লাবের মূল লক্ষ্য হলো গণিত বিষয়ক ভীতি দূর করে একে আনন্দের বিষয়ে পরিণত করা। আমরা সহযোগিতামূলক শিক্ষায় বিশ্বাসী। কারণ আমি এটা বিশ্বাস করি, প্রতিযোগিতা নয়, বরং সহযোগিতার মাধ্যমেই জ্ঞান অর্জন সম্ভব যার জন্য প্রয়োজন সম্মিলিত প্রচেষ্টা ও একে অপরকে সম্মান করার মানসিকতা যার মাধ্যমে গণিতের মাহাত্ম্য আমরা উপলব্ধি করে তা সমাজের সর্বস্তরে ব্যবহার উপযোগী করে তুলতে পারি এবং বিভিন্ন সামাজিক সমস্যার মোকাবেলা করতে পারি। গণিত আমাদের সমস্যার সমাধান করতে উদবুদ্ধ করে, একবার যদি সমস্যা সমাধান করার মানসিকতা এসে যায়, এরপর আর কখনো পেছনে ফিরে তাকানো লাগবে না, এই মানসিকতা নিয়েই আজকের পৃথিবীর বিভিন্ন সমস্যা সমাধানে আমরা সচেষ্ট হবো।"
         },
-        img: "./assets/IMG_3345.png"
+        img: "./assets/committee/IMG_3345.jpeg"
     }
 ];
 
 const SITE_DATA = {
     name: { en: "Notre Dame College Math Club", bn: "নটর ডেম কলেজ গণিত ক্লাব" },
     college: { en: "Notre Dame College Mymensingh", bn: "নটর ডেম কলেজ ময়মনসিংহ" },
-    logo: "./assets/logo.jpg", 
+    logo: "./assets/logo/logo.jpg", 
     email: "ndcmmathclub@gmail.com",
     address: { en: "City Bypass, Barera, Mymensingh", bn: "সিটি বাইপাস, বাড়েরা, ময়মনসিংহ" },
     copyright: { en: "All rights reserved.", bn: "সর্বস্বত্ত্ব সংরক্ষিত।"},
@@ -403,16 +403,60 @@ const ARTICLES = [
         title: { en: "How does finite shape become infinite?", bn: "সসীম ক্ষেত্রের ক্ষেত্রফল অসীম কি করে হলো?" },
         author: { en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান" },
         role: { en: "President", bn: "সভাপতি" },
-        date: { en: "Nov 26, 2025", bn: "২৬ নভেম্বর, ২০২৫" },
-        readTime: { en: "1 min read", bn: "১ মিনিট পাঠ" },
+        date: { en: "Mar 06, 2026", bn: "৬ মার্চ, ২০২৬" },
+        readTime: { en: "4 min read", bn: "৪ মিনিট পাঠ" },
         desc: { 
-            en: "Have you ever been thought, how do Equilateral Triangle and circle have infinite area?", 
+            en: "Have you ever been thought, how do Equilateral Triangle and Circle have infinite area?", 
             bn: "একটি বৃত্তের কিংবা সমবাহু ত্রিভুজের ক্ষেত্রফল অসীম হয়, এটা কি ভেবে দেখেছো কখনো?" 
         },
         image: "https://miro.medium.com/v2/resize:fit:1400/1*XB_D-SxCetKz8f1-mFlAqg.png",
         content: {
-            en: `<p>Have you ever been thought, how do Equilateral Triangle and circle have infinite area?</p>`,
-            bn: `<p>একটি বৃত্তের কিংবা সমবাহু ত্রিভুজের ক্ষেত্রফল অসীম হয়, এটা কি ভেবে দেখেছো কখনো?</p>`
+            en: `<p>The area of an equilateral triangle or circle becomes infinite, have you ever been thought about this? We know the formulas of finding the area of a circle is $ \\pi r^2 $ and equilateral triangle is $ \\frac{\\sqrt{3}}{4}a^2$. Here one thing becomes crystal clear that $\\sqrt{3}$ and $\\pi$ are irrational numbers. Which are the irrational numbers? The numbers that can't be expressed through $\\frac{p}{q}$ form are called irrational numbers. The detailed proof of irrational number in the first chapter of secondary school's general mathematics is particularly noteworthy. 
+            Yet, the proof has been given below for the convenience of the readers-
+           <div class="bg-gray-100 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">⧉ Prove that $\\sqrt{3}$ is an irrational number.</p>
+             <p>Let $\\sqrt{3}$ be rational number।<br>Then such two co-prime numbers to each other $p, q > 1$ will exist so that, $$\\sqrt{3} = \\frac{p}{q} \\implies 3 = \\frac{p^2}{q^2} \\implies 3q = \\frac{p^2}{q}$$<br> Clearly $3q$ is an integer but $\\frac{p^2}{q}$ is not an integer, because $p$ and $q$ are natural numbers, they are co-prime to each other and $q > 1$. Since $3q \\ne \\frac{p^2}{q}$, that's why $\\sqrt{3} \\ne \\frac{p}{q}$. <br> Therefore $\\sqrt{3}$ is an irrational number.</p>
+           </div>
+           Expressing irrational numbers into decimal numbers never end (infinite) and numbers after decimal point never repeat maintaining any special structures or loop (non-repeatant) at all and they are not perfect square (i.e. $2, 3, 4, $) such numbers are called irrational numbers. The reason behind talking too much is only one, and that is making you undestand and finding out the areas of equilateral triangle and circle are not infinite. Let an example be give, Let's assume an equilitteral triangle's length is $5$ unit. Then the area would be $ \\frac{\\sqrt{3}}{4} a^2 = \\frac{\\sqrt{3}}{4} 5^2 \\implies \\frac{\\sqrt{3}}{4} 5^2 = 10.825...$
+           and by the same way, the area of a circle can be found $ \\pi r^2 = \\pi \\times 5^2 \\implies \\pi \\times 5^2 = 78.539...$ and here for two cases irregular loop will be continued infinitely although if they are colored, they are filled with colors but problem arises while finding the areas. Why this happens? 
+                      <div class="bg-gray-100 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2"><img src="./assets/articles/shape.jpg" alt="Description of image" style="display: block; margin-left: auto; margin-right: auto; width: 500px; height: auto;">
+</p>
+           </div>
+That is why this article is titled, "Why is the Area of a Finite Shape Infinite?" The answer is very simple you know! The finite shape doesn't have infinite area. The answer is simple it is because of the limitations of measurement in our standard number system. The area of a finite shape is not actually infinite. The numbers representing the areas of the triangle and circle calculated above are infinite in length, but the actual area itself is not infinite. These numbers are actually finite—meaning their values are specific and bounded. It only seems like the area is infinite because their decimal forms are non-terminating and non-repeating (irrational). 
+In the decimal system, we break numbers down into powers of 10. However, the geometric ratios of a circle and an equilateral triangle ($\\pi$ and $\\sqrt{3}$) cannot be expressed cleanly using our standard base-10 counting system.
+           <div class="bg-gray-100 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">⧉ Traditional base-$10$ counting system at a glance-</p>
+               <p>$123.45 = 1 \\times 10^{2} + 2 \\times 10^{1} + 3 \\times 10^{0} + 4 \\times 10^{-1} + 5 \\times 10^{-2}$</p>
+           </div>
+
+If it could be expressed that way, the area would seem finite to us. Therefore, when calculating the area, it is better to keep it in terms of $\\pi$ or $\\sqrt{3}$ (such as $9\\pi$ or $4\sqrt{3}$). Otherwise, if you try to find the exact value, their numerical expression in decimals becomes infinite.    </p>`,
+
+
+
+            bn: `<p>একটি বৃত্তের কিংবা সমবাহু ত্রিভুজের ক্ষেত্রফল অসীম হয়, এটা কি ভেবে দেখেছো কখনো? আমরা জানি বৃত্তের ক্ষেত্রফল নির্ণয়ের সূত্র $ \\pi r^2 $ এবং সমবাহু ত্রিভুজের ক্ষেত্রফল নির্ণয়ের সূত্র $ \\frac{\\sqrt{3}}{4}a^2$। এখানে একটা বিষয় প্রতীয়মান হয়ে উঠে যে $\\sqrt{3}$ এবং $\\pi$ অমূলদ সংখ্যা। অমূলদ সংখ্যা কোনগুলো? যেই সংখ্যাগুলোকে $\\frac{p}{q}$ আকারে প্রকাশ করা যায়না সেগুলোই অমূলদ সংখ্যা। মাধ্যমিক সাধারণ গণিতের প্রথম অধ্যায়ে এর বিস্তারিত প্রমাণ বিশেষভাবে দ্রষ্টব্য। পাঠকদের সুবিধার্থে এরপরেও প্রমাণটি নিচে দেওয়া হলো-
+
+
+           <div class="bg-gray-100 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">⧉ প্রমাণ করো যে $\\sqrt{3}$ একটি অমূলদ সংখ্যা</p>
+             <p>ধরি $\\sqrt{3}$ মূলদ সংখ্যা।<br>তাহলে এমন দুইটি পরস্পর সহমৌলিক স্বাভাবিক সংখ্যা $p, q > 1$ থাকবে যে, $$\\sqrt{3} = \\frac{p}{q} \\implies 3 = \\frac{p^2}{q^2} \\implies 3q = \\frac{p^2}{q}$$<br> স্পষ্টত $3q$ পূর্ণসংখ্যা কিন্তু $\\frac{p^2}{q}$ পূর্ণসংখ্যা নয়, কারণ $p$ ও $q$ স্বাভাবিক সংখ্যা, এরা পরস্পর সহমৌলিক এবং $q > 1$। যেহেতু $3q \\ne \\frac{p^2}{q}$, তাই $\\sqrt{3} \\ne \\frac{p}{q}$। <br> অতএব $\\sqrt{3}$ একটি অমূলদ সংখ্যা।</p>
+           </div>
+           অমূলদ সংখ্যাগুলোকে দশমিকে প্রকাশ করলে তা কখনোই শেষ হয় না (অসীম) এবং দশমিকের পরের সংখ্যাগুলো কোনো নির্দিষ্ট নিয়মে পুনরাবৃত্তি বা চক্রাকারে ঘুরে আসে না (অনাবৃত্ত) এবং পূর্ণবর্গ নয় (যেমন: ২, ৩, ৫, ৭) এমন যেকোনো সংখ্যার বর্গমূলই একটি অমূলদ সংখ্যা। এত পেঁচাল পারার পেছনে কারণ একটিই, সেটি হলো আমাদের বের করা বৃত্তের এবং সমবাহু ত্রিভুজের ক্ষেত্রফল যে অসীম না সেটি বোঝানো। একটি উদাহরণ দেওয়া যাক, ধরো একটি সমবাহু ত্রিভুজের দৈর্ঘ্য ৫ একক। তাহলে এর ক্ষেত্রফল হবে $ \\frac{\\sqrt{3}}{4} a^2 = \\frac{\\sqrt{3}}{4} 5^2 \\implies \\frac{\\sqrt{3}}{4} 5^2 = 10.825...$
+           এবং একইভাবে একই একক ব্যাসার্ধ বিশিষ্ট বৃত্তের ক্ষেত্রফল নির্ণয় করলে পাওয়া যায় $ \\pi r^2 = \\pi \\times 5^2 \\implies \\pi \\times 5^2 = 78.539...$ এবং এখানে উভয়ক্ষেত্রেই দশমিকের পর অনন্তকাল যাবত অনিয়মিত পুনরাবৃত্তি চলতেই থাকবে অথচ উভয় ক্ষেত্রকে রঙ করলে সেটি ভরাট হয়ে যায় কিন্তু ক্ষেত্রফল বের করতে গেলেই ঘটে বিপত্তি। এমনটা কেন হয়? 
+                      <div class="bg-gray-100 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2"><img src="./assets/articles/shape.jpg" alt="Description of image" style="display: block; margin-left: auto; margin-right: auto; width: 500px; height: auto;">
+</p>
+           </div>
+ঠিক এজন্যেই সমস্যাটির সাথে সামাঞ্জস্য রেখে লেখাটির নাম দেওয়া হয়েছে সসীম ক্ষেত্রের ক্ষেত্রফল অসীম কেন হয়? উত্তরটি সোজা, আমাদের প্রচলিত সংখ্যাপদ্ধতিতে পরিমাপের সীমাবদ্ধতার জন্য। সসীম ক্ষেত্রের ক্ষেত্রফল অসীম হয়না। উপরে বের করা ত্রিভুজ এবং বৃত্তের ক্ষেত্রফল নির্দেশক সংখ্যাগুলো অসীম কিন্তু প্রকৃতভাবে ক্ষেত্রফল অসীম নয়। এই সংখ্যাগুলোও কিন্তু সসীম অর্থাৎ এদের মান নির্দিষ্ট এবং সীমাবদ্ধ। শুধুমাত্র তাদের দশমিক প্রকাশ অসীম ও অনাবৃত্তি (non-terminating, non-repeating) হওয়ায় তা আমাদের কাছে মনে হয় ক্ষেত্রফল অসীম। দশমিক দশমিক পদ্ধতিতে আমরা সংখ্যাকে ১০-এর ঘাত হিসেবে ভাঙি। কিন্তু বৃত্ত এবং সমবাহু ত্রিভুজের জ্যামিতিক অনুপাত ($\\pi$ এবং $\\sqrt{3}$) 
+প্রচলিত ১০ ভিত্তিক গণনা পদ্ধতিতে সুন্দরভাবে প্রকাশ করা যায় না।
+
+           <div class="bg-gray-100 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">⧉ একনজরে প্রচলিত দশভিত্তিক গণনা পদ্ধতি</p>
+               <p>$123.45 = 1 \\times 10^{2} + 2 \\times 10^{1} + 3 \\times 10^{0} + 4 \\times 10^{-1} + 5 \\times 10^{-2}$</p>
+           </div>
+
+যদি প্রকাশ করা যেত তাহলে আমাদের কাছে ক্ষেত্রফলটা সসীমই মনে হতো। তাই ক্ষেত্রফল বের করার সময় $\\pi$ বা $\\sqrt{3}$ আকারে (যেমন $9\\pi$ কিংবা $4\\sqrt{3}$) রাখাটাই শ্রেয় অথবা মান বের করতে গেলে এজন্যই তাদের সাংখ্যিক প্রকাশ দশমিকে অসীম হয়ে যায়।
+    </p>`
         }
     }
 
