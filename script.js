@@ -179,7 +179,46 @@ const ARTICLES = [
         desc: { en: "One of the most interesting topics for mathematicians and computer scientists.", bn: "গণিতবিদ ও কম্পিউটার বিজ্ঞানীদের অন্যতম সবচেয়ে আগ্রহের বিষয়বস্তু" },
         image: "https://plus.unsplash.com/premium_photo-1753191396890-bb83bf96fc3c?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         content: {
-            en: `<p>Often called the most beautiful equation in mathematics...</p>`,
+            en: `<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">How it Works</h2>
+            <p class="mb-6">The Sieve of Eratosthenes finds all primes less than or equal to $n$. It iteratively marks the multiples of each prime number as composite (not prime), starting from $2$. The time complexity of this algorithm is $O(n \\log \\log n)$, making it incredibly fast.</p>
+            
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">C Implementation</h2>
+            <p class="mb-4">Here is the highlighted implementation written in C:</p>
+            
+            <div class="bg-slate-950 text-slate-100 p-6 rounded-xl my-6 font-mono text-sm overflow-x-auto whitespace-pre leading-relaxed shadow-lg">
+<span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span>
+<span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdbool.h&gt;</span>
+<span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;string.h&gt;</span>
+
+<span class="text-sky-400">void</span> <span class="text-indigo-300">sieveOfEratosthenes</span>(<span class="text-sky-400">int</span> n) {
+    <span class="text-slate-500">// Create a boolean array and initialize all entries as true.</span>
+    <span class="text-sky-400">bool</span> prime[n + <span class="text-pink-400">1</span>];
+    <span class="text-indigo-300">memset</span>(prime, <span class="text-sky-400">true</span>, <span class="text-sky-400">sizeof</span>(prime));
+
+    <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> p = <span class="text-pink-400">2</span>; p * p &lt;= n; p++) {
+        <span class="text-slate-500">// If prime[p] is not changed, then it is a prime</span>
+        <span class="text-sky-400">if</span> (prime[p] == <span class="text-sky-400">true</span>) {
+            <span class="text-slate-500">// Update all multiples of p greater than or equal to its square</span>
+            <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> i = p * p; i &lt;= n; i += p)
+                prime[i] = <span class="text-sky-400">false</span>;
+        }
+    }
+
+    <span class="text-slate-500">// Print all prime numbers</span>
+    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"Prime numbers up to %d are:\\n"</span>, n);
+    <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> p = <span class="text-pink-400">2</span>; p &lt;= n; p++) {
+        <span class="text-sky-400">if</span> (prime[p]) {
+            <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"%d "</span>, p);
+        }
+    }
+    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"\\n"</span>);
+}
+
+<span class="text-sky-400">int</span> <span class="text-indigo-300">main</span>() {
+    <span class="text-sky-400">int</span> n = <span class="text-pink-400">50</span>;
+    <span class="text-indigo-300">sieveOfEratosthenes</span>(n);
+    <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;
+}</div>`,
             bn: `<p>গণিতের সবচেয়ে সুন্দর সমীকরণ হিসেবে পরিচিত অয়লারের অভেদ পাঁচটি মৌলিক ধ্রুবককে সংযুক্ত করে:</p>`
         }
     },
