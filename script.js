@@ -171,7 +171,7 @@ const ARTICLES = [
     },
     {
         id: 102,
-        title: { en: "Prime Number", bn: "মৌলিক সংখ্যা" },
+        title: { en: "Number Theroy and Prime Number", bn: "সংখ্যাতত্ত্ব ও মৌলিক সংখ্যা" },
         author: { en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান" },
         role: { en: "President", bn: "সভাপতি" },
         date: { en: "Jan 13, 2026", bn: "১৩ জানুয়ারি, ২০২৬" },
@@ -189,12 +189,10 @@ const ARTICLES = [
 <span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span>
 <span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdbool.h&gt;</span>
 <span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;string.h&gt;</span>
-
 <span class="text-sky-400">void</span> <span class="text-indigo-300">sieveOfEratosthenes</span>(<span class="text-sky-400">int</span> n) {
     <span class="text-slate-500">// Create a boolean array and initialize all entries as true.</span>
     <span class="text-sky-400">bool</span> prime[n + <span class="text-pink-400">1</span>];
     <span class="text-indigo-300">memset</span>(prime, <span class="text-sky-400">true</span>, <span class="text-sky-400">sizeof</span>(prime));
-
     <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> p = <span class="text-pink-400">2</span>; p * p &lt;= n; p++) {
         <span class="text-slate-500">// If prime[p] is not changed, then it is a prime</span>
         <span class="text-sky-400">if</span> (prime[p] == <span class="text-sky-400">true</span>) {
@@ -219,7 +217,457 @@ const ARTICLES = [
     <span class="text-indigo-300">sieveOfEratosthenes</span>(n);
     <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;
 }</div>`,
-            bn: `<p>গণিতের সবচেয়ে সুন্দর সমীকরণ হিসেবে পরিচিত অয়লারের অভেদ পাঁচটি মৌলিক ধ্রুবককে সংযুক্ত করে:</p>`
+            bn: `<p>গণিতকে যদি বিজ্ঞানের রাণী বলা হয় তাহলে এই সংখ্যাতত্ত্বকে বলা হয় গণিতের রাণী। বর্তমান বিশ্বের যত প্রযুক্তি ও নিরাপত্তা ব্যবস্থা রয়েছে তার কেন্দ্রে রয়েছে এই সংখ্যাতত্ত্বের ব্যবহার। এমনকি এটিই গণিতরে সবচেয়ে প্রাচীন শাখা। প্রাচীন গ্রিস, ভারত, চীন ও মেসোপটেমিয়ার গণিতবিদরা হাজার হাজার বছর আগে থেকেই পূর্ণসংখ্যার (Integers) বিভিন্ন ধর্ম ও মৌলিক সংখ্যা নিয়ে চর্চা করে আসছেন। এমনকি বিখ্যাত গ্রীক গণিতবিদ ইউক্লিড (Euclid) খ্রিস্টপূর্ব ৩০০ অব্দেই মৌলিক সংখ্যার অসীমতার প্রমাণ দিয়েছিলেন।
+            সংখ্যাতত্ত্বের (Number Theory) বিকাশে মুসলিম ও ভারতীয় গণিতবিদদের অবদান অত্যন্ত সুদূরপ্রসারী ও মৌলিক। তাঁদের আবিষ্কার ছাড়া আজকের আধুনিক গণিত ও ডিজিটাল প্রযুক্তি অসম্পূর্ণ থেকে যেত।
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ হিন্দু (প্রাচীন ও মধ্যযুগীয় ভারতীয়) গণিতবিদদের অবদান</h3>
+        <p>ভারতীয় গণিতবিদদের সবচেয়ে বড় অবদান হলো পুরো গণিত শাস্ত্রের ভাষা বদলে দেওয়া।</p>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+            <span class="font-medium">শূন্য ($0$) ও স্থানিক মান নীতি (Decimal Positional System):</span> 
+            সংখ্যাতত্ত্বের ভিত্তি হলো সংখ্যা লেখার পদ্ধতি। ভারতীয় গণিতবিদরাই প্রথম শূন্য ($0$)-কে একটি স্বতন্ত্র সংখ্যা হিসেবে স্বীকৃতি দেন এবং ১০ ভিত্তিক স্থানিক মান পদ্ধতির পূর্ণাঙ্গ রূপ দেন, যা পুরো গণিতের গণনাকে সহজ করে তোলে।
+        </li>
+        <li>
+            <span class="font-medium">আর্যভট্ট (৪৭৬–৫৫০ খ্রিস্টাব্দ):</span> 
+            তিনি প্রথম রৈখিক ডায়োফ্যান্টাইন সমীকরণ ($ax + by = c$) সমাধানের জন্য "কুট্টক" (Kuttaka) নামক একটি অ্যালগরিদম তৈরি করেন, যা মডুলার অ্যারিথমেটিকের (Modular Arithmetic) একটি আদি ও অত্যন্ত শক্তিশালী রূপ।
+        </li>
+        <li>
+            <span class="font-medium">ব্রহ্মগুপ্ত (৫৯৮–৬৬৮ খ্রিস্টাব্দ):</span> 
+            তিনি ঋণাত্মক সংখ্যা (Negative numbers) এবং শূন্য দিয়ে গণনার সঠিক নিয়ম লিপিবদ্ধ করেন। এছাড়া, অনির্ণেয় দ্বিতীয় ঘাতের সমীকরণ (যা ভুলবশত পরে 'Pell's Equation' নামে পরিচিত হয়, $Nx^2 + 1 = y^2$) সমাধানের জন্য তিনি "ভাবনা" (Bhavana) নামক একটি সমাকলন পদ্ধতি আবিষ্কার করেন।
+        </li>
+        <li>
+            <span class="font-medium">দ্বিতীয় ভাস্করাচার্য (১১১৪–১১৮৫ খ্রিস্টাব্দ):</span> 
+            ব্রহ্মগুপ্তের কাজকে আরও একধাপ এগিয়ে নিয়ে তিনি "চক্রবাল পদ্ধতি" (Chakravala method) আবিষ্কার করেন। এটি Pell's Equation সমাধানের এমন এক অদ্বিতীয় পদ্ধতি ছিল, যা ইউরোপীয় গণিতবিদরা (যেমন ফার্মাট বা ল্যাগ্রাঞ্জ) তার প্রায় ৫০০ বছর পর সমাধান করতে পেরেছিলেন।
+        </li>
+    </ol>
+</div>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ মুসলিম (ইসলামিক স্বর্ণযুগ) গণিতবিদদের অবদান</h3>
+    <p>ইসলামিক স্বর্ণযুগে (৮ম–১৪শ শতাব্দী) বাগদাদের বাইতুল হিকমাহ-কে কেন্দ্র করে মুসলিম গণিতবিদরা ভারতীয় ও গ্রীক গণিতকে একত্রিত করেন এবং সংখ্যাতত্ত্বে অভূতপূর্ব উন্নতি সাধন করেন।</p>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+            <span class="font-medium">আল-খাওয়ারিজমি (৭৮০–৮৫০ খ্রিস্টাব্দ):</span> তাঁকে বীজগণিতের (Algebra) জনক বলা হয়। তিনি ভারতীয় দশমিক পদ্ধতি ও শূন্যের ব্যবহার নিয়ে 'কিতাব আল-জ্যাম ওয়া'ল-তাফরিক বি-হিসাব আল-হিন্দ' বইটি লেখেন। এই বইটির আরবি থেকে লাতিন অনুবাদের মাধ্যমেই ইউরোপীয়রা প্রথম আধুনিক সংখ্যা পদ্ধতির পরিচয় পায় (যাকে আজ 'Arabic Numerals' বলা হয়)।        
+            </li>
+        <li>
+            <span class="font-medium">থাবিত ইবনে কুররা (৮২৬–৯০১ খ্রিস্টাব্দ):</span> 
+সংখ্যাতত্ত্বের একটি অন্যতম সুন্দর শাখা হলো 'বন্ধুত্বপূর্ণ সংখ্যা' (Amicable Numbers)—এমন দুটি সংখ্যা যার একটির প্রকৃত উৎপাদকগুলোর যোগফল অন্যটির সমান হয়। থাবিত ইবনে কুররা এমন সংখ্যা জোড়া খুঁজে বের করার জন্য একটি সাধারণ উপপাদ্য (Thabit's Theorem) আবিষ্কার করেন, যা সংখ্যাতত্ত্বের ইতিহাসের অন্যতম মাইলফলক।        </li>
+        <li>
+            <span class="font-medium">আল-কারাজি (৯৫৩–১০২৯ খ্রিস্টাব্দ):</span> 
+            তিনি সংখ্যাতত্ত্বে গাণিতিক আরোহ পদ্ধতি (Mathematical Induction)-র আদি রূপ ব্যবহার করেন এবং ১ থেকে $n$ পর্যন্ত ঘনসংখ্যার যোগফল ($1^3 + 2^3 + ... + n^3 = (1 + 2 + ... + n)^2$) প্রমাণ করেন।
+        </li>
+        <li>
+            <span class="font-medium">ইবনে আল-হাইসাম (৯৬৫–১০৪০ খ্রিস্টাব্দ):</span> 
+সংখ্যাতত্ত্বের অত্যন্ত গুরুত্বপূর্ণ "উইলসন উপপাদ্য" (Wilson's Theorem)—যা মৌলিক সংখ্যা (Prime numbers) শনাক্ত করতে ব্যবহৃত হয়—ইউরোপের জন উইলসন ১৭৭০ সালে দাবি করার বহু আগেই ইবনে আল-হাইসাম এটি সুস্পষ্টভাবে উল্লেখ ও প্রয়োগ করেছিলেন।        
+       </li>
+        <li>
+            <span class="font-medium">কামালাদ্দীন আল-ফারিসি (১২৬৭–১৩১৯ খ্রিস্টাব্দ):</span> 
+তিনি ইউক্লিডের মৌলিক সংখ্যা সংক্রান্ত তত্ত্বগুলোকে আরও সম্প্রসারিত করেন এবং গাণিতিক মৌলিক উপপাদ্যের (Fundamental Theorem of Arithmetic) প্রাথমিক রূপ প্রদান করেন, যেখানে বলা হয়—প্রতিটি যৌগিক সংখ্যাকে মৌলিক সংখ্যার অনন্য গুণফল হিসেবে প্রকাশ করা যায়।       </li>
+    </ol>
+</div>
+
+এখন আসি এই সংখ্যাতত্ত্বে ব্যবহার প্রসঙ্গে। দীর্ঘদিন ধরে সংখ্যা তত্ত্বকে "বিশুদ্ধ গণিত" (Pure Mathematics) মনে করা হতো এবং বলা হতো এর কোনো বাস্তব বা বাণিজ্যিক ব্যবহার নেই। কিন্তু আধুনিক তথ্যপ্রযুক্তির যুগে সংখ্যা তত্ত্ব আমাদের দৈনন্দিন জীবনের সাথে ওতপ্রোতভাবে জড়িত এবং ব্যক্তিগত ও রাষ্ট্রীয় নিরাপত্তার মূল ভিত্তি হয়ে উঠেছে। একনজরে এর বাস্তব প্রয়োগ দেখা যাক- 
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ সংখ্যাতত্ত্বের বাস্তব প্রয়োগ</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+সাইবার নিরাপত্তা ও ক্রিপ্টোগ্রাফি (Cryptography): আপনি যখন ইন্টারনেটে ব্যাংকিং লেনদেন করেন, হোয়াটসঅ্যাপে এনক্রিপ্টেড মেসেজ পাঠান বা কোনো পাসওয়ার্ড ব্যবহার করেন—তখন তার পেছনে কাজ করে RSA এনক্রিপশন algorithm। এটি পুরোপুরি বড় বড় মৌলিক সংখ্যা (Prime Numbers) এবং সংখ্যা তত্ত্বের মডুলার অ্যারিথমেটিকের (Modular Arithmetic) ওপর ভিত্তি করে তৈরি।            </li>
+        <li>
+কম্পিউটার সায়েন্স ও কোডিং থিওরি: ডেটা ট্রান্সমিশনের সময় যাতে কোনো তথ্য ভুল না হয়ে যায়, তা নিশ্চিত করতে "Error-correcting codes" ব্যবহার করা হয়, যা সংখ্যা তত্ত্বের ওপর নির্ভরশীল।
+        <li>
+      কম্পিউটার অ্যালগরিদম ও সুডো-র্যান্ডম নম্বর: লটারি, সিকিউরিটি কি (Key) তৈরি এবং গেম ডেভেলপমেন্টে র্যান্ডম সংখ্যা তৈরি করতে সংখ্যা তত্ত্বের সূত্র ব্যবহার করা হয়।
+              </li>
+        <li>
+কোয়ান্টাম কম্পিউটিং ও সিস্টেম সিকিউরিটি: ভবিষ্যৎ প্রজন্মের দ্রুতগতির কম্পিউটারের সিকিউরিটি প্রোটোকল ডিজাইনে এটি ব্যাপকভাবে ব্যবহৃত হচ্ছে।      
+</li>
+    </ol>
+</div>
+এখন এই সংখ্যাতত্ত্ব বা এর সূত্রগুলো যদি আমরা আবিষ্কার বা ব্যবহার না করতাম, তবে আমাদের আধুনিক ও ডিজিটাল পৃথিবী আজীবনের জন্য থমকে যেত:
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ সংখ্যা তত্ত্ব ব্যবহৃত না হলে কী হতো?</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+কোনো নিরাপদ ইন্টারনেট সার্ভিস থাকত না: কোনো ই-কমার্স, অনলাইন ব্যাংকিং, বা গোপনীয় মেসেজিং সার্ভিস তৈরি করা সম্ভব হতো না। ক্রেডিট কার্ডের তথ্য বা পাসওয়ার্ড খোলা অবস্থায় ইন্টারনেটে আদান-প্রদান হতো, যা যে কেউ চুরি করতে পারত।
+        <li>
+সাইবার স্পেসে প্রাইভেসি শূন্য হয়ে যেত: ডিজিটাল ফাইল এনক্রিপ্ট করার কোনো উপায় থাকত না, ফলে সামরিক, সরকারি এবং ব্যক্তিগত যেকোনো ডিজিটাল তথ্য সহজেই হ্যাক হয়ে যেত।
+        <li>
+ডিজিটাল অর্থনীতি অচল হয়ে যেত: আজকের গ্লোবাল অনলাইন ট্রেড, ডিজিটাল কারেন্সি বা অনলাইন শপিং নেটওয়ার্ক এনক্রিপশন ছাড়া কাজই করতে পারত না।
+              </li>
+        <li>
+কম্পিউটিং বিজ্ঞানের অগ্রগতি বাধাগ্রস্ত হতো: ডেটা কম্প্রেশন, নেটওয়ার্কিং প্রোটোকল এবং সুনির্দিষ্ট দ্রুত অ্যালগরিদম তৈরির পথ রুদ্ধ হয়ে যেত।
+</li>
+    </ol>
+</div>
+তাই সংখ্যাতত্ত্বকে বৃথা গণিতের "রাণী" (Queen of Mathematics) বলা হয় না—আজকের আধুনিক ডিজিটাল যুগ নিরাপদ রাখার নেপথ্য কারিগর এই সংখ্যার খেলা। <br>
+<p>এবার আমরা আসল জায়গায় প্রবেশ করব, অর্থাৎ সংখ্যাতত্ত্বের দুনিয়ায়। সত্যিকথা বলতে এই সংখ্যাতত্ত্বের শাখাটা অনেক বড়। এক লেখায় একে চেনানো অনেক কঠিন এবং আমার নিজেরও জ্ঞানের স্বল্পতা রয়েছে। সহজে বোধগম্য হয় এবং আশেপাশে যেই বাস্তব প্রয়োগ গুলো রয়েছে আমরা এখন সেগুলো নিয়ে কথা বলবো। 
+<br>সংখ্যাতত্ত্ব বা নাম্বার থিউরির (Number Theory) প্রাথমিক পাঠ মূলত শুরু হয় গণনার মৌলিক একক বা স্বাভাবিক সংখ্যা $\\mathbb{N} = \\{1, 2, 3, 4, \\dots\\}$ এবং তাদের মধ্যে গাণিতিক সম্পর্ক স্থাপন করার মাধ্যমে।
+</p> 
+
+<h1 class="text-2xl font-bold mb-4">⧉ অখণ্ড সংখ্যা ও পেয়ানো স্বীকার্য (Peano Axioms)</h1>
+সংখ্যাতত্ত্বের মূল আলোচ্য বিষয় বা ভিত্তিই হলো অখণ্ড সংখ্যার সেট $\\mathbb{Z} = \\{\\dots, -2, -1, 0, 1, 2, \\dots\\}$। গণিতের ইতিহাসে পেয়ানো স্বীকার্য (Peano Axioms) হলো একটি যুগান্তকারী মাইলফলক। প্রথম দর্শনে $1, 2, 3 \\dots$ বা স্বাভাবিক সংখ্যাকে এত সহজ ও স্বতঃসিদ্ধ মনে হলেও, গণিতবিদদের কাছে বড় প্রশ্ন ছিল: "আমরা কীভাবে নিশ্চিত হবো যে পুরো গণিত যে সংখ্যার ওপর দাঁড়িয়ে আছে, তার ভিত্তিটা গাণিতিকভাবে শতভাগ নিখুঁত?" ১৮৮৯ সালে ইতালীয় গণিতবিদ জুসেপ্পে পেয়ানো (Giuseppe Peano) নিচের স্বীকার্যগুলো প্রদান করেন-
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li><span class="font-medium">সূচনা:</span> $1$ একটি স্বাভাবিক সংখ্যা ($1 \\in \\mathbb{N}$)।</li>
+        <li><span class="font-medium">অনুসূরী বা Successor:</span> প্রতিটি স্বাভাবিক সংখ্যা $n$ এর একটি অনন্য অনুসূরী $S(n)$ থাকে (যেমন: $S(1) = 2$)।</li>
+        <li><span class="font-medium">প্রারম্ভিক রূপ:</span> $1$ কোনো স্বাভাবিক সংখ্যার অনুসূরী নয়।</li>
+        <li><span class="font-medium">একক রূপ:</span> যদি $S(a) = S(b)$ হয়, তবে $a = b$।</li>
+       <li><span class="font-medium">গাণিতিক আরোহ নীতি (Mathematical Induction):</span> যদি কোনো সেট $K \\subseteq \\mathbb{N}$ এমন হয় যে $1 \\in K$, এবং যেকোনো $k \\in K$ এর জন্য $S(k) \\in K$ হয়, তবে $K = \\mathbb{N}$।</li>
+</ol>
+</div>
+এখানে 'অনুসূরী' (বা গাণিতিক পরিভাষায় Successor) কথাটির সহজ অর্থ হলো—"পরবর্তী সংখ্যা" বা "ঠিক পরেরটি"।সংখ্যাতত্ত্ব বা গণিতের ভাষায়, যেকোনো একটি সংখ্যাকে যদি $n$ ধরা হয়, তবে তার ঠিক পরবর্তী সংখ্যা $n + 1$ হলো তার অনুসূরী (Successor)। যেমনঃ $1$ এর অনুসূরী হলো $2$ (কারণ $1 + 1 = 2$)। $5$ এর অনুসূরী হলো $6$। তাহলে $n$ এর অনুসূরীকে সাধারণত $S(n)$ দিয়ে প্রকাশ করা হয়, অর্থাৎ $S(n) = n + 1$। 
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ পেয়ানো স্বীকার্যের গুরুত্ব (Significance in Mathematics)</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+<span class="font-medium">গণিতের ভিত্তিমূলকে শক্তিশালী করা (Rigorous Foundation of Mathematics): </span>উনবিংশ শতাব্দীর শেষভাগে গণিতবিদরা উপলব্ধি করেন যে প্রমাণের সূক্ষ্মতা রক্ষা করতে হলে গণিতের ভিত্তিকে স্বতঃসিদ্ধ বা স্বীকার্য (Axioms) দিয়ে বাঁধতে হবে। পেয়ানো স্বীকার্য পাটিগণিত ও সংখ্যাতত্ত্বকে একটি নিরেট ভিত্তির ওপর দাঁড় করায়।
+        <li>
+<span class="font-medium">গাণিতিক আরোহ নীতির (Mathematical Induction) জন্ম: </span>পেয়ানো স্বীকার্যের ৫ম নম্বর নিয়মটি হলো গাণিতিক আরোহ নীতি। সংখ্যাতত্ত্ব, বীজগণিত ও অলিম্পিয়াডের অগণিত গাণিতিক উক্তি ($1 + 2 + \\dots + n = \\frac{n(n+1)}{2}$) অসীম সংখ্যক সংখ্যার জন্য সত্য কিনা, তা প্রমাণের একমাত্র শক্তিশালী হাতিয়ার হলো এই নীতি।
+        <li>
+<span class="font-medium">কম্পিউটার সায়েন্স ও প্রোগ্রামিংয়ে প্রয়োগ: </span>আধুনিক কম্পিউটার সায়েন্সে রিকার্শন (Recursion) এবং ফাংশনাল প্রোগ্রামিং (Functional Programming)-এর ধারণা পেয়ানো স্বীকার্যের 'অনুসূরী' (Successor) ও আরোহী কাঠামোর ওপর সরাসরি নির্ভরশীল। ডেটা স্ট্রাকচারে ব্যবহৃত 'লিঙ্কড লিস্ট' (Linked List) বা প্রাকৃতিক সংখ্যার টাইপ সিস্টেম (যেমন Haskell বা Coq ভাষায়) পেয়ানো পাটিগণিতের নিয়মেই রূপায়িত হয়।
+        <li>
+<span class="font-medium">আধুনিক যুক্তিশাস্ত্র ও অটোমেটেড প্রুফ (Formal Logic & Proof Assistants): </span>কম্পিউটার দিয়ে কোনো গাণিতিক প্রমাণ সঠিক কিনা পরীক্ষা করার জন্য (যেমন Lean, Coq প্রুফ এসিস্ট্যান্ট) গণিতকে একেবারে মৌলিক স্বীকার্যে ভাঙতে হয়। পেয়ানো স্বীকার্য এ ধরনের যুক্তিনির্ভর গাণিতিক মডেলের মূল নিয়ামক।
+    </ol>
+</div>
+<h1 class="text-2xl font-bold mb-4">⧉ বিভাজ্যতা (Divisbility)</h1>
+
+বিভাজ্যতা খুবই সহজ একটা বিষয়। আমরা ছোটো থেকেই এটার সাথে পরিচিত। তবে এখন নতুন করে যেভাবে তাত্ত্বিক কচকচানিতে যাব সেভাবে না। আমরা ছোটোবেলায় ৬ কে ২ দিয়ে ভাগ করলে কত হয় বা ১০১ কে ২ দিয়ে ভাগ করলে কত অবশিষ্ট থাকে করে এসেছি। এখন আমরা আরেকটু গুছিয়ে বিষয়গুলো কিভাবে কাজ করে সেটা দেখবো। 
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ বিভাজ্যতার গুরুত্বপূর্ণ ধর্মসমূহ (Key Properties)</h3>
+    <ol class="list-decimal list-inside space-y-4 text-gray-800">
+        <li>
+            <span class="font-medium">রেফ্লেক্সিভ ও ট্রানজিটিভ ধর্ম (Reflexive & Transitive):</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-1">
+                <li>$a \\mid a$ (যেকোনো $a \\neq 0$ এর জন্য)</li>
+                <li>যদি $a \\mid b$ এবং $b \\mid c$ হয়, তবে $a \\mid c$</li>
+            </ul>
+        </li>
+        <li>
+            <span class="font-medium">লিনিয়ার কম্বিনেশন (Linear Combination):</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-1">
+                <li>
+                    যদি $a \\mid b$ এবং $a \\mid c$ হয়, তবে যেকোনো পূর্ণসংখ্যা $x, y$ এর জন্য:
+                    <div class="my-1">\\[a \\mid (bx + cy)\\]</div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <span class="font-medium">গুণফল এবং বিভাজ্যতা:</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-1">
+                <li>যদি $a \\mid b$ হয়, তবে যেকোনো পূর্ণসংখ্যা $c$ এর জন্য $a \\mid bc$</li>
+            </ul>
+        </li>
+        <li>
+            <span class="font-medium">সীমা সংক্রান্ত ধর্ম (Boundedness):</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-1">
+                <li>যদি $a \\mid b$ এবং $b \\neq 0$ হয়, তবে $|a| \\le |b|$</li>
+            </ul>
+        </li>
+        <li>
+            <span class="font-medium">উভয়মুখী বিভাজ্যতা:</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-1">
+                <li>যদি $a \\mid b$ এবং $b \\mid a$ হয়, তবে $a = \\pm b$</li>
+            </ul>
+        </li>
+        <li>
+            <span class="font-medium">সহ-মৌলিক বা প্রাইম সংখ্যা সংক্রান্ত (Coprime Properties):</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-2">
+                <li>
+                    যদি $a \\mid bc$ হয় এবং $\\gcd(a, b) = 1$ (অর্থাৎ $a$ ও $b$ সহ-মৌলিক) হয়, তবে:
+                    <div class="my-1">\\[a \\mid c\\]</div>
+                </li>
+                <li>
+                    যদি $a \\mid n$ এবং $b \\mid n$ হয়, যেখানে $\\gcd(a, b) = 1$, তবে:
+                    <div class="my-1">\\[ab \\mid n\\]</div>
+                </li>
+            </ul>
+        </li>
+    </ol>
+</div>
+এই ধর্মগুলো বোঝার জন্য সবচেয়ে ভালো হয় বিভিন্ন সংখ্যা নিয়ে পরীক্ষা করা। এখন অংক ভিত্তিক বিভাজ্যতার কিছু ধর্ম বা নিয়ম দেখা যাক- 
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-2">⧉ অংক ভিত্তিক বিভাজ্যতার নিয়ম (Digit-based Divisibility Rules)</h3>
+    
+    <p class="mb-4 text-gray-800">
+        ধরি, $N$ একটি $k$-অঙ্কের সংখ্যা, যাকে লেখা যায়: 
+        \\[N = (a_k a_{k-1} \\dots a_1 a_0)_{10} = \\sum_{i=0}^{k} a_i 10^i\\]
+    </p>
+
+    <ol class="list-decimal list-inside space-y-4 text-gray-800">
+        <li>
+            <span class="font-medium">$2, 4, 8, 2^m$ এর বিভাজ্যতা:</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-2">
+                <li>
+                    $2 \\mid N \\iff 2 \\mid a_0$ (শেষ অঙ্ক জোড়)
+                </li>
+                <li>
+                    $4 \\mid N \\iff 4 \\mid (10a_1 + a_0)$ (শেষ দুই অঙ্ক দ্বারা গঠিত সংখ্যা $4$ দিয়ে বিভাজ্য)
+                </li>
+                <li>
+                    $2^m \\mid N \\iff 2^m \\mid$ শেষ $m$ টি অঙ্ক দ্বারা গঠিত সংখ্যা
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <span class="font-medium">$3$ ও $9$ এর বিভাজ্যতা:</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-2">
+                <li>
+                    $3 \\mid N \\iff 3 \\mid (a_0 + a_1 + \\dots + a_k)$ (অঙ্কগুলোর যোগফল $3$ দিয়ে বিভাজ্য)
+                </li>
+                <li>
+                    $9 \\mid N \\iff 9 \\mid (a_0 + a_1 + \\dots + a_k)$ (অঙ্কগুলোর যোগফল $9$ দিয়ে বিভাজ্য)
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <span class="font-medium">$11$ এর বিভাজ্যতা:</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-2">
+                <li>
+                    $11 \\mid N \\iff 11 \\mid (a_0 - a_1 + a_2 - a_3 + \\dots)$ (জোড় ও বিজোড় স্থানের অঙ্কগুলোর অল্টারনেটিং যোগফল $11$ দিয়ে বিভাজ্য)
+                </li>
+            </ul>
+        </li>
+    </ol>
+</div>
+এখন বাংলাদেশ গণিত অলিম্পিয়াডের আঞ্চলিক ও জাতীয় পর্যায়ে আসা কিছু সমস্যার সমাধান করা যাক- 
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ এমন সব ধনাত্মক পূর্ণসংখ্যা $n$ নির্ণয় করো যেন $(n + 1)$ দ্বারা $(n^2 + 1)$ বিভাজ্য হয়।
+অর্থাৎ, $(n + 1) \\mid (n^2 + 1)$</h3>
+ আমরা জানি, লিনিয়ার কম্বিনেশন ধর্ম অনুযায়ী যদি $a \\mid b$ হয়, তবে $a \\mid (b - k \\cdot a)$ হবে। এখানে দেওয়া আছে:$$(n + 1) \\mid (n^2 + 1)$$আমরা $n^2 + 1$ কে লিখতে পারি:$$n^2 + 1 = (n^2 - 1) + 2 = (n - 1)(n + 1) + 2$$যেহেতু $(n + 1) \\mid (n - 1)(n + 1)$ সর্বদাই সত্য, তাই বিভাজ্যতার নিয়ম অনুযায়ী:$$(n + 1) \\mid \\Big((n^2 + 1) - (n - 1)(n + 1)\\Big)$$$$\\implies (n + 1) \\mid 2$$$2$ এর ধনাত্মক উৎপাদকগুলো হলো $1$ এবং $2$।<br>১. যদি $n + 1 = 1$ হয় $\\implies n = 0$ (কিন্তু $n$ ধনাত্মক পূর্ণসংখ্যা চাওয়া হয়েছে, তাই $n=0$ গ্রহণযোগ্য নয়)।<br>২. যদি $n + 1 = 2$ হয় $\\implies n = 1$।<br>সুতরাং, একমাত্র সমাধান হলো $n = 1$
+ </div>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ প্রমাণ করো যে, যেকোনো বিজোড় ধনাত্মক পূর্ণসংখ্যা $n$ এর জন্য $8 \\mid (n^2 - 1)$</h3>
+যেহেতু $n$ একটি বিজোড় সংখ্যা, তাই $n$ কে লেখা যায় $n = 2k + 1$ আকারে, যেখানে $k$ একটি অঋণাত্মক পূর্ণসংখ্যা ($k \\ge 0$)। এখন,$$n^2 - 1 = (2k + 1)^2 - 1$$$$= (4k^2 + 4k + 1) - 1$$$$= 4k^2 + 4k = 4k(k + 1)$$লক্ষ্য করো, $k(k + 1)$ হলো দুটি পরপর পূর্ণসংখ্যার গুণফল। আমরা জানি যেকোনো দুটি পরপর পূর্ণসংখ্যার একটি অবশ্যই জোড় (অর্থাৎ $2$ দ্বারা বিভাজ্য)। সুতরাং, $k(k + 1) = 2m$ (যেখানে $m$ একটি পূর্ণসংখ্যা)। তাহলে,$$n^2 - 1 = 4 \\cdot (2m) = 8m$$যেহেতু $n^2 - 1 = 8m$, তাই $8 \\mid (n^2 - 1)$। (প্রমাণিত) 
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ ভাগ প্রক্রিয়ার অ্যালগরিদম (Division Algorithm)</h1>
+আমরা প্রাথমিক বিদ্যালয়ে যে ভাগ অংক শিখে এসেছি—"ভাজ্য = ভাজক × ভাগফল + ভাগশেষ"—সংখ্যাতত্ত্বে এটিকেই আনুঠানিক রূপ দেওয়া হয়েছে ভাগ প্রক্রিয়ার অ্যালগরিদম হিসেবে।
+যেকোনো দুটি পূর্ণসংখ্যা $a$ (ভাজ্য) এবং $b$ (ভাজক, যেখানে $b > 0$) এর জন্য অনন্য (unique) দুটি পূর্ণসংখ্যা $q$ (ভাগফল বা Quotient) এবং $r$ (ভাগশেষ বা Remainder) বিদ্যমান থাকবে, যেখানে $$a = b \\cdot q + r$$ যেন $0 \\le r < b$ হয়। 
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ গুরুত্বপূর্ণ বিষয়সমূহ:</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li><span class="font-medium">ভাগশেষের সীমা ($0 \\le r < b$:</span> ভাগশেষ সর্বদাই অঋণাত্মক হবে এবং তা ভাজক ($b$) এর চেয়ে ছোট হবে।</li>
+        <li><span class="font-medium">অনন্যতা (Uniqueness):</span> নির্দিষ্ট $a$ এবং $b$ এর জন্য $q$ ও $r$ এর জোড়া একটি এবং কেবল একটিই হতে পারে।</li>
+        <li><span class="font-medium">বিশেষ ক্ষেত্র ($r = 0$):</span> যদি ভাগশেষ $r = 0$ হয়, তবে $a = b \\cdot q$ হয়। এর অর্থ হলো $b$ দ্বারা $a$ নিঃশেষে বিভাজ্য (যাকে লেখা হয় $b \\mid a$)। উদাহরণ: যদি $a = 17$ এবং $b = 5$ হয়, তবে:$$17 = 5 \\cdot 3 + 2$$এখানে ভাগফল $q = 3$ এবং ভাগশেষ $r = 2$, যা শর্ত $0 \\le 2 < 5$ মেনে চলে।</li>
+     </ol>
+</div>
+<h1 class="text-2xl font-bold mb-4">⧉ গরিষ্ঠ সাধারণ গুণনীয়ক বা গসাগু (Greatest Common Divisor - GCD)</h1>
+দুটি সংখ্যার মধ্যে সবচেয়ে বড় যে সাধারণ গুণনীয়ক থাকে, তাকে GCD বলা হয়। যেমন: $\\gcd(12, 18) = 6$। তাহলে $a$ এবং $b$ দুটি পূর্ণসংখ্যা (যেখানে অন্তত একটি শূন্য নয়) হলে এদের গসাগু-কে লেখা হয় $\\gcd(a, b)$ অথবা সংক্ষেপে $(a, b)$ দিয়ে। একটি সংখ্যা $d = \\gcd(a, b)$ হবে যদি এবং কেবল যদি তা নিচের দুটি শর্ত পূরণ করে:
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li><span class="font-medium">সাধারণ উৎপাদক (Common Divisor):</span> $d \\mid a$ এবং $d \\mid b$ (অর্থাৎ $d$ দ্বারা $a$ এবং $b$ উভয়ই বিভাজ্য)।</li>
+        <li><span class="font-medium">গরিষ্ঠতা (Greatest):</span> যদি অন্য যেকোনো সংখ্যা $c$ এর জন্য $c \\mid a$ এবং $c \\mid b$ হয়, তবে $c \\le d$ (অথবা বিভাজ্যতার ভাষায় $c \\mid d$)।</li>
+     </ol>
+</div>
+আবার যদি দুটি সংখ্যার $\\gcd = 1$ হয়, তবে তাদের বলা হয় সহ-মৌলিক (Co-prime বা Relatively Prime)। যেমন: $\gcd(8, 15) = 1$, তাই $8$ ও $15$ সহ-মৌলিক (যদিও কেউই মৌলিক সংখ্যা নয়)। এখন চট করে গণিত অলিম্পিয়াডের একটি প্রশ্ন সমাধান করা যাক। 
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ প্রমাণ করো যে, যেকোনো ধনাত্মক পূর্ণসংখ্যা $n$ এর জন্য $n^3 - n$ সংখ্যাটি সবসময় $6$ দ্বারা বিভাজ্য</h3>
+    আমরা জানি $6 = 2 \\times 3$ এবং $\\gcd(2, 3) = 1$। তাই $6 \\mid (n^3 - n)$ প্রমাণ করতে হলে আমাদের দেখাতে হবে $2 \\mid (n^3 - n)$ এবং $3 \\mid (n^3 - n)$।
+    রাশিটিকে উৎপাদকে বিশ্লেষণ করি:$$n^3 - n = n(n^2 - 1) = n(n-1)(n+1)$$এটি তিনটি পরপর পূর্ণসংখ্যার গুণফল।<br>১. তিনটি পরপর সংখ্যার মধ্যে অন্তত একটি জোড় সংখ্যা থাকবেই। সুতরাং, $2 \\mid n(n-1)(n+1)$<br>২. তিনটি পরপর সংখ্যার মধ্যে ঠিক একটি সংখ্যা অবশ্যই $3$ দ্বারা বিভাজ্য হবে। সুতরাং, $3 \\mid n(n-1)(n+1)$<br>যেহেতু $\\gcd(2, 3) = 1$, তাই $2 \\times 3 = 6 \\mid n(n-1)(n+1)$। (প্রমাণিত)
+</div>
+<h1 class="text-2xl font-bold mb-4">⧉ ইউক্লিডীয় অ্যালগরিদম (Euclidean Algorithm)</h1>
+আমরা সাধারণভাবে যেই অ্যালগরিদম ব্যবহার করে গসাগু বের করি সেটা ছোটো সংখ্যার ক্ষেত্রে খুব কার্যকরভাবে কাজ করলেও বড় সংখ্যার ক্ষেত্রে খুবই সময়সাপেক্ষ এবং পরিশ্রমসাধ্য। খ্রিষ্টপুর্ব ৩০০ অব্দে গ্রিক গণিতবিদ ইউক্লিড একটি চমৎকার পদ্ধতির আবিষ্কার করলেন। তিনি দেখলেন বড় দুটি সংখ্যার GCD খুব দ্রুত বের করার উপায় হলো ক্রমাগত ভাগ করে যাওয়া যতক্ষণ না ভাগশেষ শূন্য হচ্ছে। অর্থাৎ $$a = bq + r \\implies \\gcd(a, b) = \\gcd(b, r)$$ 
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ কাজের পদ্ধতি (Step-by-Step Algorithm):</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+বড় সংখ্যাটিকে $a$ এবং ছোট সংখ্যাটিকে $b$ ধরি।
+        <li>
+ $a$ কে $b$ দ্বারা ভাগ করে ভাগশেষ $r$ বের করি ($a = bq + r$)।
+         <li>
+ যদি $r = 0$ হয়, তবে $b$-ই হলো নির্ণেয় গসাগু।
+               </li>
+        <li>
+আর যদি $r > 0$ হয়, তবে $a \\leftarrow b$ এবং $b \\leftarrow r$ দিয়ে প্রতিস্থাপন করি এবং ধাপ $2$ পুনরাবৃত্তি করি।
+</li>
+    </ol>
+</div>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ একটি পূর্ণাঙ্গ উদাহরণ:  $\\gcd(252, 105)$</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+$252$ কে $105$ দিয়ে ভাগ করি:$$252 = 105 \\cdot 2 + 42 \\implies r_1 = 42$$        
+(যেহেতু ভাগশেষ $42 \\neq 0$, তাই $\\gcd(252, 105) = \\gcd(105, 42)$)
+        </li>
+<li>
+এখন $105$ কে $42$ দিয়ে ভাগ করি: $$105 = 42 \\cdot 2 + 21 \\implies r_2 = 21$$
+(যেহেতু ভাগশেষ $21 \\neq 0$, তাই $\\gcd(105, 42) = \\gcd(42, 21)$)
+</li>
+         <li>
+এখন $42$ কে $21$ দিয়ে ভাগ করি:$$42 = 21 \\cdot 2 + 0 \\implies r_3 = 0$$
+যেহেতু এই ধাপে ভাগশেষ $0$ চলে এসেছে, তাই এই ধাপের ভাজক $21$-ই হলো নির্ণেয় গসাগু।
+</li>
+$$\\therefore \\gcd(252, 105) = 21$$
+    </ol>
+</div>
+<p class="mb-4">সি ল্যাঙ্গুয়েজে প্রয়োগ:</p>
+<div class="bg-slate-950 text-slate-100 p-6 rounded-xl my-6 font-mono text-sm overflow-x-auto whitespace-pre leading-relaxed shadow-lg">
+<span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span>
+<span class="text-sky-400">int</span> <span class="text-indigo-300">gcd</span>(<span class="text-sky-400">int</span> a, <span class="text-sky-400">int</span> b) {
+    <span class="text-sky-400">while</span> (b != <span class="text-pink-400">0</span>) {
+        <span class="text-sky-400">int</span> temp = b;
+        b = a % b;
+        a = temp;
+    }
+    <span class="text-sky-400">return</span> a;
+}
+<span class="text-sky-400">int</span> <span class="text-indigo-300">main</span>(<span class="text-sky-400">void</span>) {
+    <span class="text-sky-400">int</span> a, b;
+    <span class="text-indigo-300">scanf</span>(<span class="text-emerald-400">"%d %d"</span>, &amp;a, &amp;b);
+    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"GCD %d\\n"</span>, <span class="text-indigo-300">gcd</span>(a, b));
+    <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;
+}</div>
+<h1 class="text-2xl font-bold mb-4">⧉ বেজুটের অভেদ (Bézout's Identity) এবং Extended Euclidean Algorithm</h1>
+এক্সটেন্ডেড ইউক্লিডীয় অ্যালগরিদম (Extended Euclidean Algorithm) মূলত বেজুটের অভেদ (Bézout's Identity) অনুযায়ী $ax + by = \\gcd(a, b)$ সমীকরণের $x$ ও $y$ সহগদ্বয়ের মান নির্ণয় করতে ব্যবহৃত হয়। যেকোনো দুটি সংখ্যা $a$ এবং $b$-এর GCD কে সবসময় $a$ এবং $b$-এর সাথে দুটি পূর্ণসংখ্যা ($x$ এবং $y$) গুণ করে যোগফল আকারে প্রকাশ করা যায়:$$ax + by = \\gcd(a, b)$$যেমন: $a = 212$ এবং $b = 42$ হলে, তাদের $\\gcd = 2$। আমরা এটি এভাবে লিখতে পারি:$$212 \\times (-1) + 42 \\times 5 = -212 + 210 = -2$$ চিহ্ন ঠিক রেখে $x=-1, y=5$
+নিচে এটি কীভাবে সমাধান তৈরি করে তার পূর্ণাঙ্গ গাণিতিক ব্যাখ্যা দেওয়া হলো-
+<h3 class="font-semibold text-lg mb-4">গাণিতিক কৌশল (The Core Idea)</h3>
+
+সাধারণ ইউক্লিডীয় অ্যালগরিদমে আমরা বিভাজ্যতার ধাপে ধাপে এগোই:$$a = b \\cdot q + r \\implies r = a - b \\cdot q$$যেখানে $q = \\lfloor a / b \\rfloor$ (ভাগফল) এবং $r = a \\bmod b$ (ভাগশেষ)। ধরি, পরবর্তী ধাপে $b$ এবং $r$ এর জন্য আমরা $x_1$ ও $y_1$ পেয়ে গেছি যেন:$$b \\cdot x_1 + r \\cdot y_1 = \\gcd(a, b)$$এখন $r$ এর মান বসিয়ে পাই:$$b \\cdot x_1 + (a - b \\cdot q) \\cdot y_1 = \\gcd(a, b)$$$$a \\cdot y_1 + b \\cdot (x_1 - q \\cdot y_1) = \\gcd(a, b)$$মূল সমীকরণ $a x + b y = \\gcd(a, b)$ এর সাথে সহগ তুলনা করলে আমরা পরবর্তী ও পূর্ববর্তী ধাপের সম্পর্ক (Recurrence Formula) পেয়ে যাই:$$\\begin{aligned} x &= y_1 \\ y &= x_1 - \\lfloor a / b \\rfloor \\cdot y_1 \\end{aligned}$$
+<h3 class="font-semibold text-lg mb-4">বেস কেস (Base Case)</h3>
+ভাগ করতে করতে ইউক্লিডীয় অ্যালগরিদমের শেষ ধাপে যখন ভাজক $b = 0$ হয়ে যায়, তখন:$$\\gcd(a, 0) = a$$এই সময়ে সমীকরণ দাঁড়ায় $a \\cdot x + 0 \\cdot y = a$।কাজেই বেস কেসের সমাধান হলো:$$x = 1, \\quad y = 0$$এরপরে অ্যালগরিদমটি রিকার্সিভলি (বা উল্টো ধাপে) গিয়ে মূল $a$ ও $b$ এর জন্য $x$ এবং $y$ এর চূড়ান্ত সমাধান নিশ্চিত করে।
+এখন একটি উদাহরণের মাধ্যমে বিষয়টি স্পষ্ট করা যাক- 
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ $a = 120$ এবং $b = 35$ এর জন্য $120x + 35y = \\gcd(120, 35)$ সমীকরণের একটি পূর্ণসংখ্যা সমাধান $(x, y)$ বের করো।</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+ইউক্লিডীয় অ্যালগরিদমের মাধ্যমে ভাগশেষ ও গসাগু বের করা (Forward Path)<br>১. $120 = 35 \\cdot 3 + 15 \\quad (q_1 = 3, r_1 = 15)$<br>২. $35 = 15 \\cdot 2 + 5 \\quad (q_2 = 2, r_2 = 5)$<br>৩. $15 = 5 \\cdot 3 + 0 \\quad (q_3 = 3, r_3 = 0)$<br>যেহেতু ভাগশেষ $0$ চলে এসেছে, তাই নির্ণেয় গসাগু $\\gcd(120, 35) = 5$।        
+     </li>
+     <li>
+ব্যাক-সাবস্টিটিউশন বা উল্টো মান বসানো (Back Substitution)এখন আমরা শেষ অ-শূন্য ভাগশেষ $5$ এর সমীকরণ থেকে উল্টো দিকে সমীকরণ সাজাবো:<br>১. দ্বিতীয় ধাপে প্রাপ্ত সমীকরণ থেকে $5$ কে আলাদা করি:$$5 = 35 - 15 \\cdot 2$$<br>২. প্রথম ধাপে প্রাপ্ত সমীকরণ থেকে $15 = 120 - 35 \\cdot 3$ মানটি নিয়ে উপরের সমীকরণে $15$ এর জায়গায় বসাই:$$5 = 35 - (120 - 35 \\cdot 3) \\cdot 2$$$$5 = 35 - 120 \\cdot 2 + 35 \\cdot 6$$$$5 = 120 \\cdot (-2) + 35 \\cdot (1 + 6)$$$$5 = 120 \\cdot (-2) + 35 \\cdot 7$$<br>ফলাফল:সমীকরণটি দাঁড়ালো:$$120 \\cdot (-2) + 35 \\cdot 7 = 5$$যেহেতু $120x + 35y = 5$, তাই সমাধান হলো: $$\\begin{aligned} x &= -2 \\ y &= 7 \\end{aligned}$$যাচাই: $120 \\times (-2) + 35 \\times 7 = -240 + 245 = 5$
+         </li>
+    </ol>
+</div>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">সমাধান ট্র্যাকিং সারণী (Table Representation) রিকার্সিভ ট্র্যাকিং সহজে বোঝার জন্য নিচের টেবিলটি দেখতে পারো:</h3>
+<table style="border-collapse: collapse; border: 1px solid #ccc; width: 100%; text-align: center;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #ccc; padding: 8px;">Step</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">$a$</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">$b$</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">$q = \\lfloor a/b \\rfloor$</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">$r = a \\bmod b$</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">$x$</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">$y$</th>
+            <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Equation ($ax + by$)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 8px;">Base</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$5$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$0$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">—</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">—</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$1$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$0$</td>
+            <td style="border: 1px solid #ccc; padding: 8px; text-align: left;">$5(1) + 0(0) = 5$</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 8px;">Step 2</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$35$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$15$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$2$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$5$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$0$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$1$</td>
+            <td style="border: 1px solid #ccc; padding: 8px; text-align: left;">$35(0) + 15(1) = 15$</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 8px;">Step 1</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$120$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$35$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$3$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$15$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$1$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$-3$</td>
+            <td style="border: 1px solid #ccc; padding: 8px; text-align: left;">$120(1) + 35(-3) = 15$</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<p class="mb-4">সি ভাষায় এক্সটেন্ডেড ইউক্লিডীয় অ্যালগরিদমের একটি রিকার্সিভ ইমপ্লিমেন্টেশন নিচে দেওয়া হলো:</p>
+<div class="relative bg-slate-950 text-slate-100 p-6 rounded-xl my-6 font-mono text-sm overflow-x-auto whitespace-pre leading-relaxed shadow-lg group">
+<span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span>
+<span class="text-sky-400">int</span> <span class="text-indigo-300">ext_gcd</span>(<span class="text-sky-400">int</span> a, <span class="text-sky-400">int</span> b, <span class="text-sky-400">int</span> *x, <span class="text-sky-400">int</span> *y) {
+    <span class="text-sky-400">if</span> (b == <span class="text-pink-400">0</span>) {
+        *x = <span class="text-pink-400">1</span>;
+        *y = <span class="text-pink-400">0</span>;
+        <span class="text-sky-400">return</span> a;
+    }
+    <span class="text-sky-400">int</span> x1, y1;
+    <span class="text-sky-400">int</span> gcd = <span class="text-indigo-300">ext_gcd</span>(b, a % b, &amp;x1, &amp;y1);
+    *x = y1;
+    *y = x1 - (a / b) * y1;
+    <span class="text-sky-400">return</span> gcd;
+}
+<span class="text-sky-400">int</span> <span class="text-indigo-300">main</span>(<span class="text-sky-400">void</span>) {
+    <span class="text-sky-400">int</span> a = <span class="text-pink-400">252</span>, b = <span class="text-pink-400">105</span>;
+    <span class="text-sky-400">int</span> x, y;
+    <span class="text-sky-400">int</span> gcd = <span class="text-indigo-300">ext_gcd</span>(a, b, &amp;x, &amp;y);
+    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"GCD: %d\\n"</span>, gcd);
+    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"Coefficients x and y: %d, %d\\n"</span>, x, y);
+    <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;
+}</code>
+</div>
+
+
+
+
+
+
+
+
+</p>`
+
+
+
+
+/*         আমরা সবাই মৌলিক সংখ্যার সাথে কমবেশি পরিচিত। শুরু করা যাক প্রচলিত সংজ্ঞাটি দিয়েই— যে সংখ্যাটির ১ এবং ওই সংখ্যাটি ব্যতীত অন্য কোনো উৎপাদক নেই সেটিই মৌলিক সংখ্যা। ৫ এর কথাই ধরা যাক, যাকে ৫ এবং ১ এই দুইটি সংখ্যা ব্যতীত আর কোনো পূর্ণসংখ্যা দ্বারা ভাগ করা যায় না। তাই ৫ একটি মৌলিক সংখ্যা। অন্যদিকে ৬-কে ১ এবং ৬ ছাড়াও ২ এবং ৩ দ্বারা ভাগ করা যায়, তাই এটি যৌগিক সংখ্যা। 
+            কিন্তু গণিতের এই অতি পরিচিত ‘মৌলিক সংখ্যা’ বা Prime Number নিয়ে একটু গভীরভাবে ভাবলে বেশ কিছু চমৎকার এবং রহস্যময় দিক উন্মোচিত হয়। চলুন আজ মৌলিক সংখ্যার জগৎটা একটু নতুন করে চেনা যাক।
+১ কেন মৌলিক সংখ্যা নয়?
+
+অনেকের মনেই প্রশ্ন জাগে, মৌলিক সংখ্যার সংজ্ঞা অনুযায়ী ১-এর তো ১ এবং ওই সংখ্যা (অর্থাৎ ১) ছাড়া কোনো উৎপাদক নেই, তাহলে ১ কেন মৌলিক সংখ্যা নয়?
+
+গণিতবিদরা ১-কে মৌলিক সংখ্যার দল থেকে বাদ দিয়েছেন একটি বিশেষ নিয়মের মর্যাদা রক্ষা করতে। নিয়মটি হলো পাটিগণিতের মৌলিক উপপাদ্য (Fundamental Theorem of Arithmetic)। এই উপপাদ্য অনুযায়ী:
+
+    ১ অপেক্ষা বড় যেকোনো পূর্ণসংখ্যাকে মৌলিক সংখ্যার গুণফল হিসেবে প্রকাশ করা যায় এবং এই প্রকাশ পদ্ধতিটি অনন্য (Unique)।
+
+যেমন: ১২=২×২×৩। এখন ১-কে যদি মৌলিক সংখ্যা ধরা হতো, তবে ১২-কে লেখা যেত:
+
+    ১২=২×২×৩×১
+
+    ১২=২×২×৩×১×১
+
+এভাবে অনন্যতার (Uniqueness) নিয়মটি ভেঙে যেত। তাই ১ মৌলিক বা যৌগিক কোনোটিই নয়, এটি একটি অনন্য সংখ্যা (Unique Number)।
+একমাত্র জোড় মৌলিক সংখ্যা
+
+মৌলিক সংখ্যার তালিকায় ২ হচ্ছে একমাত্র জোড় সংখ্যা। ২ ছাড়া পৃথিবীর আর কোনো জোড় সংখ্যা মৌলিক হতে পারে না, কারণ যেকোনো জোড় সংখ্যাকে ২ দ্বারা ভাগ করা সম্ভব। তাই ২-কে বলা হয় সবচেয়ে ছোট এবং একমাত্র জোড় মৌলিক সংখ্যা।
+মৌলিক সংখ্যা কি অসীম?
+
+হ্যাঁ, মৌলিক সংখ্যা অসীম। আজ থেকে প্রায় ২৩০০ বছর আগে গ্রিক গণিতবিদ ইউক্লিড প্রমাণ করে গেছেন যে মৌলিক সংখ্যার কোনো শেষ নেই। আপনি যত বড় সংখ্যার দিকেই যান না কেন, মৌলিক সংখ্যা পাওয়া বন্ধ হবে না।
+
+তবে সংখ্যার মান যত বাড়তে থাকে, মৌলিক সংখ্যা পাওয়ার ঘনত্ব তত কমতে থাকে। যেমন:
+
+    ১ থেকে ১০০-এর মধ্যে মৌলিক সংখ্যা আছে ২৫টি।
+
+    ১০১ থেকে ২০০-এর মধ্যে আছে ২১টি।
+
+    বড় সংখ্যার দিকে গেলে দুটি মৌলিক সংখ্যার মধ্যকার দূরত্ব কোটি কোটি ছাড়িয়ে যেতে পারে।
+
+আধুনিক বিশ্বে মৌলিক সংখ্যার ম্যাজিক: সাইবার নিরাপত্তা
+
+আপনার মনে হতে পারে, এই মৌলিক সংখ্যা দিয়ে বাস্তব জীবনে কী কাজ হয়? উত্তর হলো— আপনি যখন অনলাইনে কোনো পাসওয়ার্ড দেন, ক্রেডিট কার্ড দিয়ে কেনাকাটা করেন বা হোয়াটসঅ্যাপে মেসেজ পাঠান, তখন পর্দার আড়ালে আপনার তথ্য সুরক্ষিত রাখে এই মৌলিক সংখ্যা!
+
+আধুনিক কম্পিউটার নিরাপত্তায় RSA এনক্রিপশন নামক একটি পদ্ধতি ব্যবহার করা হয়। এই পদ্ধতিতে দুটি বিশাল (ধরা যাক, শত অঙ্কের বড়) মৌলিক সংখ্যা গুণ করে একটি পাবলিক কি (Public Key) তৈরি করা হয়।
+
+    দুটি বড় মৌলিক সংখ্যা গুণ করা কম্পিউটারের জন্য চোখের পলকের কাজ।
+
+    কিন্তু সেই গুণফলটি ভেঙে মূল মৌলিক সংখ্যা দুটি খুঁজে বের করা বিশ্বের সবচেয়ে শক্তিশালী সুপারকম্পিউটারের জন্যও শত বছরের ব্যাপার। */
+
         }
     },
    {
