@@ -1408,21 +1408,6 @@ function renderEvents() {
                     </div>
                 `).join('')}
             </div>
-
-            <div class="mt-20">
-                <div class="text-center mb-8">
-                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900">${getLang(DICTIONARY.gallery)}</h2>
-                    <p class="text-slate-600 mt-2 text-sm">${getLang(DICTIONARY.gallery_desc)}</p>
-                </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                    ${CLUB_PHOTOS.map((src, idx) => `
-                        <button onclick="openLightbox(CLUB_PHOTOS, ${idx})" aria-label="Open photo ${idx + 1}" class="group relative aspect-square rounded-xl overflow-hidden bg-slate-100 shadow-sm hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-ndcm-accent">
-                            <img src="${src}" alt="Club activity photo ${idx + 1}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="${idx < 4 ? 'eager' : 'lazy'}" ${idx === 0 ? 'fetchpriority="high"' : ''} decoding="async">
-                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
-                        </button>
-                    `).join('')}
-                </div>
-            </div>
         </div>
     `;
 }
