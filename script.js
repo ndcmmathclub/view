@@ -97,6 +97,8 @@ const DICTIONARY = {
     'gallery': { en: 'Activity Gallery', bn: 'কার্যক্রমের গ্যালারি' },
     'gallery_desc': { en: 'A look back at our lectures, competitions, and workshops.', bn: 'আমাদের লেকচার, প্রতিযোগিতা ও কর্মশালার কিছু মুহূর্ত।' },
     'photo_gallery': { en: 'Photo Gallery', bn: 'ছবি গ্যালারি' },
+    'status_passed': { en: 'Passed', bn: 'সমাপ্ত' },
+    'status_upcoming': { en: 'Upcoming', bn: 'আসন্ন' },
 };
 
 const ICONS = {
@@ -113,16 +115,16 @@ const ICONS = {
 const NEWS_SLIDES = [
     {
         id: 1,
-        tag: { en: "Latest Event", bn: "সর্বশেষ ইভেন্ট" },
-        title: { en: "Intra Math Olympiad 2026", bn: "অভ্যন্তরীণ গণিত অলিম্পিয়াড ২০২৬" },
-        desc: { en: "Held on 15 April in Room 402.", bn: "১৫ এপ্রিল ৪০২ নং কক্ষে অনুষ্ঠিত হবে" },
+        tag: { en: "Recent Event", bn: "সাম্প্রতিক কার্যক্রম" },
+        title: { en: "Differentiation Bee 2026", bn: "অন্তরীকরণ প্রতিযোগিতা ২০২৬" },
+        desc: { en: "Took place on 30 July in Room 402.", bn: "৩০ জুলাই ৪০২ নং কক্ষে অনুষ্ঠিত হয়েছিলো" },
         color: "bg-ndcm-accent"
     },
     {
         id: 2,
         tag: { en: "Announcement", bn: "ঘোষণা" },
-        title: { en: "Weekly Problem Solving Round", bn: "সাপ্তাহিক সমস্যা সমাধান পর্ব" },
-        desc: { en: "Wednesday at 12:00 PM in Room 402.", bn: "বুধবার দুপুর ১২:০০ টায় ৪০২ নং কক্ষে।" },
+        title: { en: "Speed Cubing Competition 2026", bn: "স্পিড কিউবিং প্রতিযোগিতা ২০২৬" },
+        desc: { en: "Upcoming Wednesday at 12:00 PM in Room 402.", bn: "আসন্ন বুধবার দুপুর ১২:০০ টায় ৪০২ নং কক্ষে।" },
         color: "bg-ndcm-primary"
     }
 ];
@@ -133,6 +135,7 @@ const EVENTS = [
         title: { en: "Differentiation Bee 2026", bn: "অন্তরীকরণ প্রতিযোগিতা ২০২৬" },
         date: { en: "JUL 30", bn: "৩০ জুলাই" },
         time: { en: "12:40 PM", bn: "দুপুর ১২:৪০" },
+        dateISO: "2026-07-30",
         location: { en: "Room 402", bn: "৪০২ নং কক্ষ" },
         type: { en: "Competition", bn: "প্রতিযোগিতা" },
         desc: { en: "Math Olympiad", bn: "গণিত অলিম্পিয়াড" },
@@ -161,6 +164,16 @@ const EVENTS = [
 "./assets/activities/differentiation-bee/IMG_3772.jpg",
 "./assets/activities/differentiation-bee/IMG_3782.jpg"        ],
         rsvpLink: "https://forms.gle/your-link"
+    },
+    {
+        title: {en: "Speed Cubing Competition", bn: "স্পিড কিউবিং প্রতিযোগিতা"},
+        date: {en: "AUG 19", bn: "১৯ আগস্ট"},
+        time: { en: "12:00 PM", bn: "দুপুর ১২:০০" },
+        dateISO: "2026-08-19",
+        location: { en: "Room 402", bn: "৪০২ নং কক্ষ" },
+        type: { en: "Competition", bn: "প্রতিযোগিতা" },
+        desc: { en: "Rubix Cube Competition", bn: "রুবিক্স কিউব প্রতিযোগিতা" },
+        color: "bg-yellow-100 text-blue-800",
     }
 ];
 
@@ -1013,6 +1026,15 @@ function preloadImages(list) {
     (list || []).forEach(preloadImage);
 }
 
+// ISO Time
+function getEventStatus(dateISO) {
+    if (!dateISO) return null;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const eventDate = new Date(dateISO);
+    return eventDate < today ? 'passed' : 'upcoming';
+}
+
 // --- Lightbox (Google Photos style viewer) ------------------------------------
 function openLightbox(images, index) {
     if (!images || !images.length) return;
@@ -1379,7 +1401,7 @@ function renderEvents() {
             </div>
 
             <div class="space-y-6">
-                ${EVENTS.map((event, evIdx) => `
+${EVENTS.map((event, evIdx) => `
                     <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row gap-6 items-start md:items-center">
                         <div class="flex-shrink-0 w-full md:w-32 bg-slate-50 rounded-lg p-4 text-center border border-gray-200">
                             <div class="text-xs font-bold text-slate-500 uppercase tracking-wide">Date</div>
@@ -1388,6 +1410,11 @@ function renderEvents() {
                         <div class="flex-grow">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-[10px] font-bold uppercase px-2 py-1 rounded ${event.color}">${getLang(event.type)}</span>
+                                ${event.dateISO ? `
+                                    <span class="text-[10px] font-bold uppercase px-2 py-1 rounded ${getEventStatus(event.dateISO) === 'passed' ? 'bg-slate-200 text-slate-500' : 'bg-green-100 text-green-700'}">
+                                        ${getEventStatus(event.dateISO) === 'passed' ? getLang(DICTIONARY.status_passed) : getLang(DICTIONARY.status_upcoming)}
+                                    </span>
+                                ` : ''}
                                 <div class="flex items-center gap-1 text-xs text-slate-500 font-medium">${ICONS.clock} ${getLang(event.time)}</div>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-2">${getLang(event.title)}</h3>
