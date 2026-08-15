@@ -1,5 +1,8 @@
 const FORMSPREE_ID = "xdkvyoqy"; 
 
+// General activity photo library — powers both the Events page slideshow and the
+// "Activity Gallery" grid below it. To add a new photo, just drop the file into
+// assets/activities/ and add its path here.
 const CLUB_PHOTOS = [
     "./assets/activities/image-01.jpeg",
     "./assets/activities/image-02.jpeg",
@@ -74,8 +77,8 @@ const DICTIONARY = {
     'hero_title': { en: 'In the glow of reasoning,', bn: 'যুক্তির দীপ্তিতে, ' },
     'hero_highlight': { en: 'let the light of Maths burn bright', bn: 'জ্বলে উঠুক গণিতের  জ্যোতি' },
     'hero_desc': { 
-        en: 'Math is not about answers; its about proof and showing why something is true. Elegant proof expresses clarity, simplicity, and intellectual beauty in mathematics.', 
-        bn: 'গণিত মানেই উত্তর না; এটা হলো যুক্তি এবং দেখানো কেন এটা সত্য হলো। যথাযথ প্রমাণ গণিতের মধ্যেকার স্বচ্ছতা, সরলতা এবং বুদ্ধিবৃত্তিক সৌন্দর্যকে প্রকাশ করে।'
+        en: 'Answers are easy. Proof is where the beauty lives. We chase clarity, elegance, and the quiet thrill of knowing exactly why something is true.',
+        bn: 'উত্তরগুলো সহজ। আসল সৌন্দর্য লুকিয়ে থাকে প্রমাণের গভীরে। আমরা প্রতিনিয়ত ছুটে চলি স্পষ্টতা, নান্দনিকতা আর কোনো কিছু ঠিক কী কারণে সত্য—তা হুবহু জানার সেই প্রশান্ত রোমাঞ্চের খোঁজে।'
     },
     'view_schedule': { en: 'View Schedule', bn: 'সময়সূচী দেখুন' },
     'register': { en: 'Register', bn: 'রেজিস্ট্রেশন' },
@@ -90,7 +93,10 @@ const DICTIONARY = {
     'equation_viz': { en: 'Equation Visualization', bn: 'সমীকরণ চিত্র' },
     'loading': { en: 'Loading...', bn: 'লোড হচ্ছে...' },
     'submit_draft': { en: 'Submit Draft', bn: 'খসড়া জমা দিন' },
-    'article_prompt': { en: 'Have an interesting math topic to write about?', bn: 'গণিত নিয়ে লেখার মতো কোনো মজার বিষয় আছে?' }
+    'article_prompt': { en: 'Have an interesting math topic to write about?', bn: 'গণিত নিয়ে লেখার মতো কোনো মজার বিষয় আছে?' },
+    'gallery': { en: 'Activity Gallery', bn: 'কার্যক্রমের গ্যালারি' },
+    'gallery_desc': { en: 'A look back at our lectures, competitions, and workshops.', bn: 'আমাদের লেকচার, প্রতিযোগিতা ও কর্মশালার কিছু মুহূর্ত।' },
+    'photo_gallery': { en: 'Photo Gallery', bn: 'ছবি গ্যালারি' },
 };
 
 const ICONS = {
@@ -124,14 +130,36 @@ const NEWS_SLIDES = [
 const EVENTS = [ 
     
     {
-        title: { en: "Intra Math Olympiad 2026", bn: "অভ্যন্তরীণ গণিত অলিম্পিয়াড ২০২৬" },
-        date: { en: "APR 15", bn: "১৫ এপ্রিল" },
-        time: { en: "12:00 PM", bn: "দুপুর ১২:০০" },
+        title: { en: "Differentiation Bee 2026", bn: "অন্তরীকরণ প্রতিযোগিতা ২০২৬" },
+        date: { en: "JUL 30", bn: "৩০ জুলাই" },
+        time: { en: "12:40 PM", bn: "দুপুর ১২:৪০" },
         location: { en: "Room 402", bn: "৪০২ নং কক্ষ" },
-        type: { en: "Lecture", bn: "লেকচার" },
+        type: { en: "Competition", bn: "প্রতিযোগিতা" },
         desc: { en: "Math Olympiad", bn: "গণিত অলিম্পিয়াড" },
-        color: "bg-blue-100 text-blue-800",
-        banner: "./assets/activities/Announcement_NDCMC_IMO2026.png", 
+        color: "bg-yellow-100 text-blue-800",
+        photos: [
+"./assets/activities/differentiation-bee/IMG_3715.jpg",
+"./assets/activities/differentiation-bee/IMG_3722.jpg",
+"./assets/activities/differentiation-bee/IMG_3723.jpg",
+"./assets/activities/differentiation-bee/IMG_3725.jpg",
+"./assets/activities/differentiation-bee/IMG_3727.jpg",
+"./assets/activities/differentiation-bee/IMG_3729.jpg",
+"./assets/activities/differentiation-bee/IMG_3731.jpg",
+"./assets/activities/differentiation-bee/IMG_3732.jpg",
+"./assets/activities/differentiation-bee/IMG_3741.jpg",
+"./assets/activities/differentiation-bee/IMG_3745.jpg",
+"./assets/activities/differentiation-bee/IMG_3749.jpg",
+"./assets/activities/differentiation-bee/IMG_3751.jpg",
+"./assets/activities/differentiation-bee/IMG_3755.jpg",
+"./assets/activities/differentiation-bee/IMG_3757.jpg",
+"./assets/activities/differentiation-bee/IMG_3758.jpg",
+"./assets/activities/differentiation-bee/IMG_3759.jpg",
+"./assets/activities/differentiation-bee/IMG_3762.jpg",
+"./assets/activities/differentiation-bee/IMG_3763.jpg",
+"./assets/activities/differentiation-bee/IMG_3767.jpg",
+"./assets/activities/differentiation-bee/IMG_3770.jpg",
+"./assets/activities/differentiation-bee/IMG_3772.jpg",
+"./assets/activities/differentiation-bee/IMG_3782.jpg"        ],
         rsvpLink: "https://forms.gle/your-link"
     }
 ];
@@ -968,17 +996,85 @@ let state = {
     menuOpen: false,
     currentSlide: 0,
     graphMode: 0,
-    eventSlideIndex: 0
+    eventSlideIndex: 0,
+    lightbox: { open: false, images: [], index: 0 },
+    eventGallery: { open: false, eventIndex: null }
 };
+
+// --- Image preloading helpers -------------------------------------------------
+// Warms the browser cache ahead of time so gallery/lightbox images that were
+// already fetched appear instantly instead of popping in on click.
+function preloadImage(src) {
+    if (!src) return;
+    const img = new Image();
+    img.src = src;
+}
+function preloadImages(list) {
+    (list || []).forEach(preloadImage);
+}
+
+// --- Lightbox (Google Photos style viewer) ------------------------------------
+function openLightbox(images, index) {
+    if (!images || !images.length) return;
+    state.lightbox = { open: true, images, index: index || 0 };
+    preloadImage(images[(state.lightbox.index + 1) % images.length]);
+    preloadImage(images[(state.lightbox.index - 1 + images.length) % images.length]);
+    render();
+}
+function closeLightbox() {
+    state.lightbox.open = false;
+    render();
+}
+function lightboxStep(dir) {
+    const { images, index } = state.lightbox;
+    if (!images || !images.length) return;
+    const next = (index + dir + images.length) % images.length;
+    state.lightbox.index = next;
+    preloadImage(images[(next + dir + images.length) % images.length]);
+    render();
+}
+function handleLightboxKey(e) {
+    if (state.lightbox.open) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') lightboxStep(1);
+        if (e.key === 'ArrowLeft') lightboxStep(-1);
+    } else if (state.eventGallery.open) {
+        if (e.key === 'Escape') closeEventGallery();
+    }
+}
+
+// --- Per-event "Photo Gallery" popup ------------------------------------------
+// Shows a grid of just that one event's photos (same look as the Activity
+// Gallery grid), scoped inside a popup launched from the event's own card.
+function openEventGallery(eventIndex) {
+    state.eventGallery = { open: true, eventIndex };
+    preloadImages(EVENTS[eventIndex] && EVENTS[eventIndex].photos);
+    render();
+}
+function closeEventGallery() {
+    state.eventGallery.open = false;
+    render();
+}
 
 function startEventSlideshow() {
     setInterval(() => {
         if (state.view === 'EVENTS') {
             state.eventSlideIndex = (state.eventSlideIndex + 1) % CLUB_PHOTOS.length;
-            
-            render(); 
+            updateEventSlideshowUI();
         }
     }, 3000); 
+}
+
+// Toggles opacity classes on the already-rendered slides directly, instead of
+// calling render() (which would tear down and rebuild the whole page, causing
+// the visible "blink"). Same idea as updateSliderUI() for the home slider.
+function updateEventSlideshowUI() {
+    const slides = document.querySelectorAll('[data-event-slide]');
+    slides.forEach((el) => {
+        const idx = Number(el.dataset.eventSlide);
+        el.classList.toggle('opacity-100', idx === state.eventSlideIndex);
+        el.classList.toggle('opacity-0', idx !== state.eventSlideIndex);
+    });
 }
 
 function handleRouting() {
@@ -1021,9 +1117,15 @@ let sliderInterval;
 function init() {
     updateBodyLang();
     window.addEventListener('hashchange', handleRouting);
+    window.addEventListener('keydown', handleLightboxKey);
     handleRouting(); 
     startSlider();
-    startEventSlideshow(); 
+    startEventSlideshow();
+
+    // Start fetching activity photos immediately (not only once the user opens
+    // the Events page) so the slideshow and "View" banners feel instant.
+    preloadImages(CLUB_PHOTOS);
+    EVENTS.forEach(ev => preloadImages(ev.photos));
 }
 
 function updateBodyLang() {
@@ -1049,6 +1151,10 @@ function renderMath() {
             ],
             throwOnError : false
         });
+    } else {
+        // KaTeX loads with `defer`, so on the very first paint it can still be
+        // mid-download. Retry shortly instead of silently leaving raw LaTeX on screen.
+        setTimeout(renderMath, 50);
     }
 }
 
@@ -1059,6 +1165,8 @@ function render() {
             ${renderView()}
         </main>
         ${renderFooter()}
+        ${state.eventGallery.open ? renderEventGalleryModal() : ''}
+        ${state.lightbox.open ? renderLightbox() : ''}
     `;
     
     renderMath(); 
@@ -1067,6 +1175,68 @@ function render() {
         initMathAnimation();
         updateSliderUI();
     }
+    if (state.view === 'EVENTS') {
+        updateEventSlideshowUI();
+    }
+}
+
+function renderEventGalleryModal() {
+    const ev = EVENTS[state.eventGallery.eventIndex];
+    if (!ev) return '';
+    const photos = ev.photos || [];
+    return `
+        <div class="fixed inset-0 z-[90] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 fade-in" onclick="if(event.target === this) closeEventGallery()">
+            <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-y-auto">
+                <div class="flex items-center justify-between gap-4 p-5 border-b border-gray-100 sticky top-0 bg-white/95 backdrop-blur-sm rounded-t-2xl">
+                    <div class="min-w-0">
+                        <div class="text-xs font-bold uppercase tracking-widest text-ndcm-accent">${getLang(DICTIONARY.photo_gallery)}</div>
+                        <h3 class="text-lg font-bold text-slate-900 truncate">${getLang(ev.title)}</h3>
+                    </div>
+                    <button onclick="closeEventGallery()" aria-label="Close" class="flex-shrink-0 text-slate-400 hover:text-slate-700 p-2 -mr-2">
+                        ${ICONS.x}
+                    </button>
+                </div>
+                <div class="p-5">
+                    ${photos.length ? `
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
+                            ${photos.map((src, idx) => `
+                                <button onclick="openLightbox(EVENTS[${state.eventGallery.eventIndex}].photos, ${idx})" aria-label="Open photo ${idx + 1}" class="group relative aspect-square rounded-xl overflow-hidden bg-slate-100 shadow-sm hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-ndcm-accent">
+                                    <img src="${src}" alt="${getLang(ev.title)} photo ${idx + 1}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="eager" decoding="async">
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
+                                </button>
+                            `).join('')}
+                        </div>
+                    ` : `<p class="text-sm text-slate-500">No photos yet.</p>`}
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function renderLightbox() {
+    const { images, index } = state.lightbox;
+    const src = images[index];
+    return `
+        <div class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center fade-in" onclick="if(event.target === this) closeLightbox()">
+            <button onclick="closeLightbox()" aria-label="Close" class="absolute top-4 right-4 md:top-6 md:right-6 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors">
+                ${ICONS.x}
+            </button>
+            ${images.length > 1 ? `
+                <button onclick="lightboxStep(-1)" aria-label="Previous" class="absolute left-2 md:left-6 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 md:p-3 transition-colors">
+                    ${ICONS.chevronLeft}
+                </button>
+                <button onclick="lightboxStep(1)" aria-label="Next" class="absolute right-2 md:right-6 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 md:p-3 transition-colors">
+                    ${ICONS.chevronRight}
+                </button>
+            ` : ''}
+            <img src="${src}" alt="Activity photo ${index + 1}" class="max-w-[92vw] max-h-[82vh] object-contain rounded-lg shadow-2xl" loading="eager" fetchpriority="high">
+            ${images.length > 1 ? `
+                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-xs font-bold tracking-widest">
+                    ${index + 1} / ${images.length}
+                </div>
+            ` : ''}
+        </div>
+    `;
 }
 
 function renderHeader() {
@@ -1194,8 +1364,8 @@ function renderEvents() {
         <div class="fade-in max-w-5xl mx-auto px-4 py-12">
             <div class="mb-12 relative rounded-2xl overflow-hidden shadow-md h-64 md:h-80 bg-slate-100">
                 ${CLUB_PHOTOS.map((src, idx) => `
-                    <div class="absolute inset-0 transition-opacity duration-700 ${state.eventSlideIndex === idx ? 'opacity-100' : 'opacity-0'}">
-                        <img src="${src}" class="w-full h-full object-cover" alt="Club Activity">
+                    <div class="absolute inset-0 transition-opacity duration-700 ${state.eventSlideIndex === idx ? 'opacity-100' : 'opacity-0'}" data-event-slide="${idx}">
+                        <img src="${src}" class="w-full h-full object-cover" alt="Club Activity" loading="${idx === 0 ? 'eager' : 'lazy'}" ${idx === 0 ? 'fetchpriority="high"' : ''} decoding="async">
                         <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/50 to-transparent">
                             <span class="text-white text-xs font-bold uppercase tracking-widest">${getLang(DICTIONARY.activities)}</span>
                         </div>
@@ -1209,7 +1379,7 @@ function renderEvents() {
             </div>
 
             <div class="space-y-6">
-                ${EVENTS.map(event => `
+                ${EVENTS.map((event, evIdx) => `
                     <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row gap-6 items-start md:items-center">
                         <div class="flex-shrink-0 w-full md:w-32 bg-slate-50 rounded-lg p-4 text-center border border-gray-200">
                             <div class="text-xs font-bold text-slate-500 uppercase tracking-wide">Date</div>
@@ -1226,10 +1396,10 @@ function renderEvents() {
                         </div>
                         
                         <div class="flex flex-col gap-2 w-full md:w-auto">
-                            ${event.banner ? `
-                                <a href="${event.banner}" target="_blank" class="w-full text-center px-6 py-2 bg-slate-100 text-ndcm-primary text-xs font-bold rounded-lg border border-ndcm-primary hover:bg-ndcm-primary hover:text-white transition-all">
-                                    ${getLang(DICTIONARY.view)}
-                                </a>
+                            ${event.photos && event.photos.length ? `
+                                <button onclick="openEventGallery(${evIdx})" class="w-full text-center px-6 py-2 bg-slate-100 text-ndcm-primary text-xs font-bold rounded-lg border border-ndcm-primary hover:bg-ndcm-primary hover:text-white transition-all">
+                                    ${getLang(DICTIONARY.photo_gallery)}
+                                </button>
                             ` : ''}
                             <button class="w-full md:w-auto px-6 py-2 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg hover:bg-slate-50 hover:border-ndcm-primary hover:text-ndcm-primary transition-all">
                                 ${t('rsvp')}
@@ -1237,6 +1407,21 @@ function renderEvents() {
                         </div>
                     </div>
                 `).join('')}
+            </div>
+
+            <div class="mt-20">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900">${getLang(DICTIONARY.gallery)}</h2>
+                    <p class="text-slate-600 mt-2 text-sm">${getLang(DICTIONARY.gallery_desc)}</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                    ${CLUB_PHOTOS.map((src, idx) => `
+                        <button onclick="openLightbox(CLUB_PHOTOS, ${idx})" aria-label="Open photo ${idx + 1}" class="group relative aspect-square rounded-xl overflow-hidden bg-slate-100 shadow-sm hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-ndcm-accent">
+                            <img src="${src}" alt="Club activity photo ${idx + 1}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="${idx < 4 ? 'eager' : 'lazy'}" ${idx === 0 ? 'fetchpriority="high"' : ''} decoding="async">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
+                        </button>
+                    `).join('')}
+                </div>
             </div>
         </div>
     `;
@@ -1493,4 +1678,12 @@ function initMathAnimation() {
     mathAnimationId = requestAnimationFrame(animate);
 }
 
-init();
+// script.js is a plain (non-deferred) script, so it can run and call init()
+// before the deferred KaTeX <script> tags in <head> have finished executing.
+// Waiting for DOMContentLoaded guarantees deferred scripts have already run,
+// so the very first render has KaTeX available and never shows raw LaTeX.
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
