@@ -1129,9 +1129,16 @@ function handleRouting() {
 }
 
 function navigate(viewName, params = null) {
-    state.view = viewName;
+    // Article cards call navigate('ARTICLES', {id}) rather than
+    // navigate('ARTICLE_SINGLE', {id}) -- so an id in params always means
+    // "go to that single article", regardless of the viewName passed in.
+    if (params && params.id) {
+        state.view = 'ARTICLE_SINGLE';
+        state.articleId = params.id;
+    } else {
+        state.view = viewName;
+    }
     state.menuOpen = false;
-    if (params && params.id) state.articleId = params.id;
 
     // Updating the URL is best-effort. pushState throws a SecurityError in some
     // sandboxed/embedded preview contexts (e.g. file:// or a restricted iframe),
