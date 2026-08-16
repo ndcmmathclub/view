@@ -1,8 +1,5 @@
 const FORMSPREE_ID = "xdkvyoqy"; 
 
-// General activity photo library — powers both the Events page slideshow and the
-// "Activity Gallery" grid below it. To add a new photo, just drop the file into
-// assets/activities/ and add its path here.
 const CLUB_PHOTOS = [
     "./assets/activities/image-01.jpeg",
     "./assets/activities/image-02.jpeg",
