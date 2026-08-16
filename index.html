@@ -3,6 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      GitHub Pages serves this project statically, so a real path like /view/events
+      returns a 404 from GitHub's server before our JS router ever runs. 404.html
+      redirects those requests back here encoded in a query string; this script
+      (must run before anything else) decodes that and restores the real URL via
+      pushState, so script.js's router sees the correct path on first load.
+      Pattern: https://github.com/rafgraph/spa-github-pages
+    -->
+    <script type="text/javascript">
+      try {
+        (function (l) {
+          if (l.search[1] === '/') {
+            var decoded = l.search.slice(1).split('&').map(function (s) {
+              return s.replace(/~and~/g, '&');
+            }).join('?');
+            window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+          }
+        }(window.location));
+      } catch (e) {
+        // replaceState can be blocked in sandboxed/embedded preview contexts
+        // (e.g. file:// or a restricted iframe) -- harmless to skip there.
+      }
+    </script>
     <title>Notre Dame College Mymensingh Math Club</title>
     <meta name="description" content="Official website for the Math Club of Notre Dame College Mymensingh. Explore events, articles, and resources.">
     <meta name="google-site-verification" content="V6PLMn14GyCjP4wY4CkAMwUosjCWYkOXR7_x7c-b4qE" />
@@ -40,7 +63,6 @@
     </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@xenova/transformers@2.16.1"></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

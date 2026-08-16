@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Notre Dame College Mymensingh Math Club</title>
+    <!--
+      GitHub Pages has no server-side router, so a direct visit or refresh on a
+      real path (e.g. /view/events, /view/articles/101) 404s here before our
+      client-side router ever gets a chance to run. This encodes the requested
+      path into a query string and redirects to index.html, where a small script
+      in <head> decodes it and restores the real URL via pushState.
+      Pattern: https://github.com/rafgraph/spa-github-pages
+
+      pathSegmentsToKeep = 1 because this site lives at a GitHub Pages *project*
+      path (ndcmmathclub.github.io/view/), so the first segment ("view") must be
+      preserved rather than treated as part of the app's route.
+    -->
+    <script type="text/javascript">
+      var pathSegmentsToKeep = 1;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

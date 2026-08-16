@@ -1099,46 +1099,137 @@ function updateEventSlideshowUI() {
     });
 }
 
-function handleRouting() {
-    const hash = window.location.hash.replace('#', '');
-    const [view, id] = hash.split('/');
+// GitHub Pages project path -- this site lives at ndcmmathclub.github.io/view/,
+// so every real route must be prefixed with /view (see 404.html + the redirect
+// -restore script in index.html's <head> for why this is needed on a static host).
+const BASE_PATH = '/view';
+const SITE_ORIGIN = 'https://ndcmmathclub.github.io';
 
-    if (!view || view === 'home') {
+function pathFor(viewName, params) {
+    if (params && params.id) return `${BASE_PATH}/articles/${params.id}`;
+    if (viewName === 'HOME') return `${BASE_PATH}/`;
+    return `${BASE_PATH}/${viewName.toLowerCase()}`;
+}
+
+function handleRouting() {
+    let path = window.location.pathname;
+    if (path.startsWith(BASE_PATH)) path = path.slice(BASE_PATH.length);
+    const segments = path.split('/').filter(Boolean);
+
+    if (segments.length === 0) {
         state.view = 'HOME';
-    } else if (view === 'articles' && id) {
+    } else if (segments[0] === 'articles' && segments[1]) {
         state.view = 'ARTICLE_SINGLE';
-        state.articleId = parseInt(id);
+        state.articleId = parseInt(segments[1]);
     } else {
-        const foundView = view.toUpperCase();
-        state.view = foundView;
+        state.view = segments[0].toUpperCase();
     }
     render();
+    updateSeoTags();
 }
 
 function navigate(viewName, params = null) {
     state.view = viewName;
     state.menuOpen = false;
+    if (params && params.id) state.articleId = params.id;
 
-    if (params && params.id) {
-        state.articleId = params.id;
-        window.location.hash = `articles/${params.id}`;
-    } else {
-        window.location.hash = viewName.toLowerCase();
+    // Updating the URL is best-effort. pushState throws a SecurityError in some
+    // sandboxed/embedded preview contexts (e.g. file:// or a restricted iframe),
+    // and in-app navigation must never depend on that succeeding -- otherwise a
+    // thrown error here stops execution before render() runs, leaving the page
+    // stuck on the old view (and, since state.view already changed, the HOME
+    // graph's animation loop sees the mismatch and freezes mid-frame).
+    try {
+        const path = pathFor(viewName, params);
+        if (window.location.pathname !== path) {
+            window.history.pushState({}, '', path);
+        }
+    } catch (e) {
+        console.warn('URL update skipped (pushState unavailable in this context):', e);
     }
-    
+
     window.scrollTo(0, 0);
+    render();
+    updateSeoTags();
+}
+
+// --- Per-page SEO metadata -------------------------------------------------------
+// This is a client-rendered SPA, so this mainly helps Googlebot (which does
+// execute JS) index each route as its own page with its own title/description/
+// canonical URL, rather than everything collapsing into one homepage entry.
+// It does NOT fix link-preview cards on platforms that don't execute JS before
+// fetching Open Graph tags (e.g. Facebook, Twitter/X) -- that would need a real
+// prerendering/SSG build step, which is a bigger change than this one.
+const SEO_META = {
+    HOME: { title: 'Notre Dame College Mymensingh Math Club', description: 'Official website for the Math Club of Notre Dame College Mymensingh. Explore events, articles, and resources.' },
+    MESSAGES: { title: 'Messages — NDCM Math Club', description: 'Messages and announcements from the Notre Dame College Mymensingh Math Club.' },
+    EVENTS: { title: 'Events — NDCM Math Club', description: 'Upcoming and past events, competitions, and activities hosted by the Notre Dame College Mymensingh Math Club.' },
+    ARTICLES: { title: 'Articles — NDCM Math Club', description: 'Student-written articles and explorations in mathematics from the Notre Dame College Mymensingh Math Club.' },
+    RESOURCES: { title: 'Resources — NDCM Math Club', description: 'Curated learning resources, tools, and references for math enthusiasts at Notre Dame College Mymensingh.' },
+    COMMITTEE: { title: 'Committee — NDCM Math Club', description: 'Meet the committee members leading the Notre Dame College Mymensingh Math Club.' },
+    CONTACT: { title: 'Contact — NDCM Math Club', description: 'Get in touch with the Notre Dame College Mymensingh Math Club.' }
+};
+
+function updateSeoTags() {
+    let meta = SEO_META[state.view];
+    let path = pathFor(state.view, state.view === 'ARTICLE_SINGLE' ? { id: state.articleId } : null);
+    let image = null;
+
+    if (state.view === 'ARTICLE_SINGLE') {
+        const article = ARTICLES.find(a => a.id === state.articleId);
+        if (article) {
+            meta = {
+                title: `${getLang(article.title)} — NDCM Math Club`,
+                description: (getLang(article.desc) || '').slice(0, 160)
+            };
+            image = article.image;
+        } else {
+            meta = SEO_META.ARTICLES;
+        }
+    }
+    if (!meta) meta = SEO_META.HOME;
+
+    const fullUrl = `${SITE_ORIGIN}${path}`;
+    document.title = meta.title;
+    setMetaContent('name', 'description', meta.description);
+    setMetaContent('property', 'og:title', meta.title);
+    setMetaContent('property', 'og:description', meta.description);
+    setMetaContent('property', 'og:url', fullUrl);
+    if (image) setMetaContent('property', 'og:image', image);
+    setCanonical(fullUrl);
+}
+
+function setMetaContent(attr, key, content) {
+    if (!content) return;
+    let el = document.querySelector(`meta[${attr}="${key}"]`);
+    if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+    }
+    el.setAttribute('content', content);
+}
+
+function setCanonical(url) {
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) {
+        link = document.createElement('link');
+        link.setAttribute('rel', 'canonical');
+        document.head.appendChild(link);
+    }
+    link.setAttribute('href', url);
 }
 
 const t = (key) => DICTIONARY[key] ? DICTIONARY[key][state.lang] : key;
 const getLang = (obj) => obj ? obj[state.lang] : '';
 
 const app = document.getElementById('app');
-let mathAnimationId;
+// (mathAnimationId is declared later, alongside the rest of the math-viz engine)
 let sliderInterval;
 
 function init() {
     updateBodyLang();
-    window.addEventListener('hashchange', handleRouting);
+    window.addEventListener('popstate', handleRouting);
     window.addEventListener('keydown', handleLightboxKey);
     handleRouting(); 
     startSlider();
@@ -1153,6 +1244,10 @@ function init() {
 function updateBodyLang() {
     document.body.classList.remove('lang-en', 'lang-bn');
     document.body.classList.add(`lang-${state.lang}`);
+    // Keep the <html lang="..."> attribute in sync too -- screen readers and
+    // search engines rely on this to know which language the page is in,
+    // and it was previously stuck on "en" even when viewing the Bengali version.
+    document.documentElement.lang = state.lang;
 }
 
 function toggleLanguage() {
@@ -1366,10 +1461,8 @@ function renderHome() {
                             </div>
                         </div>
                         <div class="relative h-[400px] bg-slate-50 rounded-2xl border border-gray-200 overflow-hidden shadow-sm flex items-center justify-center cursor-pointer" onclick="toggleGraphMode()">
-                            <svg id="math-vis" width="100%" height="100%" viewBox="0 0 400 400" class="absolute inset-0 text-ndcm-accent opacity-80">
-                                <path id="math-vis-path" d="" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg border border-gray-100 shadow text-sm font-mono text-ndcm-primary pointer-events-none">
+                            <div id="math-vis-slot" class="contents">${renderMathVisContainer()}</div>
+                            <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg border border-gray-100 shadow text-xs md:text-sm font-mono text-ndcm-primary pointer-events-none max-w-[85%] overflow-x-auto">
                                 <span id="math-label"></span>
                             </div>
                             <div class="absolute top-4 right-4 text-xs text-slate-400">Click to change graph</div>
@@ -1627,67 +1720,484 @@ function updateSliderUI() {
     if (track) track.style.transform = `translateX(-${state.currentSlide * 100}%)`;
 }
 
+// =================================================================================
+// MATH VISUALIZATION ENGINE
+// ---------------------------------------------------------------------------------
+// Modes come in 3 flavors, because they genuinely need different rendering tech:
+//   'svg'    - a single evolving curve, redrawn every frame. Cheap, uses <path>.
+//   'canvas' - a pixel grid (escape-time fractals, domain coloring, DFT bars).
+//              Computed once per mode-activation (not every frame) since a full
+//              grid render is too expensive to redo 60x/second, then painted
+//              progressively row-by-row so the tab never freezes on entry.
+//   'webgl'  - true 3D structures, via three.js (lazy-loaded only when the user
+//              actually reaches a 3D mode, so nobody pays for it up front).
+// =================================================================================
+const GRAPH_MODES = [
+    { id: 'lissajous',    type: 'svg',    label: "$$ x=A\\sin(at+\\delta),\\ y=B\\sin(bt) $$" },
+    { id: 'rose',         type: 'svg',    label: "$$ r = e^{\\sin\\theta} - 2\\cos(4\\theta) + \\sin^5(\\frac{2\\theta - \\pi}{24}) $$" },
+    { id: 'wave',         type: 'svg',    label: "$$ z = \\sin(x^2 + y^2) $$" },
+    { id: 'euler',        type: 'svg',    label: "$$ e^{i\\pi} + 1 = 0 $$" },
+    { id: 'fourier',      type: 'svg',    label: "$$ \\hat g(f)=\\int g(t)e^{-i2\\pi ft}dt $$" },
+    { id: 'zeta',         type: 'svg',    label: "$$ \\zeta(\\tfrac12+it) $$" },
+    { id: 'lorenz',       type: 'svg',    label: "$$ \\dot x=\\sigma(y-x),\\ \\dot y=x(\\rho-z)-y,\\ \\dot z=xy-\\beta z $$" },
+    { id: 'mandelbrot',   type: 'canvas', label: "$$ z_{n+1}=z_n^2+c $$" },
+    { id: 'julia',        type: 'canvas', label: "$$ z_{n+1}=z_n^2+c,\\ c=-0.4+0.6i $$" },
+    { id: 'newton',       type: 'canvas', label: "$$ z_{n+1}=z_n-\\frac{z_n^3-1}{3z_n^2} $$" },
+    { id: 'burningship',  type: 'canvas', label: "$$ z_{n+1}=(|Re(z_n)|+i|Im(z_n)|)^2+c $$" },
+    { id: 'domaincolor',  type: 'canvas', label: "$$ f(z)=z^3-1 $$" },
+    { id: 'dft',          type: 'canvas', label: "$$ X_k=\\sum_{n=0}^{N-1} x_n e^{-i\\frac{2\\pi}{N}kn} $$" },
+    { id: 'hopf',         type: 'webgl',  label: "$$ \\eta(z_1,z_2)=z_1/z_2 $$" },
+    { id: 'quaternion',   type: 'webgl',  label: "$$ q_{n+1}=q_n^2+C,\\ q\\in\\mathbb{H} $$" }
+];
+
+let mathAnimationId = null;
+let webglEngine = null;
+let threeLoadingPromise = null;
+
+function renderMathVisContainer() {
+    const mode = GRAPH_MODES[state.graphMode];
+    if (mode.type === 'svg') {
+        return `<svg id="math-vis" width="100%" height="100%" viewBox="0 0 400 400" class="absolute inset-0 text-ndcm-accent opacity-80">
+            <path id="math-vis-path" d="" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`;
+    }
+    if (mode.type === 'canvas') {
+        return `<canvas id="math-vis-canvas" width="400" height="400" class="absolute inset-0 w-full h-full"></canvas>`;
+    }
+    return `<canvas id="math-vis-webgl" class="absolute inset-0 w-full h-full"></canvas>
+        <div id="math-vis-loading" class="absolute inset-0 flex items-center justify-center text-xs text-slate-400 pointer-events-none">Loading 3D engine…</div>`;
+}
+
 function toggleGraphMode() {
-    state.graphMode = (state.graphMode + 1) % 3;
-    initMathAnimation();
+    state.graphMode = (state.graphMode + 1) % GRAPH_MODES.length;
+    // Swap only the visualization node itself (svg/canvas/webgl-canvas) instead of
+    // calling render(), which would rebuild the entire page and cause a visible
+    // flash. The header, hero copy, footer, etc. never need to change here.
+    const slot = document.getElementById('math-vis-slot');
+    if (slot) {
+        slot.innerHTML = renderMathVisContainer();
+        initMathAnimation(); // this also calls cleanupMathVis() first, tearing down the old mode
+    } else {
+        render(); // fallback, shouldn't normally happen while on the Home page
+    }
+}
+
+function cleanupMathVis() {
+    if (mathAnimationId) cancelAnimationFrame(mathAnimationId);
+    mathAnimationId = null;
+    if (webglEngine) {
+        webglEngine.dispose();
+        webglEngine = null;
+    }
 }
 
 function initMathAnimation() {
-    let t = 0;
-    const labels = [
-        "$$ x=A\\sin(at+\\delta), y=B\\sin(bt) $$", 
-        "$$ r = e^{\\sin\\theta} - 2\\cos(4\\theta) + \\sin^5(\\frac{2\\theta - \\pi}{24})$$", 
-        "$$ z = \\sin(x^2 + y^2) $$" 
-    ];
+    cleanupMathVis();
+    const mode = GRAPH_MODES[state.graphMode];
 
     const labelEl = document.getElementById('math-label');
-    if(labelEl) {
-        labelEl.innerHTML = labels[state.graphMode];
-        renderMath(); 
+    if (labelEl) {
+        labelEl.innerHTML = mode.label;
+        renderMath();
     }
+
+    if (mode.type === 'svg') runSvgMode(mode.id);
+    else if (mode.type === 'canvas') runCanvasMode(mode.id);
+    else runWebglMode(mode.id);
+}
+
+// --- 'svg' modes: one continuously redrawn curve --------------------------------
+function runSvgMode(id) {
+    let t = 0;
+    let lorenz = null; // lazily initialized only if this activation is the Lorenz mode
 
     function animate() {
         t += 0.02;
         const path = document.getElementById('math-vis-path');
         if (!path || state.view !== 'HOME') return;
 
+        const cx = 200, cy = 200;
         const points = [];
-        const width = 400, height = 400;
-        const cx = width / 2, cy = height / 2;
-        
-        if (state.graphMode === 0) {
+
+        if (id === 'lissajous') {
             const scale = 140;
             for (let i = 0; i <= 200; i++) {
                 const theta = (i / 200) * Math.PI * 2;
-                const x = cx + scale * Math.sin(3 * theta + t);
-                const y = cy + scale * Math.sin(2 * theta);
-                points.push(`${x},${y}`);
+                points.push(`${cx + scale * Math.sin(3 * theta + t)},${cy + scale * Math.sin(2 * theta)}`);
             }
-        } else if (state.graphMode === 1) {
+        } else if (id === 'rose') {
             const scale = 35;
             for (let i = 0; i <= 300; i++) {
-                const theta = (i / 300) * Math.PI * 12; 
+                const theta = (i / 300) * Math.PI * 12;
                 const r = Math.exp(Math.sin(theta)) - 2 * Math.cos(4 * theta) + Math.pow(Math.sin((2 * theta - Math.PI) / 24), 5);
-                const rotX = r * Math.cos(theta + t*0.5);
-                const rotY = r * Math.sin(theta + t*0.5);
-                points.push(`${cx + rotX * scale},${cy + rotY * scale}`);
+                points.push(`${cx + r * Math.cos(theta + t * 0.5) * scale},${cy + r * Math.sin(theta + t * 0.5) * scale}`);
             }
-        } else {
+        } else if (id === 'wave') {
             const scale = 30;
             for (let x = -5; x <= 5; x += 0.2) {
-                const yVal = Math.sin(x*x + t) * 2; 
-                const isoX = cx + (x * scale);
-                const isoY = cy + (yVal * 10);
-                points.push(`${isoX},${isoY}`);
+                const yVal = Math.sin(x * x + t) * 2;
+                points.push(`${cx + x * scale},${cy + yVal * 10}`);
             }
+        } else if (id === 'euler') {
+            // Sweeps theta from 0 -> 2*pi, tracing e^{i*theta} around the unit circle.
+            // Passing straight through -1 at theta=pi is the geometric heart of e^{i*pi}+1=0.
+            const scale = 150;
+            const theta = t % (Math.PI * 2);
+            const steps = 120;
+            for (let i = 0; i <= steps; i++) {
+                const a = (i / steps) * theta;
+                points.push(`${cx + scale * Math.cos(a)},${cy - scale * Math.sin(a)}`);
+            }
+        } else if (id === 'fourier') {
+            // Epicycle sum of odd harmonics (classic square-wave approximation),
+            // trailing the last ~6s of the resulting path.
+            const freqs = [1, 3, 5, 7, 9];
+            const scale = 90;
+            const steps = 200;
+            for (let i = 0; i <= steps; i++) {
+                const time = t - (steps - i) * 0.03;
+                let x = 0, y = 0;
+                freqs.forEach((f) => {
+                    const amp = 1 / f;
+                    x += amp * Math.cos(f * time);
+                    y += amp * Math.sin(f * time);
+                });
+                points.push(`${cx + x * scale},${cy + y * scale}`);
+            }
+        } else if (id === 'zeta') {
+            // Decorative approximation of zeta on the critical line via a damped
+            // Dirichlet-eta partial sum (not numerically rigorous, but traces the
+            // characteristic winding spiral shape the real function produces).
+            const scale = 60;
+            const steps = 240;
+            for (let i = 0; i <= steps; i++) {
+                const tt = (i / steps) * 6 + (t % 4);
+                const z = zetaCriticalLineApprox(tt);
+                points.push(`${cx + z.re * scale},${cy + z.im * scale}`);
+            }
+        } else if (id === 'lorenz') {
+            if (!lorenz) lorenz = { x: 0.1, y: 0, z: 0, trail: [] };
+            const sigma = 10, rho = 28, beta = 8 / 3, dt = 0.008;
+            for (let step = 0; step < 6; step++) {
+                const { x, y, z } = lorenz;
+                const dx = sigma * (y - x), dy = x * (rho - z) - y, dz = x * y - beta * z;
+                lorenz.x += dx * dt; lorenz.y += dy * dt; lorenz.z += dz * dt;
+                lorenz.trail.push({ x: lorenz.x, z: lorenz.z });
+            }
+            if (lorenz.trail.length > 900) lorenz.trail.splice(0, lorenz.trail.length - 900);
+            const scale = 6.5;
+            lorenz.trail.forEach(p => points.push(`${cx + p.x * scale},${cy - (p.z - 25) * scale * 0.6}`));
         }
 
-        path.setAttribute('d', `M ${points.join(' L ')}`);
+        path.setAttribute('d', points.length ? `M ${points.join(' L ')}` : '');
         mathAnimationId = requestAnimationFrame(animate);
     }
-
-    if (mathAnimationId) cancelAnimationFrame(mathAnimationId);
     mathAnimationId = requestAnimationFrame(animate);
+}
+
+function zetaCriticalLineApprox(t) {
+    // eta(s) = sum (-1)^(n-1) / n^s ;  zeta(s) = eta(s) / (1 - 2^(1-s))
+    const sigma = 0.5;
+    let re = 0, im = 0;
+    const terms = 40;
+    for (let n = 1; n <= terms; n++) {
+        const sign = (n % 2 === 1) ? 1 : -1;
+        const mag = Math.pow(n, -sigma);
+        const angle = -t * Math.log(n);
+        re += sign * mag * Math.cos(angle);
+        im += sign * mag * Math.sin(angle);
+    }
+    const denomMag = Math.pow(2, 1 - sigma);
+    const dRe = 1 - denomMag * Math.cos(t * Math.log(2));
+    const dIm = denomMag * Math.sin(t * Math.log(2));
+    const dMagSq = dRe * dRe + dIm * dIm || 1e-6;
+    return {
+        re: (re * dRe + im * dIm) / dMagSq,
+        im: (im * dRe - re * dIm) / dMagSq
+    };
+}
+
+// --- 'canvas' modes: pixel grids, painted progressively -------------------------
+function runCanvasMode(id) {
+    const canvas = document.getElementById('math-vis-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width, h = canvas.height;
+
+    if (id === 'dft') {
+        renderDFTBars(ctx, w, h);
+        return;
+    }
+
+    const imgData = ctx.createImageData(w, h);
+    let row = 0;
+    const rowsPerFrame = 6;
+
+    function paintRow(y) {
+        for (let x = 0; x < w; x++) {
+            const [r, g, b] = fractalPixelColor(id, x, y, w, h);
+            const idx = (y * w + x) * 4;
+            imgData.data[idx] = r; imgData.data[idx + 1] = g; imgData.data[idx + 2] = b; imgData.data[idx + 3] = 255;
+        }
+    }
+
+    function step() {
+        if (state.view !== 'HOME') return;
+        for (let i = 0; i < rowsPerFrame && row < h; i++, row++) paintRow(row);
+        ctx.putImageData(imgData, 0, 0);
+        if (row < h) mathAnimationId = requestAnimationFrame(step);
+    }
+    mathAnimationId = requestAnimationFrame(step);
+}
+
+function fractalPixelColor(id, px, py, w, h) {
+    const maxIter = 60;
+
+    if (id === 'mandelbrot') {
+        const re = (px / w) * 3.2 - 2.2, im = (py / h) * 3.2 - 1.6;
+        let zr = 0, zi = 0, i = 0;
+        for (; i < maxIter; i++) {
+            const zr2 = zr * zr - zi * zi + re, zi2 = 2 * zr * zi + im;
+            zr = zr2; zi = zi2;
+            if (zr * zr + zi * zi > 4) break;
+        }
+        return escapeColor(i, maxIter);
+    }
+    if (id === 'julia') {
+        const cr = -0.4, ci = 0.6;
+        let zr = (px / w) * 3.2 - 1.6, zi = (py / h) * 3.2 - 1.6, i = 0;
+        for (; i < maxIter; i++) {
+            const zr2 = zr * zr - zi * zi + cr, zi2 = 2 * zr * zi + ci;
+            zr = zr2; zi = zi2;
+            if (zr * zr + zi * zi > 4) break;
+        }
+        return escapeColor(i, maxIter);
+    }
+    if (id === 'burningship') {
+        const re = (px / w) * 3.0 - 2.0, im = (py / h) * 3.0 - 2.2;
+        let zr = 0, zi = 0, i = 0;
+        for (; i < maxIter; i++) {
+            zr = Math.abs(zr); zi = Math.abs(zi);
+            const zr2 = zr * zr - zi * zi + re, zi2 = 2 * zr * zi + im;
+            zr = zr2; zi = zi2;
+            if (zr * zr + zi * zi > 4) break;
+        }
+        return escapeColor(i, maxIter);
+    }
+    if (id === 'newton') {
+        let zr = (px / w) * 3.2 - 1.6, zi = (py / h) * 3.2 - 1.6;
+        const roots = [[1, 0], [-0.5, Math.sqrt(3) / 2], [-0.5, -Math.sqrt(3) / 2]];
+        let iter = 0;
+        for (; iter < 25; iter++) {
+            const z2r = zr * zr - zi * zi, z2i = 2 * zr * zi;
+            const z3r = z2r * zr - z2i * zi, z3i = z2r * zi + z2i * zr;
+            const fr = z3r - 1, fi = z3i;
+            const dfr = 3 * z2r, dfi = 3 * z2i;
+            const denom = (dfr * dfr + dfi * dfi) || 1e-9;
+            const qr = (fr * dfr + fi * dfi) / denom, qi = (fi * dfr - fr * dfi) / denom;
+            zr -= qr; zi -= qi;
+            if (qr * qr + qi * qi < 1e-6) break;
+        }
+        let best = 0, bestDist = Infinity;
+        roots.forEach(([rr, ri], idx) => {
+            const d = (zr - rr) * (zr - rr) + (zi - ri) * (zi - ri);
+            if (d < bestDist) { bestDist = d; best = idx; }
+        });
+        const shades = [[239, 68, 68], [59, 130, 246], [16, 185, 129]];
+        const dim = Math.max(0.35, 1 - iter / 25);
+        return shades[best].map(c => Math.round(c * dim));
+    }
+    if (id === 'domaincolor') {
+        // f(z) = z^3 - 1, HSL domain coloring: hue = phase, lightness = magnitude
+        const re = (px / w) * 4 - 2, im = (py / h) * 4 - 2;
+        const z2r = re * re - im * im, z2i = 2 * re * im;
+        const fr = z2r * re - z2i * im - 1, fi = z2r * im + z2i * re;
+        const mag = Math.sqrt(fr * fr + fi * fi);
+        const hue = ((Math.atan2(fi, fr) + Math.PI) / (2 * Math.PI)) * 360;
+        const light = 100 / (1 + mag * 0.3);
+        return hslToRgb(hue, 70, Math.min(85, Math.max(15, light)));
+    }
+    return [255, 255, 255];
+}
+
+function escapeColor(iter, maxIter) {
+    if (iter === maxIter) return [15, 23, 42]; // inside the set: slate-900
+    const t = iter / maxIter;
+    const r = Math.round(180 + 75 * Math.sin(6.28 * t));
+    const g = Math.round(80 + 60 * Math.sin(6.28 * t + 2));
+    const b = Math.round(120 + 100 * Math.sin(6.28 * t + 4));
+    return [Math.min(255, Math.max(0, r)), Math.min(255, Math.max(0, g)), Math.min(255, Math.max(0, b))];
+}
+
+function hslToRgb(h, s, l) {
+    s /= 100; l /= 100;
+    const c = (1 - Math.abs(2 * l - 1)) * s;
+    const x = c * (1 - Math.abs((h / 60) % 2 - 1));
+    const m = l - c / 2;
+    let r = 0, g = 0, b = 0;
+    if (h < 60) { r = c; g = x; b = 0; }
+    else if (h < 120) { r = x; g = c; b = 0; }
+    else if (h < 180) { r = 0; g = c; b = x; }
+    else if (h < 240) { r = 0; g = x; b = c; }
+    else if (h < 300) { r = x; g = 0; b = c; }
+    else { r = c; g = 0; b = x; }
+    return [Math.round((r + m) * 255), Math.round((g + m) * 255), Math.round((b + m) * 255)];
+}
+
+function renderDFTBars(ctx, w, h) {
+    // Synthetic signal (3 sine components), naive O(N^2) DFT (N=64 is trivial),
+    // drawn as a magnitude spectrum. Illustrative, not linked to real audio.
+    const N = 64;
+    const signal = [];
+    for (let n = 0; n < N; n++) {
+        signal.push(Math.sin(2 * Math.PI * 3 * n / N) + 0.5 * Math.sin(2 * Math.PI * 7 * n / N) + 0.3 * Math.sin(2 * Math.PI * 13 * n / N));
+    }
+    const mags = [];
+    for (let k = 0; k < N / 2; k++) {
+        let re = 0, im = 0;
+        for (let n = 0; n < N; n++) {
+            const angle = -2 * Math.PI * k * n / N;
+            re += signal[n] * Math.cos(angle);
+            im += signal[n] * Math.sin(angle);
+        }
+        mags.push(Math.sqrt(re * re + im * im));
+    }
+    ctx.fillStyle = '#f8fafc';
+    ctx.fillRect(0, 0, w, h);
+    const barW = w / mags.length;
+    const maxMag = Math.max(...mags);
+    mags.forEach((m, i) => {
+        const bh = (m / maxMag) * (h * 0.75);
+        ctx.fillStyle = (i === 3 || i === 7 || i === 13) ? '#b45309' : '#4c1d95';
+        ctx.fillRect(i * barW + 2, h - bh, barW - 4, bh);
+    });
+}
+
+// --- 'webgl' modes: true 3D, three.js lazy-loaded only when needed --------------
+function ensureThree() {
+    if (window.THREE) return Promise.resolve();
+    if (threeLoadingPromise) return threeLoadingPromise;
+    threeLoadingPromise = new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js';
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+    });
+    return threeLoadingPromise;
+}
+
+function runWebglMode(id) {
+    const loadingEl = document.getElementById('math-vis-loading');
+    ensureThree().then(() => {
+        // The user may have switched modes again while three.js was downloading.
+        if (state.view !== 'HOME' || GRAPH_MODES[state.graphMode].id !== id) return;
+        if (loadingEl) loadingEl.remove();
+        const canvas = document.getElementById('math-vis-webgl');
+        if (!canvas) return;
+        startThreeScene(id, canvas);
+    }).catch(() => {
+        if (loadingEl) loadingEl.textContent = 'Could not load 3D engine.';
+    });
+}
+
+function startThreeScene(id, canvas) {
+    const w = canvas.clientWidth || 400, h = canvas.clientHeight || 400;
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setSize(w, h, false);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, w / h, 0.1, 100);
+    camera.position.set(0, 0, id === 'hopf' ? 4 : 3.2);
+    scene.add(new THREE.AmbientLight(0x404040, 1.5));
+    const light = new THREE.DirectionalLight(0xffffff, 1.2);
+    light.position.set(2, 3, 4);
+    scene.add(light);
+
+    const disposables = [];
+    if (id === 'hopf') buildHopfFibration(scene, disposables);
+    else if (id === 'quaternion') buildQuaternionJulia(scene, disposables);
+
+    let raf;
+    function loop() {
+        if (state.view !== 'HOME' || GRAPH_MODES[state.graphMode].id !== id) return;
+        scene.rotation.y += 0.004;
+        scene.rotation.x = Math.sin(Date.now() * 0.0002) * 0.15;
+        renderer.render(scene, camera);
+        raf = requestAnimationFrame(loop);
+    }
+    loop();
+
+    webglEngine = {
+        dispose() {
+            if (raf) cancelAnimationFrame(raf);
+            disposables.forEach(d => d.dispose && d.dispose());
+            renderer.dispose();
+        }
+    };
+}
+
+function buildHopfFibration(scene, disposables) {
+    // A handful of Hopf fibers (circles on S^3, stereographically projected to
+    // R^3) traced over base points on S^2 -- each fiber a torus-like linked loop.
+    const baseCount = 10;
+    for (let i = 0; i < baseCount; i++) {
+        const theta = (i / baseCount) * Math.PI;
+        const phi = (i / baseCount) * Math.PI * 4;
+        const points = [];
+        for (let j = 0; j <= 200; j++) {
+            const eta = (j / 200) * Math.PI * 2;
+            const z1r = Math.cos(theta / 2) * Math.cos(eta);
+            const z1i = Math.cos(theta / 2) * Math.sin(eta);
+            const z2r = Math.sin(theta / 2) * Math.cos(eta + phi);
+            const z2i = Math.sin(theta / 2) * Math.sin(eta + phi);
+            const denom = (1 - z2i) || 1e-6;
+            points.push(new THREE.Vector3(z1r / denom, z1i / denom, z2r / denom));
+        }
+        const geo = new THREE.BufferGeometry().setFromPoints(points);
+        const mat = new THREE.LineBasicMaterial({ color: new THREE.Color().setHSL(i / baseCount, 0.65, 0.55) });
+        scene.add(new THREE.Line(geo, mat));
+        disposables.push(geo, mat);
+    }
+}
+
+function buildQuaternionJulia(scene, disposables) {
+    // Full volumetric raymarching is too heavy for a homepage widget, so this
+    // samples a 3D grid of starting quaternions (x,y,z,0), iterates q -> q^2+C,
+    // and keeps the points that stay bounded -- a point-cloud cross-section.
+    const C = { a: -0.2, b: 0.6, c: 0.2, d: 0.2 };
+    const positions = [], colors = [];
+    const res = 26, bound = 1.4;
+    for (let xi = 0; xi < res; xi++) {
+        for (let yi = 0; yi < res; yi++) {
+            for (let zi = 0; zi < res; zi++) {
+                const x = (xi / (res - 1)) * 2 * bound - bound;
+                const y = (yi / (res - 1)) * 2 * bound - bound;
+                const z = (zi / (res - 1)) * 2 * bound - bound;
+                let a = x, b = y, c = z, d = 0, iter = 0;
+                for (; iter < 12; iter++) {
+                    const na = a * a - b * b - c * c - d * d + C.a;
+                    const nb = 2 * a * b + C.b;
+                    const nc = 2 * a * c + C.c;
+                    const nd = 2 * a * d + C.d;
+                    a = na; b = nb; c = nc; d = nd;
+                    if (a * a + b * b + c * c + d * d > 4) break;
+                }
+                if (iter === 12) {
+                    positions.push(x, y, z);
+                    const col = new THREE.Color().setHSL((0.6 + 0.1 * Math.sin(x * 3 + y * 3 + z * 3)) % 1, 0.6, 0.55);
+                    colors.push(col.r, col.g, col.b);
+                }
+            }
+        }
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+    geo.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+    const mat = new THREE.PointsMaterial({ size: 0.045, vertexColors: true });
+    scene.add(new THREE.Points(geo, mat));
+    disposables.push(geo, mat);
 }
 
 // script.js is a plain (non-deferred) script, so it can run and call init()
