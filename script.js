@@ -49,7 +49,7 @@ const MESSAGES = [
 const SITE_DATA = {
     name: { en: "Notre Dame College Math Club", bn: "নটর ডেম কলেজ গণিত ক্লাব" },
     college: { en: "Notre Dame College Mymensingh", bn: "নটর ডেম কলেজ ময়মনসিংহ" },
-    logo: "./assets/logo/logo.jpg", 
+    logo: "./assets/logo/logo.png", 
     email: "ndcmmathclub@gmail.com",
     address: { en: "City Bypass, Barera, Mymensingh", bn: "সিটি বাইপাস, বাড়েরা, ময়মনসিংহ" },
     copyright: { en: "All rights reserved.", bn: "সর্বস্বত্ত্ব সংরক্ষিত।"},
@@ -1366,7 +1366,7 @@ function renderLightbox() {
 function renderHeader() {
     const navLinks = ['HOME', 'MESSAGES', 'EVENTS', 'ARTICLES', 'RESOURCES', 'COMMITTEE', 'CONTACT'];
     const logoHtml = SITE_DATA.logo 
-        ? `<img src="${SITE_DATA.logo}" alt="Logo" class="w-10 h-10 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform bg-white">`
+        ? `<img src="${SITE_DATA.logo}" alt="Logo" width="40" height="40" class="w-10 h-10 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform bg-white" loading="eager" fetchpriority="high" decoding="async">`
         : `<div class="w-10 h-10 bg-ndcm-primary text-white rounded-full flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-ndcm-accent transition-colors">Σ</div>`;
 
     return `

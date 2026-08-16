@@ -31,6 +31,10 @@
     <meta name="google-site-verification" content="V6PLMn14GyCjP4wY4CkAMwUosjCWYkOXR7_x7c-b4qE" />
     <link rel="icon" type="image/x-icon" href="assets/logo/logo.ico">
     <link rel="canonical" href="https://ndcmmathclub.github.io/view/" />
+    <!-- The logo is the very first thing rendered (loading screen) and appears
+         again in the header on every page, so it's preloaded here rather than
+         discovered only once script.js starts building the DOM. -->
+    <link rel="preload" as="image" href="assets/logo/logo.png" fetchpriority="high">
     <!-- Warm up the network connection for the current event's photo(s) as early as
          possible, so the Events page's "View" lightbox never has to wait on a cold fetch. -->
     <link rel="preload" as="image" href="assets/activities/Announcement_NDCMC_IMO2026.png">
@@ -101,7 +105,7 @@
 
       <div class="flex items-center justify-center h-screen bg-white">
         <div class="flex flex-col items-center animate-pulse">
-          <div class="text-6xl font-bold text-ndcm-primary mb-4"><img src="assets/logo/logo.png" ></div>
+          <img src="assets/logo/logo.png" alt="NDCM Math Club logo" width="80" height="80" class="w-20 h-20 object-contain mb-4" loading="eager" fetchpriority="high" decoding="async">
           <p class="text-ndcm-primary font-bold">Loading Math Club NDCM...</p>
         </div>
       </div> 
