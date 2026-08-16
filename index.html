@@ -3,14 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--
-      GitHub Pages serves this project statically, so a real path like /view/events
-      returns a 404 from GitHub's server before our JS router ever runs. 404.html
-      redirects those requests back here encoded in a query string; this script
-      (must run before anything else) decodes that and restores the real URL via
-      pushState, so script.js's router sees the correct path on first load.
-      Pattern: https://github.com/rafgraph/spa-github-pages
-    -->
     <script type="text/javascript">
       try {
         (function (l) {
