@@ -1574,7 +1574,10 @@ function renderPdfViewerModal() {
                     </div>
                 </div>
                 <div class="flex-grow min-h-0">
-                    <iframe src="${src}" class="w-full h-full border-0" style="${fullscreen ? 'min-height:0; flex:1;' : 'min-height:75vh;'}" title="PDF Viewer"></iframe>
+                    <object data="${src}" type="application/pdf" class="w-full h-full border-0" style="${fullscreen ? 'min-height:0; flex:1;' : 'min-height:75vh;'}" aria-label="PDF Viewer">
+                        <embed src="${src}" type="application/pdf">
+                        <p>${getLang(DICTIONARY.view)}</p>
+                    </object>
                 </div>
             </div>
         </div>
@@ -1738,7 +1741,7 @@ ${EVENTS.map((event, evIdx) => `
                                     </span>
                                 ` : ''}
                                 <div class="flex items-center gap-1 text-xs text-slate-500 font-medium">${ICONS.clock} ${getLang(event.time)}</div>
-                        f    </div>
+                            </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-2">${getLang(event.title)}</h3>
                             <p class="text-slate-600 text-sm mb-3">${getLang(event.desc)}</p>
                             <div class="flex items-center gap-1 text-xs text-slate-500 font-medium">${ICONS.location} ${getLang(event.location)}</div>
