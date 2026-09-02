@@ -1084,7 +1084,7 @@ const COMMITTEE = [
     { name: {en: "Komol Chandra Sarker", bn: "কমল চন্দ্র সরকার"}, pos: {en: "Moderator", bn: "পরিচালক"}, group: {en: 'Lecturer at Mathematics Department', bn: 'প্রভাষক, গণিত বিভাগ'}, img: "./assets/committee/komol_sir.jpg" },
     { name: {en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান"}, pos: {en: "President", bn: "সভাপতি"}, group: {en: '1271064', bn: '১২৭১০৬৪'}, img: "./assets/committee/radif.jpg" },
     { name: {en: "Syedul Mursalin", bn: "সাইয়্যেদুল মুরসালিন"}, pos: {en: "General Secretary", bn: "সাধারণ সম্পাদক"}, group: {en: '1271002', bn: '১২৭১০০২'}, img: "./assets/committee/mursalin.jpg" },
-    { name: {en: "Shahriar Nafis Siyam", bn: "শাহরিয়ার নাফিস সিয়াম"}, pos: {en: "Organizing Secretary", bn: "সাংগঠনিক সম্পাদক"}, group: {en: '1271009', bn: '১২৭১০০৯'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=SN&backgroundColor=b45309" },
+    { name: {en: "Shahriar Nafis Siyam", bn: "শাহরিয়ার নাফিস সিয়াম"}, pos: {en: "Organizing Secretary", bn: "সাংগঠনিক সম্পাদক"}, group: {en: '1271009', bn: '১২৭১০০৯'}, img: "./assets/committee/siyam.jpg" },
     { name: {en: "Abdur Rahim", bn: "আব্দুল রহিম"}, pos: {en: "General Member Representative", bn: "সাধারণ সদস্য প্রতিনিধি"}, group: {en: '1275025', bn: '১২৭৫০২৫'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=AR&backgroundColor=b45309" },
     { name: {en: "Yasir Amir", bn: "ইয়াসির আমির"}, pos: {en: "Publicity Secretary", bn: "প্রচার সম্পাদক"}, group: {en: '1271029', bn: '১২৭১০২৯'}, img: "./assets/committee/yasir.jpg" },
     { name: {en: "Md Fuad Hasan", bn: "মোঃ ফুয়াদ হাসান"}, pos: {en: "Treasurer", bn: "কোষাধ্যক্ষ"}, group: {en: '1274064', bn: '১২৭৪০৬৪'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=FH&backgroundColor=b45309" },
