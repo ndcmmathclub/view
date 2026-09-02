@@ -182,8 +182,39 @@ const EVENTS = [
         color: "bg-yellow-100 text-blue-800",
         viewLink: "./assets/activities/speed-cubing/rulebook.pdf",
         photos: [
-"./assets/activities/speed-cubing/IMG_3985.jpg",
+"./assets/activities/speed-cubing/IMG_3946.jpg",
+"./assets/activities/speed-cubing/IMG_3948.jpg",
+"./assets/activities/speed-cubing/IMG_3949.jpg",
+"./assets/activities/speed-cubing/IMG_3952.jpg",
+"./assets/activities/speed-cubing/IMG_3953.jpg",
+"./assets/activities/speed-cubing/IMG_3956.jpg",
+"./assets/activities/speed-cubing/IMG_3957.jpg",
+"./assets/activities/speed-cubing/IMG_3958.jpg",
+"./assets/activities/speed-cubing/IMG_3959.jpg",
+"./assets/activities/speed-cubing/IMG_3960.jpg",
+"./assets/activities/speed-cubing/IMG_3961.jpg",
+"./assets/activities/speed-cubing/IMG_3962.jpg",
+"./assets/activities/speed-cubing/IMG_3963.jpg",
+"./assets/activities/speed-cubing/IMG_3964.jpg",
+"./assets/activities/speed-cubing/IMG_3965.jpg",
+"./assets/activities/speed-cubing/IMG_3966.jpg",
+"./assets/activities/speed-cubing/IMG_3967.jpg",
+"./assets/activities/speed-cubing/IMG_3968.jpg",
+"./assets/activities/speed-cubing/IMG_3969.jpg",
+"./assets/activities/speed-cubing/IMG_3970.jpg",
+"./assets/activities/speed-cubing/IMG_3972.jpg",
+"./assets/activities/speed-cubing/IMG_3974.jpg",
+"./assets/activities/speed-cubing/IMG_3975.jpg",
+"./assets/activities/speed-cubing/IMG_3976.jpg",
+"./assets/activities/speed-cubing/IMG_3977.jpg",
+"./assets/activities/speed-cubing/IMG_3978.jpg",
+"./assets/activities/speed-cubing/IMG_3979.jpg",
+"./assets/activities/speed-cubing/IMG_3980.jpg",
+"./assets/activities/speed-cubing/IMG_3981.jpg",
+"./assets/activities/speed-cubing/IMG_3982.jpg",
+"./assets/activities/speed-cubing/IMG_3983.jpg",
 "./assets/activities/speed-cubing/IMG_3984.jpg",
+"./assets/activities/speed-cubing/IMG_3985.jpg",
         ],
         noRsvp: true,
     },
@@ -1643,6 +1674,7 @@ function renderHome() {
                             <p class="text-lg text-slate-600 leading-relaxed max-w-lg relative pl-8">
                                 <span class="absolute -left-1 -top-4 text-ndcm-gold font-serif text-5xl leading-none select-none" aria-hidden="true">“</span>
                                 <span class="italic">${t('hero_desc')}</span>
+                                <span class="mt-2 block text-xs font-medium text-slate-400 pl-2">— Prof. Dr. Jamal Nazrul Islam</span>
                             </p>
                             <div class="flex flex-wrap gap-4 pt-4">
                                 <button onclick="navigate('EVENTS')" class="px-8 py-3 bg-ndcm-primary text-white rounded-lg font-bold hover:bg-ndcm-accent transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
