@@ -80,6 +80,10 @@ const DICTIONARY = {
         en: 'Mathematics is the language of all sciences. To understand the universe\'s most complex mysteries, one must first learn the language of mathematics.',
         bn: 'গণিত হলো সমস্ত বিজ্ঞানের ভাষা। মহাবিশ্বের জটিলতম রহস্যগুলোকে বুঝতে হলে আগে গণিতের ভাষা শিখতে হবে।'
     },
+    'hero_author': { 
+        en: 'Prof. Dr. Jamal Nazrul Islam',
+        bn: 'অধ্যাপক ড. জামাল নজরুল ইসলাম'
+    },
     'view' : {en: 'view', bn: 'দেখুন'},
     'pdf_cat_math': { en: 'Mathematics', bn: 'গণিত' },
     'pdf_cat_cs': { en: 'Computer Science', bn: 'কম্পিউটার বিজ্ঞান' },
@@ -1674,7 +1678,7 @@ function renderHome() {
                             <p class="text-lg text-slate-600 leading-relaxed max-w-lg relative pl-8">
                                 <span class="absolute -left-1 -top-4 text-ndcm-gold font-serif text-5xl leading-none select-none" aria-hidden="true">“</span>
                                 <span class="italic">${t('hero_desc')}</span>
-                                <span class="mt-2 block text-xs font-medium text-slate-400 pl-2">— Prof. Dr. Jamal Nazrul Islam</span>
+                                <span class="mt-2 block text-xs font-medium text-slate-400 pl-2">— ${getLang(DICTIONARY.hero_author)}</span>
                             </p>
                             <div class="flex flex-wrap gap-4 pt-4">
                                 <button onclick="navigate('EVENTS')" class="px-8 py-3 bg-ndcm-primary text-white rounded-lg font-bold hover:bg-ndcm-accent transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
@@ -1734,7 +1738,7 @@ ${EVENTS.map((event, evIdx) => `
                                     </span>
                                 ` : ''}
                                 <div class="flex items-center gap-1 text-xs text-slate-500 font-medium">${ICONS.clock} ${getLang(event.time)}</div>
-                            </div>
+                        f    </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-2">${getLang(event.title)}</h3>
                             <p class="text-slate-600 text-sm mb-3">${getLang(event.desc)}</p>
                             <div class="flex items-center gap-1 text-xs text-slate-500 font-medium">${ICONS.location} ${getLang(event.location)}</div>
