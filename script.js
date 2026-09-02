@@ -74,17 +74,19 @@ const DICTIONARY = {
     'join_now': { en: 'Join Now', bn: 'যোগ দিন' },
     'read_more': { en: 'Read More', bn: 'আরও পড়ুন' },
     'latest_news': { en: 'Latest News', bn: 'সর্বশেষ সংবাদ' },
-    'hero_title': { en: 'In the glow of reasoning,', bn: 'যুক্তির দীপ্তিতে, ' },
+'hero_title': { en: 'In the glow of reasoning,', bn: 'যুক্তির দীপ্তিতে, ' },
     'hero_highlight': { en: 'let the light of Maths burn bright', bn: 'জ্বলে উঠুক গণিতের  জ্যোতি' },
     'hero_desc': { 
-        en: 'Answers are easy. Proof is where the beauty lives. We chase clarity, elegance, and the quiet thrill of knowing exactly why something is true.',
-        bn: 'উত্তরগুলো সহজ। আসল সৌন্দর্য লুকিয়ে থাকে প্রমাণের গভীরে। আমরা প্রতিনিয়ত ছুটে চলি স্পষ্টতা, নান্দনিকতা আর কোনো কিছু ঠিক কী কারণে সত্য—তা হুবহু জানার সেই প্রশান্ত রোমাঞ্চের খোঁজে।'
+        en: 'Mathematics is the language of all sciences. To understand the universe\'s most complex mysteries, one must first learn the language of mathematics.',
+        bn: 'গণিত হলো সমস্ত বিজ্ঞানের ভাষা। মহাবিশ্বের জটিলতম রহস্যগুলোকে বুঝতে হলে আগে গণিতের ভাষা শিখতে হবে।'
     },
+    'view' : {en: 'view', bn: 'দেখুন'},
+    'pdf_cat_math': { en: 'Mathematics', bn: 'গণিত' },
+    'pdf_cat_cs': { en: 'Computer Science', bn: 'কম্পিউটার বিজ্ঞান' },
     'view_schedule': { en: 'View Schedule', bn: 'সময়সূচী দেখুন' },
     'register': { en: 'Register', bn: 'রেজিস্ট্রেশন' },
     'rsvp': { en: 'RSVP', bn: 'অংশগ্রহণ' },
     'activities': {en: 'Our Activities', bn: 'আমাদের কার্যক্রম' },
-    'view': {en: 'View', bn: 'দেখুন'},
     'submit_proposal': { en: 'Submit Proposal', bn: 'প্রস্তাবনা জমা দিন' },
     'send_message': { en: 'Send Message', bn: 'বার্তা পাঠান' },
     'name': { en: 'Name', bn: 'নাম' },
@@ -99,6 +101,8 @@ const DICTIONARY = {
     'photo_gallery': { en: 'Photo Gallery', bn: 'ছবি গ্যালারি' },
     'status_passed': { en: 'Passed', bn: 'সমাপ্ত' },
     'status_upcoming': { en: 'Upcoming', bn: 'আসন্ন' },
+    'pdf_books': { en: 'PDF Books', bn: 'পিডিএফ বই' },
+    'pdf_books_desc': { en: 'Free eBooks on mathematics, computer science, and the fields where math works behind the scenes.', bn: 'গণিত, কম্পিউটার বিজ্ঞান এবং এমন সব বিষয়ের বিনামূল্যের ই-বই যেখানে গণিত নেপথ্যে কাজ করে।' },
 };
 
 const ICONS = {
@@ -109,7 +113,9 @@ const ICONS = {
     location: `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>`,
     arrowRight: `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>`,
     chevronLeft: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>`,
-    chevronRight: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>`
+    chevronRight: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>`,
+    expand: `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"></path></svg>`,
+    compress: `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v4h4M20 16v4h-4M4 8V4h4M20 8V4h-4"></path></svg>`
 };
 
 const NEWS_SLIDES = [
@@ -163,18 +169,24 @@ const EVENTS = [
 "./assets/activities/differentiation-bee/IMG_3770.jpg",
 "./assets/activities/differentiation-bee/IMG_3772.jpg",
 "./assets/activities/differentiation-bee/IMG_3782.jpg"        ],
-        rsvpLink: "https://forms.gle/your-link"
+        noRsvp: true,
     },
     {
-        title: {en: "Speed Cubing Competition", bn: "স্পিড কিউবিং প্রতিযোগিতা"},
-        date: {en: "AUG 19", bn: "১৯ আগস্ট"},
+        title: {en: "Speed Cubing Competition 2026", bn: "স্পিড কিউবিং প্রতিযোগিতা ২০২৬"},
+        date: {en: "SEP 02", bn: "০২ সেপ্টেম্বর"},
         time: { en: "12:00 PM", bn: "দুপুর ১২:০০" },
-        dateISO: "2026-08-19",
+        dateISO: "2026-09-02",
         location: { en: "Room 402", bn: "৪০২ নং কক্ষ" },
         type: { en: "Competition", bn: "প্রতিযোগিতা" },
         desc: { en: "Rubix Cube Competition", bn: "রুবিক্স কিউব প্রতিযোগিতা" },
         color: "bg-yellow-100 text-blue-800",
-    }
+        viewLink: "./assets/activities/speed-cubing/rulebook.pdf",
+        photos: [
+"./assets/activities/speed-cubing/IMG_3985.jpg",
+"./assets/activities/speed-cubing/IMG_3984.jpg",
+        ],
+        noRsvp: true,
+    },
 ];
 
 const RESOURCES = [
@@ -190,6 +202,48 @@ const RESOURCES = [
     { title: "Reducible", type: {en: "Video", bn: "ভিডিও"}, desc: {en: "All about animating computer science concepts in a fun, interactive, and intuitive manner.", bn: "কম্পিউটার বিজ্ঞানের ধারণাগুলোকে মজার, অংশগ্রহণভিত্তিক এবং সহজবোধ্যভাবে গতিশীল চিত্রের মাধ্যমে উপস্থাপন করা।"}, link: "https://www.youtube.com/@Reducible" },
     { title: "Chamok Hasan", type: {en: "Video", bn: "ভিডিও"}, desc: {en: "Represnting the entire beauty and arising love for Mathematics through interactive discussion", bn: "অনশগ্রহনভিত্তিক আলোচনার মাধ্যমে গণিতের সম্পূর্ণ সৌন্দর্য উপস্থাপন করা এবং গণিতের প্রতি ভালোবাসা জাগিয়ে তোলা।"}, link: "https://www.youtube.com/@ChamokHasan"},
     { title: "BdMO", type:{en: "Catalog", bn: "তালিকা"}, desc: {en: "Math Olmypiad Booklists and Resources", bn: "গণিত অলিম্পিয়াডের বইয়ের তালিকা ও উপকরণসমূহ"}, link: "https://matholympiad.org.bd/math-related-book-list"}
+];
+
+const PDF_BOOKS = [
+    { title: "Mathematics for Computer Science", author: "Lehman, Leighton & Meyer", type: {en: "Math · CS", bn: "গণিত · কম্পিউটার বিজ্ঞান"}, desc: {en: "MIT 6.042 — the math that powers computing", bn: "MIT 6.042 — কম্পিউটিংয়ের পেছনের গণিত"}, link: "https://courses.csail.mit.edu/6.042/spring18/mcs.pdf" },
+    { title: "Calculus", author: "Gilbert Strang", type: {en: "Mathematics", bn: "গণিত"}, desc: {en: "A complete, readable calculus text from MIT", bn: "MIT-এর একটি সম্পূর্ণ ও সহজপাঠ্য ক্যালকুলাস বই"}, link: "https://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf" },
+    { title: "Linear Algebra Done Right", author: "Sheldon Axler", type: {en: "Mathematics", bn: "গণিত"}, desc: {en: "A clean, elegant approach to linear algebra", bn: "যোগাশ্রয়ী বীজগণিতের সুন্দর পন্থা"}, link: "https://linear.axler.net/LinearAlgebraDoneRight.pdf" },
+    { title: "A Computational Introduction to Number Theory and Algebra", author: "Victor Shoup", type: {en: "Math · CS", bn: "গণিত · কম্পিউটার বিজ্ঞান"}, desc: {en: "Number theory with computing at its core", bn: "গণনার কেন্দ্রে সংখ্যাতত্ত্ব"}, link: "https://shoup.net/ntb/ntb-v2.pdf" },
+    { title: "Structure and Interpretation of Computer Programs", author: "Abelson & Sussman", type: {en: "Computer Science", bn: "কম্পিউটার বিজ্ঞান"}, desc: {en: "The legendary MIT intro to programming", bn: "প্রোগ্রামিংয়ের কালজয়ী MIT পাঠ্যপুস্তক"}, link: "https://web.mit.edu/6.001/6.037/sicp.pdf" },
+    { title: "Open Data Structures", author: "Pat Morin", type: {en: "Computer Science", bn: "কম্পিউটার বিজ্ঞান"}, desc: {en: "Efficient data structures, open and free", bn: "দক্ষ ডেটা স্ট্রাকচার, উন্মুক্ত ও বিনামূল্যে"}, link: "https://opendatastructures.org/ods-java.pdf" },
+    { title: "Algorithms", author: "Jeff Erickson", type: {en: "CS · Math", bn: "কম্পিউটার বিজ্ঞান · গণিত"}, desc: {en: "Rigorous algorithms, free forever", bn: "কঠোরভাবে অ্যালগরিদম, চিরকাল বিনামূল্যে"}, link: "http://jeffe.cs.illinois.edu/teaching/algorithms/book/Algorithms-JeffE.pdf" },
+    { title: "A Graduate Course in Applied Cryptography", author: "Boneh & Shoup", type: {en: "Applied", bn: "প্রয়োগ"}, desc: {en: "Where number theory secures the digital world", bn: "যেখানে সংখ্যাতত্ত্ব =ডিজিটাল দুনিয়ার রক্ষক"}, link: "https://toc.cryptobook.us/book.pdf" }
+];
+
+// Books hosted directly on this site under assets/Ebooks/ (no external links).
+// Each entry supports an in-page PDF viewer ("View") and a direct "Download".
+const LOCAL_PDF_BOOKS = [
+    { title: "Discrete Mathematics and Its Applications (8th ed.)", author: "Kenneth Rosen", cat: "math", file: "Mathematics/Rosen, Kenneth H - Discrete mathematics and its applications-McGraw-Hill (8th ed)(2019).pdf" },
+    { title: "Discrete Mathematics and Its Applications (7th ed.)", author: "Kenneth Rosen", cat: "math", file: "Mathematics/[Kenneth_Rosen]_Discrete_Mathematics_and_Its_Appli_7th_2.pdf" },
+    { title: "Calculus - Early Transcendentals (8th Edition)", author: "James Stewart", cat: "math", file: "Mathematics/James Stewart - Calculus - Early transcendentals (8th Edition).pdf" },
+    { title: "Calculus - Early Transcendentals (6th Edition)", author: "James Stewart", cat: "math", file: "Mathematics/_ Calculus - Early Transcendentals by James Stewart (8th Edition).pdf" },
+    { title: "সহজ ক্যালকুলাস", author: "মুহম্মদ জাফর ইকবাল", cat: "math", file: "Mathematics/calculus-18-aug-16_pdf_14971604389804.pdf" },
+    { title: "Advanced Calculus", author: "Lynn H. Loomis & Shlomo Sternberg", cat: "math", file: "Mathematics/Advanced_Calculus.pdf" },
+    { title: "Calculus Volume 1", author: "OpenStax", cat: "math", file: "Mathematics/calculus-volume-1_-_WEB.pdf" },
+    { title: "Calculus Volume 2", author: "OpenStax", cat: "math", file: "Mathematics/calculus-volume-2_-_WEB.pdf" },
+    { title: "Calculus Volume 3", author: "OpenStax", cat: "math", file: "Mathematics/calculus-volume-3_-_WEB.pdf" },
+    { title: "Linear Algebra", author: "Gilbert Strang", cat: "math", file: "Mathematics/linear-algebra-author-gilbert-strang.pdf" },
+    { title: "Elementary Linear Algebra", author: "Howard Anton & Anton Kaul", cat: "math", file: "Mathematics/Elementary Linear Algebra.pdf" },
+    { title: "Linear Algebra (General)", author: "Jim Heffereon", cat: "math", file: "Mathematics/Linear Algebra.pdf" },
+    { title: "Elementary Number Theory", author: "Kenneth Rosen", cat: "math", file: "Mathematics/Elementary Number Theory by Keneth Rosen .pdf" },
+    { title: "Number Theory (JHU Spring 2025)", author: "Egbert Rijke", cat: "math", file: "Mathematics/jhu-number-theory-spring-2025.pdf" },
+    { title: "Graph Theory & Addititive Combinatorics", author: "Yufei Zhao", cat: "math", file: "Mathematics/gtacbook.pdf" },
+
+    { title: "The Art of Computer Programming - Vol 1", author: "Donald Knuth", cat: "cs", file: "Mathematics/The_Art_of_Computer_Programming - Vol 1_text.pdf" },
+    { title: "Introduction to Algorithms", author: "Cormen, Leiserson, Rivest & Stein", cat: "cs", file: "CS/IntroductiontoAlgorithms.pdf" },
+    { title: "Introduction to Algorithms (Cormen)", author: "Cormen, Leiserson, Rivest & Stein", cat: "cs", file: "CS/Cormen Introduction to Algorithms.pdf" },
+    { title: "Competitive Programming 1", author: "Halim & Halim", cat: "cs", file: "CS/cp1.pdf" },
+    { title: "Competitive Programming 2", author: "Halim & Halim", cat: "cs", file: "CS/cp2.pdf" },
+    { title: "Competitive Programming 3", author: "Halim & Halim", cat: "cs", file: "CS/cp3.pdf" },
+    { title: "Programming Challenges", author: "Skiena & Revilla", cat: "cs", file: "CS/b2-programming_challenges.pdf" },
+    { title: "Competitive Programmer’s Handbook", author: "Antti Laaksonen", cat: "cs", file: "CS/book.pdf" },
+    { title: "ডায়নামিক প্রোগ্রামিং এ হাতেখড়ি", author: "তাসমিম রেজা ও মামনুন সিয়াম", cat: "cs", file: "CS/book-0.1.alpha.pdf" },
+    { title: "Understanding Cryptography", author: "Christof Paar", cat: "cs", file: "CS/Understanding Cryptography by Christof Paar .pdf" }
 ];
 
 const ARTICLES = [
@@ -995,9 +1049,9 @@ const COMMITTEE = [
     { name: {en: "Komol Chandra Sarker", bn: "কমল চন্দ্র সরকার"}, pos: {en: "Moderator", bn: "পরিচালক"}, group: {en: 'Lecturer at Mathematics Department', bn: 'প্রভাষক, গণিত বিভাগ'}, img: "./assets/committee/komol_sir.jpg" },
     { name: {en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান"}, pos: {en: "President", bn: "সভাপতি"}, group: {en: '1271064', bn: '১২৭১০৬৪'}, img: "./assets/committee/radif.jpg" },
     { name: {en: "Syedul Mursalin", bn: "সাইয়্যেদুল মুরসালিন"}, pos: {en: "General Secretary", bn: "সাধারণ সম্পাদক"}, group: {en: '1271002', bn: '১২৭১০০২'}, img: "./assets/committee/mursalin.jpg" },
-    { name: {en: "Arif Mahmud Fahad", bn: "আরিফ মাহমুদ ফাহাদ"}, pos: {en: "Organizing Secretary", bn: "সাংগঠনিক সম্পাদক"}, group: {en: '1271065', bn: '১২৭১০৬৫'}, img: "./assets/committee/fahad.jpg" },
+    { name: {en: "Shahriar Nafis Siyam", bn: "শাহরিয়ার নাফিস সিয়াম"}, pos: {en: "Organizing Secretary", bn: "সাংগঠনিক সম্পাদক"}, group: {en: '1271009', bn: '১২৭১০০৯'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=SN&backgroundColor=b45309" },
     { name: {en: "Abdur Rahim", bn: "আব্দুল রহিম"}, pos: {en: "General Member Representative", bn: "সাধারণ সদস্য প্রতিনিধি"}, group: {en: '1275025', bn: '১২৭৫০২৫'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=AR&backgroundColor=b45309" },
-    { name: {en: "Yasir Amir", bn: "ইয়াসির আমির"}, pos: {en: "Publicity Secretary", bn: "প্রচার সম্পাদক"}, group: {en: '1274029', bn: '১২৭১০২৯'}, img: "./assets/committee/yasir.jpg" },
+    { name: {en: "Yasir Amir", bn: "ইয়াসির আমির"}, pos: {en: "Publicity Secretary", bn: "প্রচার সম্পাদক"}, group: {en: '1271029', bn: '১২৭১০২৯'}, img: "./assets/committee/yasir.jpg" },
     { name: {en: "Md Fuad Hasan", bn: "মোঃ ফুয়াদ হাসান"}, pos: {en: "Treasurer", bn: "কোষাধ্যক্ষ"}, group: {en: '1274064', bn: '১২৭৪০৬৪'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=FH&backgroundColor=b45309" },
     { name: {en: "Md Tamim Hasan", bn: "মোঃ তামিম হাসান"}, pos: {en: "Educational Tour Secretary", bn: "শিক্ষা সফর বিষয়ক সম্পাদক"}, group: {en: '1272065', bn: '১২৭২০৬৫'}, img: "https://api.dicebear.com/7.x/initials/svg?seed=TH&backgroundColor=b45309" }
 ];
@@ -1011,7 +1065,8 @@ let state = {
     graphMode: 0,
     eventSlideIndex: 0,
     lightbox: { open: false, images: [], index: 0 },
-    eventGallery: { open: false, eventIndex: null }
+    eventGallery: { open: false, eventIndex: null },
+    pdfViewer: { open: false, src: null, title: null, fullscreen: false }
 };
 
 // --- Image preloading helpers -------------------------------------------------
@@ -1062,6 +1117,8 @@ function handleLightboxKey(e) {
         if (e.key === 'ArrowLeft') lightboxStep(-1);
     } else if (state.eventGallery.open) {
         if (e.key === 'Escape') closeEventGallery();
+    } else if (state.pdfViewer.open) {
+        if (e.key === 'Escape') closePdfViewer();
     }
 }
 
@@ -1076,6 +1133,45 @@ function openEventGallery(eventIndex) {
 function closeEventGallery() {
     state.eventGallery.open = false;
     render();
+}
+
+function openPdfViewer(evOrSrc, title) {
+    let src, pdfTitle;
+    if (typeof evOrSrc === 'number') {
+        const ev = EVENTS[evOrSrc];
+        if (!ev || !ev.viewLink) return;
+        src = ev.viewLink;
+        pdfTitle = ev.title;
+    } else {
+        src = evOrSrc;
+        pdfTitle = title || 'PDF Viewer';
+    }
+    if (!src) return;
+    state.pdfViewer = { open: true, src: encodeURI(src), title: pdfTitle, fullscreen: false };
+    render();
+}
+function closePdfViewer() {
+    state.pdfViewer.open = false;
+    render();
+}
+function togglePdfFullscreen() {
+    state.pdfViewer.fullscreen = !state.pdfViewer.fullscreen;
+    render();
+}
+
+// Absolute path for a book hosted locally under assets/Ebooks/. The `file` field
+// already includes its subfolder (e.g. "CS/cp1.pdf"), so we build the path straight
+// from that. Encoding happens once, in openPdfViewer, to avoid double-encoding.
+function localPdfPath(file) {
+    return `./assets/Ebooks/${file}`;
+}
+// Single entry point for the per-book "View" button. Passing the array index keeps
+// filenames out of inline HTML attributes (which would break on quotes/Bengali in
+// the name) -- we resolve the actual file from LOCAL_PDF_BOOKS.
+function openLocalPdf(globalIdx) {
+    const book = LOCAL_PDF_BOOKS[globalIdx];
+    if (!book) return;
+    openPdfViewer(localPdfPath(book.file), book.title);
 }
 
 function startEventSlideshow() {
@@ -1099,10 +1195,36 @@ function updateEventSlideshowUI() {
     });
 }
 
-// GitHub Pages project path -- this site lives at ndcmmathclub.github.io/view/,
-// so every real route must be prefixed with /view (see 404.html + the redirect
-// -restore script in index.html's <head> for why this is needed on a static host).
-const BASE_PATH = '/view';
+// The app is deployed at ndcmmathclub.github.io/view/ on GitHub Pages, but it is
+// also opened from different roots during local development (python3 -m http.server
+// from the view/ folder serves at '/', while VS Code's Live Server and GitHub Pages
+// serve under '/view/'). Hard-coding one base breaks the others -- navigation and
+// refresh collapse to the homepage. So the base path is DETECTED at load time by
+// stripping any known route (and its numeric id) off the current URL to find the
+// real subpath this app is served from.
+const KNOWN_VIEWS = ['messages','events','articles','resources','committee','contact','home'];
+function detectBasePath() {
+    const parts = (window.location.pathname || '/').split('/').filter(Boolean);
+    // Strip a trailing index.html (e.g. file:///.../view/index.html) so the base is
+    // the app folder itself.
+    if (parts.length && parts[parts.length - 1].toLowerCase() === 'index.html') parts.pop();
+    while (parts.length) {
+        const last = parts[parts.length - 1].toLowerCase();
+        if (KNOWN_VIEWS.includes(last)) { parts.pop(); continue; }
+        if (/^\d+$/.test(parts[parts.length - 1]) && parts.length >= 2 && parts[parts.length - 2].toLowerCase() === 'articles') { parts.pop(); parts.pop(); continue; }
+        break;
+    }
+    return '/' + parts.join('/');
+}
+const BASE_PATH = detectBasePath();
+// Keep every relative URL (./assets/..., the loading-screen logo, PDFs, etc.)
+// rooted at the detected base regardless of the current route's depth -- otherwise
+// nested routes like /view/articles/5 would resolve them against the wrong folder.
+(function setAppBase() {
+    const ba = document.createElement('base');
+    ba.href = (BASE_PATH || '/') + '/';
+    document.head.appendChild(ba);
+})();
 const SITE_ORIGIN = 'https://ndcmmathclub.github.io';
 
 function pathFor(viewName, params) {
@@ -1111,7 +1233,16 @@ function pathFor(viewName, params) {
     return `${BASE_PATH}/${viewName.toLowerCase()}`;
 }
 
-function handleRouting() {
+// --- Routing ---------------------------------------------------------------
+// This site is an SPA on GitHub Pages (static hosting, no server-side rewrites),
+// so it uses clean history.pushState paths for in-app navigation (e.g. /view/
+// resources). A direct visit or refresh on such a real path 404s on GitHub
+// Pages; the paired 404.html restores the URL and redirects to index.html where
+// runRoutingState() re-reads it -- giving dynamic-style refresh behaviour without
+// hash routing (better for SEO). Because it's client-side routing, if the host
+// rewrites (404.html) or pushState are unavailable the app still renders via the
+// pathname. We do NOT use location.hash, keeping each route a unique indexable URL.
+function runRoutingState() {
     let path = window.location.pathname;
     if (path.startsWith(BASE_PATH)) path = path.slice(BASE_PATH.length);
     const segments = path.split('/').filter(Boolean);
@@ -1122,8 +1253,16 @@ function handleRouting() {
         state.view = 'ARTICLE_SINGLE';
         state.articleId = parseInt(segments[1]);
     } else {
-        state.view = segments[0].toUpperCase();
+        const view = segments[0].toUpperCase();
+        // Guard against unrecognised routes so an unknown/malformed path falls
+        // back to the homepage instead of producing an invalid view (which would
+        // render nothing).
+        state.view = ['HOME','MESSAGES','EVENTS','ARTICLES','RESOURCES','COMMITTEE','CONTACT'].includes(view) ? view : 'HOME';
     }
+}
+
+function handleRouting() {
+    runRoutingState();
     render();
     updateSeoTags();
 }
@@ -1146,13 +1285,27 @@ function navigate(viewName, params = null) {
     // thrown error here stops execution before render() runs, leaving the page
     // stuck on the old view (and, since state.view already changed, the HOME
     // graph's animation loop sees the mismatch and freezes mid-frame).
+    //
+    // NOTE: some browser extensions (ad/tracker/privacy blockers) throw
+    // "The operation is insecure" on pushState even on localhost -- that is an
+    // environment quirk, not a code bug. We log it only ONCE so the console isn't
+    // flooded on every click while still working (the chosen view still renders).
     try {
         const path = pathFor(viewName, params);
         if (window.location.pathname !== path) {
             window.history.pushState({}, '', path);
+            urlUpdateBlockedLogged = false;
         }
     } catch (e) {
-        console.warn('URL update skipped (pushState unavailable in this context):', e);
+        if (!urlUpdateBlockedLogged) {
+            console.warn(
+                'URL update unavailable here (likely file:// or a blocking browser ' +
+                'extension). Navigation still works, but the address bar won\'t reflect ' +
+                'the current page and a refresh will return to the loaded URL.',
+                e
+            );
+            urlUpdateBlockedLogged = true;
+        }
     }
 
     window.scrollTo(0, 0);
@@ -1233,6 +1386,7 @@ const getLang = (obj) => obj ? obj[state.lang] : '';
 const app = document.getElementById('app');
 // (mathAnimationId is declared later, alongside the rest of the math-viz engine)
 let sliderInterval;
+let urlUpdateBlockedLogged = false;
 
 function init() {
     updateBodyLang();
@@ -1291,6 +1445,7 @@ function render() {
         ${renderFooter()}
         ${state.eventGallery.open ? renderEventGalleryModal() : ''}
         ${state.lightbox.open ? renderLightbox() : ''}
+        ${state.pdfViewer.open ? renderPdfViewerModal() : ''}
     `;
     
     renderMath(); 
@@ -1359,6 +1514,34 @@ function renderLightbox() {
                     ${index + 1} / ${images.length}
                 </div>
             ` : ''}
+        </div>
+    `;
+}
+
+function renderPdfViewerModal() {
+    const { src, title, fullscreen } = state.pdfViewer;
+    if (!src) return '';
+    return `
+        <div class="fixed inset-0 z-[90] bg-black/60 backdrop-blur-sm fade-in" onclick="if(event.target === this) closePdfViewer()" style="${fullscreen ? 'padding:0;' : 'padding:1rem; display:flex; align-items:center; justify-content:center;'}">
+            <div class="bg-white shadow-2xl flex flex-col overflow-hidden" style="${fullscreen ? 'width:100vw; height:100vh; border-radius:0;' : 'width:100%; max-width:64rem; max-height:90vh; border-radius:1rem;'}">
+                <div class="flex items-center justify-between gap-4 p-4 border-b border-gray-100 bg-white/95 backdrop-blur-sm flex-shrink-0" style="${fullscreen ? 'border-radius:0;' : 'border-radius:1rem 1rem 0 0;'}">
+                    <div class="min-w-0">
+                        <div class="text-xs font-bold uppercase tracking-widest text-ndcm-accent">${getLang(DICTIONARY.view)}</div>
+                        <h3 class="text-lg font-bold text-slate-900 truncate">${title ? (typeof title === 'string' ? title : getLang(title)) : 'PDF Viewer'}</h3>
+                    </div>
+                    <div class="flex items-center gap-1 flex-shrink-0">
+                        <button onclick="togglePdfFullscreen()" aria-label="Toggle fullscreen" class="text-slate-400 hover:text-slate-700 p-2 transition-colors">
+                            ${fullscreen ? ICONS.compress : ICONS.expand}
+                        </button>
+                        <button onclick="closePdfViewer()" aria-label="Close" class="text-slate-400 hover:text-slate-700 p-2 -mr-2">
+                            ${ICONS.x}
+                        </button>
+                    </div>
+                </div>
+                <div class="flex-grow min-h-0">
+                    <iframe src="${src}" class="w-full h-full border-0" style="${fullscreen ? 'min-height:0; flex:1;' : 'min-height:75vh;'}" title="PDF Viewer"></iframe>
+                </div>
+            </div>
         </div>
     `;
 }
@@ -1457,7 +1640,10 @@ function renderHome() {
                                 ${t('hero_title')} <br />
                                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-ndcm-primary to-ndcm-accent">${t('hero_highlight')}</span>
                             </h1>
-                            <p class="text-lg text-slate-600 leading-relaxed max-w-lg">${t('hero_desc')}</p>
+                            <p class="text-lg text-slate-600 leading-relaxed max-w-lg relative pl-8">
+                                <span class="absolute -left-1 -top-4 text-ndcm-gold font-serif text-5xl leading-none select-none" aria-hidden="true">“</span>
+                                <span class="italic">${t('hero_desc')}</span>
+                            </p>
                             <div class="flex flex-wrap gap-4 pt-4">
                                 <button onclick="navigate('EVENTS')" class="px-8 py-3 bg-ndcm-primary text-white rounded-lg font-bold hover:bg-ndcm-accent transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
                                     ${t('view_schedule')}
@@ -1528,9 +1714,15 @@ ${EVENTS.map((event, evIdx) => `
                                     ${getLang(DICTIONARY.photo_gallery)}
                                 </button>
                             ` : ''}
-                            <button class="w-full md:w-auto px-6 py-2 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg hover:bg-slate-50 hover:border-ndcm-primary hover:text-ndcm-primary transition-all">
-                                ${t('rsvp')}
-                            </button>
+                            ${event.viewLink ? `
+                                <button onclick="openPdfViewer(${evIdx})" class="w-full md:w-auto px-6 py-2 bg-ndcm-primary text-white text-sm font-bold rounded-lg hover:bg-ndcm-accent transition-all">
+                                    ${t('view')}
+                                </button>
+                            ` : (!event.noRsvp ? `
+                                <button class="w-full md:w-auto px-6 py-2 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg hover:bg-slate-50 hover:border-ndcm-primary hover:text-ndcm-primary transition-all">
+                                    ${t('rsvp')}
+                                </button>
+                            ` : '')}
                         </div>
                     </div>
                 `).join('')}
@@ -1672,6 +1864,65 @@ function renderResources() {
                         <p class="text-sm text-slate-600">${getLang(res.desc)}</p>
                     </a>
                 `).join('')}
+            </div>
+
+            <div class="mt-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900 inline-block border-b-2 border-ndcm-gold pb-2">${t('pdf_books')}</h2>
+                    <p class="text-slate-600 mt-3">${t('pdf_books_desc')}</p>
+                </div>
+
+                <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden divide-y divide-gray-100 mb-12">
+                    ${PDF_BOOKS.map((book, idx) => `
+                        <a href="${book.link}" target="_blank" rel="noopener" class="group flex items-center gap-4 p-4 md:p-5 hover:bg-gray-50 transition-colors">
+                            <span class="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-100 text-ndcm-primary font-bold flex items-center justify-center text-sm">${String(idx + 1).padStart(2, '0')}</span>
+                            <div class="min-w-0 flex-grow">
+                                <div class="flex items-center gap-2">
+                                    <h3 class="font-bold text-slate-900 group-hover:text-ndcm-primary transition-colors truncate">${book.title}</h3>
+                                    <span class="flex-shrink-0 text-[10px] font-bold uppercase bg-slate-100 text-slate-500 px-2 py-0.5 rounded hidden sm:inline">${getLang(book.type)}</span>
+                                </div>
+                                <p class="text-sm text-slate-500 truncate">${book.author} · ${getLang(book.desc)}</p>
+                            </div>
+                            <svg class="w-5 h-5 text-slate-300 group-hover:text-ndcm-accent transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    `).join('')}
+                </div>
+
+                <div class="text-center mb-8">
+                    <h3 class="text-xl font-bold text-slate-900 inline-block border-b-2 border-ndcm-accent pb-1">${t('pdf_cat_math')} <span class="text-slate-400 font-normal text-sm">(${LOCAL_PDF_BOOKS.filter(b => b.cat === 'math').length})</span></h3>
+                </div>
+                <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden divide-y divide-gray-100 mb-12">
+                    ${LOCAL_PDF_BOOKS.map((book, globalIdx) => book.cat === 'math' ? `
+                        <div class="flex items-center gap-4 p-4 md:p-5 hover:bg-gray-50 transition-colors">
+                            <span class="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-100 text-ndcm-primary font-bold flex items-center justify-center text-sm">${String(LOCAL_PDF_BOOKS.filter(b => b.cat === 'math').indexOf(book) + 1).padStart(2, '0')}</span>
+                            <div class="min-w-0 flex-grow">
+                                <h3 class="font-bold text-slate-900 truncate">${book.title}</h3>
+                                <p class="text-sm text-slate-500 truncate">${book.author}</p>
+                            </div>
+                            <div class="flex flex-shrink-0 gap-2">
+                                <button onclick="openLocalPdf(${globalIdx})" class="px-4 py-1.5 rounded-lg bg-ndcm-primary text-white text-xs font-bold hover:bg-ndcm-accent transition-colors">${t('view')}</button>
+                            </div>
+                        </div>
+                    ` : '').join('')}
+                </div>
+
+                <div class="text-center mb-8">
+                    <h3 class="text-xl font-bold text-slate-900 inline-block border-b-2 border-ndcm-accent pb-1">${t('pdf_cat_cs')} <span class="text-slate-400 font-normal text-sm">(${LOCAL_PDF_BOOKS.filter(b => b.cat === 'cs').length})</span></h3>
+                </div>
+                <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden divide-y divide-gray-100">
+                    ${LOCAL_PDF_BOOKS.map((book, globalIdx) => book.cat === 'cs' ? `
+                        <div class="flex items-center gap-4 p-4 md:p-5 hover:bg-gray-50 transition-colors">
+                            <span class="flex-shrink-0 w-10 h-10 rounded-lg bg-slate-100 text-ndcm-primary font-bold flex items-center justify-center text-sm">${String(LOCAL_PDF_BOOKS.filter(b => b.cat === 'cs').indexOf(book) + 1).padStart(2, '0')}</span>
+                            <div class="min-w-0 flex-grow">
+                                <h3 class="font-bold text-slate-900 truncate">${book.title}</h3>
+                                <p class="text-sm text-slate-500 truncate">${book.author}</p>
+                            </div>
+                            <div class="flex flex-shrink-0 gap-2">
+                                <button onclick="openLocalPdf(${globalIdx})" class="px-4 py-1.5 rounded-lg bg-ndcm-primary text-white text-xs font-bold hover:bg-ndcm-accent transition-colors">${t('view')}</button>
+                            </div>
+                        </div>
+                    ` : '').join('')}
+                </div>
             </div>
         </div>
     `;
