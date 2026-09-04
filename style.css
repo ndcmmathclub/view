@@ -45,6 +45,17 @@ body.lang-bn {
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
+/* Hide images until they are fully decoded so the page never shows a
+   half-rendered/tiled image mid-download; each one fades in smoothly the
+   moment it is complete. */
+.img-load {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.img-load.is-loaded {
+    opacity: 1;
+}
+
 #math-vis-path {
     transition: d 0.05s linear;
     filter: drop-shadow(0 0 3px rgba(76, 29, 149, 0.4));
