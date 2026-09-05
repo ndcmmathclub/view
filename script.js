@@ -240,6 +240,8 @@ const RESOURCES = [
 ];
 
 const PDF_BOOKS = [
+    { title: "Math Olympiad Preparation", author: "Adib Hasan", type: {en: "Math", bn: "গণিত"}, desc: {en: "A shortlisted path for Math Olympiad", bn: "গণিত অলিম্পিয়াডের প্রস্তুতির জন্য বাছাইকৃত পন্থা"}, link: "https://adibhasan.com/files/adib_olympiad_prep.pdf"},
+    { title: "Notes for Math Olympiad", author: "Adib Hasan, Thanic Nur Samin, Asif E Elahi, Mutasim Mim, Ahmed Zawad Chowdhury, Rahul Saha and Nayeemul Islam Swad", type: {en: "Math", bn: "গণিত"}, desc: {en: "A comprehensive notes for Math Olympiad", bn: "গণিত অলিম্পিয়াডের জন্য সার্বিক নোট"}, link: "https://drive.google.com/drive/u/0/folders/0B8NfhxOmm_tpbW1zOENuWElCTWM?resourcekey=0-kBAQEb3zwQKxsanI3DT3Ug"},
     { title: "Mathematics for Computer Science", author: "Lehman, Leighton & Meyer", type: {en: "Math · CS", bn: "গণিত · কম্পিউটার বিজ্ঞান"}, desc: {en: "MIT 6.042 — the math that powers computing", bn: "MIT 6.042 — কম্পিউটিংয়ের পেছনের গণিত"}, link: "https://courses.csail.mit.edu/6.042/spring18/mcs.pdf" },
     { title: "Calculus", author: "Gilbert Strang", type: {en: "Mathematics", bn: "গণিত"}, desc: {en: "A complete, readable calculus text from MIT", bn: "MIT-এর একটি সম্পূর্ণ ও সহজপাঠ্য ক্যালকুলাস বই"}, link: "https://ocw.mit.edu/ans7870/resources/Strang/Edited/Calculus/Calculus.pdf" },
     { title: "Linear Algebra Done Right", author: "Sheldon Axler", type: {en: "Mathematics", bn: "গণিত"}, desc: {en: "A clean, elegant approach to linear algebra", bn: "যোগাশ্রয়ী বীজগণিতের সুন্দর পন্থা"}, link: "https://linear.axler.net/LinearAlgebraDoneRight.pdf" },
