@@ -1193,24 +1193,23 @@ function closeEventGallery() {
 }
 
 function openPdfViewer(evOrSrc, title) {
-    let src;
+    let src, pdfTitle;
     if (typeof evOrSrc === 'number') {
         const ev = EVENTS[evOrSrc];
         if (!ev || !ev.viewLink) return;
         src = ev.viewLink;
+        pdfTitle = ev.title;
     } else {
         src = evOrSrc;
+        pdfTitle = title || 'PDF Viewer';
     }
     if (!src) return;
-    // Open the PDF in a new browser tab via the native viewer so it renders
-    // instantly instead of sitting in an embedded frame that streams the file
-    // in (which looked like a slow loading box). Resolve the relative path
-    // against the detected base so it works on GitHub Pages, local servers,
-    // and file:// hosting alike.
-    const base = (BASE_PATH === '' || BASE_PATH === '/') ? '' : BASE_PATH;
-    const clean = src.replace(/^\.?\/?/, '');
-    const url = base + '/' + clean;
-    window.open(url, '_blank', 'noopener');
+    // In-page viewer (rendered by renderPdfViewerModal below). No window.open:
+    // the PDF opens as a modal on the current page. This works now because the
+    // real PDF bytes are served (previously broken LFS pointers made it look
+    // like the viewer was the problem).
+    state.pdfViewer = { open: true, src: encodeURI(src), title: pdfTitle, fullscreen: false };
+    render();
 }
 function closePdfViewer() {
     state.pdfViewer.open = false;
@@ -1458,10 +1457,10 @@ function init() {
     startSlider();
     startEventSlideshow();
 
-    // Start fetching activity photos immediately (not only once the user opens
-    // the Events page) so the slideshow and "View" banners feel instant.
+    // Warm the homepage banner images only (already web-sized, ~150KB each).
+    // Event/activity photos preload lazily when their gallery is opened, so the
+    // initial page load isn't weighed down by photos the user hasn't asked for.
     preloadImages(CLUB_PHOTOS);
-    EVENTS.forEach(ev => preloadImages(ev.photos));
 }
 
 function updateBodyLang() {

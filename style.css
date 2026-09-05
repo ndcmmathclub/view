@@ -45,11 +45,11 @@ body.lang-bn {
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
-/* Soften the appearance of images while they load (no hiding, so an image
-   that never fires onload can still never be stuck invisible). */
+/* Images are always fully visible; the class only exists so the reveal
+   fallback has something to toggle in case an image stalls. No hiding,
+   so nothing can ever appear missing. */
 .img-load {
-    opacity: 0.4;
-    transition: opacity 0.4s ease;
+    opacity: 1;
 }
 .img-load.is-loaded {
     opacity: 1;
