@@ -87,6 +87,65 @@ table.combinatorics-table td {
     padding: 0.75rem;
 }
 
+/* VS Code style code window used for programming implementation snippets */
+.vscode-window {
+    position: relative;
+    background: #1e1e1e;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.45), 0 8px 10px -6px rgba(0, 0, 0, 0.35);
+    font-family: 'Consolas', 'Menlo', 'Monaco', 'Courier New', monospace;
+}
+
+.vscode-copy {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    z-index: 2;
+    font-family: inherit;
+    font-size: 0.68rem;
+    line-height: 1;
+    padding: 0.4rem 0.7rem;
+    border-radius: 0.375rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.08);
+    color: #d4d4d4;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.vscode-copy:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+}
+
+.vscode-body {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-size: 0.8rem;
+    line-height: 1.65;
+    overflow-x: auto;
+    padding: 0.9rem 0;
+}
+
+.vscode-line {
+    display: flex;
+    white-space: pre;
+}
+
+.vscode-gutter {
+    flex: 0 0 2.6rem;
+    text-align: right;
+    padding-right: 1.1rem;
+    color: #6e7681;
+    user-select: none;
+}
+
+.vscode-code {
+    white-space: pre;
+    padding-right: 1.5rem;
+}
+
 .mobile-menu-enter {
     animation: slideDown 0.2s ease-out forwards;
 }

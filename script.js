@@ -287,16 +287,253 @@ const ARTICLES = [
         title: { en: "The Infinite Hotel Paradox", bn: "অসীম হোটেলের প্যারাডক্স" },
         author: { en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান" },
         role: { en: "President", bn: "সভাপতি" },
-        date: { en: "Nov 26, 2025", bn: "২৬ নভেম্বর, ২০২৫" },
-        readTime: { en: "1 min read", bn: "১ মিনিট পাঠ" },
+        date: { en: "Dec 26, 2025", bn: "২৬ ডিসেম্বর, ২০২৫" },
+        readTime: { en: "12 min read", bn: "১২ মিনিট পাঠ" },
         desc: { 
             en: "Imagine a hotel with infinite rooms, all occupied. What happens when a new guest arrives?", 
             bn: "এমন একটি হোটেলের কথা চিন্তা করো যার কক্ষ সংখ্যা অসীম এবং সবগুলোই পূর্ণ। নতুন অতিথি এলে কি হবে?" 
         },
         image: "https://imgs.search.brave.com/eya5oUzh8bfOlXm79fOZbzgGjQYzYCovr_CWi1zfQRA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1tYW5hZ2VyLnN0/YXJzaW5zaWRlci5j/b20vZ2FsbGVyeS8x/MDgwL25hXzY3ZGFk/NGMyZjM0MzkuanBn",
         content: {
-            en: `<p>Hilbert's paradox of the Grand Hotel is a thought experiment...</p>`,
-            bn: `<p>হিলবার্টের গ্র্যান্ড হোটেলের প্যারাডক্স অসীম সেটের একটি অদ্ভুত বৈশিষ্ট্য তুলে ধরে।</p>`
+            en: `<p>If someone asked you, <em>"How many numbers are there between 1 and 3?"</em>—what would you answer? If you said "three", your answer would not be entirely correct. Because if you glance at the number line, you will see that between 1 and 3 there are infinitely many numbers—$1.2$, $2.7$, $\\sqrt{2}$, $\\pi$—name it! That "countless" quantity is precisely what we call <strong>infinity</strong>.</p>
+
+<p>The Bengali poet Rabindranath Tagore seems to have understood infinity very well. That is why he wrote, <em>"In the midst of the finite, O Infinity, you play your tune."</em> Infinity is not a number; it points to a quantity or an idea. For example, the set of real numbers is infinite, and our universe is infinite. The limit human beings have not yet reached—that is the infinity closest to us.</p>
+
+<h1 class="text-2xl font-bold mb-4">⧉ Hilbert's Grand Hotel</h1>
+<p>Putting this idea of infinity to work, German mathematician <strong>David Hilbert</strong> created a paradox now known as the <em>Infinite Hotel Paradox</em> or <em>Hilbert's Grand Hotel Paradox</em>. It is a thought experiment that highlights a surprising property of infinite sets.</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ From the pages of history</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li><span class="font-medium">1924:</span> Hilbert first presented the paradox in a lecture titled "Über das Unendliche" (On the Infinite) in Berlin.</li>
+        <li><span class="font-medium">1947:</span> George Gamow popularized it worldwide in his book <em>"One Two Three ... Infinity"</em>.</li>
+    </ol>
+</div>
+<p>Now the adventure of imagination begins. Why imagination? Because in reality you will never see a hotel with infinitely many rooms. So first, clear your mind completely—this paradox will plunge you into an infinite fantasy.</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">The Hotel's Fairy Tale</h2>
+<p>First, you must take on the role of a hotel manager. That special hotel has <strong>infinitely many floors</strong>, and each floor has <strong>infinitely many rooms</strong>. The funny thing is—even when the hotel is full to the brim with infinitely many people, it can still accommodate more. But how? You don't even know which room is the last one! So how will you make room for anyone new?</p>
+
+<div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+    <p class="font-medium">Key idea: the "size" of an infinite set does not obey the rules of our finite world. Hilbert's Hotel shows that an infinite set that looks completely "full" can still admit new elements—if we can move every existing guest according to a clear rule (a one-to-one matching, i.e. a bijection).</p>
+</div>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Journey 1: One New Guest</h2>
+<p>At midnight a guest arrives, but the hotel is full. It is impossible to send him away at such an hour. The solution is simple—<strong>every person in the hotel moves to the next room</strong>:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p>The person in room 1 goes to room 2, the one in room 2 goes to room 3, room 3's occupant goes to room 4 … and the person in room $n$ moves to room $n+1$. And so it continues to infinity.</p>
+</div>
+<p>Result—<strong>room number 1 becomes free</strong> for the new guest. Notice that here "infinity + 1 = infinity" remains; there is no last number, and no one was pushed out. From now on, the general rule for any <em>countably many</em> new guests (say $k$ of them):</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium">$$f(n) = n + k \\qquad \\text{(every guest moves } k \\text{ rooms back)}$$</p>
+    <p>As a result, the first $k$ rooms ($1, 2, \\dots, k$) fall empty, and everyone still gets exactly one room.</p>
+</div>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Journey 2: Infinitely Many New Guests</h2>
+<p>One morning a bus arrives carrying infinitely many passengers, and they are all very important people. This time too, no one can be turned away. But how? There is a way—the <strong>odd-even</strong> trick.</p>
+<p>Ask the current guests to move into the room whose number is <strong>double</strong> their current room number:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium">$$g(n) = 2n \\qquad \\text{(1 goes to 2, 2 goes to 4, 3 goes to 6, …)}$$</p>
+    <p>Here $n$ is the current room number.</p>
+</div>
+<p>Notice that with this scheme, <strong>no one touches the odd rooms</strong>—nobody moves into an odd-numbered room anymore. As a result $1, 3, 5, 7, \\dots$—infinitely many odd rooms—have fallen empty. Now the infinitely many new passengers can be placed, one by one, into those odd rooms.</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ The mathematical viewpoint</h3>
+    <p>$g(n) = 2n$ is a <em>bijective</em> mapping—from the set of natural numbers onto the set of even numbers. This means there is a perfect pairing between the even numbers $(\\{2, 4, 6, \\dots\\})$ and the natural numbers $(\\{1, 2, 3, \\dots\\})$. In other words, the two sets have the same mathematical "size" (cardinality):</p>
+    <p>$$|\\mathbb{N}| = |2\\mathbb{N}|$$</p>
+    <p>And since the odd numbers are also infinite (of the form "$2k - 1$"), we accommodated infinitely many new guests while keeping the hotel full. In short, <strong>infinity + infinity = infinity</strong>.</p>
+</div>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Journey 3: Infinitely Many Buses, Each with Infinitely Many Passengers</h2>
+<p>The hotel's fame spread; one day <strong>infinitely many buses</strong> arrive, each carrying <strong>infinitely many passengers</strong>. Your head may spin at this moment, but a little thought will reveal the solution. Because Euclid proved—<strong>there are infinitely many prime numbers</strong>. This is the key we are going to exploit.</p>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ A matter of combination</h3>
+    <p>First, the current guests—if they are in room $n$, move them to room <strong>$2^n$</strong>:</p>
+    <p class="text-slate-800">$$\\text{room } n \\rightarrow \\text{room } 2^n \\qquad (1 \\rightarrow 2,\\ 2 \\rightarrow 4,\\ 3 \\rightarrow 8,\\ 4 \\rightarrow 16, \\dots)$$</p>
+</div>
+
+<p>Now the passengers will use the powers of the <strong>next prime numbers</strong>:</p>
+<ul class="list-disc pl-6 space-y-3 mb-8">
+    <li>For the 1st bus, powers of $3$: the passenger in seat $j$ of bus 1 goes to room $3^j$. For example, the passenger in seat 7 goes to $3^7 = 2187$.</li>
+    <li>For the 2nd bus, the next prime $5$: room $5^j$.</li>
+    <li>For the 3rd bus, powers of $7$: room $7^j$.</li>
+    <li>For the 4th bus, powers of $11$: room $11^j$ … and so on, forever.</li>
+</ul>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Why does this work?</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li><span class="font-medium">Unique Prime Factorization:</span> by the Fundamental Theorem of Arithmetic, every integer greater than $1$ can be written as a product of primes in <em>exactly one way</em> (ignoring order). For instance $36 = 2^2 \\times 3^2$. Since $2^n$ and $3^j$ can never be equal (otherwise the number would have two different factorizations), no two guests ever get the same room.</li>
+        <li><span class="font-medium">Infinitely many primes:</span> for infinitely many buses we need infinitely many primes—guaranteed by Euclid's proof.</li>
+        <li><span class="font-medium">Some rooms stay empty:</span> $6$, $10$, $12$—none of these is a power of a prime, so such rooms remain vacant. But that does not matter; our goal is simply to give everyone a room.</li>
+    </ol>
+</div>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Euclid's proof: there are infinitely many primes</h3>
+    <p>Suppose the primes are finite and are exactly $p_1, p_2, \\dots, p_k$. Now build a new number:</p>
+    <p>$$N = p_1 \\cdot p_2 \\cdots p_k + 1$$</p>
+    <p>Dividing $N$ by any of $p_1, p_2, \\dots, p_k$ leaves a remainder of $1$. So $N$ is not divisible by any number on the list; therefore $N$ is either itself a new prime, or a product of primes not on the list. Either way, our "finite" assumption is false. Hence there are infinitely many primes. (Proved)</p>
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ Countably Infinite vs. Uncountably Infinite</h1>
+<p>Everything we have done so far works only for <strong>countably infinite</strong> sets—like $1, 2, 3, \\dots$. But in the world of decimals and real numbers the path is different. Cantor proved that even the set of decimals between $0$ and $1$ cannot be paired with $\\mathbb{N}$—because no matter how you list $[0,1]$, <strong>Cantor's diagonal argument</strong> lets you change one digit so that the new number matches none of the listed numbers.</p>
+<div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+    <p class="font-medium">So Hilbert's Hotel shows that infinity is not just one thing—according to Cantor, "uncountable infinity" characterises the world of real numbers, while "countable infinity" characterises the world of natural numbers. That is exactly why the prime-power method only succeeds for the countably infinite.</p>
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ The Historical Journey of Infinity</h1>
+<p>Human beings have thought about infinity since the dawn of civilisation. Primitive people stared at the night sky in wonder at its vastness; Maya astronomers and the pyramid-builders of Egypt—all had their eyes fixed on the infinite. But the question is: when did the idea become formalised mathematically?</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li><span class="font-medium">Bernard Bolzano:</span> the Czech priest and mathematician; in his book "Paradoxes of the Infinite" he first gave a mathematical definition of infinity.</li>
+        <li><span class="font-medium">Georg Cantor (second half of the 19th century):</span> founder of set theory. While studying the continuity of trigonometric series, he showed that $\\mathbb{N}$ and $[0,1]$ are infinite sets of different sizes—there are "infinities inside infinity".</li>
+    </ol>
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ The Universe, Space and Infinity</h1>
+<p>Infinity stands firm in mathematics, but scientists struggle to pin it down in the physical world. Is space infinite? Is time? The universe? Answers have not fully arrived. A circle with a diameter of about $1{,}00{,}000$ billion billion (i.e. $10^{23}$) kilometres can hold our entire observable universe; but in the 90s scientists discovered the universe is <strong>expanding</strong>—still growing in size. Maybe the expansion will end at infinity! But where is that infinity?</p>
+
+<p><strong>Black holes:</strong> scientists believe a <strong>singularity</strong> hides inside a black hole—an infinitesimal region whose density is <strong>infinite</strong>; all the mass of the black hole is fused there. It is about as close as mathematics gets to a real example of infinite density.</p>
+
+<p><strong>The Planck length and discrete space:</strong> take a 1-metre stick and start breaking it—first in two, then in four, and so on a million times. Science says you cannot break it infinitely many times; because space is actually <strong>finite, or discrete</strong>. The smallest possible length is called the <strong>Planck length</strong>:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium">$$\\ell_P \\approx 1.6 \\times 10^{-35} \\text{ metres}$$</p>
+    <p>That is about $10$ billion billion billion billionth of a metre. Beyond this finite unit no further splitting is possible, so space is considered <em>discrete</em>—any length is built from countless Planck lengths stacked together.</p>
+</div>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">An infinite universe and parallel Earths?</h2>
+<p>If the universe is made of a finite number of atoms, then only a finite number of arrangements of matter is possible. But if the universe is infinite, then some arrangement must inevitably repeat across its vastness—<strong>patterns will repeat</strong>. Then another planet like our Earth is only natural; Bangladesh's presence on its map would not be strange—even a resident resembling someone in Dhaka is far from impossible!</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Infinite time and recurrence</h2>
+<p>Leave an apple in a box. After one year it rots; after $100$ years it decays to dust; after a million years its chemical bonds break down into a plasma of elementary particles; and then that plasma can transform back into matter. The plasma faces countless billions of possible combinations. If time is infinite, then through regular recombinations that plasma might one day <strong>become an apple again</strong>. A profound question arises here—</p>
+<div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+    <p class="font-medium">Does infinite time hint at human immortality? What was, will be again; what has happened, will happen again.</p>
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ Conclusion</h1>
+<p>Hilbert's Hotel teaches us that the "paradox" created when we try to measure infinity with finite thinking actually has a very logical solution. At every step we used one clear rule (a bijection)—$n+1$ for a single guest, $2n$ for infinitely many passengers, and powers of primes for the buses. This shows that the room count of a countably infinite set never changes; <strong>the infinite hotel is always "full" and yet can always take in more</strong>.</p>
+<p>But this incredible building has no address in the real world. The mystery of infinity in the universe, time, and space remains unsolved. So next time you look at the night sky, remember—every star does not necessarily find its own prime-power room in the "hotel of infinity", but our imagination always does!</p>`,
+            bn: `<p>আপনাকে যদি কখনো বলা হয়—"১ থেকে ৩ এর মধ্যে কতটি সংখ্যা আছে?"—আপনি কী উত্তর দেবেন? বললে যদি "তিনটি", তাহলে আপনার উত্তর পুরোপুরি সঠিক হবে না। কারণ সংখ্যারেখার দিকে তাকালে দেখা যাবে, ১ থেকে ৩ এর মধ্যে আছে অসংখ্য সংখ্যা—$1.2$, $2.7$, $\\sqrt{2}$, $\\pi$—কী নেই! এই "অসংখ্য" পরিমাণটাই হলো <strong>অসীম (Infinity)</strong>।</p>
+
+<p>বিশ্বকবি রবীন্দ্রনাথ ঠাকুর হয়তো অসীমত্বের ব্যাপারটা খুব ভালো করেই বুঝেছিলেন। তাই তো তিনি লিখেছিলেন, <em>"সীমার মাঝে, অসীম, তুমি বাজাও আপন সুর"।</em> অসীম কোনো সংখ্যা নয়; এটি একটি পরিমাণ বা ধারণা নির্দেশ করে। যেমন, বাস্তব সংখ্যার সেট অসীম, আমাদের মহাবিশ্ব অসীম। যে সীমায় মানুষ আজও পৌঁছাতে পারেনি, সেটাই তার কাছের অসীম।</p>
+
+<h1 class="text-2xl font-bold mb-4">⧉ হিলবার্টের গ্র্যান্ড হোটেল</h1>
+<p>এই অসীমত্বকে কাজে লাগিয়ে জার্মান গণিতবিদ <strong>ডেভিড হিলবার্ট</strong> একটি প্যারাডক্স তৈরি করেন, যা <em>ইনফিনিট হোটেল প্যারাডক্স</em> বা <em>হিলবার্টের গ্র্যান্ড হোটেল প্যারাডক্স</em> নামে পরিচিত। এটি একধরনের চিন্তন পরীক্ষা (Thought Experiment), যা দিয়ে অসীম সেটের একটি অনির্দিষ্ট সম্পত্তি তুলে ধরা হয়েছে।</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ ইতিহাসের পাতা থেকে</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li><span class="font-medium">১৯২৪:</span> হিলবার্ট ভারলিনে "Über das Unendliche" (অসীম প্রসঙ্গে) শীর্ষক এক লেকচারে প্রথম এই প্যারাডক্সটি উপস্থাপন করেন।</li>
+        <li><span class="font-medium">১৯৪৭:</span> জর্জ গ্যামোর তাঁর "One Two Three ... Infinity" বইয়ে প্যারাডক্সটি উল্লেখ করলে এটি বিশ্বজুড়ে জনপ্রিয়তা পায়।</li>
+    </ol>
+</div>
+<p>এবার কল্পনার চিন্তার পালা শুরু। কেন কল্পনা? কারণ বাস্তবে আপনি কখনো অসীম সংখ্যক কক্ষের হোটেল দেখতে পাবেন না। তাই আগে মাথাটা পুরোপুরি পরিষ্কার করে নিন—এই প্যারাডক্স আপনাকে অসীম এক কল্পনায় ডুবিয়ে দেবে।</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">হোটেলের রূপকথা</h2>
+<p>প্রথমেই আপনাকে একজন হোটেল ম্যানেজারের ভূমিকা নিতে হবে। বিশেষ সেই হোটেলটিতে <strong>অসীম সংখ্যক তলা</strong>, আর প্রতিটি তলায় <strong>অসীম সংখ্যক কক্ষ</strong>। মজার ব্যাপার হলো—এই হোটেলটি অসীম সংখ্যক মানুষে পূর্ণ থাকার পরও এতে আরও মানুষের জায়গা হওয়া সম্ভব। কিন্তু কীভাবে? এর শেষ কক্ষটি কোনটি, তা-ই তো আপনার জানা নেই! তাহলে নতুন কারও জায়গা দেবেন কী করে?</p>
+
+<div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+    <p class="font-medium">মূল ধারণা: অসীম সেটের "আকার" আমাদের পরিচিত সসীম জগতের নিয়মে চলে না। হিলবার্টের হোটেল দেখিয়ে দেয়—দেখতে "সম্পূর্ণ পূর্ণ" এমন একটি অসীম সেটেও নতুন উপাদান ঢোকানো সম্ভব, যদি আমরা প্রতিটি অতিথিকে স্পষ্ট নিয়মে ("এক-এক মিল" বা bijection) নতুন কক্ষে সরাতে পারি।</p>
+</div>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">যাত্রা ১: একজন নতুন অতিথি</h2>
+<p>হঠাৎ এক অর্ধরাত্রে একজন অতিথি হোটেলে এলেন, কিন্তু হোটেল তো পূর্ণ। এত রাতে তাঁকে ফেরানোও অসম্ভব। সমাধান সহজ—হোটেলে অবস্থানরত <strong>প্রতিটি মানুষ তাদের পরের কক্ষে</strong> চলে যাবে:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p>১ নং কক্ষের মানুষ যাবে ২ নং-এ, ২ নং-এর জন ৩ নং-এ, ৩ নং-এর জন ৪ নং-এ … এবং $n$ তম কক্ষের মানুষ যাবে $n+1$ তম কক্ষে। এভাবে চলবে অসীম পর্যন্ত।</p>
+</div>
+<p>ফলাফল—নতুন অতিথির জন্য <strong>১ নং কক্ষটি ফাঁকা</strong>। লক্ষ করো, এখানে "অসীম + ১ = অসীম" থেকে গেল; কোনো শেষ সংখ্যা নেই, কোনো কক্ষও খালি হলো না শেষের দিকে discharging করে। এখন থেকে যেকোনো <em>গণনাযোগ্য</em> সংখ্যক অতিথির (ধরা যাক $k$ জন) জন্য সাধারণ নিয়ম:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium">$$f(n) = n + k$$</p>
+    <p>প্রতিটি অতিথি ঘরের নম্বরে $k$ যোগ করবে; ফলে সামনের $k$টি কক্ষ ($1, 2, \\dots, k$) ফাঁকা পড়ে, আর সবাই একটি-একটি কক্ষ পায়।</p>
+</div>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">যাত্রা ২: অসীম সংখ্যক নতুন অতিথি</h2>
+<p>কোনো এক সকালে অসীম সংখ্যক যাত্রী নিয়ে একটি বাস হাজির, আর সকলেই কীর্তিমান ব্যক্তি। এবারো কাউকে ফেরানো যাবে না। উপায়? উপায় আছে—<strong>জোড়-বিজোড়</strong> কৌশল।</p>
+<p>বর্তমানে যে অতিথিরা হোটেলে আছেন, তাদের সবাইকে তাদের কক্ষ নম্বরের <strong>দ্বিগুণ</strong> কক্ষে সরিয়ে দিন:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium">$$g(n) = 2n$$</p>
+    <p>অর্থাৎ ১ নং যায় ২ নং-এ, ২ নং যায় ৪ নং-এ, ৩ নং যায় ৬ নং-এ, … — এখানে $n$ হলো বর্তমান কক্ষ নম্বর।</p>
+</div>
+<p>লক্ষ করো, পদ্ধতিটি ব্যবহার করা হলে <strong>বিজোড় কক্ষগুলোর কাছে আনুমাত্রা নেই</strong>—অর্থাৎ কেউই আর বিজোড় কক্ষে যাচ্ছে না। ফলে $1, 3, 5, 7, \\dots$—অসীম সংখ্যক বিজোড় কক্ষ ফাঁকা হয়ে গেল। এবার নতুন আসা অসীম সংখ্যক যাত্রীদের ক্রমান্বয়ে ঐ বিজোড় কক্ষগুলোতে বসানো যায়।</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ গাণিতিক দৃষ্টিকোণ (Mathematical Viewpoint)</h3>
+    <p>$g(n) = 2n$ একটি <em>এক-এক ও উপর</em> (bijective) প্রতিচিত্রণ—স্বাভাবিক সংখ্যার সেটকে জোড় সংখ্যার সেটে। এর মানে, জোড় সংখ্যার সেট $(\\{2, 4, 6, \\dots\\})$ এবং স্বাভাবিক সংখ্যার সেট $(\\{1, 2, 3, \\dots\\})$ এর মধ্যে একটি নিখুঁত জুড়ি (pairing) স্থাপন গেছে। অর্থাৎ দুটো সেটের গাণিতিক "আকার" (cardinality) <strong>সমান</strong>:</p>
+    <p>$$|\\mathbb{N}| = |2\\mathbb{N}|$$</p>
+    <p>এবং যেহেতু বিজোড় সংখ্যাও অসীম ("$2k - 1$" আকারের), তাই হোটেলের সবাইকে পূর্ণ রেখেই অসীম সংখ্যক নতুন অতিথিকে জায়গা দিলাম। অর্থাৎ <strong>অসীম + অসীম = অসীম</strong>।</p>
+</div>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">যাত্রা ৩: অসীম সংখ্যক বাস, প্রতিটিতে অসীম যাত্রী</h2>
+<p>হোটেলের খ্যাতি ছড়িয়ে পড়ল; হঠাৎ একদিন <strong>অসীম সংখ্যক বাস</strong> হাজির, প্রতিটি বাসে <strong>অসীম সংখ্যক যাত্রী</strong>। এবার মাথা ঘোরাটা স্বাভাবিক, কিন্তু অল্প ভাবলেই সমাধান পেয়ে যাব। কারণ ইউক্লিড প্রমাণ করে গেছেন—<strong>মৌলিক সংখ্যা অসীম</strong>। এই সত্যটিকে আমরা পুঁজি করব।</p>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ কম্বিনেশনের সম্ভাবনা</h3>
+    <p>আজকের হোটেলের অতিথিরা $n$ নম্বর কক্ষে থাকলে তাঁদের সরানো হয় <strong>$2^n$</strong>-এ:</p>
+    <p class="text-slate-800">$$n \\rightarrow 2^n$$</p>
+    <p>অর্থাৎ কক্ষ ১ এর অতিথি যান ২-এ ($2^1$), কক্ষ ২ এর যান ৪-এ ($2^2$), কক্ষ ৩ এর যান ৮-এ ($2^3$) … এই বিন্যাস চলতে থাকে।</p>
+</div>
+
+<p>এবার যাত্রীদের জন্য ব্যবহার হবে <strong>পরের মৌলিক সংখ্যার ঘাত</strong>:</p>
+<ul class="list-disc pl-6 space-y-3 mb-8">
+    <li>১ম বাসের যাত্রীদের জন্য $3$ এর ঘাত: ১ম বাসের $j$ নং আসনের যাত্রী যাবেন $3^j$ নং-এ। যেমন $7$ নং আসনের যাত্রী যাবেন $3^7 = 2187$ নং-এ।</li>
+    <li>২য় বাসের জন্য পরের মৌলিক সংখ্যা $5$ এর ঘাত: $5^j$।</li>
+    <li>৩য় বাসের জন্য $7$ এর ঘাত: $7^j$।</li>
+    <li>৪র্থ বাসের জন্য $11$ এর ঘাত: $11^j$ … এবং এভাবে চলতে থাকবে।</li>
+</ul>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ কেন এই পদ্ধতি কাজ করে? (Why It Works)</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li><span class="font-medium">অনন্য মৌলিক উৎপাদক (Unique Prime Factorization):</span> পাটিগণিতের মৌলিক উপপাদ্য (Fundamental Theorem of Arithmetic) অনুযায়ী, প্রতিটি $1$ অপেক্ষা বড় পূর্ণসংখ্যাকে মৌলিক সংখ্যার গুণফল হিসেবে <em>একমাত্র উপায়ে</em> লেখা যায় (ক্রম বাদ দিয়ে)। যেমন $36 = 2^2 \\times 3^2$। কারণ $2^n$ এবং $3^j$ কখনোই সমান হতে পারে না (অন্যথায় দুটি ভিন্ন ভাঙন থাকত), তাই কোনো দুই অতিথি কখনো একই কক্ষ পাবে না।</li>
+        <li><span class="font-medium">অসীম মৌলিক সংখ্যা (Infinitely Many Primes):</span> অসীম সংখ্যক বাসের জন্য অসীম সংখ্যক মৌলিক দরকার—যা ইউক্লিডের প্রমাণে নিশ্চিত।</li>
+        <li><span class="font-medium">কিছু কক্ষ খালি থাকবে:</span> $6$, $10$, $12$—এসব সংখ্যা কোনো মৌলিক সংখ্যার ঘাত নয়, তাই এ কক্ষগুলো ফাঁকা থাকবে। কিন্তু সমস্যা নেই; আমাদের লক্ষ্য তো সবাইকে জায়গা দেওয়া।</li>
+    </ol>
+</div>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ ইউক্লিডের প্রমাণ: মৌলিক সংখ্যা অসীম (Proof That Primes Are Infinite)</h3>
+    <p>ধরি, মৌলিক সংখ্যা সসীম এবং সেগুলো $p_1, p_2, \\dots, p_k$। এবার একটি নতুন সংখ্যা তৈরি করি:</p>
+    <p>$$N = p_1 \\cdot p_2 \\cdots p_k + 1$$</p>
+    <p>$N$-কে $p_1, p_2, \\dots, p_k$-এর যেকোনোটি দিয়ে ভাগ করলে ভাগশেষ হয় $1$। সুতরাং $N$ এই তালিকার কোনো সংখ্যা দিয়ে বিভাজ্য নয়; তার মানে $N$ হয় নিজেই নতুন মৌলিক, নয়তো তালিকায় নেই এমন মৌলিকের গুণফল। দুই ক্ষেত্রেই আমাদের "সসীম" ধারণা ভুল। অতএব মৌলিক সংখ্যা অসীম। (প্রমাণিত)</p>
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ গণনাযোগ্য অসীম বনাম অগণনাযোগ্য অসীম</h1>
+<p>এতক্ষণ যা করলাম তা কাজ করে <strong>কেবলমাত্র গণনাযোগ্য অসীম</strong> (Countably Infinite) এর জন্য—যেমন $1, 2, 3, \\dots$। কিন্তু দশমিক বা বাস্তব সংখ্যার (Real Numbers) দুনিয়ায় পথ আলাদা। ক্যান্টর প্রমাণ করেছেন, $0$ থেকে $1$-এর মধ্যকার দশমিক সংখ্যাগুলোর সেট-ও $\\mathbb{N}$-এর সাথে জুড়ি দেওয়া যায় না—কারণ $[0, 1]$ কে কোনো পূর্ণসংখ্যা তালিকায় সাজালেও আমরা <strong>তির্যক যুক্তি</strong> (Cantor's Diagonal Argument) দিয়ে সর্বদা একটি ডিজিট এমনভাবে বদলাতে পারি যে নতুন সংখ্যাটি তালিকার কোনো সংখ্যার সাথে মেলে না।</p>
+<div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+    <p class="font-medium">তাই হিলবার্টের হোটেল দেখায়—অসীম শুধু একটাই নয়; ক্যান্টরের মতে "অগণনাযোগ্য অসীম" হলো বাস্তব সংখ্যার দুনিয়ার বৈশিষ্ট্য, আর "গণনাযোগ্য অসীম" হলো স্বাভাবিক সংখ্যার দুনিয়ার। মৌলিক সংখ্যার ঘাত-পদ্ধতি এ কারণেই কেবল গণনাযোগ্য অসীমের ক্ষেত্রে সফল।</p>
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ অসীমের ঐতিহাসিক যাত্রা</h1>
+<p>অসীম নিয়ে মানুষ সভ্যতার শুরু থেকেই ভেবেছে। আদিমানব রাতের আকাশের দিকে তাকিয়ে এর বিস্তার দেখে বিস্মিত হয়েছে; আর মায়া সভ্যতার জ্যোতির্বিজ্ঞানী, মিশরের পিরামিড-নির্মাতা—সবার চোখ অসীমের দিকে ছিল। কিন্তু প্রশ্ন হলো, গাণিতিকভাবে এই ভাবনা কবে আনুষ্ঠানিক হলো?</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li><span class="font-medium">বার্নার্ড বোলজানো:</span> চেক পাদ্রী ও গণিতবিদ; তাঁর "Paradoxes of the Infinite" গ্রন্থে প্রথম গাণিতিক দৃষ্টিকোণ থেকে অসীমের সংজ্ঞা দেন।</li>
+        <li><span class="font-medium">গেয়র্গ ক্যান্টর (১৯ শতকের দ্বিতীয়ার্ধ):</span> সেট তত্ত্বের প্রবর্তক। ত্রিকোণমিতিক ধারার অবিচ্ছিন্নতা নিয়ে কাজ করতে গিয়ে তিনি দেখান—$\\mathbb{N}$ ও $[0,1]$ আলাদা আকারের অসীম; "অসীমের মধ্যে অসীম" আছে।</li>
+    </ol>
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ মহাবিশ্ব, স্থান ও অসীম</h1>
+<p>গণিতে অসীমের অবস্থান এখন সুদৃঢ়, কিন্তু জাগতিক জগতে এর খোঁজ পেতে বেগ পাচ্ছেন বিজ্ঞানীরা। মহাশূন্য কি অসীম? সময় কী? মহাবিশ্ব? উত্তর এখনো পুরোপুরি মেলেনি। মহাবিশ্বের প্রায় $1{,}00{,}000$ বিলিয়ন বিলিয়ন (অর্থাৎ $10^{23}$) কিলোমিটার দীর্ঘ ব্যাসের একটি বৃত্ত আমাদের সমগ্র মহাবিশ্বকে দখল করে নিতে সক্ষম; কিন্তু $90$-এর দশকে বিজ্ঞানীরা দেখান মহাবিশ্ব <strong>সম্প্রসারিত</strong> হচ্ছে—এখনো এর আকার ক্রমবর্ধমান। হয়তো অসীমেই শেষ হবে এই সম্প্রসারণ! কিন্তু সেই অসীমের অবস্থান কোথায়?</p>
+
+<p><strong>কৃষ্ণগহ্বর (Black Hole):</strong> বিজ্ঞানীরা মনে করেন, ব্ল্যাকহোলের অভ্যন্তরে একটি <strong>সিঙ্গুলারিটি</strong> (Singularity) বিরাজ করে—ক্ষুদ্রাতিক্ষুদ্র এক স্থান, যার ঘনত্ব <strong>অসীম</strong>; ব্ল্যাকহোলের সমস্ত ভর সেখানে একীভূত। গণিতের কোথাও একটা অসীম ঘনত্বের উদাহরণ পাওয়া যায় এখানেই।</p>
+
+<p><strong>প্ল্যাঙ্ক দৈর্ঘ্য ও বিযুক্ত স্থান:</strong> ১ মিটার লম্বা একটি লাঠি ভাঙা শুরু করি—প্রথমে দুই ভাগ, তারপর চার ভাগ, এভাবে দশলাখ বার। বিজ্ঞান বলেন, এভাবে অসীম সংখ্যকবার ভাঙা সম্ভব নয়; কারণ স্থান আসলে <strong>সসীম বা বিযুক্ত</strong>। সবচেয়ে ক্ষুদ্রতম দৈর্ঘ্যকে বলা হয় <strong>প্ল্যাঙ্ক দৈর্ঘ্য</strong>:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium">$$\\ell_P \\approx 1.6 \\times 10^{-35} \\text{ m}$$</p>
+    <p>অর্থাৎ ১ মিটারের প্রায় $10$ বিলিয়ন বিলিয়ন বিলিয়ন বিলিয়ন (এক ভাগেরও কম) ভাগের একটি। এই সসীম এককের বাইরে ভাঙা অসম্ভব, তাই স্থানকে <em>ডিসক্রিট</em> (Discrete) ধরা হয়—যেকোনো দৈর্ঘ্য গঠিত অসংখ্য প্ল্যাঙ্ক-দৈর্ঘ্যের সমন্বয়ে।</p>
+</div>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">অসীম মহাবিশ্ব ও সমান্তরাল পৃথিবী?</h2>
+<p>মহাবিশ্ব যদি সসীম সংখ্যক পরমাণু দিয়ে গঠিত হয়, তবে এর মধ্যে বস্তুগুলোর সসীম সংখ্যক বিন্যাসই সম্ভব। কিন্তু মহাবিশ্ব যদি অসীম হয়, তাহলে এই বিন্যাস বিশাল মহাবিশ্বে পুনরাবৃত্তি হতে বাধ্য—<strong>প্যাটার্ন রিপিট করবে</strong>। তাহলে এই পৃথিবীর মতো আরেকটি গ্রহের অস্তিত্ব স্বাভাবিক; সেখানকার মানচিত্রে বাংলাদেশের উপস্থিতি অস্বাভাবিক নয়—এমনকি ঢাকার কোনো বাসিন্দার মতো একজনের অস্তিত্বও দূরকল্পনা নয়!</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">অসীম সময় ও পুনরাবৃত্তি</h2>
+<p>একটি আপেল একটি বাক্সে রেখে দেওয়া হলো। ১ বছর পর পচন ধরল; $100$ বছর পর ক্ষয়ে ধুলো; লক্ষ বছর পর রাসায়নিক বন্ধন ভেঙে মৌলিক কণার প্লাজমা; এরপর সেই প্লাজমা আবার বস্তুতে রূপান্তরিত হতে পারে। প্লাজমার সামনে রয়েছে লাখো-বিলিয়ন-বিলিয়ন সম্ভাব্য সমন্বয়। সময় যদি অসীম হয়, তবে নিয়মিত কম্বিনেশনের কারণে সেই প্লাজমা কোনও একদিন <strong>আবার আপেল</strong> হয়ে উঠতে পারে। এখানে একটি গভীর প্রশ্ন দাঁড়ায়—</p>
+<div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+    <p class="font-medium">অসীম সময় কি মানুষের অমরত্বের ইঙ্গিত দেয়? যা ছিল, তা আবার হবে; যা ঘটেছে, তা আবার ঘটবে।</p>
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ উপসংহার</h1>
+<p>হিলবার্টের হোটেল আমাদের শেখায়, সসীম চিন্তা দিয়ে অসীমকে মাপতে গেলে যে "প্যারাডক্স" বা হেঁয়ালি তৈরি হয়, তার সমাধান কিন্তু খুবই যুক্তিনির্ভর। প্রতিটি ধাপে আমরা একটি-একটি স্পষ্ট নিয়ম (bijection) ব্যবহার করেছি—একজন অতিথির জন্য $n+1$, অসীম যাত্রীর জন্য $2n$, আর বাসগুলো অনুসারে মৌলিক সংখ্যার ঘাত। এতে দেখা যায়, গণনাযোগ্য অসীমের সে কক্ষসংখ্যা কখনো বদলায় না; <strong>অসীম হোটেল সবসময় "পূর্ণ" আর সবসময় আরও কিছু ধারণ করতে পারে</strong>।</p>
+<p>তবে এই অবিশ্বাস্য ভবনের বাস্তব জগতে কোনো বাসস্থান নেই। মহাবিশ্ব, সময়, স্থান—সবখানেই অসীমের রহস্য আজও অমীমাংসিত। তাই পরের বার যখন রাতের আকাশ দেখবে, মনে রাখবে—আকাশের প্রতিটি তারা "অসীমের হোটেলে" নিজের মৌলিক-ঘাত-কক্ষ খুঁজে পায় না, কিন্তু আমাদের কল্পনা অবশ্যই পায়!</p>`
         }
     },
     {
@@ -304,49 +541,739 @@ const ARTICLES = [
         title: { en: "Number Theroy and Prime Number", bn: "সংখ্যাতত্ত্ব ও মৌলিক সংখ্যা" },
         author: { en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান" },
         role: { en: "President", bn: "সভাপতি" },
-        date: { en: "Jan 13, 2026", bn: "১৩ জানুয়ারি, ২০২৬" },
-        readTime: { en: "1 min read", bn: "১ মিনিট পাঠ" },
+        date: { en: "Mar 13, 2026", bn: "১৩ মার্চ, ২০২৬" },
+        readTime: { en: "22 min read", bn: "২২ মিনিট পাঠ" },
         desc: { en: "One of the most interesting topics for mathematicians and computer scientists.", bn: "গণিতবিদ ও কম্পিউটার বিজ্ঞানীদের অন্যতম সবচেয়ে আগ্রহের বিষয়বস্তু" },
         image: "https://plus.unsplash.com/premium_photo-1753191396890-bb83bf96fc3c?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         content: {
-            en: `<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">How it Works</h2>
-            <p class="mb-6">The Sieve of Eratosthenes finds all primes less than or equal to $n$. It iteratively marks the multiples of each prime number as composite (not prime), starting from $2$. The time complexity of this algorithm is $O(n \\log \\log n)$, making it incredibly fast.</p>
-            
-            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">C Implementation</h2>
-            <p class="mb-4">Here is the highlighted implementation written in C:</p>
-            
-            <div class="bg-slate-950 text-slate-100 p-6 rounded-xl my-6 font-mono text-sm overflow-x-auto whitespace-pre leading-relaxed shadow-lg">
-<span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span>
-<span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdbool.h&gt;</span>
-<span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;string.h&gt;</span>
-<span class="text-sky-400">void</span> <span class="text-indigo-300">sieveOfEratosthenes</span>(<span class="text-sky-400">int</span> n) {
-    <span class="text-slate-500">// Create a boolean array and initialize all entries as true.</span>
-    <span class="text-sky-400">bool</span> prime[n + <span class="text-pink-400">1</span>];
-    <span class="text-indigo-300">memset</span>(prime, <span class="text-sky-400">true</span>, <span class="text-sky-400">sizeof</span>(prime));
-    <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> p = <span class="text-pink-400">2</span>; p * p &lt;= n; p++) {
-        <span class="text-slate-500">// If prime[p] is not changed, then it is a prime</span>
-        <span class="text-sky-400">if</span> (prime[p] == <span class="text-sky-400">true</span>) {
-            <span class="text-slate-500">// Update all multiples of p greater than or equal to its square</span>
-            <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> i = p * p; i &lt;= n; i += p)
-                prime[i] = <span class="text-sky-400">false</span>;
-        }
-    }
+            en: `
+<p>If mathematics is called the queen of science, then number theory is called the queen of mathematics. Every technology and security system in today's world is built around the use of number theory. In fact, it is the oldest branch of mathematics. Mathematicians of ancient Greece, India, China and Mesopotamia have been studying the properties of integers and prime numbers for thousands of years. The famous Greek mathematician Euclid had already given a proof of the infinitude of prime numbers as early as 300 BC.
+The development of number theory owes a profound and fundamental debt to Muslim and Indian mathematicians. Without their discoveries, today's modern mathematics and digital technology would remain incomplete.</p>
 
-    <span class="text-slate-500">// Print all prime numbers</span>
-    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"Prime numbers up to %d are:\\n"</span>, n);
-    <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> p = <span class="text-pink-400">2</span>; p &lt;= n; p++) {
-        <span class="text-sky-400">if</span> (prime[p]) {
-            <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"%d "</span>, p);
-        }
-    }
-    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"\\n"</span>);
-}
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Contributions of Hindu (Ancient and Medieval Indian) Mathematicians</h3>
+        <p>The greatest contribution of Indian mathematicians is that they changed the language of the entire discipline of mathematics.</p>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+            <span class="font-medium">Zero ($0$) and the Decimal Positional System:</span>
+            The very foundation of number theory is the way numbers are written. Indian mathematicians were the first to recognize zero ($0$) as a distinct number of its own and to give the complete form of the base-10 positional system, which made all of mathematical calculation far easier.
+        </li>
+        <li>
+            <span class="font-medium">Aryabhata (476–550 AD):</span>
+            He devised an algorithm named "Kuttaka" for solving linear Diophantine equations ($ax + by = c$), an early and extremely powerful form of modular arithmetic.
+        </li>
+        <li>
+            <span class="font-medium">Brahmagupta (598–668 AD):</span>
+            He recorded the correct rules for computing with negative numbers and zero. He also discovered a composition method named "Bhavana" for solving indeterminate quadratic equations (later mistakenly known as 'Pell's Equation', $Nx^2 + 1 = y^2$).
+        </li>
+        <li>
+            <span class="font-medium">Bhaskara II (1114–1185 AD):</span>
+            Carrying Brahmagupta's work a step further, he invented the "Chakravala method". It was such an original technique for solving Pell's Equation that European mathematicians (such as Fermat or Lagrange) could only solve it almost 500 years later.
+        </li>
+    </ol>
+</div>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Contributions of Muslim (Islamic Golden Age) Mathematicians</h3>
+    <p>During the Islamic Golden Age (8th–14th centuries), centred around Baghdad's House of Wisdom, Muslim mathematicians combined Indian and Greek mathematics and brought unprecedented advances to number theory.</p>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+            <span class="font-medium">Al-Khwarizmi (780–850 AD):</span> He is called the father of algebra. He wrote the book 'Kitab al-Jam' wal-Tafriq bi-Hisab al-Hind' on the Indian decimal system and the use of zero. It was through the Latin translation of this book that Europeans first came to know the modern system of numerals (what today we call 'Arabic Numerals').
+        </li>
+        <li>
+            <span class="font-medium">Thabit ibn Qurra (826–901 AD):</span>
+A beautiful branch of number theory is 'Amicable Numbers'—two numbers such that the sum of the proper divisors of one equals the other. Thabit ibn Qurra discovered a general theorem (Thabit's Theorem) for finding such pairs of numbers, one of the milestones in the history of number theory.        </li>
+        <li>
+            <span class="font-medium">Al-Karaji (953–1029 AD):</span>
+            He used an early form of mathematical induction in number theory and proved the sum of cubes from $1$ to $n$: $1^3 + 2^3 + \\dots + n^3 = (1 + 2 + \\dots + n)^2$.
+        </li>
+        <li>
+            <span class="font-medium">Ibn al-Haytham (965–1040 AD):</span>
+The highly important "Wilson's Theorem" of number theory—used to identify prime numbers—was clearly stated and applied by Ibn al-Haytham long before the European John Wilson claimed it in 1770.        
+       </li>
+        <li>
+            <span class="font-medium">Kamal al-Din al-Farisi (1267–1319 AD):</span>
+He greatly expanded Euclid's theories on prime numbers and provided an early form of the Fundamental Theorem of Arithmetic, which states that every composite number can be expressed as a unique product of prime numbers.       </li>
+    </ol>
+</div>
 
-<span class="text-sky-400">int</span> <span class="text-indigo-300">main</span>() {
-    <span class="text-sky-400">int</span> n = <span class="text-pink-400">50</span>;
-    <span class="text-indigo-300">sieveOfEratosthenes</span>(n);
-    <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;
-}</div>`,
+Now let us come to the uses of number theory. For a long time, number theory was regarded as "pure mathematics", and it was said to have no real or commercial application. But in the age of modern information technology, number theory is deeply woven into our daily lives and has become the very foundation of personal and state security. Let us look at its real applications at a glance:
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Real Applications of Number Theory</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+Cybersecurity and Cryptography: When you do banking online, send an encrypted message on WhatsApp, or use a password—the RSA encryption algorithm works behind the scenes. It is built entirely on large prime numbers and the modular arithmetic of number theory.            </li>
+        <li>
+Computer Science and Coding Theory: To ensure that no information gets corrupted during data transmission, "error-correcting codes" are used, which depend on number theory.
+        <li>
+      Computer Algorithms and Pseudo-Random Numbers: For lotteries, security key generation and game development, random numbers are produced using the formulas of number theory.
+              </li>
+        <li>
+Quantum Computing and System Security: It is being used extensively in designing security protocols for the next generation of fast computers.      
+</li>
+    </ol>
+</div>
+Now if we had not discovered or used number theory and its formulas, our modern digital world would be frozen forever:
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ What Would Happen If Number Theory Were Not Used?</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+No secure internet service would exist: no e-commerce, online banking, or confidential messaging service could be built. Credit card information and passwords would travel over the internet in plain form, and anyone could steal them.
+        <li>
+Privacy in cyberspace would become zero: there would be no way to encrypt digital files, so any military, governmental or personal digital information would easily be hacked.
+        <li>
+The digital economy would come to a halt: today's global online trade, digital currency or online shopping network could not function at all without encryption.
+              </li>
+        <li>
+The progress of computing science would be obstructed: the road to data compression, networking protocols and precise fast algorithms would be blocked.
+</li>
+    </ol>
+</div>
+So number theory is not called the "Queen of Mathematics" in vain—this play of numbers is the backstage artisan that keeps today's modern digital age secure. <br>
+<p>Now we shall enter the real heart of the matter—the world of number theory itself. To tell the truth, this branch of mathematics is very large. It is very difficult to introduce it fully in a single article, and I also have my own limitations of knowledge. We shall therefore discuss only those parts that are easy to understand and have real applications around us.
+<br>An elementary reading of number theory essentially begins with the fundamental units of counting, the natural numbers $\\mathbb{N} = \\{1, 2, 3, 4, \\dots\\}$, and with establishing mathematical relations among them.
+</p>
+
+<h1 class="text-2xl font-bold mb-4">⧉ Integers and the Peano Axioms</h1>
+The central object and foundation of number theory is the set of integers $\\mathbb{Z} = \\{\\dots, -2, -1, 0, 1, 2, \\dots\\}$. In the history of mathematics, the Peano Axioms are a revolutionary milestone. At first glance the natural numbers $1, 2, 3 \\dots$ seem so simple and self-evident; yet for mathematicians the big question was: "How can we be sure that the very numbers on which all of mathematics stands have a mathematically flawless foundation?" In 1889 the Italian mathematician Giuseppe Peano gave the following axioms:
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li><span class="font-medium">Initial element:</span> $1$ is a natural number ($1 \\in \\mathbb{N}$).</li>
+        <li><span class="font-medium">Successor:</span> Every natural number $n$ has a unique successor $S(n)$ (for example: $S(1) = 2$).</li>
+        <li><span class="font-medium">Initial form:</span> $1$ is not the successor of any natural number.</li>
+        <li><span class="font-medium">Uniqueness:</span> If $S(a) = S(b)$, then $a = b$.</li>
+       <li><span class="font-medium">Mathematical Induction:</span> If a set $K \\subseteq \\mathbb{N}$ is such that $1 \\in K$, and for every $k \\in K$ we have $S(k) \\in K$, then $K = \\mathbb{N}$.</li>
+</ol>
+</div>
+Here the word 'successor' simply means—"the next number" or "the one after it". In the language of number theory or mathematics, if some number is taken as $n$, then the very next number $n + 1$ is its successor. For example: the successor of $1$ is $2$ (since $1 + 1 = 2$). The successor of $5$ is $6$. So the successor of $n$ is generally written $S(n)$, that is, $S(n) = n + 1$.
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Significance of the Peano Axioms in Mathematics</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+<span class="font-medium">Rigorous Foundation of Mathematics: </span>In the late nineteenth century mathematicians realized that to maintain rigour in proofs, the foundation of mathematics must be tied to axioms or postulates. The Peano Axioms place arithmetic and number theory on a solid foundation.
+        <li>
+<span class="font-medium">The Birth of Mathematical Induction: </span>The 5th Peano axiom is exactly the principle of mathematical induction. For proving that countless mathematical statements of number theory, algebra and olympiads ($1 + 2 + \\dots + n = \\frac{n(n+1)}{2}$) hold for an infinite number of values, this principle is the only powerful tool.
+        <li>
+<span class="font-medium">Application in Computer Science and Programming: </span>In modern computer science, the notions of recursion and functional programming depend directly on the 'successor' and the inductive structure of the Peano Axioms. Data structures like the 'linked list', or natural number type systems (for example in languages like Haskell or Coq), are realized by Peano arithmetic.
+        <li>
+<span class="font-medium">Formal Logic and Automated Proof: </span>To verify with a computer whether a mathematical proof is correct (for example with proof assistants such as Lean or Coq), mathematics must be decomposed all the way down to the most basic axioms. The Peano Axioms are the key regulator of this kind of logic-based mathematical model.
+    </ol>
+</div>
+<h1 class="text-2xl font-bold mb-4">⧉ Divisibility</h1>
+
+Divisibility is a very simple matter. We have been familiar with it since childhood. But now we shall not go the way of those theoretical ramblings. As children we did sums like "what is 6 divided by 2" or "what is the remainder when 101 is divided by 2". Now let us study a bit more systematically how these things actually work.
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Key Properties of Divisibility</h3>
+    <ol class="list-decimal list-inside space-y-4 text-gray-800">
+        <li>
+            <span class="font-medium">Reflexive and Transitive Properties:</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-1">
+                <li>$a \\mid a$ (for every $a \\neq 0$)</li>
+                <li>If $a \\mid b$ and $b \\mid c$, then $a \\mid c$</li>
+            </ul>
+        </li>
+        <li>
+            <span class="font-medium">Linear Combination:</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-1">
+                <li>
+                    If $a \\mid b$ and $a \\mid c$, then for any integers $x, y$:
+                    <div class="my-1">\\[a \\mid (bx + cy)\\]</div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <span class="font-medium">Product and Divisibility:</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-1">
+                <li>If $a \\mid b$, then for any integer $c$ we have $a \\mid bc$</li>
+            </ul>
+        </li>
+        <li>
+            <span class="font-medium">Boundedness:</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-1">
+                <li>If $a \\mid b$ and $b \\neq 0$, then $|a| \\le |b|$</li>
+            </ul>
+        </li>
+        <li>
+            <span class="font-medium">Mutual Divisibility:</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-1">
+                <li>If $a \\mid b$ and $b \\mid a$, then $a = \\pm b$</li>
+            </ul>
+        </li>
+        <li>
+            <span class="font-medium">Coprime (Relatively Prime) Properties:</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-2">
+                <li>
+                    If $a \\mid bc$ and $\\gcd(a, b) = 1$ (that is, $a$ and $b$ are coprime), then:
+                    <div class="my-1">\\[a \\mid c\\]</div>
+                </li>
+                <li>
+                    If $a \\mid n$ and $b \\mid n$, where $\\gcd(a, b) = 1$, then:
+                    <div class="my-1">\\[ab \\mid n\\]</div>
+                </li>
+            </ul>
+        </li>
+    </ol>
+</div>
+The best way to understand these properties is to test them with various numbers. Now let us look at some digit-based divisibility rules:
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-2">⧉ Digit-based Divisibility Rules</h3>
+    
+    <p class="mb-4 text-gray-800">
+        Let $N$ be a $k$-digit number, which can be written as: 
+        \\[N = (a_k a_{k-1} \\dots a_1 a_0)_{10} = \\sum_{i=0}^{k} a_i 10^i\\]
+    </p>
+
+    <ol class="list-decimal list-inside space-y-4 text-gray-800">
+        <li>
+            <span class="font-medium">Divisibility by $2, 4, 8, 2^m$:</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-2">
+                <li>
+                    $2 \\mid N \\iff 2 \\mid a_0$ (the last digit is even)
+                </li>
+                <li>
+                    $4 \\mid N \\iff 4 \\mid (10a_1 + a_0)$ (the number formed by the last two digits is divisible by $4$)
+                </li>
+                <li>
+                    $2^m \\mid N \\iff 2^m \\mid$ the number formed by the last $m$ digits
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <span class="font-medium">Divisibility by $3$ and $9$:</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-2">
+                <li>
+                    $3 \\mid N \\iff 3 \\mid (a_0 + a_1 + \\dots + a_k)$ (the sum of the digits is divisible by $3$)
+                </li>
+                <li>
+                    $9 \\mid N \\iff 9 \\mid (a_0 + a_1 + \\dots + a_k)$ (the sum of the digits is divisible by $9$)
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <span class="font-medium">Divisibility by $11$:</span>
+            <ul class="list-disc list-inside ml-5 mt-2 space-y-2">
+                <li>
+                    $11 \\mid N \\iff 11 \\mid (a_0 - a_1 + a_2 - a_3 + \\dots)$ (the alternating sum of digits in even and odd positions is divisible by $11$)
+                </li>
+            </ul>
+        </li>
+    </ol>
+</div>
+Now let us solve some problems that have appeared in the regional and national rounds of the Bangladesh Mathematical Olympiad:
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Find all positive integers $n$ such that $(n^2 + 1)$ is divisible by $(n + 1)$.
+That is, $(n + 1) \\mid (n^2 + 1)$</h3>
+ We know, by the linear combination property, that if $a \\mid b$ then $a \\mid (b - k \\cdot a)$. Here it is given that:$$(n + 1) \\mid (n^2 + 1)$$We can write $n^2 + 1$ as:$$n^2 + 1 = (n^2 - 1) + 2 = (n - 1)(n + 1) + 2$$Since $(n + 1) \\mid (n - 1)(n + 1)$ is always true, by the rules of divisibility:$$(n + 1) \\mid \\Big((n^2 + 1) - (n - 1)(n + 1)\\Big)$$$$\\implies (n + 1) \\mid 2$$The positive divisors of $2$ are $1$ and $2$.<br>1. If $n + 1 = 1$ then $\\implies n = 0$ (but $n$ was required to be a positive integer, so $n=0$ is not acceptable).<br>2. If $n + 1 = 2$ then $\\implies n = 1$.<br>Therefore, the only solution is $n = 1$
+ </div>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Prove that for every odd positive integer $n$, $8 \\mid (n^2 - 1)$</h3>
+Since $n$ is an odd number, $n$ can be written in the form $n = 2k + 1$, where $k$ is a non-negative integer ($k \\ge 0$). Now,$$n^2 - 1 = (2k + 1)^2 - 1$$$$= (4k^2 + 4k + 1) - 1$$$$= 4k^2 + 4k = 4k(k + 1)$$Notice that $k(k + 1)$ is the product of two consecutive integers. We know that among any two consecutive integers, one must be even (that is, divisible by $2$). So, $k(k + 1) = 2m$ (where $m$ is an integer). Then,$$n^2 - 1 = 4 \\cdot (2m) = 8m$$Since $n^2 - 1 = 8m$, we have $8 \\mid (n^2 - 1)$. (Proved)
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ The Division Algorithm</h1>
+The division sum we learned in primary school—"Dividend = Divisor × Quotient + Remainder"—is given a formal shape in number theory as the Division Algorithm.
+For any two integers $a$ (the dividend) and $b$ (the divisor, with $b > 0$) there exist unique integers $q$ (the quotient) and $r$ (the remainder) with $$a = b \\cdot q + r$$ such that $0 \\le r < b$.
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Important Points:</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li><span class="font-medium">Range of the remainder ($0 \\le r < b$):</span> The remainder is always non-negative and smaller than the divisor ($b$).</li>
+        <li><span class="font-medium">Uniqueness:</span> For given $a$ and $b$, there is one and only one pair $q$ and $r$.</li>
+        <li><span class="font-medium">Special case ($r = 0$):</span> If the remainder is $r = 0$, then $a = b \\cdot q$. This means $a$ is exactly divisible by $b$ (written $b \\mid a$). Example: if $a = 17$ and $b = 5$, then:$$17 = 5 \\cdot 3 + 2$$Here the quotient is $q = 3$ and the remainder is $r = 2$, which satisfies the condition $0 \\le 2 < 5$.</li>
+     </ol>
+</div>
+<h1 class="text-2xl font-bold mb-4">⧉ Greatest Common Divisor (GCD)</h1>
+The largest common divisor of two numbers is called their GCD. For example: $\\gcd(12, 18) = 6$. Then for two integers $a$ and $b$ (at least one of which is not zero), their GCD is written as $\\gcd(a, b)$ or briefly as $(a, b)$. A number $d = \\gcd(a, b)$ if and only if it satisfies the following two conditions:
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li><span class="font-medium">Common Divisor:</span> $d \\mid a$ and $d \\mid b$ (that is, both $a$ and $b$ are divisible by $d$).</li>
+        <li><span class="font-medium">Greatest:</span> If for any other number $c$, $c \\mid a$ and $c \\mid b$, then $c \\le d$ (or in the language of divisibility, $c \\mid d$).</li>
+     </ol>
+</div>
+Again, if the $\\gcd$ of two numbers is $1$, they are called coprime (or relatively prime). For example: $\\gcd(8, 15) = 1$, so $8$ and $15$ are coprime (even though neither is prime). Now let us quickly solve an olympiad problem.
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Prove that for every positive integer $n$, the number $n^3 - n$ is always divisible by $6$</h3>
+    We know $6 = 2 \\times 3$ and $\\gcd(2, 3) = 1$. So to prove $6 \\mid (n^3 - n)$ we must show $2 \\mid (n^3 - n)$ and $3 \\mid (n^3 - n)$.
+    Factor the expression:$$n^3 - n = n(n^2 - 1) = n(n-1)(n+1)$$This is the product of three consecutive integers.<br>1. Among three consecutive integers, at least one is even. So, $2 \\mid n(n-1)(n+1)$<br>2. Among three consecutive integers, exactly one is divisible by $3$. So, $3 \\mid n(n-1)(n+1)$<br>Since $\\gcd(2, 3) = 1$, we get $2 \\times 3 = 6 \\mid n(n-1)(n+1)$. (Proved)
+</div>
+<h1 class="text-2xl font-bold mb-4">⧉ The Euclidean Algorithm</h1>
+The algorithm we commonly use to find the GCD works very effectively for small numbers, but for large numbers it is very time-consuming and laborious. In 300 BC the Greek mathematician Euclid invented a wonderful method. He observed that the way to find the GCD of two large numbers very quickly is to keep dividing successively until the remainder becomes zero. That is $$a = bq + r \\implies \\gcd(a, b) = \\gcd(b, r)$$
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Step-by-Step Algorithm:</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+Let the larger number be $a$ and the smaller number be $b$.
+        <li>
+ Divide $a$ by $b$ and find the remainder $r$ ($a = bq + r$).
+         <li>
+ If $r = 0$, then $b$ is the required GCD.
+               </li>
+        <li>
+But if $r > 0$, replace $a \\leftarrow b$ and $b \\leftarrow r$ and repeat step 2.
+</li>
+    </ol>
+</div>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ A Complete Example:  $\\gcd(252, 105)$</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+Divide $252$ by $105$:$$252 = 105 \\cdot 2 + 42 \\implies r_1 = 42$$        
+(Since the remainder $42 \\neq 0$, $\\gcd(252, 105) = \\gcd(105, 42)$)
+        </li>
+<li>
+Now divide $105$ by $42$: $$105 = 42 \\cdot 2 + 21 \\implies r_2 = 21$$
+(Since the remainder $21 \\neq 0$, $\\gcd(105, 42) = \\gcd(42, 21)$)
+</li>
+         <li>
+Now divide $42$ by $21$:$$42 = 21 \\cdot 2 + 0 \\implies r_3 = 0$$
+Since the remainder has become $0$ in this step, the divisor of this step, $21$, is the required GCD.
+</li>
+$$\\therefore \\gcd(252, 105) = 21$$
+    </ol>
+</div>
+<p class="mb-4">Implementation in the C language:</p>
+<div class="vscode-window my-6">
+    <button class="vscode-copy" type="button" aria-label="Copy code">Copy</button>
+    <div class="vscode-body">
+        <div class="vscode-line"><span class="vscode-gutter">1</span><span class="vscode-code"><span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">2</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">3</span><span class="vscode-code"><span class="text-sky-400">int</span> <span class="text-indigo-300">gcd</span>(<span class="text-sky-400">int</span> a, <span class="text-sky-400">int</span> b) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">4</span><span class="vscode-code">    <span class="text-sky-400">while</span> (b != <span class="text-pink-400">0</span>) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">5</span><span class="vscode-code">        <span class="text-sky-400">int</span> temp = b;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">6</span><span class="vscode-code">        b = a % b;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">7</span><span class="vscode-code">        a = temp;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">8</span><span class="vscode-code">    }</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">9</span><span class="vscode-code">    <span class="text-sky-400">return</span> a;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">10</span><span class="vscode-code">}</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">11</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">12</span><span class="vscode-code"><span class="text-sky-400">int</span> <span class="text-indigo-300">main</span>(<span class="text-sky-400">void</span>) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">13</span><span class="vscode-code">    <span class="text-sky-400">int</span> a, b;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">14</span><span class="vscode-code">    <span class="text-indigo-300">scanf</span>(<span class="text-emerald-400">"%d %d"</span>, &amp;a, &amp;b);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">15</span><span class="vscode-code">    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"GCD %d\\n"</span>, <span class="text-indigo-300">gcd</span>(a, b));</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">16</span><span class="vscode-code">    <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">17</span><span class="vscode-code">}</span></div>
+    </div>
+</div>
+<h1 class="text-2xl font-bold mb-4">⧉ Bézout's Identity and the Extended Euclidean Algorithm</h1>
+The Extended Euclidean Algorithm is used to find the coefficients $x$ and $y$ of the equation $ax + by = \\gcd(a, b)$, according to Bézout's Identity. The GCD of any two numbers $a$ and $b$ can always be expressed as the sum of $a$ and $b$ multiplied by two integers ($x$ and $y$):$$ax + by = \\gcd(a, b)$$For example: with $a = 212$ and $b = 42$, their $\\gcd = 2$. We can write it like this:$$212 \\times 1 + 42 \\times (-5) = 212 - 210 = 2$$ So the coefficients are $x=1, y=-5$.
+Below is the complete mathematical explanation of how it builds up the solution:
+<h3 class="font-semibold text-lg mb-4">The Core Idea</h3>
+
+In the ordinary Euclidean algorithm we go forward step by step through division:$$a = b \\cdot q + r \\implies r = a - b \\cdot q$$where $q = \\lfloor a / b \\rfloor$ (the quotient) and $r = a \\bmod b$ (the remainder). Suppose that in the next step, for $b$ and $r$, we have already found $x_1$ and $y_1$ such that:$$b \\cdot x_1 + r \\cdot y_1 = \\gcd(a, b)$$Now substituting the value of $r$ we get:$$b \\cdot x_1 + (a - b \\cdot q) \\cdot y_1 = \\gcd(a, b)$$$$a \\cdot y_1 + b \\cdot (x_1 - q \\cdot y_1) = \\gcd(a, b)$$Comparing coefficients with the original equation $a x + b y = \\gcd(a, b)$, we obtain the recurrence relation between the next and previous steps:$$\\begin{aligned} x &= y_1 \\ y &= x_1 - \\lfloor a / b \\rfloor \\cdot y_1 \\end{aligned}$$
+<h3 class="font-semibold text-lg mb-4">Base Case</h3>
+Continuing to divide, in the last step of the Euclidean algorithm the divisor becomes $b = 0$, when:$$\\gcd(a, 0) = a$$At this point the equation becomes $a \\cdot x + 0 \\cdot y = a$. So the base case solution is:$$x = 1, \\quad y = 0$$After that the algorithm works recursively (backwards through the steps) and guarantees the final solution of $x$ and $y$ for the original $a$ and $b$.
+Now let us clear the matter with an example:
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Find an integer solution $(x, y)$ of the equation $120x + 35y = \\gcd(120, 35)$ for $a = 120$ and $b = 35$.</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>
+Finding the remainders and the GCD through the Euclidean algorithm (forward path)<br>1. $120 = 35 \\cdot 3 + 15 \\quad (q_1 = 3, r_1 = 15)$<br>2. $35 = 15 \\cdot 2 + 5 \\quad (q_2 = 2, r_2 = 5)$<br>3. $15 = 5 \\cdot 3 + 0 \\quad (q_3 = 3, r_3 = 0)$<br>Since the remainder has become $0$, the required GCD is $\\gcd(120, 35) = 5$.        
+     </li>
+     <li>
+Back SubstitutionNow let us arrange the equations backwards, starting from the last non-zero remainder $5$:<br>1. Separate $5$ from the equation obtained in the second step:$$5 = 35 - 15 \\cdot 2$$<br>2. Take the value $15 = 120 - 35 \\cdot 3$ from the first step and substitute it in place of $15$ in the equation above:$$5 = 35 - (120 - 35 \\cdot 3) \\cdot 2$$$$5 = 35 - 120 \\cdot 2 + 35 \\cdot 6$$$$5 = 120 \\cdot (-2) + 35 \\cdot (1 + 6)$$$$5 = 120 \\cdot (-2) + 35 \\cdot 7$$<br>Result:The equation becomes:$$120 \\cdot (-2) + 35 \\cdot 7 = 5$$Since $120x + 35y = 5$, the solution is: $$\\begin{aligned} x &= -2 \\ y &= 7 \\end{aligned}$$Verification: $120 \\times (-2) + 35 \\times 7 = -240 + 245 = 5$
+         </li>
+    </ol>
+</div>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">Solution Tracking TableTo understand recursive tracking easily you may look at the table below:</h3>
+<table style="border-collapse: collapse; border: 1px solid #ccc; width: 100%; text-align: center;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #ccc; padding: 8px;">Step</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">$a$</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">$b$</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">$q = \\lfloor a/b \\rfloor$</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">$r = a \\bmod b$</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">$x$</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">$y$</th>
+            <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Equation ($ax + by$)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 8px;">Base</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$5$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$0$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">—</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">—</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$1$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$0$</td>
+            <td style="border: 1px solid #ccc; padding: 8px; text-align: left;">$5(1) + 0(0) = 5$</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 8px;">Step 2</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$35$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$15$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$2$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$5$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$0$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$1$</td>
+            <td style="border: 1px solid #ccc; padding: 8px; text-align: left;">$35(0) + 15(1) = 15$</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 8px;">Step 1</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$120$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$35$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$3$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$15$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$1$</td>
+            <td style="border: 1px solid #ccc; padding: 8px;">$-3$</td>
+            <td style="border: 1px solid #ccc; padding: 8px; text-align: left;">$120(1) + 35(-3) = 15$</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<p class="mb-4">A recursive implementation of the Extended Euclidean Algorithm in the C language is given below:</p>
+<div class="vscode-window my-6">
+    <button class="vscode-copy" type="button" aria-label="Copy code">Copy</button>
+    <div class="vscode-body">
+        <div class="vscode-line"><span class="vscode-gutter">1</span><span class="vscode-code"><span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">2</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">3</span><span class="vscode-code"><span class="text-sky-400">int</span> <span class="text-indigo-300">ext_gcd</span>(<span class="text-sky-400">int</span> a, <span class="text-sky-400">int</span> b, <span class="text-sky-400">int</span> *x, <span class="text-sky-400">int</span> *y) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">4</span><span class="vscode-code">    <span class="text-sky-400">if</span> (b == <span class="text-pink-400">0</span>) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">5</span><span class="vscode-code">        *x = <span class="text-pink-400">1</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">6</span><span class="vscode-code">        *y = <span class="text-pink-400">0</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">7</span><span class="vscode-code">        <span class="text-sky-400">return</span> a;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">8</span><span class="vscode-code">    }</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">9</span><span class="vscode-code">    <span class="text-sky-400">int</span> x1, y1;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">10</span><span class="vscode-code">    <span class="text-sky-400">int</span> gcd = <span class="text-indigo-300">ext_gcd</span>(b, a % b, &amp;x1, &amp;y1);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">11</span><span class="vscode-code">    *x = y1;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">12</span><span class="vscode-code">    *y = x1 - (a / b) * y1;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">13</span><span class="vscode-code">    <span class="text-sky-400">return</span> gcd;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">14</span><span class="vscode-code">}</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">15</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">16</span><span class="vscode-code"><span class="text-sky-400">int</span> <span class="text-indigo-300">main</span>(<span class="text-sky-400">void</span>) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">17</span><span class="vscode-code">    <span class="text-sky-400">int</span> a = <span class="text-pink-400">252</span>, b = <span class="text-pink-400">105</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">18</span><span class="vscode-code">    <span class="text-sky-400">int</span> x, y;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">19</span><span class="vscode-code">    <span class="text-sky-400">int</span> gcd = <span class="text-indigo-300">ext_gcd</span>(a, b, &amp;x, &amp;y);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">20</span><span class="vscode-code">    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"GCD: %d\\n"</span>, gcd);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">21</span><span class="vscode-code">    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"Coefficients x and y: %d, %d\\n"</span>, x, y);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">22</span><span class="vscode-code">    <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">23</span><span class="vscode-code">}</span></div>
+    </div>
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ Prime Numbers</h1>
+<p>We are all more or less familiar with prime numbers. Let us begin with the common definition—a number that has no divisor other than $1$ and itself is a prime number. Take $5$ for example: apart from $5$ and $1$, no other integer divides it. So $5$ is a prime number. On the other hand, $6$ can be divided by $1$ and $6$ and also by $2$ and $3$, so it is a composite number.
+But if we think a little more deeply about this very familiar notion of the 'prime number', several wonderful and mysterious sides of it become uncovered. Let us come to know the world of prime numbers a little anew.</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Why is 1 Not a Prime Number?</h2>
+<p>Many people wonder: according to the definition of a prime number, apart from $1$ and the number itself (that is, $1$) the number $1$ has no divisor—so why is $1$ not a prime?</p>
+<p>Mathematicians have excluded $1$ from the family of primes in order to preserve the dignity of a special rule. The rule is the Fundamental Theorem of Arithmetic. According to this theorem:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium">Every integer greater than $1$ can be expressed as a product of prime numbers, and this way of expression is unique.</p>
+</div>
+<p>For example: $12 = 2 \\times 2 \\times 3$. Now if $1$ were taken as a prime number, then $12$ could be written as:
+$$12 = 2 \\times 2 \\times 3 \\times 1$$
+$$12 = 2 \\times 2 \\times 3 \\times 1 \\times 1$$</p>
+<p>In this way the rule of uniqueness would break down. So $1$ is neither prime nor composite; it is a unique number.</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">The Only Even Prime Number</h2>
+<p>In the list of primes, $2$ is the only even number. Other than $2$, no even number in the world can be prime, because every even number can be divided by $2$. So $2$ is called the smallest and the only even prime.</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Are There Infinitely Many Primes?</h2>
+<p>Yes, primes are infinite. About 2300 years ago the Greek mathematician Euclid proved that primes have no end. No matter how far you go toward larger numbers, primes never stop appearing.</p>
+<p>However, as numbers grow larger, the density of primes decreases. For example:</p>
+<ul class="list-disc list-inside ml-5 mt-2 space-y-1">
+    <li>There are 25 primes between 1 and 100.</li>
+    <li>There are 21 primes between 101 and 200.</li>
+    <li>Going toward larger numbers, the gap between two primes can exceed millions.</li>
+</ul>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Euclid's Proof</h3>
+    <p>Suppose the primes are finite and they are $p_1, p_2, \\dots, p_k$. Now let us build a new number:
+    $$N = p_1 \\cdot p_2 \\cdot p_3 \\cdots p_k + 1$$
+    If this number $N$ is divided by any one of $p_1, p_2, \\dots, p_k$, the remainder in every case is $1$. That is, $N$ is not divisible by any number in our list of primes. So $N$ is either itself a new prime, or the product of some primes that are not in our list. Either way, our assumption is disproved. Therefore, primes are infinite. (Proved)</p>
+</div>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">How to Find Primes: The Sieve of Eratosthenes</h2>
+<p>We now know the primes are infinite, but a practical question remains — how do we actually create their list? A straightforward hand-or-computer method is <strong>trial division</strong>: to check whether a number $m$ is prime, test divisibility by every integer from $2$ up to $\\sqrt{m}$. If none of them divides $m$, then $m$ is prime. Trial division works, but when we need all primes below a large $n$, checking every single number, one by one, becomes painfully slow.</p>
+<p>Around 240 BC the Greek scholar <strong>Eratosthenes of Cyrene</strong> invented a far smarter method. Instead of testing numbers one by one, he proposed to <em>cross out</em> the composite numbers in a single, organised pass — exactly like sifting flour to remove the coarse lumps. That method is the <strong>Sieve of Eratosthenes</strong>.</p>
+
+<h3 class="font-semibold text-lg mb-4">The Algorithm, Step by Step</h3>
+<ol class="list-decimal list-inside space-y-3 text-gray-800 mb-4">
+    <li>Write down all the integers from $2$ to $n$ in a row.</li>
+    <li>Let $p = 2$, the first number of the list.</li>
+    <li>Cross out every <em>proper</em> multiple of $p$, namely $2p, 3p, 4p, \\dots$ (but not $p$ itself).</li>
+    <li>Move to the next number that is still uncrossed — it is necessarily a prime. Make it the new $p$.</li>
+    <li>Repeat steps 3 and 4 until $p \\times p > n$. Then stop.</li>
+</ol>
+<p>The numbers that still remain uncrossed are <strong>exactly</strong> the primes from $2$ to $n$.</p>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Worked Example: All Primes up to $n = 30$</h3>
+    <p class="mb-2">Write $2, 3, 4, \\dots, 30$. Start with $p = 2$ and cross out $4, 6, 8, 10, \\dots, 30$. The next uncrossed number is $3$; cross out $6, 9, 12, \\dots, 27$. The next uncrossed number is $5$; cross out $10, 15, 20, 25, 30$. Now $5 \\times 5 = 25 \\le 30$, so we continue: the next uncrossed number is $7$, but $7 \\times 7 = 49 > 30$, so we stop.</p>
+    <p>The numbers that remain are $2, 3, 5, 7, 11, 13, 17, 19, 23, 29$ — the ten primes below $30$.</p>
+</div>
+
+<p class="mb-4">A simple implementation of the Sieve of Eratosthenes in the C language:</p>
+<div class="vscode-window my-6">
+    <button class="vscode-copy" type="button" aria-label="Copy code">Copy</button>
+    <div class="vscode-body">
+        <div class="vscode-line"><span class="vscode-gutter">1</span><span class="vscode-code"><span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">2</span><span class="vscode-code"><span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdbool.h&gt;</span></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">3</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">4</span><span class="vscode-code"><span class="text-sky-400">void</span> <span class="text-indigo-300">sieve</span>(<span class="text-sky-400">int</span> n) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">5</span><span class="vscode-code">    <span class="text-sky-400">bool</span> isPrime[n + <span class="text-pink-400">1</span>];</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">6</span><span class="vscode-code">    <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> i = <span class="text-pink-400">2</span>; i <= n; i++) isPrime[i] = <span class="text-sky-400">true</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">7</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">8</span><span class="vscode-code">    <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> p = <span class="text-pink-400">2</span>; p * p <= n; p++) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">9</span><span class="vscode-code">        <span class="text-sky-400">if</span> (isPrime[p]) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">10</span><span class="vscode-code">            <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> m = p * p; m <= n; m += p)</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">11</span><span class="vscode-code">                isPrime[m] = <span class="text-sky-400">false</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">12</span><span class="vscode-code">        }</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">13</span><span class="vscode-code">    }</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">14</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">15</span><span class="vscode-code">    <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> i = <span class="text-pink-400">2</span>; i <= n; i++)</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">16</span><span class="vscode-code">        <span class="text-sky-400">if</span> (isPrime[i]) <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"%d "</span>, i);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">17</span><span class="vscode-code">    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"\\n"</span>);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">18</span><span class="vscode-code">}</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">19</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">20</span><span class="vscode-code"><span class="text-sky-400">int</span> <span class="text-indigo-300">main</span>(<span class="text-sky-400">void</span>) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">21</span><span class="vscode-code">    <span class="text-indigo-300">sieve</span>(<span class="text-pink-400">30</span>);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">22</span><span class="vscode-code">    <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">23</span><span class="vscode-code">}</span></div>
+    </div>
+</div>
+
+<h3 class="font-semibold text-lg mb-4">Two Clever Shortcuts</h3>
+<p>The sieve is careful twice over:</p>
+<ul class="list-disc list-inside ml-5 mt-2 space-y-1 mb-4">
+    <li><strong>We only need to go up to $p \\times p \\le n$.</strong> If $m$ is composite, it has a divisor $d$ with $1 < d \\le \\sqrt{m} \\le \\sqrt{n}$. Every composite below $n$ is therefore caught by some prime $p \\le \\sqrt{n}$; beyond that, nothing new can be crossed out.</li>
+    <li><strong>We start crossing out from $p \\times p$.</strong> Any proper multiple $k \\cdot p$ with $k < p$ is also a multiple of the smaller number $k$; if $k$ is prime it already did the crossing when it was "$p$" in an earlier round, and if $k$ is composite it already perished. Starting from $p \\times p$ avoids repeated, wasteful marking.</li>
+</ul>
+
+<h3 class="font-semibold text-lg mb-4">Why Does It Work? Proof of Correctness</h3>
+<div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+    <p class="font-medium mb-2">Theorem. When the algorithm stops (at the first prime $p$ with $p \\times p > n$), a number $m$ with $2 \\le m \\le n$ is left uncrossed if and only if $m$ is prime.</p>
+    <p class="mb-2"><strong>If $m$ is prime:</strong> it is never a <em>proper</em> multiple of any smaller number, so no step ever crosses it out. It survives.</p>
+    <p><strong>If $m$ is composite:</strong> write $m = a \\cdot b$ with $1 < a \\le b < m$. Then $a \\le \\sqrt{m} \\le \\sqrt{n}$. The number $a$ has at least one prime divisor $p \\le a \\le \\sqrt{n}$, so $p \\times p \\le n$ — the loop did process $p$ and crossed out every proper multiple of $p$. Since $p \\mid a$ and $a \\mid m$, we get $p \\mid m$; and because $m > p$, the number $m$ is a proper multiple of $p$. Hence $m$ was crossed out.</p>
+</div>
+
+<h3 class="font-semibold text-lg mb-4">How Fast Is It? $O(n \\log \\log n)$</h3>
+<p>When the sieve processes a prime $p$, it visits roughly $\\frac{n}{p}$ multiples. So the total work is about</p>
+$$\\sum_{p \\le n} \\frac{n}{p} = n \\sum_{p \\le n} \\frac{1}{p}$$
+<p>The formula is reassuring once you notice the intuition: large primes have very few multiples below $n$, so they cost almost nothing. A classical result of Euler and Mertens says the sum of reciprocals of the primes grows like $\\log \\log n$:</p>
+$$\\sum_{p \\le n} \\frac{1}{p} \\approx \\log \\log n + 0.261$$
+<p>Consequently the whole sieve costs about $n \\cdot \\log \\log n$ operations and $O(n)$ cells of memory. For $n = 10^6$ that is roughly $10^6 \\times 3.5$ unit operations — well under a second — while testing every number individually by trial division would need far more time.</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">The Fundamental Theorem of Arithmetic</h2>
+<p>According to the Fundamental Theorem of Arithmetic, every integer greater than $1$ can be written as a product of primes, and this way of writing (ignoring the order of the factors) is unique.</p>
+<p>For example: $360 = 2^3 \\times 3^2 \\times 5$ — this expression is unique; apart from reordering the factors, $360$ cannot be written as a different product of primes.</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">The Magic of Prime Numbers in the Modern World: Cybersecurity</h2>
+<p>You may wonder, what real use do prime numbers have in daily life? The answer is—when you enter a password online, shop with a credit card, or send a message on WhatsApp, it is these prime numbers that keep your information safe behind the screen!</p>
+<p>A method called RSA encryption is used in modern computer security. In this method two enormous (say, a hundred digits long) prime numbers are multiplied to create a public key.</p>
+<ul class="list-disc list-inside ml-5 mt-2 space-y-1">
+    <li>Multiplying two large primes is the work of a blink of an eye for a computer.</li>
+    <li>But factoring that product back into the original two primes is a matter of hundreds of years for even the world's most powerful supercomputer.</li>
+</ul>
+<p>It is exactly this asymmetry that makes RSA so secure—which we have already seen in the context of Bézout's Identity and modular arithmetic.</p>
+
+<h1 class="text-2xl font-bold mb-4">⧉ Modular Arithmetic</h1>
+<p>Modular arithmetic is "clock arithmetic". On a clock, after 12 o'clock comes 1 o'clock again; similarly, after passing a certain number ($m$), the numbers return toward the beginning. Mathematically, we say $a \\equiv b \\pmod{m}$ if $m \\mid (a - b)$, that is, $a$ and $b$ leave the same remainder when divided by $m$.</p>
+<p>Example: $17 \\equiv 5 \\pmod{12}$, because $17 - 5 = 12$ which is divisible by $12$. Again $23 \\equiv 2 \\pmod{7}$.</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Fundamental Properties of Modular Arithmetic</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>If $a \\equiv b \\pmod{m}$ and $c \\equiv d \\pmod{m}$, then $a + c \\equiv b + d \\pmod{m}$.</li>
+        <li>If $a \\equiv b \\pmod{m}$ and $c \\equiv d \\pmod{m}$, then $a \\cdot c \\equiv b \\cdot d \\pmod{m}$.</li>
+        <li>If $a \\equiv b \\pmod{m}$, then for any natural number $n$, $a^n \\equiv b^n \\pmod{m}$.</li>
+        <li>If $ac \\equiv bc \\pmod{m}$ and $\\gcd(c, m) = 1$, then $a \\equiv b \\pmod{m}$ (the cancellation rule).</li>
+    </ol>
+</div>
+<p>Modular arithmetic is built upon the foundation of the Division Algorithm—if $a = mq + r$ then $a \\equiv r \\pmod{m}$. Using these rules we can easily find the remainder of very large numbers.</p>
+
+<h1 class="text-2xl font-bold mb-4">⧉ Linear Congruences</h1>
+<p>An equation of the form $ax \\equiv b \\pmod{m}$, for finding the value of $x$, is called a linear congruence. This equation has a solution if and only if $\\gcd(a, m) \\mid b$.</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Example: Solve $6x \\equiv 4 \\pmod{8}$.</h3>
+    <p>Here $\\gcd(6, 8) = 2$ and $2 \\mid 4$, so a solution exists. Dividing both sides by $2$ we get $3x \\equiv 2 \\pmod{4}$. Now the inverse of $3$ modulo $4$ is $3$, because $3 \\times 3 \\equiv 1 \\pmod{4}$. Therefore:
+    $$x \\equiv 3 \\times 2 \\equiv 6 \\equiv 2 \\pmod{4}$$
+    That is, $x \\equiv 2 \\pmod{4}$. Verification: for $x = 2$, $6 \\times 2 = 12 \\equiv 4 \\pmod{8}$</p>
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ Fermat's Little Theorem</h1>
+<p>Fermat's Little Theorem is one of the most important theorems of modular arithmetic. It states:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium">If $p$ is a prime number and $p \\nmid a$ (that is, $a$ and $p$ are coprime), then
+    $$a^{p-1} \\equiv 1 \\pmod{p}$$</p>
+</div>
+<p>From this we also get, for any integer $a$: $a^p \\equiv a \\pmod{p}$. This very theorem is the mathematical foundation of RSA encryption and other modern cryptography systems.</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Example: Find $5^{12} \\bmod 13$.</h3>
+    <p>Since $13$ is prime and $\\gcd(5, 13) = 1$, by Fermat's Little Theorem $5^{12} \\equiv 1 \\pmod{13}$. That is, $5^{12} \\bmod 13 = 1$.</p>
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ Wilson's Theorem</h1>
+<p>Wilson's Theorem gives a wonderful way to recognize primes:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium">A positive integer $p > 1$ is prime if and only if
+    $$(p - 1)! \\equiv -1 \\pmod{p}$$
+    .</p>
+</div>
+<p>Example: take $p = 7$. Then $(7 - 1)! = 6! = 720$ and $720 = 102 \\times 7 + 6 \\equiv -1 \\pmod{7}$. Again take $p = 9$ (composite). Then $8! = 40320 \\equiv 0 \\pmod{9}$ — which is not $-1$.</p>
+
+<h1 class="text-2xl font-bold mb-4">⧉ The Chinese Remainder Theorem</h1>
+<p>In the third century AD, the Chinese mathematician Sun Tzu posed a riddle that has since become legendary. It reads, in modern translation:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium">"There are some things whose number is unknown. Counting them by threes leaves a remainder of 2; counting them by fives leaves a remainder of 3; counting them by sevens leaves a remainder of 2. How many are there?"</p>
+</div>
+<p>Let us translate that into the language of modular arithmetic. We need the smallest positive number $x$ which satisfies three congruences <em>at the same time</em>:</p>
+$$x \\equiv 2 \\pmod{3}, \\qquad x \\equiv 3 \\pmod{5}, \\qquad x \\equiv 2 \\pmod{7}$$
+<p>The number $23$ works because $23 = 7 \\cdot 3 + 2$, $23 = 4 \\cdot 5 + 3$ and $23 = 7 \\cdot 3 + 2$. But so does $128 = 23 + 105$, and $233 = 23 + 2 \\cdot 105$, and infinitely many others — every solution differs from $23$ by a multiple of $105 = 3 \\times 5 \\times 7$. The theorem that organises this whole pattern is the <strong>Chinese Remainder Theorem</strong> (CRT).</p>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Statement of the Theorem</h3>
+    <p class="font-medium">Let $m_1, m_2, \\dots, m_k$ be pairwise coprime positive integers (that is, $\\gcd(m_i, m_j) = 1$ whenever $i \\ne j$), and let $a_1, a_2, \\dots, a_k$ be any integers. Then the system of congruences</p>
+    <p class="font-medium text-center">$$x \\equiv a_1 \\pmod{m_1}, \\quad x \\equiv a_2 \\pmod{m_2}, \\quad \\dots, \\quad x \\equiv a_k \\pmod{m_k}$$</p>
+    <p class="font-medium">has a solution, and that solution is unique modulo $M = m_1 m_2 \\cdots m_k$: any two solutions are congruent modulo $M$.</p>
+</div>
+
+<h3 class="font-semibold text-lg mb-4">Proof: A Construction That Always Works</h3>
+<p>The statement has two parts, and the proof of the first part actually <em>builds</em> the answer — that is the wonderful part of this theorem.</p>
+<p><strong>Existence.</strong> Define $M = m_1 m_2 \\cdots m_k$, and for each index $i$ define $M_i = M / m_i$ (the product of all the moduli except $m_i$). Since the moduli are pairwise coprime, $\\gcd(M_i, m_i) = 1$. By the linear congruence theory we built earlier, the congruence</p>
+$$M_i \\, y_i \\equiv 1 \\pmod{m_i}$$
+<p>has a solution $y_i$ (this $y_i$ is called the inverse of $M_i$ modulo $m_i$). Now assemble the candidate answer:</p>
+$$x = a_1 M_1 y_1 + a_2 M_2 y_2 + \\dots + a_k M_k y_k$$
+<p><strong>Check.</strong> Fix an index $j$ and reduce everything modulo $m_j$. For every $i \\ne j$, the factor $M_i = M / m_i$ contains $m_j$ as a factor, so $a_i M_i y_i \\equiv 0 \\pmod{m_j}$. Only the $j$-th term survives:</p>
+$$x \\equiv a_j M_j y_j \\equiv a_j \\cdot 1 \\equiv a_j \\pmod{m_j}$$
+<p>So $x$ satisfies all $k$ congruences simultaneously.</p>
+<p><strong>Uniqueness.</strong> Suppose $x$ and $x'$ both work. Then $x - x' \\equiv 0 \\pmod{m_j}$ for every $j$, that is, each $m_j$ divides $x - x'$. Because the moduli are pairwise coprime, their product $M$ must divide $x - x'$. Hence $x \\equiv x' \\pmod{M}$. ∎</p>
+
+<h3 class="font-semibold text-lg mb-4">⧉ Worked Example: Solving Sun Tzu's Puzzle</h3>
+<p>Here $k = 3$, with $m_1 = 3$, $m_2 = 5$, $m_3 = 7$ and $a_1 = 2$, $a_2 = 3$, $a_3 = 2$. First compute the pieces:</p>
+<ul class="list-disc list-inside ml-5 mt-2 space-y-1 mb-4">
+    <li>$M = 3 \\times 5 \\times 7 = 105$</li>
+    <li>$M_1 = 35$, $M_2 = 21$, $M_3 = 15$</li>
+    <li>Inverse of $M_1$ modulo $3$: $35 y_1 \\equiv 2 y_1 \\equiv 1 \\pmod{3}$, so $y_1 = 2$ (since $2 \\times 2 = 4 \\equiv 1$).</li>
+    <li>Inverse of $M_2$ modulo $5$: $21 y_2 \\equiv 1 y_2 \\equiv 1 \\pmod{5}$, so $y_2 = 1$.</li>
+    <li>Inverse of $M_3$ modulo $7$: $15 y_3 \\equiv 1 y_3 \\equiv 1 \\pmod{7}$, so $y_3 = 1$.</li>
+</ul>
+<p>Now put everything together:</p>
+$$x = a_1 M_1 y_1 + a_2 M_2 y_2 + a_3 M_3 y_3 = 2 \\cdot 35 \\cdot 2 + 3 \\cdot 21 \\cdot 1 + 2 \\cdot 15 \\cdot 1$$
+$$x = 140 + 63 + 30 = 233 \\equiv 23 \\pmod{105}$$
+<p>So the smallest positive answer is $x = 23$. Check: $23 = 7 \\cdot 3 + 2$, $23 = 4 \\cdot 5 + 3$, $23 = 3 \\cdot 7 + 2$.</p>
+
+<p class="mb-4">A complete C implementation of the CRT, using the Extended Euclidean Algorithm built earlier in this article:</p>
+<div class="vscode-window my-6">
+    <button class="vscode-copy" type="button" aria-label="Copy code">Copy</button>
+    <div class="vscode-body">
+        <div class="vscode-line"><span class="vscode-gutter">1</span><span class="vscode-code"><span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">2</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">3</span><span class="vscode-code"><span class="text-sky-400">long long</span> <span class="text-indigo-300">ext_gcd</span>(<span class="text-sky-400">long long</span> a, <span class="text-sky-400">long long</span> b, <span class="text-sky-400">long long</span> *x, <span class="text-sky-400">long long</span> *y) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">4</span><span class="vscode-code">    <span class="text-sky-400">if</span> (b == <span class="text-pink-400">0</span>) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">5</span><span class="vscode-code">        *x = <span class="text-pink-400">1</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">6</span><span class="vscode-code">        *y = <span class="text-pink-400">0</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">7</span><span class="vscode-code">        <span class="text-sky-400">return</span> a;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">8</span><span class="vscode-code">    }</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">9</span><span class="vscode-code">    <span class="text-sky-400">long long</span> x1, y1;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">10</span><span class="vscode-code">    <span class="text-sky-400">long long</span> g = <span class="text-indigo-300">ext_gcd</span>(b, a % b, &amp;x1, &amp;y1);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">11</span><span class="vscode-code">    *x = y1;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">12</span><span class="vscode-code">    *y = x1 - (a / b) * y1;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">13</span><span class="vscode-code">    <span class="text-sky-400">return</span> g;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">14</span><span class="vscode-code">}</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">15</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">16</span><span class="vscode-code"><span class="text-sky-400">long long</span> <span class="text-indigo-300">crt</span>(<span class="text-sky-400">long long</span> a[], <span class="text-sky-400">long long</span> m[], <span class="text-sky-400">int</span> k) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">17</span><span class="vscode-code">    <span class="text-sky-400">long long</span> M = <span class="text-pink-400">1</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">18</span><span class="vscode-code">    <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> i = <span class="text-pink-400">0</span>; i < k; i++) M *= m[i];</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">19</span><span class="vscode-code">    <span class="text-sky-400">long long</span> x = <span class="text-pink-400">0</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">20</span><span class="vscode-code">    <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> i = <span class="text-pink-400">0</span>; i < k; i++) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">21</span><span class="vscode-code">        <span class="text-sky-400">long long</span> Mi = M / m[i];</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">22</span><span class="vscode-code">        <span class="text-sky-400">long long</span> y, t;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">23</span><span class="vscode-code">        <span class="text-indigo-300">ext_gcd</span>(Mi, m[i], &amp;y, &amp;t);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">24</span><span class="vscode-code">        x = (x + (a[i] % M) * Mi % M * ((y % M + M) % M)) % M;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">25</span><span class="vscode-code">    }</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">26</span><span class="vscode-code">    <span class="text-sky-400">return</span> (x % M + M) % M;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">27</span><span class="vscode-code">}</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">28</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">29</span><span class="vscode-code"><span class="text-sky-400">int</span> <span class="text-indigo-300">main</span>(<span class="text-sky-400">void</span>) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">30</span><span class="vscode-code">    <span class="text-sky-400">long long</span> a[] = {<span class="text-pink-400">2</span>, <span class="text-pink-400">3</span>, <span class="text-pink-400">2</span>};</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">31</span><span class="vscode-code">    <span class="text-sky-400">long long</span> m[] = {<span class="text-pink-400">3</span>, <span class="text-pink-400">5</span>, <span class="text-pink-400">7</span>};</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">32</span><span class="vscode-code">    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"Answer: %lld\\n"</span>, <span class="text-indigo-300">crt</span>(a, m, <span class="text-pink-400">3</span>));</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">33</span><span class="vscode-code">    <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">34</span><span class="vscode-code">}</span></div>
+    </div>
+</div>
+
+<h3 class="font-semibold text-lg mb-4">What If the Moduli Are Not Coprime?</h3>
+<p>The CRT, in the clean form above, demands pairwise coprime moduli. If the moduli share factors, a solution may or may not exist: it exists exactly when the compatibility conditions $\\gcd(m_i, m_j) \\mid (a_i - a_j)$ hold for every pair $i, j$. In practice, you can always split the moduli into coprime parts, solve each part, and combine — so the pairwise-coprime case is the one that matters most.</p>
+
+<h1 class="text-2xl font-bold mb-4">⧉ Euler's Totient Function</h1>
+<p>Fermat's Little Theorem worked only for prime moduli. To carry its power over to composite numbers, the great Leonhard Euler invented a counting function that now bears his name.</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Definition</h3>
+    <p class="font-medium">For $n \\ge 1$, Euler's totient function $\\varphi(n)$ counts how many integers in the set $\\{1, 2, \\dots, n\\}$ are coprime to $n$.</p>
+</div>
+<p>A few easy values: $\\varphi(1) = 1$, $\\varphi(2) = 1$ (only the number $1$), $\\varphi(3) = 2$ (the numbers $1, 2$), $\\varphi(4) = 2$ (the numbers $1, 3$), and $\\varphi(12) = 4$ (the numbers $1, 5, 7, 11$).</p>
+<p>When $n = p$ is prime, every number from $1$ to $p - 1$ is coprime to $p$, so $\\varphi(p) = p - 1$. This single observation is what will let Euler's Theorem reduce to Fermat's Little Theorem later.</p>
+
+<h3 class="font-semibold text-lg mb-4">The Formula</h3>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium mb-2">If the distinct prime divisors of $n$ are $p_1, p_2, \\dots, p_k$, then</p>
+    $$\\varphi(n) = n \\prod_{i=1}^{k} \\left(1 - \\frac{1}{p_i}\\right)$$
+</div>
+<p>Examples:</p>
+<ul class="list-disc list-inside ml-5 mt-2 space-y-1 mb-4">
+    <li>$\\varphi(12)$: the primes dividing $12$ are $2$ and $3$, so $\\varphi(12) = 12 \\cdot \\left(1 - \\frac{1}{2}\\right) \\cdot \\left(1 - \\frac{1}{3}\\right) = 12 \\cdot \\frac{1}{2} \\cdot \\frac{2}{3} = 4$.</li>
+    <li>$\\varphi(360)$: since $360 = 2^3 \\cdot 3^2 \\cdot 5$, we get $\\varphi(360) = 360 \\cdot \\frac{1}{2} \\cdot \\frac{2}{3} \\cdot \\frac{4}{5} = 96$.</li>
+</ul>
+
+<h3 class="font-semibold text-lg mb-4">Why the Formula Is True (Proof)</h3>
+<p>Write the prime factorisation $n = p_1^{e_1} p_2^{e_2} \\cdots p_k^{e_k}$. A number $m$ in $\\{1, 2, \\dots, n\\}$ is coprime to $n$ if and only if it is not divisible by any of $p_1, \\dots, p_k$. Let us count how many numbers in that range are <em>not</em> divisible by any of them.</p>
+<ul class="list-disc list-inside ml-5 mt-2 space-y-1 mb-4">
+    <li>Numbers divisible by $p_i$: exactly $\\frac{n}{p_i}$.</li>
+    <li>Numbers divisible by both $p_i$ and $p_j$: exactly $\\frac{n}{p_i p_j}$.</li>
+    <li>Numbers divisible by all three $p_i, p_j, p_l$: exactly $\\frac{n}{p_i p_j p_l}$, and so on.</li>
+</ul>
+<p>Now use inclusion–exclusion: start with all $n$ numbers, subtract the ones divisible by a single prime, add back the ones divisible by a pair, subtract the ones divisible by a triple, and continue. The result is the alternating sum</p>
+$$\\varphi(n) = n - \\sum_{i} \\frac{n}{p_i} + \\sum_{i < j} \\frac{n}{p_i p_j} - \\sum_{i < j < l} \\frac{n}{p_i p_j p_l} + \\cdots$$
+<p>But this alternating expression is secretly just the expansion of a product. The algebraic identity $(1 - a_1)(1 - a_2) \\cdots (1 - a_k) = 1 - \\sum a_i + \\sum_{i<j} a_i a_j - \\cdots$ gives, with $a_i = 1/p_i$,</p>
+$$\\varphi(n) = n \\left(1 - \\frac{1}{p_1}\\right)\\left(1 - \\frac{1}{p_2}\\right) \\cdots \\left(1 - \\frac{1}{p_k}\\right) = n \\prod_{i=1}^{k} \\left(1 - \\frac{1}{p_i}\\right) \\qquad \\blacksquare$$
+<p>This is exactly the claimed formula. ∎</p>
+
+<h3 class="font-semibold text-lg mb-4">Multiplicativity</h3>
+<p>If $\\gcd(m, n) = 1$, then $\\varphi(mn) = \\varphi(m) \\cdot \\varphi(n)$. This follows quickly from the product formula, because coprime $m$ and $n$ have disjoint sets of prime divisors, so the products just multiply. For example, $\\varphi(105) = \\varphi(3 \\cdot 5 \\cdot 7) = \\varphi(3) \\varphi(5) \\varphi(7) = 2 \\cdot 4 \\cdot 6 = 48$, and indeed $105 \\cdot \\frac{2}{3} \\cdot \\frac{4}{5} \\cdot \\frac{6}{7} = 48$.</p>
+
+<h1 class="text-2xl font-bold mb-4">⧉ Euler's Theorem</h1>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Statement</h3>
+    <p class="font-medium">If $\\gcd(a, n) = 1$ and $n \\ge 1$, then</p>
+    <p class="font-medium text-center">$$a^{\\varphi(n)} \\equiv 1 \\pmod{n}$$</p>
+</div>
+<p>Look at what happens when $n = p$ is prime: $\\varphi(p) = p - 1$, and Euler's Theorem becomes exactly Fermat's Little Theorem. So Fermat is nothing but a special case of Euler — the totient function lifts Fermat's result from primes to every modulus. This is the theorem that makes RSA and modern cryptography possible.</p>
+
+<h3 class="font-semibold text-lg mb-4">Proof</h3>
+<p>Let $r_1, r_2, \\dots, r_{\\varphi(n)}$ be the numbers from $1$ to $n$ that are coprime to $n$; together they form the <em>reduced residue system</em> modulo $n$. Multiply each of them by $a$, where $\\gcd(a, n) = 1$.</p>
+<ol class="list-decimal list-inside space-y-3 text-gray-800 mb-4">
+    <li>Each product $a r_i$ is again coprime to $n$, because any common divisor of $a r_i$ and $n$ would have to divide both $n$ and a factor of $a r_i$; but neither $a$ nor any $r_i$ shares a factor with $n$.</li>
+    <li>No two products are congruent modulo $n$: if $a r_i \\equiv a r_j \\pmod{n}$, then $n \\mid a (r_i - r_j)$; since $\\gcd(a, n) = 1$, we cancel $a$ and get $n \\mid (r_i - r_j)$, which forces $r_i = r_j$, i.e. $i = j$.</li>
+</ol>
+<p>Together these two facts mean multiplication by $a$ simply <em>permutes</em> the reduced residue system: the list $a r_1, \\dots, a r_{\\varphi(n)}$ is the same list as $r_1, \\dots, r_{\\varphi(n)}$, possibly in a different order. Therefore the product of all the numbers is unchanged:</p>
+$$(a r_1)(a r_2) \\cdots (a r_{\\varphi(n)}) \\equiv r_1 r_2 \\cdots r_{\\varphi(n)} \\pmod{n}$$
+$$a^{\\varphi(n)} \\cdot P \\equiv P \\pmod{n}, \\qquad \\text{where } P = r_1 r_2 \\cdots r_{\\varphi(n)}$$
+<p>Since every $r_i$ is coprime to $n$, their product $P$ is also coprime to $n$, so we may cancel $P$ on both sides using the cancellation rule of modular arithmetic. What remains is</p>
+$$a^{\\varphi(n)} \\equiv 1 \\pmod{n} \\qquad \\blacksquare$$
+<p>∎</p>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ Example</h3>
+    <p>We already know $\\varphi(12) = 4$ and $\\gcd(5, 12) = 1$, so Euler's Theorem predicts $5^4 \\equiv 1 \\pmod{12}$. Indeed $5^4 = 625 = 52 \\cdot 12 + 1$.</p>
+</div>
+
+<h3 class="font-semibold text-lg mb-4">How This Powers RSA</h3>
+<p>Here is the magic in a nutshell. Choose two large primes $p$ and $q$, and set $n = p \\cdot q$. Then $\\varphi(n) = (p - 1)(q - 1)$. Pick $e$ coprime to $\\varphi(n)$, and find $d$ with $e d \\equiv 1 \\pmod{\\varphi(n)}$. If a message is the number $a$, then raising to $e$ modulo $n$ encrypts it — and because $e d = 1 + t \\cdot \\varphi(n)$ for some integer $t$, the key numeric property is</p>
+$$(a^e)^d = a^{e d} = a^{1 + t \\varphi(n)} = a \\cdot \\left(a^{\\varphi(n)}\\right)^t \\equiv a \\cdot 1^t \\equiv a \\pmod{n}$$
+<p>So raising to $d$ modulo $n$ perfectly undoes the encryption — and only the owner of $d$ can do it. Euler's Theorem is the mathematical lock (and key) at the heart of secure communication on the internet.</p>
+<h1 class="text-2xl font-bold mb-4">⧉ Conclusion</h1>
+<p>Number theory is not a subject for memorization; it is a wonderful training ground for the practice of reasoning. From the infinitude of primes to the Sieve of Eratosthenes, and from the Chinese Remainder Theorem to Euler's Theorem—every step shows how a vast mathematical edifice is built upon simple little ideas.</p>
+<p>The theorems we met—Bézout's Identity, the Chinese Remainder Theorem, Euler's totient function and Euler's Theorem—are not museum pieces: they are the working engines of real computer systems, from cryptography to number-theory algorithms.</p>
+<p>And always remember one more thing—just like sports, the more you practise divisibility, modular arithmetic and prime numbers hands-on, the easier olympiad problems will feel. Solving problems again and again is the only way to become skilled in this branch.</p>
+        `,
             bn: `<p>গণিতকে যদি বিজ্ঞানের রাণী বলা হয় তাহলে এই সংখ্যাতত্ত্বকে বলা হয় গণিতের রাণী। বর্তমান বিশ্বের যত প্রযুক্তি ও নিরাপত্তা ব্যবস্থা রয়েছে তার কেন্দ্রে রয়েছে এই সংখ্যাতত্ত্বের ব্যবহার। এমনকি এটিই গণিতরে সবচেয়ে প্রাচীন শাখা। প্রাচীন গ্রিস, ভারত, চীন ও মেসোপটেমিয়ার গণিতবিদরা হাজার হাজার বছর আগে থেকেই পূর্ণসংখ্যার (Integers) বিভিন্ন ধর্ম ও মৌলিক সংখ্যা নিয়ে চর্চা করে আসছেন। এমনকি বিখ্যাত গ্রীক গণিতবিদ ইউক্লিড (Euclid) খ্রিস্টপূর্ব ৩০০ অব্দেই মৌলিক সংখ্যার অসীমতার প্রমাণ দিয়েছিলেন।
             সংখ্যাতত্ত্বের (Number Theory) বিকাশে মুসলিম ও ভারতীয় গণিতবিদদের অবদান অত্যন্ত সুদূরপ্রসারী ও মৌলিক। তাঁদের আবিষ্কার ছাড়া আজকের আধুনিক গণিত ও ডিজিটাল প্রযুক্তি অসম্পূর্ণ থেকে যেত।
 <div class="bg-gray-100 p-6 rounded-xl my-6">
@@ -591,7 +1518,7 @@ const ARTICLES = [
         <li><span class="font-medium">গরিষ্ঠতা (Greatest):</span> যদি অন্য যেকোনো সংখ্যা $c$ এর জন্য $c \\mid a$ এবং $c \\mid b$ হয়, তবে $c \\le d$ (অথবা বিভাজ্যতার ভাষায় $c \\mid d$)।</li>
      </ol>
 </div>
-আবার যদি দুটি সংখ্যার $\\gcd = 1$ হয়, তবে তাদের বলা হয় সহ-মৌলিক (Co-prime বা Relatively Prime)। যেমন: $\gcd(8, 15) = 1$, তাই $8$ ও $15$ সহ-মৌলিক (যদিও কেউই মৌলিক সংখ্যা নয়)। এখন চট করে গণিত অলিম্পিয়াডের একটি প্রশ্ন সমাধান করা যাক। 
+আবার যদি দুটি সংখ্যার $\\gcd = 1$ হয়, তবে তাদের বলা হয় সহ-মৌলিক (Co-prime বা Relatively Prime)। যেমন: $\\gcd(8, 15) = 1$, তাই $8$ ও $15$ সহ-মৌলিক (যদিও কেউই মৌলিক সংখ্যা নয়)। এখন চট করে গণিত অলিম্পিয়াডের একটি প্রশ্ন সমাধান করা যাক। 
 <div class="bg-gray-100 p-6 rounded-xl my-6">
     <h3 class="font-semibold text-lg mb-4">⧉ প্রমাণ করো যে, যেকোনো ধনাত্মক পূর্ণসংখ্যা $n$ এর জন্য $n^3 - n$ সংখ্যাটি সবসময় $6$ দ্বারা বিভাজ্য</h3>
     আমরা জানি $6 = 2 \\times 3$ এবং $\\gcd(2, 3) = 1$। তাই $6 \\mid (n^3 - n)$ প্রমাণ করতে হলে আমাদের দেখাতে হবে $2 \\mid (n^3 - n)$ এবং $3 \\mid (n^3 - n)$।
@@ -633,22 +1560,28 @@ $$\\therefore \\gcd(252, 105) = 21$$
     </ol>
 </div>
 <p class="mb-4">সি ল্যাঙ্গুয়েজে প্রয়োগ:</p>
-<div class="bg-slate-950 text-slate-100 p-6 rounded-xl my-6 font-mono text-sm overflow-x-auto whitespace-pre leading-relaxed shadow-lg">
-<span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span>
-<span class="text-sky-400">int</span> <span class="text-indigo-300">gcd</span>(<span class="text-sky-400">int</span> a, <span class="text-sky-400">int</span> b) {
-    <span class="text-sky-400">while</span> (b != <span class="text-pink-400">0</span>) {
-        <span class="text-sky-400">int</span> temp = b;
-        b = a % b;
-        a = temp;
-    }
-    <span class="text-sky-400">return</span> a;
-}
-<span class="text-sky-400">int</span> <span class="text-indigo-300">main</span>(<span class="text-sky-400">void</span>) {
-    <span class="text-sky-400">int</span> a, b;
-    <span class="text-indigo-300">scanf</span>(<span class="text-emerald-400">"%d %d"</span>, &amp;a, &amp;b);
-    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"GCD %d\\n"</span>, <span class="text-indigo-300">gcd</span>(a, b));
-    <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;
-}</div>
+<div class="vscode-window my-6">
+    <button class="vscode-copy" type="button" aria-label="Copy code">Copy</button>
+    <div class="vscode-body">
+        <div class="vscode-line"><span class="vscode-gutter">1</span><span class="vscode-code"><span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">2</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">3</span><span class="vscode-code"><span class="text-sky-400">int</span> <span class="text-indigo-300">gcd</span>(<span class="text-sky-400">int</span> a, <span class="text-sky-400">int</span> b) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">4</span><span class="vscode-code">    <span class="text-sky-400">while</span> (b != <span class="text-pink-400">0</span>) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">5</span><span class="vscode-code">        <span class="text-sky-400">int</span> temp = b;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">6</span><span class="vscode-code">        b = a % b;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">7</span><span class="vscode-code">        a = temp;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">8</span><span class="vscode-code">    }</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">9</span><span class="vscode-code">    <span class="text-sky-400">return</span> a;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">10</span><span class="vscode-code">}</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">11</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">12</span><span class="vscode-code"><span class="text-sky-400">int</span> <span class="text-indigo-300">main</span>(<span class="text-sky-400">void</span>) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">13</span><span class="vscode-code">    <span class="text-sky-400">int</span> a, b;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">14</span><span class="vscode-code">    <span class="text-indigo-300">scanf</span>(<span class="text-emerald-400">"%d %d"</span>, &amp;a, &amp;b);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">15</span><span class="vscode-code">    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"GCD %d\\n"</span>, <span class="text-indigo-300">gcd</span>(a, b));</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">16</span><span class="vscode-code">    <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">17</span><span class="vscode-code">}</span></div>
+    </div>
+</div>
 <h1 class="text-2xl font-bold mb-4">⧉ বেজুটের অভেদ (Bézout's Identity) এবং Extended Euclidean Algorithm</h1>
 এক্সটেন্ডেড ইউক্লিডীয় অ্যালগরিদম (Extended Euclidean Algorithm) মূলত বেজুটের অভেদ (Bézout's Identity) অনুযায়ী $ax + by = \\gcd(a, b)$ সমীকরণের $x$ ও $y$ সহগদ্বয়ের মান নির্ণয় করতে ব্যবহৃত হয়। যেকোনো দুটি সংখ্যা $a$ এবং $b$-এর GCD কে সবসময় $a$ এবং $b$-এর সাথে দুটি পূর্ণসংখ্যা ($x$ এবং $y$) গুণ করে যোগফল আকারে প্রকাশ করা যায়:$$ax + by = \\gcd(a, b)$$যেমন: $a = 212$ এবং $b = 42$ হলে, তাদের $\\gcd = 2$। আমরা এটি এভাবে লিখতে পারি:$$212 \\times (-1) + 42 \\times 5 = -212 + 210 = -2$$ চিহ্ন ঠিক রেখে $x=-1, y=5$
 নিচে এটি কীভাবে সমাধান তৈরি করে তার পূর্ণাঙ্গ গাণিতিক ব্যাখ্যা দেওয়া হলো-
@@ -720,28 +1653,33 @@ $$\\therefore \\gcd(252, 105) = 21$$
 </table>
 </div>
 <p class="mb-4">সি ভাষায় এক্সটেন্ডেড ইউক্লিডীয় অ্যালগরিদমের একটি রিকার্সিভ ইমপ্লিমেন্টেশন নিচে দেওয়া হলো:</p>
-<div class="relative bg-slate-950 text-slate-100 p-6 rounded-xl my-6 font-mono text-sm overflow-x-auto whitespace-pre leading-relaxed shadow-lg group">
-<span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span>
-<span class="text-sky-400">int</span> <span class="text-indigo-300">ext_gcd</span>(<span class="text-sky-400">int</span> a, <span class="text-sky-400">int</span> b, <span class="text-sky-400">int</span> *x, <span class="text-sky-400">int</span> *y) {
-    <span class="text-sky-400">if</span> (b == <span class="text-pink-400">0</span>) {
-        *x = <span class="text-pink-400">1</span>;
-        *y = <span class="text-pink-400">0</span>;
-        <span class="text-sky-400">return</span> a;
-    }
-    <span class="text-sky-400">int</span> x1, y1;
-    <span class="text-sky-400">int</span> gcd = <span class="text-indigo-300">ext_gcd</span>(b, a % b, &amp;x1, &amp;y1);
-    *x = y1;
-    *y = x1 - (a / b) * y1;
-    <span class="text-sky-400">return</span> gcd;
-}
-<span class="text-sky-400">int</span> <span class="text-indigo-300">main</span>(<span class="text-sky-400">void</span>) {
-    <span class="text-sky-400">int</span> a = <span class="text-pink-400">252</span>, b = <span class="text-pink-400">105</span>;
-    <span class="text-sky-400">int</span> x, y;
-    <span class="text-sky-400">int</span> gcd = <span class="text-indigo-300">ext_gcd</span>(a, b, &amp;x, &amp;y);
-    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"GCD: %d\\n"</span>, gcd);
-    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"Coefficients x and y: %d, %d\\n"</span>, x, y);
-    <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;
-}</code>
+<div class="vscode-window my-6">
+    <button class="vscode-copy" type="button" aria-label="Copy code">Copy</button>
+    <div class="vscode-body">
+        <div class="vscode-line"><span class="vscode-gutter">1</span><span class="vscode-code"><span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">2</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">3</span><span class="vscode-code"><span class="text-sky-400">int</span> <span class="text-indigo-300">ext_gcd</span>(<span class="text-sky-400">int</span> a, <span class="text-sky-400">int</span> b, <span class="text-sky-400">int</span> *x, <span class="text-sky-400">int</span> *y) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">4</span><span class="vscode-code">    <span class="text-sky-400">if</span> (b == <span class="text-pink-400">0</span>) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">5</span><span class="vscode-code">        *x = <span class="text-pink-400">1</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">6</span><span class="vscode-code">        *y = <span class="text-pink-400">0</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">7</span><span class="vscode-code">        <span class="text-sky-400">return</span> a;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">8</span><span class="vscode-code">    }</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">9</span><span class="vscode-code">    <span class="text-sky-400">int</span> x1, y1;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">10</span><span class="vscode-code">    <span class="text-sky-400">int</span> gcd = <span class="text-indigo-300">ext_gcd</span>(b, a % b, &amp;x1, &amp;y1);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">11</span><span class="vscode-code">    *x = y1;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">12</span><span class="vscode-code">    *y = x1 - (a / b) * y1;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">13</span><span class="vscode-code">    <span class="text-sky-400">return</span> gcd;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">14</span><span class="vscode-code">}</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">15</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">16</span><span class="vscode-code"><span class="text-sky-400">int</span> <span class="text-indigo-300">main</span>(<span class="text-sky-400">void</span>) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">17</span><span class="vscode-code">    <span class="text-sky-400">int</span> a = <span class="text-pink-400">252</span>, b = <span class="text-pink-400">105</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">18</span><span class="vscode-code">    <span class="text-sky-400">int</span> x, y;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">19</span><span class="vscode-code">    <span class="text-sky-400">int</span> gcd = <span class="text-indigo-300">ext_gcd</span>(a, b, &amp;x, &amp;y);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">20</span><span class="vscode-code">    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"GCD: %d\\n"</span>, gcd);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">21</span><span class="vscode-code">    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"Coefficients x and y: %d, %d\\n"</span>, x, y);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">22</span><span class="vscode-code">    <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">23</span><span class="vscode-code">}</span></div>
+    </div>
 </div>
 
 
@@ -751,52 +1689,331 @@ $$\\therefore \\gcd(252, 105) = 21$$
 
 
 
-</p>`
+</p>
+<h1 class="text-2xl font-bold mb-4">⧉ মৌলিক সংখ্যা (Prime Numbers)</h1>
+<p>আমরা সবাই মৌলিক সংখ্যার সাথে কমবেশি পরিচিত। শুরু করা যাক প্রচলিত সংজ্ঞাটি দিয়েই— যে সংখ্যাটির ১ এবং ওই সংখ্যাটি ব্যতীত অন্য কোনো উৎপাদক নেই সেটিই মৌলিক সংখ্যা। ৫ এর কথাই ধরা যাক, যাকে ৫ এবং ১ এই দুইটি সংখ্যা ব্যতীত আর কোনো পূর্ণসংখ্যা দ্বারা ভাগ করা যায় না। তাই ৫ একটি মৌলিক সংখ্যা। অন্যদিকে ৬-কে ১ এবং ৬ ছাড়াও ২ এবং ৩ দ্বারা ভাগ করা যায়, তাই এটি যৌগিক সংখ্যা।
+তবে গণিতের এই অতি পরিচিত ‘মৌলিক সংখ্যা’ বা Prime Number নিয়ে একটু গভীরভাবে ভাবলে বেশ কিছু চমৎকার এবং রহস্যময় দিক উন্মোচিত হয়। চলো মৌলিক সংখ্যার জগৎটা একটু নতুন করে চেনা যাক।</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">১ কেন মৌলিক সংখ্যা নয়?</h2>
+<p>অনেকের মনেই প্রশ্ন জাগে, মৌলিক সংখ্যার সংজ্ঞা অনুযায়ী ১-এর তো ১ এবং ওই সংখ্যা (অর্থাৎ ১) ছাড়া কোনো উৎপাদক নেই, তাহলে ১ কেন মৌলিক সংখ্যা নয়?</p>
+<p>গণিতবিদরা ১-কে মৌলিক সংখ্যার দল থেকে বাদ দিয়েছেন একটি বিশেষ নিয়মের মর্যাদা রক্ষা করতে। নিয়মটি হলো পাটিগণিতের মৌলিক উপপাদ্য (Fundamental Theorem of Arithmetic)। এই উপপাদ্য অনুযায়ী:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium">১ অপেক্ষা বড় যেকোনো পূর্ণসংখ্যাকে মৌলিক সংখ্যার গুণফল হিসেবে প্রকাশ করা যায় এবং এই প্রকাশ পদ্ধতিটি অনন্য (Unique)।</p>
+</div>
+<p>যেমন: $12 = 2 \\times 2 \\times 3$। এখন ১-কে যদি মৌলিক সংখ্যা ধরা হতো, তবে ১২-কে লেখা যেত:
+$$12 = 2 \\times 2 \\times 3 \\times 1$$
+$$12 = 2 \\times 2 \\times 3 \\times 1 \\times 1$$</p>
+<p>এভাবে অনন্যতার (Uniqueness) নিয়মটি ভেঙে যেত। তাই ১ মৌলিক বা যৌগিক কোনোটিই নয়, এটি একটি অনন্য সংখ্যা (Unique Number)।</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">একমাত্র জোড় মৌলিক সংখ্যা</h2>
+<p>মৌলিক সংখ্যার তালিকায় ২ হচ্ছে একমাত্র জোড় সংখ্যা। ২ ছাড়া পৃথিবীর আর কোনো জোড় সংখ্যা মৌলিক হতে পারে না, কারণ যেকোনো জোড় সংখ্যাকে ২ দ্বারা ভাগ করা সম্ভব। তাই ২-কে বলা হয় সবচেয়ে ছোট এবং একমাত্র জোড় মৌলিক সংখ্যা।</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">মৌলিক সংখ্যা কি অসীম?</h2>
+<p>হ্যাঁ, মৌলিক সংখ্যা অসীম। আজ থেকে প্রায় ২৩০০ বছর আগে গ্রিক গণিতবিদ ইউক্লিড প্রমাণ করে গেছেন যে মৌলিক সংখ্যার কোনো শেষ নেই। আপনি যত বড় সংখ্যার দিকেই যান না কেন, মৌলিক সংখ্যা পাওয়া বন্ধ হবে না।</p>
+<p>তবে সংখ্যার মান যত বাড়তে থাকে, মৌলিক সংখ্যা পাওয়ার ঘনত্ব তত কমতে থাকে। যেমন:</p>
+<ul class="list-disc list-inside ml-5 mt-2 space-y-1">
+    <li>১ থেকে ১০০-এর মধ্যে মৌলিক সংখ্যা আছে ২৫টি।</li>
+    <li>১০১ থেকে ২০০-এর মধ্যে আছে ২১টি।</li>
+    <li>বড় সংখ্যার দিকে গেলে দুটি মৌলিক সংখ্যার মধ্যকার দূরত্ব কোটি কোটি ছাড়িয়ে যেতে পারে।</li>
+</ul>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ ইউক্লিডের প্রমাণ (Euclid's Proof)</h3>
+    <p>ধরে নিই মৌলিক সংখ্যা সসীম এবং সেগুলো হলো $p_1, p_2, \\dots, p_k$। এখন একটি নতুন সংখ্যা তৈরি করি:
+    $$N = p_1 \\cdot p_2 \\cdot p_3 \\cdots p_k + 1$$
+    এই $N$ সংখ্যাটিকে যদি $p_1, p_2, \\dots, p_k$ এর যে কোনো একটি দিয়ে ভাগ করা হয়, তবে প্রতিক্ষেত্রেই ভাগশেষ থাকে $1$। অর্থাৎ $N$ মৌলিক সংখ্যার তালিকার কোনো সংখ্যা দ্বারাই বিভাজ্য নয়। তাহলে $N$ হয় নিজেই একটি নতুন মৌলিক সংখ্যা, অথবা এমন কিছু মৌলিক সংখ্যার গুণফল যারা আমাদের তালিকায় নেই। উভয় ক্ষেত্রেই আমাদের ধারণা ভুল প্রমাণিত হয়। অতএব, মৌলিক সংখ্যা অসীম। (প্রমাণিত)</p>
+</div>
+
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">মৌলিক সংখ্যা বের করা: সিভ অফ ইরাটোস্থেনিস (Sieve of Eratosthenes)</h2>
+<p>এখন আমরা জানি মৌলিক সংখ্যা অসীম, কিন্তু বাস্তবে এদের তালিকা তৈরি করার প্রশ্ন থেকেই যায়। হাতে বা কম্পিউটারে সবচেয়ে সোজা পদ্ধতি হলো ট্রায়াল ডিভিশন (trial division): কোনো সংখ্যা $m$ মৌলিক কি না বের করতে $2$ থেকে শুরু করে $\\sqrt{m}$ পর্যন্ত প্রতিটি পূর্ণসংখ্যা দিয়ে ভাগ করে দেখতে হয়। কেউ যদি ভাগ করতে পারে তাহলে $m$ মৌলিক নয়। পদ্ধতিটি কাজ করে বটে, কিন্তু বড় $n$ পর্যন্ত সব মৌলিক সংখ্যা দরকার হলে প্রতিটি সংখ্যাকে আলাদা আলাদা করে পরীক্ষা করা ভয়ংকর ধীরগতির ব্যাপার হয়ে দাঁড়ায়।</p>
+<p>খ্রিস্টপূর্ব ২৪০ সালের দিকে গ্রিক পণ্ডিত <strong>ইরাটোস্থেনিস (Eratosthenes of Cyrene)</strong> আরও বুদ্ধিমান একটি পদ্ধতি আবিষ্কার করেন। একে একে সংখ্যা পরীক্ষা না করে তিনি প্রস্তাব করেন— যৌগিক সংখ্যাগুলোকে একটি গোছানো ধাপে একসাথে <em>কেটে ফেলার</em>, ঠিক আটা চালিয়ে মোটা দানাগুলো আলাদা করার মতো। এই পদ্ধতিই <strong>সিভ অফ ইরাটোস্থেনিস</strong> নামে পরিচিত।</p>
+
+<h3 class="font-semibold text-lg mb-4">অ্যালগরিদম, ধাপে ধাপে</h3>
+<ol class="list-decimal-bangla space-y-3 mb-8 pl-6">
+    <li>$2$ থেকে $n$ পর্যন্ত সব পূর্ণসংখ্যা এক সারিতে লেখো।</li>
+    <li>তালিকার প্রথম সংখ্যা $p = 2$ ধরো।</li>
+    <li>$p$-এর সব <em>প্রকৃত</em> গুণিতক $2p, 3p, 4p, \\dots$ কেটে দাও ($p$ নিজে নয়)।</li>
+    <li>কাটা পড়ে না এমন পরবর্তী সংখ্যায় যাও— সেটি অবশ্যই একটি মৌলিক সংখ্যা। একে নতুন $p$ ধরো।</li>
+    <li>$p \\times p > n$ হওয়া পর্যন্ত ধাপ ৩–৪ বার করো, তারপর থামো।</li>
+</ol>
+<p>যে সংখ্যাগুলো অকাটা থেকে যায় সেগুলোই <strong>ঠিক</strong> $2$ থেকে $n$ পর্যন্ত মৌলিক সংখ্যা।</p>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ কাজের উদাহরণ: $n = 30$ পর্যন্ত সব মৌলিক সংখ্যা</h3>
+    <p class="mb-2">$2, 3, 4, \\dots, 30$ লেখো। $p = 2$ নিয়ে $4, 6, 8, 10, \\dots, 30$ কেটে দাও। পরের অকাটা সংখ্যা $3$; $6, 9, 12, \\dots, 27$ কেটে দাও। পরের অকাটা সংখ্যা $5$; $10, 15, 20, 25, 30$ কেটে দাও। এখন $5 \\times 5 = 25 \\le 30$, তাই চলতে থাকো: পরের অকাটা সংখ্যা $7$, কিন্তু $7 \\times 7 = 49 > 30$, তাই থেমে যাও।</p>
+    <p>অবশিষ্ট সংখ্যাগুলো হলো $2, 3, 5, 7, 11, 13, 17, 19, 23, 29$ — $30$-এর নিচে দশটি মৌলিক সংখ্যা।</p>
+</div>
+
+<p class="mb-4">সি ভাষায় সিভ অফ ইরাটোস্থেনিসের একটি সহজ ইমপ্লিমেন্টেশন:</p>
+<div class="vscode-window my-6">
+    <button class="vscode-copy" type="button" aria-label="Copy code">Copy</button>
+    <div class="vscode-body">
+        <div class="vscode-line"><span class="vscode-gutter">1</span><span class="vscode-code"><span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">2</span><span class="vscode-code"><span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdbool.h&gt;</span></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">3</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">4</span><span class="vscode-code"><span class="text-sky-400">void</span> <span class="text-indigo-300">sieve</span>(<span class="text-sky-400">int</span> n) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">5</span><span class="vscode-code">    <span class="text-sky-400">bool</span> isPrime[n + <span class="text-pink-400">1</span>];</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">6</span><span class="vscode-code">    <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> i = <span class="text-pink-400">2</span>; i <= n; i++) isPrime[i] = <span class="text-sky-400">true</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">7</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">8</span><span class="vscode-code">    <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> p = <span class="text-pink-400">2</span>; p * p <= n; p++) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">9</span><span class="vscode-code">        <span class="text-sky-400">if</span> (isPrime[p]) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">10</span><span class="vscode-code">            <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> m = p * p; m <= n; m += p)</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">11</span><span class="vscode-code">                isPrime[m] = <span class="text-sky-400">false</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">12</span><span class="vscode-code">        }</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">13</span><span class="vscode-code">    }</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">14</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">15</span><span class="vscode-code">    <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> i = <span class="text-pink-400">2</span>; i <= n; i++)</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">16</span><span class="vscode-code">        <span class="text-sky-400">if</span> (isPrime[i]) <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"%d "</span>, i);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">17</span><span class="vscode-code">    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"\\n"</span>);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">18</span><span class="vscode-code">}</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">19</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">20</span><span class="vscode-code"><span class="text-sky-400">int</span> <span class="text-indigo-300">main</span>(<span class="text-sky-400">void</span>) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">21</span><span class="vscode-code">    <span class="text-indigo-300">sieve</span>(<span class="text-pink-400">30</span>);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">22</span><span class="vscode-code">    <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">23</span><span class="vscode-code">}</span></div>
+    </div>
+</div>
+
+<h3 class="font-semibold text-lg mb-4">দুটি চালাক শর্টকাট</h3>
+<p>সিভটি দুই জায়গায় বুদ্ধিমত্তা খাটায়:</p>
+<ul class="list-disc list-inside ml-5 mt-2 space-y-1 mb-4">
+    <li><strong>শুধু $p \\times p \\le n$ পর্যন্ত যেতে হবে।</strong> $m$ যৌগিক হলে $1 < d \\le \\sqrt{m} \\le \\sqrt{n}$ এমন একটি ভাজক $d$ থাকে। সুতরাং $n$-এর নিচের প্রতিটি যৌগিক সংখ্যা কোনো না কোনো $p \\le \\sqrt{n}$ মৌলিকের হাতেই ধরা পড়বে; এর বাইরে নতুন কিছু কাটার থাকে না।</li>
+    <li><strong>$p \\times p$ থেকে কাটা শুরু করা হয়।</strong> $k < p$ হলে $k \\cdot p$ গুণিতকটি ছোট সংখ্যা $k$-এরও গুণিতক; $k$ মৌলিক হলে সে আগেই নিজের পালায় কেটেছে, আর যৌগিক হলে আগেই বাদ গিয়েছে। তাই $p \\times p$ থেকে শুরু করে অযথা বারবার দাগানো এড়ানো যায়।</li>
+</ul>
+
+<h3 class="font-semibold text-lg mb-4">কেন কাজ করে? সঠিকতার প্রমাণ</h3>
+<div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+    <p class="font-medium mb-2">উপপাদ্য। অ্যালগরিদম থামলে (প্রথম এমন মৌলিক $p$-এ যেখানে $p \\times p > n$), $2 \\le m \\le n$ এর একটি সংখ্যা $m$ অকাটা থাকে যদি এবং কেবল যদি $m$ মৌলিক হয়।</p>
+    <p class="mb-2"><strong>$m$ মৌলিক হলে:</strong> সে কোনো ছোট সংখ্যার <em>প্রকৃত</em> গুণিতক নয়, তাই কোনো ধাপই তাকে কাটতে পারে না। সে টিকে থাকে।</p>
+    <p><strong>$m$ যৌগিক হলে:</strong> লিখো $m = a \\cdot b$, যেখানে $1 < a \\le b < m$। তাহলে $a \\le \\sqrt{m} \\le \\sqrt{n}$। $a$-এর অন্তত একটি মৌলিক ভাজক আছে $p \\le a \\le \\sqrt{n}$; ফলে $p \\times p \\le n$ — মানে লুপ $p$-কে প্রসেস করেছে এবং $p$-এর প্রতিটি প্রকৃত গুণিতক কেটে দিয়েছে। যেহেতু $p \\mid a$ এবং $a \\mid m$, তাই $p \\mid m$; আবার $m > p$ হওয়ায় $m$ হলো $p$-এর প্রকৃত গুণিতক। সুতরাং $m$ কাটা পড়েছিল।</p>
+</div>
+
+<h3 class="font-semibold text-lg mb-4">কত দ্রুত? $O(n \\log \\log n)$</h3>
+<p>সিভ যখন একটি মৌলিক $p$ প্রসেস করে, তখন সে প্রায় $\\frac{n}{p}$ টি গুণিতক দেখে। তাই মোট কাজের পরিমাণ মোটামুটি</p>
+$$\\sum_{p \\le n} \\frac{n}{p} = n \\sum_{p \\le n} \\frac{1}{p}$$
+<p>সূত্রটি দেখে ঘাবড়ানোর কিছু নেই— অন্তর্দৃষ্টিটা সহজ: মৌলিক সংখ্যা যত বড়, তার গুণিতক তত কম, তাই খরচ তত কম। অয়লার ও মারটেনসের একটি বিখ্যাত ফলাফল বলে মৌলিক সংখ্যাগুলোর ব্যস্তানুপাতিক যোগফল $\\log \\log n$-এর মতো বাড়ে:</p>
+$$\\sum_{p \\le n} \\frac{1}{p} \\approx \\log \\log n + 0.261$$
+<p>ফলে পুরো সিভের খরচ প্রায় $n \\cdot \\log \\log n$ অপারেশন আর $O(n)$ মেমোরি। $n = 10^6$ ধরে সেটি মোটামুটি $10^6 \\times 3.5$ অপারেশন— এক সেকেন্ডেরও কম, অথচ প্রতিটি সংখ্যা আলাদা ট্রায়াল ডিভিশনে পরীক্ষা করতে অনেক বেশি সময় লাগত।</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">পাটিগণিতের মৌলিক উপপাদ্য (Fundamental Theorem of Arithmetic)</h2>
+<p>পাটিগণিতের মৌলিক উপপাদ্য অনুযায়ী, $1$-এর চেয়ে বড় প্রতিটি পূর্ণসংখ্যাকে মৌলিক সংখ্যার গুণফল আকারে লেখা যায় এবং এই লেখার পদ্ধতি (মৌলিক উৎপাদকগুলোর ক্রম বাদ দিয়ে) অনন্য।</p>
+<p>যেমন: $360 = 2^3 \\times 3^2 \\times 5$ — এই প্রকাশটি অনন্য; অন্য কোনোভাবে উৎপাদকগুলোর ক্রম বদলে সাজানো ছাড়া $360$-কে অন্য মৌলিক গুণফলে লেখা সম্ভব নয়।</p>
+
+<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">আধুনিক বিশ্বে মৌলিক সংখ্যার জাদু: সাইবার নিরাপত্তা</h2>
+<p>আপনার মনে হতে পারে, এই মৌলিক সংখ্যা দিয়ে বাস্তব জীবনে কী কাজ হয়? উত্তর হলো— আপনি যখন অনলাইনে কোনো পাসওয়ার্ড দেন, ক্রেডিট কার্ড দিয়ে কেনাকাটা করেন বা হোয়াটসঅ্যাপে মেসেজ পাঠান, তখন পর্দার আড়ালে আপনার তথ্য সুরক্ষিত রাখে এই মৌলিক সংখ্যা!</p>
+<p>আধুনিক কম্পিউটার নিরাপত্তায় RSA এনক্রিপশন নামক একটি পদ্ধতি ব্যবহার করা হয়। এই পদ্ধতিতে দুটি বিশাল (ধরা যাক, শত অঙ্কের বড়) মৌলিক সংখ্যা গুণ করে একটি পাবলিক কি (Public Key) তৈরি করা হয়।</p>
+<ul class="list-disc list-inside ml-5 mt-2 space-y-1">
+    <li>দুটি বড় মৌলিক সংখ্যা গুণ করা কম্পিউটারের জন্য চোখের পলকের কাজ।</li>
+    <li>কিন্তু সেই গুণফলটি ভেঙে মূল মৌলিক সংখ্যা দুটি খুঁজে বের করা বিশ্বের সবচেয়ে শক্তিশালী সুপারকম্পিউটারের জন্যও শত বছরের ব্যাপার।</li>
+</ul>
+<p>ঠিক এই অসামঞ্জস্যটিই RSA-কে এত নিরাপদ করে তোলে— যা আগে আমরা বেজুটের অভেদ আর মডুলার অ্যারিথমেটিকের প্রসঙ্গে দেখে এসেছি।</p>
+
+<h1 class="text-2xl font-bold mb-4">⧉ মডুলার অ্যারিথমেটিক (Modular Arithmetic)</h1>
+<p>মডুলার অ্যারিথমেটিক হলো "ঘড়ির কাঁটার অ্যারিথমেটিক"। ঘড়িতে ১২টার পর আবার ১টা আসে; একইভাবে কোনো নির্দিষ্ট সংখ্যা ($m$) পেরিয়ে গেলে সংখ্যাগুলো আবার শুরুর দিকে ফিরে আসে। গাণিতিকভাবে, আমরা বলি $a \\equiv b \\pmod{m}$ যদি $m \\mid (a - b)$ হয়, অর্থাৎ $a$ ও $b$-কে $m$ দিয়ে ভাগ করলে একই ভাগশেষ থাকে।</p>
+<p>উদাহরণ: $17 \\equiv 5 \\pmod{12}$, কারণ $17 - 5 = 12$ যেটি $12$ দিয়ে বিভাজ্য। আবার $23 \\equiv 2 \\pmod{7}$।</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ মডুলার অ্যারিথমেটিকের মৌলিক ধর্মসমূহ</h3>
+    <ol class="list-decimal list-inside space-y-3 text-gray-800">
+        <li>যদি $a \\equiv b \\pmod{m}$ এবং $c \\equiv d \\pmod{m}$ হয়, তবে $a + c \\equiv b + d \\pmod{m}$।</li>
+        <li>যদি $a \\equiv b \\pmod{m}$ এবং $c \\equiv d \\pmod{m}$ হয়, তবে $a \\cdot c \\equiv b \\cdot d \\pmod{m}$।</li>
+        <li>যদি $a \\equiv b \\pmod{m}$ হয়, তবে যেকোনো প্রাকৃতিক সংখ্যা $n$ এর জন্য $a^n \\equiv b^n \\pmod{m}$।</li>
+        <li>যদি $ac \\equiv bc \\pmod{m}$ এবং $\\gcd(c, m) = 1$ হয়, তবে $a \\equiv b \\pmod{m}$ (সংক্ষিপ্তকরণ নিয়ম)।</li>
+    </ol>
+</div>
+<p>মডুলার অ্যারিথমেটিকের ভিত্তি দাঁড়িয়ে থাকা ভাগ প্রক্রিয়ার অ্যালগরিদমের ওপর— $a = mq + r$ হলে $a \\equiv r \\pmod{m}$। এই নিয়মগুলো ব্যবহার করেই আমরা সহজে বড় সংখ্যার ভাগশেষ বের করতে পারি।</p>
+
+<h1 class="text-2xl font-bold mb-4">⧉ রৈখিক সঙ্গতি (Linear Congruences)</h1>
+<p>$x$-এর মান বের করার জন্য $ax \\equiv b \\pmod{m}$ আকারের সমীকরণকে রৈখিক সঙ্গতি (Linear Congruence) বলা হয়। এই সমীকরণের সমাধান থাকবে যদি এবং কেবল যদি $\\gcd(a, m) \\mid b$ হয়।</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ উদাহরণ: $6x \\equiv 4 \\pmod{8}$ সমাধান করো।</h3>
+    <p>এখানে $\\gcd(6, 8) = 2$ এবং $2 \\mid 4$, তাই সমাধান বিদ্যমান। উভয় পক্ষকে $2$ দিয়ে ভাগ করে পাই $3x \\equiv 2 \\pmod{4}$। এখন $3$ এর বিপরীত সংখ্যা (mod $4$) হলো $3$, কারণ $3 \\times 3 \\equiv 1 \\pmod{4}$। সুতরাং:
+    $$x \\equiv 3 \\times 2 \\equiv 6 \\equiv 2 \\pmod{4}$$
+    অর্থাৎ $x \\equiv 2 \\pmod{4}$। যাচাই: $x = 2$ হলে $6 \\times 2 = 12 \\equiv 4 \\pmod{8}$</p>
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ ফার্মার ক্ষুদ্র উপপাদ্য (Fermat's Little Theorem)</h1>
+<p>ফার্মার ক্ষুদ্র উপপাদ্য মডুলার অ্যারিথমেটিকের সবচেয়ে গুরুত্বপূর্ণ উপপাদ্যগুলোর একটি। এতে বলা হয়:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium">যদি $p$ একটি মৌলিক সংখ্যা হয় এবং $p \\nmid a$ হয় (অর্থাৎ $a$ ও $p$ সহ-মৌলিক), তবে
+    $$a^{p-1} \\equiv 1 \\pmod{p}$$</p>
+</div>
+<p>এ থেকে আরও পাওয়া যায়, যেকোনো পূর্ণসংখ্যা $a$ এর জন্য $a^p \\equiv a \\pmod{p}$। এই উপপাদ্যটিই RSA এনক্রিপশন ও অন্যান্য আধুনিক ক্রিপ্টোগ্রাফি পদ্ধতির গাণিতিক ভিত্তি।</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ উদাহরণ: $5^{12} \\bmod 13$ নির্ণয় করো।</h3>
+    <p>যেহেতু $13$ মৌলিক এবং $\\gcd(5, 13) = 1$, তাই ফার্মার ক্ষুদ্র উপপাদ্য অনুযায়ী $5^{12} \\equiv 1 \\pmod{13}$। অর্থাৎ $5^{12} \\bmod 13 = 1$।</p>
+</div>
+
+<h1 class="text-2xl font-bold mb-4">⧉ উইলসনের উপপাদ্য (Wilson's Theorem)</h1>
+<p>উইলসনের উপপাদ্য মৌলিক সংখ্যা চেনার একটি চমৎকার উপায় দেয়:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium">একটি ধনাত্মক পূর্ণসংখ্যা $p > 1$ মৌলিক হবে যদি এবং কেবল যদি
+    $$(p - 1)! \\equiv -1 \\pmod{p}$$
+    হয়।</p>
+</div>
+<p>উদাহরণ: $p = 7$ ধরলে $(7 - 1)! = 6! = 720$ এবং $720 = 102 \\times 7 + 6 \\equiv -1 \\pmod{7}$। আবার $p = 9$ (যৌগিক) ধরলে $8! = 40320 \\equiv 0 \\pmod{9}$ — যা $-1$ নয়।</p>
+
+
+<h1 class="text-2xl font-bold mb-4">⧉ চীনা ভাগশেষ উপপাদ্য (Chinese Remainder Theorem)</h1>
+<p>তৃতীয় শতকে চীনা গণিতবিদ <strong>সান তজু (Sun Tzu)</strong> এমন একটি ধাঁধা ছেড়ে গিয়েছিলেন যা পরে কিংবদন্তিতে পরিণত হয়। আধুনিক অনুবাদে এটি এমন:</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium">"কতগুলো জিনিস আছে তার সংখ্যা অজানা। তিন তিন করে গুনলে ২ অবশিষ্ট থাকে; পাঁচ পাঁচ করে গুনলে ৩ অবশিষ্ট থাকে; সাত সাত করে গুনলে ২ অবশিষ্ট থাকে। সংখ্যাটি কত?"</p>
+</div>
+<p>এখন সেটিকে মডুলার অ্যারিথমেটিকের ভাষায় অনুবাদ করি। আমাদের এমন একটি ক্ষুদ্রতম ধনাত্মক সংখ্যা $x$ দরকার যা <em>একই সাথে</em> তিনটি সঙ্গতি মেনে চলে:</p>
+$$x \\equiv 2 \\pmod{3}, \\qquad x \\equiv 3 \\pmod{5}, \\qquad x \\equiv 2 \\pmod{7}$$
+<p>$23$ সংখ্যাটি কাজ করে, কারণ $23 = 7 \\cdot 3 + 2$, $23 = 4 \\cdot 5 + 3$ আর $23 = 3 \\cdot 7 + 2$। কিন্তু $128 = 23 + 105$ ও কাজ করে, $233 = 23 + 2 \\cdot 105$ ও কাজ করে— আসলে অসীম সংখ্যক সমাধান আছে, যারা সবাই $23$-এর সাথে $105 = 3 \\times 5 \\times 7$-এর গুণিতক পার্থক্য রাখে। এই পুরো কাঠামোটিকে গুছিয়ে দেয় <strong>চীনা ভাগশেষ উপপাদ্য</strong> (Chinese Remainder Theorem, সংক্ষেপে CRT)।</p>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ উপপাদ্যের বিবৃতি</h3>
+    <p class="font-medium">ধরা যাক $m_1, m_2, \\dots, m_k$ পরস্পর সহমৌলিক ধনাত্মক পূর্ণসংখ্যা (অর্থাৎ $i \\ne j$ হলে $\\gcd(m_i, m_j) = 1$), আর $a_1, a_2, \\dots, a_k$ যেকোনো পূর্ণসংখ্যা। তাহলে নিচের সঙ্গতি ব্যবস্থার</p>
+    <p class="font-medium text-center">$$x \\equiv a_1 \\pmod{m_1}, \\quad x \\equiv a_2 \\pmod{m_2}, \\quad \\dots, \\quad x \\equiv a_k \\pmod{m_k}$$</p>
+    <p class="font-medium">একটি সমাধান আছে, এবং $M = m_1 m_2 \\cdots m_k$ দিয়ে মডুলো করলে সেই সমাধান অনন্য: যেকোনো দুটি সমাধান $M$-এর গুণিতক পার্থক্য রাখে।</p>
+</div>
+
+<h3 class="font-semibold text-lg mb-4">প্রমাণ: একটি নির্মাণ যা সবসময় কাজ করে</h3>
+<p>বিবৃতির দুটি অংশ আছে, আর প্রথম অংশের প্রমাণ আসলে উত্তরটিকে <em>নির্মাণ</em> করে দেখায়— এই উপপাদ্যের সবচেয়ে সুন্দর দিকটি এটাই।</p>
+<p><strong>অস্তিত্ব।</strong> সংজ্ঞায়িত করো $M = m_1 m_2 \\cdots m_k$, আর প্রতিটি $i$-র জন্য $M_i = M / m_i$ ($m_i$ বাদে বাকি সব মডুলাসের গুণফল)। মডুলাসগুলো পরস্পর সহমৌলিক বলে $\\gcd(M_i, m_i) = 1$। আগে তৈরি করা রৈখিক সঙ্গতি তত্ত্ব অনুযায়ী</p>
+$$M_i \\, y_i \\equiv 1 \\pmod{m_i}$$
+<p>সঙ্গতিটির একটি সমাধান আছে $y_i$ (একে বলা হয় $M_i$-এর মডুলো $m_i$ বিপরীতাংশ)। এখন সম্ভাব্য উত্তরটি জোড়া দাও:</p>
+$$x = a_1 M_1 y_1 + a_2 M_2 y_2 + \\dots + a_k M_k y_k$$
+<p><strong>যাচাই।</strong> একটি সূচক $j$ স্থির করে সবকিছু মডুলো $m_j$ করো। $i \\ne j$ হলে $M_i = M / m_i$-এর উৎপাদকে $m_j$ থাকে, তাই $a_i M_i y_i \\equiv 0 \\pmod{m_j}$। বেঁচে থাকে শুধু $j$-তম পদের:</p>
+$$x \\equiv a_j M_j y_j \\equiv a_j \\cdot 1 \\equiv a_j \\pmod{m_j}$$
+<p>সুতরাং $x$ একই সাথে সবগুলো $k$টি সঙ্গতি মানে।</p>
+<p><strong>অনন্যতা।</strong> ধরো $x$ ও $x'$ দুটোই কাজ করে। তাহলে প্রতিটি $j$-র জন্য $x - x' \\equiv 0 \\pmod{m_j}$, অর্থাৎ প্রতিটি $m_j$ ভাগ করে $x - x'$-কে। মডুলাসগুলো পরস্পর সহমৌলিক বলে তাদের গুণফল $M$ ও ভাগ করবে $x - x'$-কে। সুতরাং $x \\equiv x' \\pmod{M}$। ∎</p>
+
+<h3 class="font-semibold text-lg mb-4">⧉ কাজের উদাহরণ: সান তজুর ধাঁধা সমাধান</h3>
+<p>এখানে $k = 3$, $m_1 = 3$, $m_2 = 5$, $m_3 = 7$ আর $a_1 = 2$, $a_2 = 3$, $a_3 = 2$। আগে অংশগুলো হিসাব করি:</p>
+<ul class="list-disc list-inside ml-5 mt-2 space-y-1 mb-4">
+    <li>$M = 3 \\times 5 \\times 7 = 105$</li>
+    <li>$M_1 = 35$, $M_2 = 21$, $M_3 = 15$</li>
+    <li>$M_1$-এর মডুলো $3$ বিপরীতাংশ: $35 y_1 \\equiv 2 y_1 \\equiv 1 \\pmod{3}$, তাই $y_1 = 2$ (কারণ $2 \\times 2 = 4 \\equiv 1$)।</li>
+    <li>$M_2$-এর মডুলো $5$ বিপরীতাংশ: $21 y_2 \\equiv 1 y_2 \\equiv 1 \\pmod{5}$, তাই $y_2 = 1$।</li>
+    <li>$M_3$-এর মডুলো $7$ বিপরীতাংশ: $15 y_3 \\equiv 1 y_3 \\equiv 1 \\pmod{7}$, তাই $y_3 = 1$।</li>
+</ul>
+<p>এবার সবকিছু একসাথে জোড়া দাও:</p>
+$$x = a_1 M_1 y_1 + a_2 M_2 y_2 + a_3 M_3 y_3 = 2 \\cdot 35 \\cdot 2 + 3 \\cdot 21 \\cdot 1 + 2 \\cdot 15 \\cdot 1$$
+$$x = 140 + 63 + 30 = 233 \\equiv 23 \\pmod{105}$$
+<p>সুতরাং ক্ষুদ্রতম ধনাত্মক উত্তর $x = 23$। যাচাই: $23 = 7 \\cdot 3 + 2$, $23 = 4 \\cdot 5 + 3$, $23 = 3 \\cdot 7 + 2$।</p>
+
+<p class="mb-4">এই লেখায় আগে তৈরি করা Extended Euclidean Algorithm ব্যবহার করে সি ভাষায় CRT-এর একটি পূর্ণাঙ্গ ইমপ্লিমেন্টেশন:</p>
+<div class="vscode-window my-6">
+    <button class="vscode-copy" type="button" aria-label="Copy code">Copy</button>
+    <div class="vscode-body">
+        <div class="vscode-line"><span class="vscode-gutter">1</span><span class="vscode-code"><span class="text-amber-500">#include</span> <span class="text-emerald-400">&lt;stdio.h&gt;</span></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">2</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">3</span><span class="vscode-code"><span class="text-sky-400">long long</span> <span class="text-indigo-300">ext_gcd</span>(<span class="text-sky-400">long long</span> a, <span class="text-sky-400">long long</span> b, <span class="text-sky-400">long long</span> *x, <span class="text-sky-400">long long</span> *y) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">4</span><span class="vscode-code">    <span class="text-sky-400">if</span> (b == <span class="text-pink-400">0</span>) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">5</span><span class="vscode-code">        *x = <span class="text-pink-400">1</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">6</span><span class="vscode-code">        *y = <span class="text-pink-400">0</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">7</span><span class="vscode-code">        <span class="text-sky-400">return</span> a;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">8</span><span class="vscode-code">    }</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">9</span><span class="vscode-code">    <span class="text-sky-400">long long</span> x1, y1;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">10</span><span class="vscode-code">    <span class="text-sky-400">long long</span> g = <span class="text-indigo-300">ext_gcd</span>(b, a % b, &amp;x1, &amp;y1);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">11</span><span class="vscode-code">    *x = y1;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">12</span><span class="vscode-code">    *y = x1 - (a / b) * y1;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">13</span><span class="vscode-code">    <span class="text-sky-400">return</span> g;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">14</span><span class="vscode-code">}</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">15</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">16</span><span class="vscode-code"><span class="text-sky-400">long long</span> <span class="text-indigo-300">crt</span>(<span class="text-sky-400">long long</span> a[], <span class="text-sky-400">long long</span> m[], <span class="text-sky-400">int</span> k) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">17</span><span class="vscode-code">    <span class="text-sky-400">long long</span> M = <span class="text-pink-400">1</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">18</span><span class="vscode-code">    <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> i = <span class="text-pink-400">0</span>; i < k; i++) M *= m[i];</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">19</span><span class="vscode-code">    <span class="text-sky-400">long long</span> x = <span class="text-pink-400">0</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">20</span><span class="vscode-code">    <span class="text-sky-400">for</span> (<span class="text-sky-400">int</span> i = <span class="text-pink-400">0</span>; i < k; i++) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">21</span><span class="vscode-code">        <span class="text-sky-400">long long</span> Mi = M / m[i];</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">22</span><span class="vscode-code">        <span class="text-sky-400">long long</span> y, t;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">23</span><span class="vscode-code">        <span class="text-indigo-300">ext_gcd</span>(Mi, m[i], &amp;y, &amp;t);</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">24</span><span class="vscode-code">        x = (x + (a[i] % M) * Mi % M * ((y % M + M) % M)) % M;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">25</span><span class="vscode-code">    }</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">26</span><span class="vscode-code">    <span class="text-sky-400">return</span> (x % M + M) % M;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">27</span><span class="vscode-code">}</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">28</span><span class="vscode-code"></span></div>
+        <div class="vscode-line"><span class="vscode-gutter">29</span><span class="vscode-code"><span class="text-sky-400">int</span> <span class="text-indigo-300">main</span>(<span class="text-sky-400">void</span>) {</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">30</span><span class="vscode-code">    <span class="text-sky-400">long long</span> a[] = {<span class="text-pink-400">2</span>, <span class="text-pink-400">3</span>, <span class="text-pink-400">2</span>};</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">31</span><span class="vscode-code">    <span class="text-sky-400">long long</span> m[] = {<span class="text-pink-400">3</span>, <span class="text-pink-400">5</span>, <span class="text-pink-400">7</span>};</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">32</span><span class="vscode-code">    <span class="text-indigo-300">printf</span>(<span class="text-emerald-400">"Answer: %lld\\n"</span>, <span class="text-indigo-300">crt</span>(a, m, <span class="text-pink-400">3</span>));</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">33</span><span class="vscode-code">    <span class="text-sky-400">return</span> <span class="text-pink-400">0</span>;</span></div>
+        <div class="vscode-line"><span class="vscode-gutter">34</span><span class="vscode-code">}</span></div>
+    </div>
+</div>
+
+<h3 class="font-semibold text-lg mb-4">মডুলাসগুলো সহমৌলিক না হলে?</h3>
+<p>উপরে দেওয়া পরিচ্ছন্ন রূপে CRT-তে পরস্পর সহমৌলিক মডুলাস চাই। মডুলাসগুলোতে সাধারণ গুণনীয়ক থাকলে সমাধান থাকতেও পারে, নাও পারে: সমাধান থাকবে ঠিক তখনই, যখন প্রতিটি জোড়া $i, j$-র জন্য সামঞ্জস্য শর্ত $\\gcd(m_i, m_j) \\mid (a_i - a_j)$ পূরণ হয়। বাস্তবে মডুলাসগুলোকে সহমৌলিক অংশে ভাগ করে প্রতিটি অংশ আলাদাভাবে সমাধান করে মিলিয়ে নেওয়া যায়— তাই পরস্পর সহমৌলিক ক্ষেত্রটিই সবচেয়ে গুরুত্বপূর্ণ।</p>
+
+<h1 class="text-2xl font-bold mb-4">⧉ অয়লারের টোটিয়েন্ট ফাংশন (Euler's Totient Function)</h1>
+<p>ফার্মার ক্ষুদ্র উপপাদ্য শুধু মৌলিক মডুলাসের জন্য কাজ করত। সেই শক্তিকে যৌগিক সংখ্যায় ছড়িয়ে দিতে মহান গণিতবিদ <strong>লিওনার্দ অয়লার (Leonhard Euler)</strong> একটি গণনা-ফাংশন উদ্ভাবন করেন যা আজ তাঁর নামে পরিচিত।</p>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ সংজ্ঞা</h3>
+    <p class="font-medium">$n \\ge 1$ হলে, অয়লারের টোটিয়েন্ট ফাংশন $\\varphi(n)$-এর মান হলো $\\{1, 2, \\dots, n\\}$ সেটের $n$-এর সাথে সহমৌলিক (coprime) সেই সব পূর্ণসংখ্যার সংখ্যা।</p>
+</div>
+<p>কয়েকটি সহজ মান: $\\varphi(1) = 1$, $\\varphi(2) = 1$ (শুধু $1$), $\\varphi(3) = 2$ (সংখ্যা $1, 2$), $\\varphi(4) = 2$ (সংখ্যা $1, 3$), আর $\\varphi(12) = 4$ (সংখ্যা $1, 5, 7, 11$)।</p>
+<p>যখন $n = p$ মৌলিক, তখন $1$ থেকে $p - 1$ পর্যন্ত প্রতিটি সংখ্যাই $p$-এর সহমৌলিক, তাই $\\varphi(p) = p - 1$। এই একটি পর্যবেক্ষণই পরে অয়লারের উপপাদ্যকে ফার্মার ক্ষুদ্র উপপাদ্যে রূপান্তরিত করবে।</p>
+
+<h3 class="font-semibold text-lg mb-4">সূত্রটি</h3>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <p class="font-medium mb-2">$n$-এর ভিন্ন ভিন্ন মৌলিক ভাজকগুলো যদি $p_1, p_2, \\dots, p_k$ হয়, তাহলে</p>
+    $$\\varphi(n) = n \\prod_{i=1}^{k} \\left(1 - \\frac{1}{p_i}\\right)$$
+</div>
+<p>উদাহরণ:</p>
+<ul class="list-disc list-inside ml-5 mt-2 space-y-1 mb-4">
+    <li>$\\varphi(12)$: $12$-কে ভাগ করা মৌলিক সংখ্যা $2$ ও $3$, তাই $\\varphi(12) = 12 \\cdot \\left(1 - \\frac{1}{2}\\right) \\cdot \\left(1 - \\frac{1}{3}\\right) = 12 \\cdot \\frac{1}{2} \\cdot \\frac{2}{3} = 4$।</li>
+    <li>$\\varphi(360)$: যেহেতু $360 = 2^3 \\cdot 3^2 \\cdot 5$, তাই $\\varphi(360) = 360 \\cdot \\frac{1}{2} \\cdot \\frac{2}{3} \\cdot \\frac{4}{5} = 96$।</li>
+</ul>
+
+<h3 class="font-semibold text-lg mb-4">কেন সূত্রটি সত্য (প্রমাণ)</h3>
+<p>মৌলিক উৎপাদক লেখো $n = p_1^{e_1} p_2^{e_2} \\cdots p_k^{e_k}$। $\\{1, 2, \\dots, n\\}$-এর কোনো সংখ্যা $m$ $n$-এর সহমৌলিক হবে, যদি এবং কেবল যদি সে $p_1, \\dots, p_k$-এর কোনোটির দ্বারাও বিভাজ্য না হয়। চলো সেই সীমার মধ্যে কতগুলো সংখ্যা তাদের <em>কোনোটির দ্বারাই</em> বিভাজ্য নয়, তা গুনি।</p>
+<ul class="list-disc list-inside ml-5 mt-2 space-y-1 mb-4">
+    <li>$p_i$ দিয়ে বিভাজ্য সংখ্যা: ঠিক $\\frac{n}{p_i}$ টি।</li>
+    <li>$p_i$ ও $p_j$ দুইটির দ্বারাই বিভাজ্য সংখ্যা: ঠিক $\\frac{n}{p_i p_j}$ টি।</li>
+    <li>তিনটি $p_i, p_j, p_l$-এর প্রতিটি দিয়ে বিভাজ্য সংখ্যা: ঠিক $\\frac{n}{p_i p_j p_l}$ টি, ইত্যাদি।</li>
+</ul>
+<p>এবার অন্তর্ভুক্তি-বর্জন (inclusion–exclusion) নীতি ব্যবহার করো: সব $n$ সংখ্যা দিয়ে শুরু করে একটি মৌলিক দিয়ে বিভাজ্য গুলো বাদ দাও, জোড়া দিয়ে বিভাজ্য গুলো আবার যোগ করো, ত্রিপল দিয়ে বিভাজ্য গুলো বাদ দাও, এভাবে চলতে থাকো। ফলাফল হলো এই বিকল্প যোগফল</p>
+$$\\varphi(n) = n - \\sum_{i} \\frac{n}{p_i} + \\sum_{i < j} \\frac{n}{p_i p_j} - \\sum_{i < j < l} \\frac{n}{p_i p_j p_l} + \\cdots$$
+<p>কিন্তু এই বিকল্প রাশিটা আসলে একটি গুণফলের সম্প্রসারণ ছাড়া আর কিছু নয়। বীজগণিতের অভেদ $(1 - a_1)(1 - a_2) \\cdots (1 - a_k) = 1 - \\sum a_i + \\sum_{i<j} a_i a_j - \\cdots$-তে $a_i = 1/p_i$ বসালে পাওয়া যায়</p>
+$$\\varphi(n) = n \\left(1 - \\frac{1}{p_1}\\right)\\left(1 - \\frac{1}{p_2}\\right) \\cdots \\left(1 - \\frac{1}{p_k}\\right) = n \\prod_{i=1}^{k} \\left(1 - \\frac{1}{p_i}\\right)$$
+<p>এটিই দাবি করা সূত্র। ∎</p>
+
+<h3 class="font-semibold text-lg mb-4">গুণনীয় বৈশিষ্ট্য (Multiplicativity)</h3>
+<p>যদি $\\gcd(m, n) = 1$ হয়, তাহলে $\\varphi(mn) = \\varphi(m) \\cdot \\varphi(n)$। গুণফল-সূত্র থেকে এটি দ্রুত আসে, কারণ সহমৌলিক $m$ ও $n$-এর মৌলিক ভাজকগুলোর সেট আলাদা, তাই গুণফলগুলো সহজে গুণ হয়ে যায়। যেমন $\\varphi(105) = \\varphi(3 \\cdot 5 \\cdot 7) = \\varphi(3) \\varphi(5) \\varphi(7) = 2 \\cdot 4 \\cdot 6 = 48$, আর সত্যিই $105 \\cdot \\frac{2}{3} \\cdot \\frac{4}{5} \\cdot \\frac{6}{7} = 48$।</p>
+
+<h1 class="text-2xl font-bold mb-4">⧉ অয়লারের উপপাদ্য (Euler's Theorem)</h1>
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ বিবৃতি</h3>
+    <p class="font-medium">যদি $\\gcd(a, n) = 1$ এবং $n \\ge 1$, তাহলে</p>
+    <p class="font-medium text-center">$$a^{\\varphi(n)} \\equiv 1 \\pmod{n}$$</p>
+</div>
+<p>দেখো $n = p$ মৌলিক হলে কী হয়: $\\varphi(p) = p - 1$, আর অয়লারের উপপাদ্যটিও হয়ে যায় ঠিক ফার্মার ক্ষুদ্র উপপাদ্য। অর্থাৎ ফার্মারটা অয়লারের একটা বিশেষ ক্ষেত্র মাত্র— টোটিয়েন্ট ফাংশন ফার্মারের ফলাফলকে মৌলিক থেকে প্রতিটি মডুলাসে তুলে নিয়েছে। এই উপপাদ্যই RSA ও আধুনিক ক্রিপ্টোগ্রাফিকে সম্ভব করেছে।</p>
+
+<h3 class="font-semibold text-lg mb-4">প্রমাণ</h3>
+<p>$1$ থেকে $n$ পর্যন্ত $n$-এর সহমৌলিক সংখ্যাগুলো ধরা যাক $r_1, r_2, \\dots, r_{\\varphi(n)}$; এরা একসাথে গঠন করে <em>সংক্ষিপ্ত ভাগশেষ পদ্ধতি</em> (reduced residue system) মডুলো $n$। এখন $\\gcd(a, n) = 1$ এমন একটি $a$ দিয়ে প্রত্যেককে গুণ করো।</p>
+<ol class="list-decimal-bangla space-y-3 mb-8 pl-6">
+    <li>প্রতিটি গুণফল $a r_i$ আবারও $n$-এর সহমৌলিক, কারণ $a r_i$ ও $n$-এর কোনো সাধারণ ভাজক হলে সেটি $a r_i$-র কোনো উৎপাদককেও ভাগ করত; কিন্তু $a$ বা $r_i$-র কারও সঙ্গেই $n$-এর সাধারণ উৎপাদক নেই।</li>
+    <li>কোনো দুটি গুণফল পরস্পর সমগুণিতক নয়: $a r_i \\equiv a r_j \\pmod{n}$ হলে $n \\mid a (r_i - r_j)$; যেহেতু $\\gcd(a, n) = 1$, $a$ বাতিল করে পাই $n \\mid (r_i - r_j)$, যা বাধ্য করে $r_i = r_j$, অর্থাৎ $i = j$।</li>
+</ol>
+<p>এই দুইটি সত্য একসাথে বলে— $a$ দিয়ে গুণ করলে সংখ্যাগুলো শুধু <em>পুনর্বিন্যস্ত</em> হয়: $a r_1, \\dots, a r_{\\varphi(n)}$ তালিকাটি $r_1, \\dots, r_{\\varphi(n)}$-এরই তালিকা, শুধু ক্রম ভিন্ন হতে পারে। তাই দুই তালিকার সব সংখ্যার গুণফল সমান মডুলো $n$:</p>
+$$(a r_1)(a r_2) \\cdots (a r_{\\varphi(n)}) \\equiv r_1 r_2 \\cdots r_{\\varphi(n)} \\pmod{n}$$
+$$a^{\\varphi(n)} \\cdot P \\equiv P \\pmod{n}$$
+<p>যেখানে $P = r_1 r_2 \\cdots r_{\\varphi(n)}$</p>
+<p>প্রতিটি $r_i$ যেহেতু $n$-এর সহমৌলিক, তাদের গুণফল $P$-ও $n$-এর সহমৌলিক; তাই মডুলার অ্যারিথমেটিকের বাতিল নিয়মে দুই পাশ থেকে $P$ বাদ দেওয়া যায়। যা বাকি থাকে:</p>
+$$a^{\\varphi(n)} \\equiv 1 \\pmod{n}$$
+<p>∎</p>
+
+<div class="bg-gray-100 p-6 rounded-xl my-6">
+    <h3 class="font-semibold text-lg mb-4">⧉ উদাহরণ</h3>
+    <p>আগেই দেখেছি $\\varphi(12) = 4$ আর $\\gcd(5, 12) = 1$, তাই অয়লারের উপপাদ্য বলে $5^4 \\equiv 1 \\pmod{12}$। সত্যিই $5^4 = 625 = 52 \\cdot 12 + 1$।</p>
+</div>
+
+<h3 class="font-semibold text-lg mb-4">কীভাবে এটা RSA-কে শক্তি দেয়</h3>
+<p>এখানে জাদুটির মোটামুটি সংক্ষিপ্ত বিবরণ। দুটি বড় মৌলিক সংখ্যা $p$ ও $q$ বাছাই করে $n = p \\cdot q$ ধরো। তাহলে $\\varphi(n) = (p - 1)(q - 1)$। $\\varphi(n)$-এর সহমৌলিক এমন একটি $e$ বাছো এবং এমন $d$ বের করো যেন $e d \\equiv 1 \\pmod{\\varphi(n)}$ হয়। কোনো বার্তা $a$ সংখ্যা হলে $e$ ঘাতে তোলা মানে মডুলো $n$ এনক্রিপশন — আর যেহেতু $e d = 1 + t \\cdot \\varphi(n)$ (কোনো পূর্ণসংখ্যা $t$-এর জন্য), মূল গাণিতিক বৈশিষ্ট্যটি হলো</p>
+$$(a^e)^d = a^{e d} = a^{1 + t \\varphi(n)} = a \\cdot \\left(a^{\\varphi(n)}\\right)^t \\equiv a \\cdot 1^t \\equiv a \\pmod{n}$$
+<p>সুতরাং $d$ ঘাতে তোলা মডুলো $n$ এনক্রিপশনকে পুরোপুরি পূর্বাবস্থায় ফেরায়— আর শুধু $d$-এর মালিকই সেটি পারবে। অয়লারের উপপাদ্যই ইন্টারনেটে নিরাপদ যোগাযোগের গাণিতিক তালা (ও চাবি)।</p>
+
+<h1 class="text-2xl font-bold mb-4">⧉ উপসংহার (Conclusion)</h1>
+<p>সংখ্যাতত্ত্ব শুধু মুখস্থ করার বিষয় নয়, এটি যুক্তি চর্চার একটি দুর্দান্ত প্রশিক্ষণক্ষেত্র। মৌলিক সংখ্যার অসীমতা থেকে শুরু করে সিভ অফ ইরাটোস্থেনিস, চীনা ভাগশেষ উপপাদ্য থেকে অয়লারের উপপাদ্য পর্যন্ত— প্রতিটি ধাপই দেখায় কীভাবে সহজ ছোটো ধারণার ওপর দাঁড়িয়ে বিশাল গাণিতিক ভবন নির্মিত হয়।</p>
+<p>এই লেখায় আমরা যে উপপাদ্যগুলোর সঙ্গে পরিচিত হলাম— বেজুটের অভেদ, চীনা ভাগশেষ উপপাদ্য, অয়লারের টোটিয়েন্ট ফাংশন আর অয়লারের উপপাদ্য— এগুলো জাদুঘরের শোভা বর্ধনকারী নয়; ক্রিপ্টোগ্রাফি থেকে সংখ্যাতত্ত্বের অ্যালগরিদম পর্যন্ত এরা বাস্তব কম্পিউটার সিস্টেমের কাজের ইঞ্জিন।</p>
+<p>আরও একটি বিষয় সবসময় মনে রাখবে— খেলাধুলার মতোই বিভাজ্যতা, মডুলার অ্যারিথমেটিক ও মৌলিক সংখ্যা নিয়ে যত বেশি হাতেকলমে অনুশীলন করবে, গণিত অলিম্পিয়াডের সমস্যাগুলো তত সহজ লাগবে। বারবার সমস্যা সমাধান করাই এই শাখায় দক্ষ হওয়ার একমাত্র পথ।</p>`
 
 
 
-
-/*         আমরা সবাই মৌলিক সংখ্যার সাথে কমবেশি পরিচিত। শুরু করা যাক প্রচলিত সংজ্ঞাটি দিয়েই— যে সংখ্যাটির ১ এবং ওই সংখ্যাটি ব্যতীত অন্য কোনো উৎপাদক নেই সেটিই মৌলিক সংখ্যা। ৫ এর কথাই ধরা যাক, যাকে ৫ এবং ১ এই দুইটি সংখ্যা ব্যতীত আর কোনো পূর্ণসংখ্যা দ্বারা ভাগ করা যায় না। তাই ৫ একটি মৌলিক সংখ্যা। অন্যদিকে ৬-কে ১ এবং ৬ ছাড়াও ২ এবং ৩ দ্বারা ভাগ করা যায়, তাই এটি যৌগিক সংখ্যা। 
-            কিন্তু গণিতের এই অতি পরিচিত ‘মৌলিক সংখ্যা’ বা Prime Number নিয়ে একটু গভীরভাবে ভাবলে বেশ কিছু চমৎকার এবং রহস্যময় দিক উন্মোচিত হয়। চলুন আজ মৌলিক সংখ্যার জগৎটা একটু নতুন করে চেনা যাক।
-১ কেন মৌলিক সংখ্যা নয়?
-
-অনেকের মনেই প্রশ্ন জাগে, মৌলিক সংখ্যার সংজ্ঞা অনুযায়ী ১-এর তো ১ এবং ওই সংখ্যা (অর্থাৎ ১) ছাড়া কোনো উৎপাদক নেই, তাহলে ১ কেন মৌলিক সংখ্যা নয়?
-
-গণিতবিদরা ১-কে মৌলিক সংখ্যার দল থেকে বাদ দিয়েছেন একটি বিশেষ নিয়মের মর্যাদা রক্ষা করতে। নিয়মটি হলো পাটিগণিতের মৌলিক উপপাদ্য (Fundamental Theorem of Arithmetic)। এই উপপাদ্য অনুযায়ী:
-
-    ১ অপেক্ষা বড় যেকোনো পূর্ণসংখ্যাকে মৌলিক সংখ্যার গুণফল হিসেবে প্রকাশ করা যায় এবং এই প্রকাশ পদ্ধতিটি অনন্য (Unique)।
-
-যেমন: ১২=২×২×৩। এখন ১-কে যদি মৌলিক সংখ্যা ধরা হতো, তবে ১২-কে লেখা যেত:
-
-    ১২=২×২×৩×১
-
-    ১২=২×২×৩×১×১
-
-এভাবে অনন্যতার (Uniqueness) নিয়মটি ভেঙে যেত। তাই ১ মৌলিক বা যৌগিক কোনোটিই নয়, এটি একটি অনন্য সংখ্যা (Unique Number)।
-একমাত্র জোড় মৌলিক সংখ্যা
-
-মৌলিক সংখ্যার তালিকায় ২ হচ্ছে একমাত্র জোড় সংখ্যা। ২ ছাড়া পৃথিবীর আর কোনো জোড় সংখ্যা মৌলিক হতে পারে না, কারণ যেকোনো জোড় সংখ্যাকে ২ দ্বারা ভাগ করা সম্ভব। তাই ২-কে বলা হয় সবচেয়ে ছোট এবং একমাত্র জোড় মৌলিক সংখ্যা।
-মৌলিক সংখ্যা কি অসীম?
-
-হ্যাঁ, মৌলিক সংখ্যা অসীম। আজ থেকে প্রায় ২৩০০ বছর আগে গ্রিক গণিতবিদ ইউক্লিড প্রমাণ করে গেছেন যে মৌলিক সংখ্যার কোনো শেষ নেই। আপনি যত বড় সংখ্যার দিকেই যান না কেন, মৌলিক সংখ্যা পাওয়া বন্ধ হবে না।
-
-তবে সংখ্যার মান যত বাড়তে থাকে, মৌলিক সংখ্যা পাওয়ার ঘনত্ব তত কমতে থাকে। যেমন:
-
-    ১ থেকে ১০০-এর মধ্যে মৌলিক সংখ্যা আছে ২৫টি।
-
-    ১০১ থেকে ২০০-এর মধ্যে আছে ২১টি।
-
-    বড় সংখ্যার দিকে গেলে দুটি মৌলিক সংখ্যার মধ্যকার দূরত্ব কোটি কোটি ছাড়িয়ে যেতে পারে।
-
-আধুনিক বিশ্বে মৌলিক সংখ্যার ম্যাজিক: সাইবার নিরাপত্তা
-
-আপনার মনে হতে পারে, এই মৌলিক সংখ্যা দিয়ে বাস্তব জীবনে কী কাজ হয়? উত্তর হলো— আপনি যখন অনলাইনে কোনো পাসওয়ার্ড দেন, ক্রেডিট কার্ড দিয়ে কেনাকাটা করেন বা হোয়াটসঅ্যাপে মেসেজ পাঠান, তখন পর্দার আড়ালে আপনার তথ্য সুরক্ষিত রাখে এই মৌলিক সংখ্যা!
-
-আধুনিক কম্পিউটার নিরাপত্তায় RSA এনক্রিপশন নামক একটি পদ্ধতি ব্যবহার করা হয়। এই পদ্ধতিতে দুটি বিশাল (ধরা যাক, শত অঙ্কের বড়) মৌলিক সংখ্যা গুণ করে একটি পাবলিক কি (Public Key) তৈরি করা হয়।
-
-    দুটি বড় মৌলিক সংখ্যা গুণ করা কম্পিউটারের জন্য চোখের পলকের কাজ।
-
-    কিন্তু সেই গুণফলটি ভেঙে মূল মৌলিক সংখ্যা দুটি খুঁজে বের করা বিশ্বের সবচেয়ে শক্তিশালী সুপারকম্পিউটারের জন্যও শত বছরের ব্যাপার। */
 
         }
     },
@@ -812,12 +2029,12 @@ $$\\therefore \\gcd(252, 105) = 21$$
    },
    role: { en: "President", bn: "সভাপতি" },
    date: {
-       en: "March 28, 2026",
-       bn: "২৮ মার্চ, ২০২৬"
+       en: "Jun 28, 2026",
+       bn: "২৮ জুন, ২০২৬"
    },
    readTime: {
-       en: "6 min read",
-       bn: "৬ মিনিট পাঠ"
+       en: "18 min read",
+       bn: "১৮ মিনিট পাঠ"
    },
    desc: {
        en: "Can you really count?",
@@ -850,7 +2067,7 @@ $$\\therefore \\gcd(252, 105) = 21$$
            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">মৌলিক নীতিসমূহ</h2>
           
            <div class="bg-gray-100 p-6 rounded-xl my-6">
-               <p class="font-semibold mb-2">১. যোগ নীতি (Multiplication Principle)</p>
+               <p class="font-semibold mb-2">১. যোগ নীতি (Addition Principle)</p>
                <p>প্রতিযোগিতার ১ম নিয়মানুযায়ী দুটো দল থেকে যেকোনো একজন সেরা খেলোয়াড় বের হয়ে আসবে (তার দল জিতলেও কিংবা হারলেও)। যেহেতু সেরা খেলোয়াড় দুটো দলের প্রতিটি সদস্যের যে কেউ হতে পারে তাই ১০ + ১০ = ২০ উপায়ে সেরা খেলোয়াড় পাওয়া যেতে পারে। গাণিতিকভাবে, $m$ সংখ্যক সদস্যবিশিষ্ট $A$ দল এবং $n$ সংখ্যক সদস্যবিশিষ্ট $B$ দল থেকে যেকোনো একজন সেরা খেলোয়াড় পাওয়া যেতে পারে $m + n$ উপায়ে ($A$ অথবা $B$ দল উভয় থেকেই)।</p>
                <p>উদাহরণঃ $m$ প্রকার মাছের তরকারি এবং $n$ প্রকার মাংসের তরকারি থেকে একটি মাছের তরকারি অথবা একটি মাংসের তরকারি খাওয়া যেতে পারে $m + n$ উপায়ে।</p>
            </div>
@@ -903,6 +2120,135 @@ $$\\therefore \\gcd(252, 105) = 21$$
              <p>$$ P(n, r) = \\frac{n!}{(n - r)!} $$ — nটি জিনিস থেকে rটি সাজানোর উপায়।</p>
             </div>
 
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">৬. সমাবেশ (Combination)</p>
+                <p>আমাদের গল্পের শুরুতে ফিরে যাই। প্রথম সমস্যাটি ছিল—১০ জন ছাত্র থেকে ৩ জনকে বাছাই করে "বিজয়ী দল" কতভাবে গঠন করা যায়, আর তোমার হিসাব মতে সেটি ১২০। কিন্তু দ্বিতীয় সমস্যাটি ছিল—ঐ ৩ জনকে প্রথম, দ্বিতীয় ও তৃতীয় ক্রমে সাজালে কতভাবে সাজানো যায়, আর সেটি ৭২০।</p>
+                <p>মূল পার্থক্যটা কোথায়? প্রথম ক্ষেত্রে আমরা শুধু <b>নির্বাচন</b> করেছি—<b>ক্রম গুরুত্বপূর্ণ ছিল না</b>। দ্বিতীয় ক্ষেত্রে <b>ক্রম গুরুত্বপূর্ণ ছিল</b>। বিন্যাসে (Permutation) ক্রম গুরুত্বপূর্ণ, তাই $P(n, r) = \\frac{n!}{(n - r)!}$। কিন্তু যখন ক্রম গুরুত্বপূর্ণ নয়, শুধু নির্বাচনই আসল, তখন সেটাকে বলা হয় সমাবেশ (Combination):</p>
+                <p>$$C(n, r) = \\frac{n!}{r!(n - r)!}$$ — $n$ টি জিনিস থেকে $r$ টি জিনিস বাছাই করার সংখ্যা (ক্রম ছাড়া)।</p>
+                <p>এবার ধরো, ১০ জন থেকে ৩ জন বাছাই:<br>
+                $$C(10, 3) = \\frac{10!}{3! \\times (10 - 3)!} = \\frac{10!}{3! \\times 7!} = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120$$</p>
+                <p>ঠিক তোমার হাতে-গোনা ১২০! আর বিন্যাস ছিল $P(10, 3) = \\frac{10!}{7!} = 10 \\times 9 \\times 8 = 720$। লক্ষ করো, $C(10, 3) = \\frac{P(10, 3)}{3!}$। কারণ নির্বাচিত ৩ জনকে নিজেদের মধ্যে $3! = 6$ উপায়ে সাজানো যায়, আর নির্বাচনে সেই ক্রম বাদ দিতে $3!$ দিয়ে ভাগ করে দেওয়াই হয়।</p>
+            </div>
+
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">গভীরতর টুলবক্স</h2>
+            <p class="mb-6">উপরে শেখা দুই নীতি—সংযোজন নীতি (Addition Principle) আর গুণন নীতি (Multiplication Principle)—হলো গণনার যমজ ইঞ্জিন, আর তাদেরই উপরে দাঁড়িয়ে আছে ফ্যাক্টোরিয়াল, বিন্যাস ও সমাবেশের সূত্রগুলো। এই অংশে আমরা টুলবক্স থেকে আরও সাতটি হাতিয়ার বের করবো। প্রতিটির পেছনেই থাকবে পূর্ণাঙ্গ যুক্তি (derivation)—কারণ যে সূত্র ঘুরেফিরে নিজে নিজে তৈরি করে ফেলা যায়, সেই সূত্র কোথাও ব্যবহার করতেই ভয় নেই।</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">প্যাসকেলের অভেদ ও প্যাসকেলের ত্রিভুজ</h2>
+            <p class="mb-6">ছোট্ট একটি সারণি দেখো। নিচের প্রতিটি সারিতে $C(n, 0), C(n, 1), \\dots, C(n, n)$ এর মান রাখা হয়েছে $n = 0, 1, 2, \\dots$ এর জন্য।</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-mono text-sm">n = 0:&nbsp;&nbsp;1<br>
+n = 1:&nbsp;&nbsp;1&nbsp;&nbsp;1<br>
+n = 2:&nbsp;&nbsp;1&nbsp;&nbsp;2&nbsp;&nbsp;1<br>
+n = 3:&nbsp;&nbsp;1&nbsp;&nbsp;3&nbsp;&nbsp;3&nbsp;&nbsp;1<br>
+n = 4:&nbsp;&nbsp;1&nbsp;&nbsp;4&nbsp;&nbsp;6&nbsp;&nbsp;4&nbsp;&nbsp;1</p>
+            </div>
+            <p class="mb-6">খেয়াল করো, ভেতরের প্রতিটি সংখ্যা তার ঠিক উপরের দুটি সংখ্যার যোগফল। এটি নিছক কাকতালীয় নয়, এটি একটি উপপাদ্য:</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">প্যাসকেলের অভেদ</p>
+                <p>$$C(n, k) = C(n - 1, k - 1) + C(n - 1, k)$$</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+                <h3 class="font-semibold text-lg mb-4">প্রমাণ (সমাবেশগত)</h3>
+                <p class="mb-4">$n$ টি বস্তুর মধ্যে একটি নির্দিষ্ট বস্তুকে $O$ ধরা যাক। $k$ সদস্যের উপসেটগুলোকে দুইটি বিচ্ছিন্ন দলে ভাগ করে তাদের সংখ্যা গুনি।</p>
+                <ul class="list-disc pl-6 space-y-3 mb-4">
+                    <li><strong>যে উপসেটগুলোতে $O$ আছে:</strong> বাকি $k - 1$ জনকে বাকি $n - 1$ টি বস্তু থেকে বাছতে হবে, ফলে $C(n - 1, k - 1)$ টি উপসেট।</li>
+                    <li><strong>যে উপসেটগুলোতে $O$ নেই:</strong> সব $k$ জনকেই বাকি $n - 1$ টি বস্তু থেকে বাছতে হবে, ফলে $C(n - 1, k)$ টি উপসেট।</li>
+                </ul>
+                <p>প্রতিটি $k$ সদস্যের উপসেট ঠিক একটি দলের অন্তর্ভুক্ত, তাই দুই দলের গণনা যোগ হয়ে মোটটা দাঁড়ায়: $C(n, k) = C(n - 1, k - 1) + C(n - 1, k)$। এ কারণেই ত্রিভুজটা এভাবে বাড়তে থাকে। (প্রমাণিত)</p>
+            </div>
+            <p class="mb-6">এই অভেদের সাহায্যে প্যাসকেলের ত্রিভুজের যেকোনো ঘর শুধু যোগ করেই বের করা যায়—প্রান্তের $1$ গুলো থেকে শুরু করে। ফ্যাক্টোরিয়ালের সূত্রও সবসময় একই ফল দেয়। যেমন $C(10, 4) = \\frac{10!}{4!\\,6!} = 210$, আর ত্রিভুজ ধরে ধরে যোগ করতে করতেও শেষে হুবহু $210$ এসে দাঁড়ায়।</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">দ্বিপদী উপপাদ্য (Binomial Theorem)</h2>
+            <p class="mb-6">$(x + y)^n$ কে পুরোপুরি বিস্তার করে একই ঘাতের পদগুলো মিলালে কী পাওয়া যায়? প্রথমে সবচেয়ে ছোট ঘাতগুলো দিয়ে পরীক্ষা করে দেখি।</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p>$$(x + y)^2 = x^2 + 2xy + y^2$$</p>
+                <p>$$(x + y)^3 = x^3 + 3x^2 y + 3x y^2 + y^3$$</p>
+            </div>
+            <p class="mb-6">সহগগুলো $1, 2, 1$ আর $1, 3, 3, 1$—ঠিক প্যাসকেলের ত্রিভুজের একই সারি! এই নিদর্শনটিই বিখ্যাত <strong>দ্বিপদী উপপাদ্য</strong>:</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">দ্বিপদী উপপাদ্য</p>
+                <p>$$(x + y)^n = \\sum_{k=0}^{n} C(n, k)\\, x^{n-k} y^k$$</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+                <h3 class="font-semibold text-lg mb-4">প্রমাণ (পদ গণনা করে)</h3>
+                <p class="mb-4">$(x + y)^n$ বিস্তার মানে হলো সেটিকে $(x + y)(x + y) \\cdots (x + y)$ আকারে $n$ টি বন্ধনী লিখে প্রতিটি বন্ধনী থেকে ঠিক একটি উৎপাদক—সেটির $x$ না হয় $y$—বেছে নিয়ে গুণ করা। $x^{n-k} y^k$ আকারের একটি পদ তখনই পাওয়া যায়, যখন ঠিক $k$ টি বন্ধনী থেকে $y$ বাছা হয়।</p>
+                <p class="mb-4">ওই $k$ টি বন্ধনী কতভাবে বাছা যায়? সেটা হলো $n$ টি বন্ধনী থেকে $k$ সদস্যের উপসেট বাছাই, অর্থাৎ $C(n, k)$। যেহেতু ভিন্ন $k$ ভিন্ন ঘাতের পদ তৈরি করে, তাই দলগুলোর মধ্যে ছেদ নেই এবং সেগুলো বিনা বাধায় যোগ হয়ে যায়। অতএব $(x + y)^n = \\sum_{k=0}^{n} C(n, k)\\, x^{n-k} y^k$। (প্রমাণিত)</p>
+            </div>
+            <p class="mb-6"><strong>উদাহরণ।</strong> $(a + b)^4 = a^4 + 4a^3 b + 6a^2 b^2 + 4a b^3 + b^4$। প্যাসকেলের সারি $1, 4, 6, 4, 1$ এর সাথে মিলিয়ে দেখো।</p>
+            <p class="mb-6">উপপাদ্যটি সঙ্গে সঙ্গে ফল দেয়। $x = y = 1$ বসালে পাওয়া যায় $\\sum_{k=0}^{n} C(n,k) = 2^n$: অর্থাৎ $n$ উপাদানের একটি সেটের ঠিক $2^n$ টি উপসেট আছে। আর $x = 1, y = -1$ বসালে পাওয়া যায় $0 = \\sum_{k=0}^{n} (-1)^k C(n, k)$, অর্থাৎ জোড় আকারের ও বিজোড় আকারের উপসেট সংখ্যা সমান।</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">পুনরাবৃত্তিসহ বিন্যাস</h2>
+            <p class="mb-6">এ পর্যন্ত আমরা যত সাজানো করেছি, প্রতিটি বস্তুই ছিল আলাদা। কিন্তু বাস্তব সমস্যায় অভিন্ন বস্তুও জুটে যায়—MISSISSIPPI শব্দের অক্ষরগুলোর কথা ভাবো, কিংবা বাক্সে রাখা অভিন্ন বলের কথা। অভিন্ন বস্তু পরস্পরের সাথে অদলবদল করলে সাজানোটা বদলায় না, তাই সেই অতিগণনা (overcounting) বাদ দিতে হবে।</p>
+            <p class="mb-6">ধরো, $n$ টি বস্তু সাজাতে হবে, যেখানে $n_1$ টি প্রথম প্রকারের অভিন্ন অনুলিপি, $n_2$ টি দ্বিতীয় প্রকারের অভিন্ন অনুলিপি, ... এবং $n_k$ টি $k$তম প্রকারের অভিন্ন অনুলিপি, যেখানে $n_1 + n_2 + \\cdots + n_k = n$। বস্তুগুলো যদি সব আলাদা হতো, সাজানোর উপায় হতো $n!$। কিন্তু $n_1$ টি অভিন্ন বস্তু নিজেদের মধ্যে $n_1!$ উপায়ে ঘুরিয়ে দিলেও সাজানো একই থাকে, তাই প্রতিটি ফ্যাক্টোরিয়াল দিয়ে ভাগ করতে হয়:</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">সূত্র (পুনরাবৃত্তিসহ বিন্যাস)</p>
+                <p>$$\\frac{n!}{n_1!\\, n_2! \\cdots n_k!}$$</p>
+            </div>
+            <p class="mb-6"><strong>উদাহরণ।</strong> MISSISSIPPI শব্দের অক্ষরগুলো কতভাবে পুনর্বিন্যাস করা যায়? শব্দটিতে $11$ টি অক্ষর: $M$ একবার, $I$ চারবার, $S$ চারবার এবং $P$ দুইবার। উত্তর হলো</p>
+            <p>$$\\frac{11!}{1!\\, 4!\\, 4!\\, 2!} = \\frac{39916800}{1152} = 34650.$$</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">বৃত্তীয় বিন্যাস (Circular Permutation)</h2>
+            <p class="mb-6">এতক্ষণ আমরা বস্তুগুলো সারিবদ্ধভাবে সাজিয়েছি, যেখানে প্রথম আসন আর শেষ আসন পরিষ্কার ভিন্ন। কিন্তু বৃত্তাকার টেবিলে কোনো "প্রথম" আসন নেই: শুধু লোকদের পাশাপাশি বসার বৃত্তাকার ক্রমটাই আসল। আর সবাইকে এক ঘর ঘড়ির কাঁটার দিকে ঘুরিয়ে দিলে যে সাজানো পাওয়া যায়, তাকে আমরা একই সাজানো ধরি।</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">সূত্র (বৃত্তীয় বিন্যাস)</p>
+                <p>$$(n - 1)!$$</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+                <h3 class="font-semibold text-lg mb-4">যুক্তি</h3>
+                <p class="mb-4">সারিবদ্ধ সাজানোতে $n!$ উপায়ই সত্যি ভিন্ন। কিন্তু বৃত্তে ঘূর্ণন প্রতিসাম্য আছে: সবাইকে এক ঘর ঘড়ির কাঁটার দিকে (কিংবা দুই ঘর, তিন ঘর, $\\dots$) সরালে আপেক্ষিক ক্রম অপরিবর্তিত থাকে। তাই $n!$ টি সারিবদ্ধ সাজানো, প্রতিটিতে $n$ টি ঘূর্ণন করে, একই বৃত্তীয় সাজানোর দলে জমা হয়। ঘূর্ণন দিয়ে ভাগ করলেই আসল সংখ্যা পাওয়া যায়:</p>
+                <p>$$\\frac{n!}{n} = (n - 1)!.$$</p>
+                <p class="mt-4">অন্যভাবে ভাবো: প্রথমে একজনকে তার আসনে বসিয়ে দাও—এতে প্রতিসাম্য ভেঙে যায়। বাকি $n - 1$ জনকে অবশিষ্ট $n - 1$ টি আসনে সাজানো যায় $(n - 1)!$ উপায়ে। (প্রমাণিত)</p>
+            </div>
+            <p class="mb-6"><strong>উদাহরণ।</strong> বৃত্তাকার ডিনার টেবিলে ছয় বন্ধু: $(6 - 1)! = 5! = 120$ টি সাজানো। কিন্তু যদি বস্তুগুলো পুঁতির মালার মতো হয়, যেখানে মালাটি উল্টে দিলেও (আয়নার প্রতিসাম্য) একই সাজানো হয়, তবে সংখ্যাটি আবার অর্ধেক হয়ে $5!/2 = 60$ হয়।</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">তারা ও দণ্ড (Stars and Bars)</h2>
+            <p class="mb-6">সংখ্যাতত্ত্বে ঘুরেফিরে একটি প্রশ্ন আসে: একটি অঋণাত্মক পূর্ণসংখ্যা $n$ কে $k$ টি অঋণাত্মক পূর্ণসংখ্যার ক্রমিক সমষ্টি হিসেবে কতভাবে লেখা যায়? অর্থাৎ $(x_1, x_2, \\dots, x_k)$ এর কতগুলো অঋণাত্মক পূর্ণসাংখ্যিক সমাধান আছে সেই সমীকরণটিতে:</p>
+            <p>$$x_1 + x_2 + \\cdots + x_k = n?$$</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">তারা ও দণ্ডের সূত্র</p>
+                <p>$$\\text{number of nonnegative solutions } = C(n + k - 1, k - 1)$$</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+                <h3 class="font-semibold text-lg mb-4">প্রমাণ (দৃষ্টিসম্বন্ধীয় কৌশল)</h3>
+                <p class="mb-4">একটি সমাধানকে এভাবে আঁকো: $n$ টি অভিন্ন তারা সারিবদ্ধ লিখো, তারপর সেগুলোকে $k$ টি দলে ভাগ করতে $k - 1$ টি উল্লম্ব দণ্ড (ঝুঁকি) বসাও। প্রথম দণ্ডের আগে যতগুলো তারা, সেটাই $x_1$; প্রথম ও দ্বিতীয় দণ্ডের মাঝে যতগুলো, সেটাই $x_2$; ... আর শেষ দণ্ডের পরে যেগুলো থাকে, সেগুলো $x_k$। দণ্ডগুলোকে পাশাপাশিও বসানো যায়, ফলে শূন্য দলও বৈধ।</p>
+                <p class="mb-4">উদাহরণস্বরূপ, $n = 6$ এবং $k = 4$ হলে সমাধান $(2, 0, 3, 1)$ কে আঁকা যায়:</p>
+                <p>$$\\star \\star \\;\\; | \\;\\; | \\;\\; \\star \\star \\star \\;\\; | \\;\\; \\star$$</p>
+                <p class="mt-4">$n$ টি তারার ও $k - 1$ টি দণ্ডের প্রতিটি বিন্যাস ঠিক একটি সমাধানের সাথে মেলে, আর প্রতিটি সমাধান ঠিক একটি বিন্যাসের সাথে মেলে। তাহলে শুধু হিসাব করতে হবে: $n$ টি অভিন্ন তারা ও $k - 1$ টি অভিন্ন দণ্ড কতভাবে সাজানো যায়। মোট $n + k - 1$ টি অবস্থান থেকে $k - 1$ টি অবস্থানে দণ্ড বসাও, সেটাই $C(n + k - 1, k - 1)$। (প্রমাণিত)</p>
+            </div>
+            <p class="mb-6"><strong>উদাহরণ ১।</strong> ১০ টি অভিন্ন বলকে ৪ টি আলাদা বাক্সে ভাগ করাই হলো $x_1 + x_2 + x_3 + x_4 = 10$ এর অঋণাত্মক সমাধান: $C(10 + 4 - 1, 4 - 1) = C(13, 3) = 286$ টি উপায়।</p>
+            <p class="mb-6"><strong>উদাহরণ ২।</strong> $x_1 + x_2 + x_3 = 20$ এর ধনাত্মক সমাধান চাইলে $y_i = x_i - 1 \\geq 0$ বসাও; সমীকরণ দাঁড়ায় $y_1 + y_2 + y_3 = 17$, ফলে $C(17 + 3 - 1, 3 - 1) = C(19, 2) = 171$ টি ধনাত্মক সমাধান।</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">অন্তর্ভুক্তি–বর্জন নীতি (Inclusion–Exclusion)</h2>
+            <p class="mb-6">সংযোজন নীতি তখনই ভঙ্গুর, যখন সেটগুলোর মধ্যে ছেদ (overlap) থাকে—নিষ্পাপ যোগফলে ওই এলাকা গুণে দুইবার চলে আসে। অন্তর্ভুক্তি–বর্জন নীতি এই দুর্বলতা সেরে তোলে: আগে প্রতিটি সেটের আকার যোগ করো, তারপর জোড়ায় জোড়ায় ছেদ বাদ দাও, তারপর ত্রয়ী ছেদ আবার যোগ করো—এভাবে চিহ্ন উল্টে উল্টে শেষ পর্যন্ত যাও।</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">অন্তর্ভুক্তি–বর্জন (দুই ও তিন সেটের জন্য)</p>
+                <p>$$|A \\cup B| = |A| + |B| - |A \\cap B|$$</p>
+                <p>$$|A \\cup B \\cup C| = |A| + |B| + |C| - |A \\cap B| - |A \\cap C| - |B \\cap C| + |A \\cap B \\cap C|$$</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+                <h3 class="font-semibold text-lg mb-4">কেন কাজ করে (প্রতিটি উপাদান একবার করে গুনি)</h3>
+                <p class="mb-4">সংযোজনের প্রেক্ষাপটে যেকোনো একটি উপাদান $x$ নাও এবং জিজ্ঞেস করো, পর্যায়ক্রমিক যোগফলে সেটি কতবার গুণতে হবে। $x$ যদি ঠিক একটি সেটে থাকে, তবে যোগফলে এটি $1$ বার গুণত হয়। ঠিক দুই সেটে থাকলে—একক সেটের পদে $2$ বার যোগ হলো, আবার জোড়া ছেদের বাদে $1$ বার কেটে গেল: $2 - 1 = 1$। তিনটি সেটেই থাকলে $3 - 3 + 1 = 1$। অর্থাৎ সংঘের প্রতিটি উপাদান ঠিক একবারই গুণত হয়, আর সংঘের বাইরের উপাদান কোনো খাতায় আসেই না। এটি-ই তো সংঘের আকারের সংজ্ঞা। (প্রমাণিত)</p>
+            </div>
+            <p class="mb-6"><strong>উদাহরণ।</strong> $1$ থেকে $100$ পর্যন্ত কতগুলো পূর্ণসংখ্যা $3$ অথবা $5$ দিয়ে বিভাজ্য? $A$ কে $3$ এর গুণিতক ধরি, $|A| = 33$; $B$ কে $5$ এর গুণিতক ধরি, $|B| = 20$। ছেদ হলো $15$ এর গুণিতক, যাদের সংখ্যা $|A \\cap B| = 6$। অন্তর্ভুক্তি–বর্জনে: $33 + 20 - 6 = 47$।</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">ক্রমচ্যুতি (Derangement): যখন কেউ নিজের জায়গায় থাকে না</h2>
+            <p class="mb-6">একটি ক্লাসিক সমস্যা। এক পার্টিতে $n$ জন অতিথি তাদের টুপি পরিচারকের কাছে গচ্ছিত রাখলেন। শেষে পরিচারক সম্পূর্ণ এলোমেলোভাবে টুপিগুলো ফেরত দিলেন। কত প্রকারে ফেরত দেওয়া যায় যেন কোনো অতিথিই নিজের টুপি না পান? এমন বিন্যাসকেই বলা হয় <strong>ক্রমচ্যুতি</strong> (derangement)—যেসব বিন্যাসে কোনো উপাদান নিজের জায়গায় স্থির থাকে না—এবং এর সংখ্যা লেখা হয় $!n$।</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">সূত্র (ক্রমচ্যুতি)</p>
+                <p>$$!n = n! \\sum_{k=0}^{n} \\frac{(-1)^k}{k!}$$</p>
+                <p class="mt-2">উদাহরণস্বরূপ: $!3 = 6\\left(1 - 1 + \\frac{1}{2} - \\frac{1}{6}\\right) = 2$, এবং $!4 = 24\\left(1 - 1 + \\frac{1}{2} - \\frac{1}{6} + \\frac{1}{24}\\right) = 9$।</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+                <h3 class="font-semibold text-lg mb-4">প্রমাণ (অন্তর্ভুক্তি–বর্জন দিয়ে)</h3>
+                <p class="mb-4">সবগুলো $n!$ বিন্যাস দিয়ে শুরু করো, তারপর অন্তত একটি উপাদানকে স্থির রাখে এমন বিন্যাসগুলো বাদ দাও। $A_i$ ধরা যাক সেই সব বিন্যাসের সেট, যেখানে উপাদান $i$ নিজের জায়গায় স্থির থাকে। $n$ টি সেট $A_1, A_2, \\dots, A_n$-এর উপর অন্তর্ভুক্তি–বর্জন প্রয়োগ করি:</p>
+                <p class="mb-4">নির্দিষ্ট $k$ টি উপাদানকে স্থির রাখে এমন বিন্যাস গণনা করতে ওই $k$ টিকে পিন করে দাও আর বাকি $n - k$ টিকে স্বাধীনভাবে ঘোরাও, ফলে $(n - k)!$ টি বিন্যাস। কোন $k$ টি উপাদান স্থির হবে তা বাছা যায় $\\binom{n}{k}$ উপায়ে, তাই সব $k$-ঘাত ছেদের মোট অবদান $\\binom{n}{k}(n - k)! = \\frac{n!}{k!}$। অন্তর্ভুক্তি–বর্জন তাই দেয়</p>
+                <p>$$!n = n! - \\frac{n!}{1!} + \\frac{n!}{2!} - \\frac{n!}{3!} + \\cdots + (-1)^n \\frac{n!}{n!} = n! \\sum_{k=0}^{n} \\frac{(-1)^k}{k!},$$</p>
+                <p class="mt-4">যা দাবি করা সূত্রটির হুবহু রূপ। (প্রমাণিত)</p>
+            </div>
+            <p class="mb-6"><strong>উদাহরণ।</strong> ৪ জন অতিথি থাকলে $!4 = 9$ টি উপায়ে টুপি বদলানো যায় যেন কেউ নিজের টুপি না পান—মোট $4! = 24$ টি উপায়ের মধ্যে, অর্থাৎ সম্ভাবনা $9/24 = 3/8$। একটা চমকপ্রদ সত্য: $n$ বড় হতে হতে এই সম্ভাবনা $1/e \\approx 0.3679$ এর কাছে পৌঁছে যায়। তাই খাতা সম্পূর্ণ এলোমেলো করে ফেরত দিলেও প্রায় $37\\%$ সময় ঠিক কেউ করেই নিজের খাতা ফিরে পায় না!</p>
+
+
            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">পায়রার খোপ নীতি (Pigeonhole Principle)</h2>
            <p class="mb-6">যদি পায়রার সংখ্যা খোপের চেয়ে বেশি হয়, তাহলে অন্তত একটি খোপে দুইয়ের বেশি পায়রা থাকবে।</p>
            <p class="mb-6">উদাহরণ: ৩৬৭ জন মানুষের মধ্যে অন্তত দু’জনের জন্মদিন একই দিনে পড়বে।</p>
@@ -924,7 +2270,6 @@ $$\\therefore \\gcd(252, 105) = 21$$
 
            <p class="text-slate-700">আমাদের ম্যাথ ক্লাবে আমরা নিয়মিত কম্বিনেটরিক্সের সমস্যা নিয়ে আলোচনা করি। তুমিও তোমার প্রিয় কম্বিনেটরিক্স সমস্যাটি পরবর্তী মিটিংয়ে শেয়ার করো!</p>
        `
-       //<p>$$ C(n, r) = \\frac{n!}{r!(n - r)!} $$ — ক্রম ছাড়া নির্বাচনের সংখ্যা।</p>
        ,
        en: `
        <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">What is Combinatorics?</h2>
@@ -991,6 +2336,140 @@ $$\\therefore \\gcd(252, 105) = 21$$
     <img src="./assets/articles/factorial.jpg" alt="Factorial Arrangement" style="display: block; margin-left: auto; margin-right: auto; width: 500px; height: auto;">
 </div>
 
+           <div class="bg-gray-100 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">Permutation Formula</p>
+             <p>$$ P(n, r) = \\frac{n!}{(n - r)!} $$ — the number of ways to arrange $r$ items out of $n$.</p>
+           </div>
+
+           <div class="bg-gray-100 p-6 rounded-xl my-6">
+               <p class="font-semibold mb-2">4. Combination</p>
+               <p>Let us return to the very beginning of our story. The first problem was—in how many ways can a winning group of $3$ be formed from $10$ students? Your calculation gave 120. But the second problem was—in how many ways can those 3 winners be arranged in 1st, 2nd and 3rd positions? That gave 720.</p>
+               <p>What exactly is the difference? In the first case we only did a <b>selection</b>—<b>order did not matter</b>. In the second case <b>order mattered</b>. In a permutation order matters, hence $P(n, r) = \\frac{n!}{(n - r)!}$. But when order does not matter and only selection counts, it is called a combination:</p>
+               <p>$$C(n, r) = \\frac{n!}{r!(n - r)!}$$ — the number of ways to choose $r$ items out of $n$ (without order).</p>
+               <p>Now let us choose 3 out of 10:<br>
+               $$C(10, 3) = \\frac{10!}{3! \\times (10 - 3)!} = \\frac{10!}{3! \\times 7!} = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120$$</p>
+               <p>Exactly the 120 you counted by hand! And the permutation was $P(10, 3) = \\frac{10!}{7!} = 10 \\times 9 \\times 8 = 720$. Notice that $C(10, 3) = \\frac{P(10, 3)}{3!}$, because the 3 chosen students can be arranged among themselves in $3! = 6$ ways, and to drop that order in selection we simply divide by $3!$.</p>
+           </div>
+
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Deeper Into the Toolbox</h2>
+            <p class="mb-6">The two fundamental principles — addition and multiplication — are the twin engines of counting, and the factorial, permutation, and combination formulas built on top give us our first set of calibrated tools. In this section we pull seven more tools out of the box. Each one earns its place with a full derivation rather than a hand-wavy leap, because a formula you can rebuild from scratch is a formula you can trust anywhere.</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Pascal's Identity and Pascal's Triangle</h2>
+            <p class="mb-6">Look at a small table of combinations. The rows below list $C(n, 0), C(n, 1), \\dots, C(n, n)$ for $n = 0, 1, 2, \\dots$.</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-mono text-sm">n = 0:&nbsp;&nbsp;1<br>
+n = 1:&nbsp;&nbsp;1&nbsp;&nbsp;1<br>
+n = 2:&nbsp;&nbsp;1&nbsp;&nbsp;2&nbsp;&nbsp;1<br>
+n = 3:&nbsp;&nbsp;1&nbsp;&nbsp;3&nbsp;&nbsp;3&nbsp;&nbsp;1<br>
+n = 4:&nbsp;&nbsp;1&nbsp;&nbsp;4&nbsp;&nbsp;6&nbsp;&nbsp;4&nbsp;&nbsp;1</p>
+            </div>
+            <p class="mb-6">Each interior entry is the sum of the two entries diagonally above it. That is a theorem, not an accident:</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">Pascal's Identity</p>
+                <p>$$C(n, k) = C(n - 1, k - 1) + C(n - 1, k)$$</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+                <h3 class="font-semibold text-lg mb-4">Proof (Combinatorial)</h3>
+                <p class="mb-4">Fix one particular object, call it $O$, among the $n$ objects. Count the $k$-element subsets by splitting them into two disjoint families.</p>
+                <ul class="list-disc pl-6 space-y-3 mb-4">
+                    <li><strong>Subsets that contain $O$:</strong> the remaining $k - 1$ members must be chosen from the other $n - 1$ objects, giving $C(n - 1, k - 1)$ subsets.</li>
+                    <li><strong>Subsets that do not contain $O$:</strong> all $k$ members come from the other $n - 1$ objects, giving $C(n - 1, k)$ subsets.</li>
+                </ul>
+                <p>Every $k$-element subset falls into exactly one of these two groups, so the counts must add up to the total: $C(n, k) = C(n - 1, k - 1) + C(n - 1, k)$. This also explains why the triangle grows the way it does. (QED)</p>
+            </div>
+            <p class="mb-6">The identity lets us compute any entry of Pascal's Triangle purely by addition, starting from the boundary $1$'s; the factorial formula always agrees. For example $C(10, 4) = \\frac{10!}{4!\\,6!} = 210$, and building the same value by repeated addition through the triangle arrives at exactly $210$.</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">The Binomial Theorem</h2>
+            <p class="mb-6">What does $(x + y)^n$ become once we expand it fully and collect like terms? Experiment with the smallest cases first.</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p>$$(x + y)^2 = x^2 + 2xy + y^2$$</p>
+                <p>$$(x + y)^3 = x^3 + 3x^2 y + 3x y^2 + y^3$$</p>
+            </div>
+            <p class="mb-6">The coefficients $1, 2, 1$ and $1, 3, 3, 1$ are exactly the matching rows of Pascal's Triangle. This pattern is the celebrated <strong>Binomial Theorem</strong>:</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">Binomial Theorem</p>
+                <p>$$(x + y)^n = \\sum_{k=0}^{n} C(n, k)\\, x^{n-k} y^k$$</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+                <h3 class="font-semibold text-lg mb-4">Proof (Counting the Terms)</h3>
+                <p class="mb-4">Expanding $(x + y)^n$ means writing it as $(x + y)(x + y) \\cdots (x + y)$ with $n$ brackets, then choosing exactly one factor from each bracket — either its $x$ or its $y$ — and multiplying the choices. A term of the form $x^{n-k} y^k$ appears precisely when $y$ is chosen from exactly $k$ of the $n$ brackets.</p>
+                <p class="mb-4">How many ways are there to choose those $k$ brackets? It is the number of $k$-element subsets of the $n$ brackets, namely $C(n, k)$. Since different values of $k$ produce different powers of $x$ and $y$, the families of terms are disjoint and simply add up. Hence $(x + y)^n = \\sum_{k=0}^{n} C(n, k)\\, x^{n-k} y^k$. (QED)</p>
+            </div>
+            <p class="mb-6"><strong>Example.</strong> $(a + b)^4 = a^4 + 4a^3 b + 6a^2 b^2 + 4a b^3 + b^4$. Compare with the Pascal row $1, 4, 6, 4, 1$.</p>
+            <p class="mb-6">The theorem pays out instantly. Setting $x = y = 1$ gives $\\sum_{k=0}^{n} C(n,k) = 2^n$: an $n$-element set has exactly $2^n$ subsets. Setting $x = 1, y = -1$ gives $0 = \\sum_{k=0}^{n} (-1)^k C(n, k)$, meaning the subsets of even size and odd size are equally numerous.</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Permutations with Repetition</h2>
+            <p class="mb-6">So far every object we arranged was completely distinct. But real word problems are full of identical objects — think of the letters of MISSISSIPPI, or the indistinguishable balls in a box. When identical objects are swapped among themselves, the arrangement does not change, so we must divide out that overcounting.</p>
+            <p class="mb-6">Suppose we arrange $n$ objects of which $n_1$ are identical copies of type 1, $n_2$ identical copies of type 2, and so on up to type $k$, with $n_1 + n_2 + \\cdots + n_k = n$. If all $n$ objects were distinct there would be $n!$ arrangements. The $n_1$ identical objects can be permuted among themselves in $n_1!$ ways without creating a new arrangement, so we divide by each such factorial:</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">Formula (Permutations with Repetition)</p>
+                <p>$$\\frac{n!}{n_1!\\, n_2! \\cdots n_k!}$$</p>
+            </div>
+            <p class="mb-6"><strong>Example.</strong> How many distinct rearrangements of the letters of MISSISSIPPI are there? The word has $11$ letters: $M$ once, $I$ four times, $S$ four times, and $P$ twice. The answer is</p>
+            <p>$$\\frac{11!}{1!\\, 4!\\, 4!\\, 2!} = \\frac{39916800}{1152} = 34650.$$</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Circular Permutations</h2>
+            <p class="mb-6">All arrangements so far placed objects in a straight line, where the first seat is clearly distinct from the last. Around a circular table there is no first seat at all: only the cyclic order of the people matters, and rotating everyone one seat clockwise gives an arrangement we should regard as the same one.</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">Formula (Circular Permutations)</p>
+                <p>$$(n - 1)!$$</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+                <h3 class="font-semibold text-lg mb-4">Derivation</h3>
+                <p class="mb-4">In a line, the $n!$ arrangements are all genuinely different. But a circle has rotational symmetry: shifting every person one seat clockwise (or two, or three, $\\dots$) preserves the relative order. The $n!$ linear arrangements therefore clump into groups of $n$ rotations that must all be counted as the same circular arrangement. Dividing out the rotations:</p>
+                <p>$$\\frac{n!}{n} = (n - 1)!.$$</p>
+                <p class="mt-4">Equivalently, seat one particular person first to anchor the circle and remove the symmetry; the other $n - 1$ people then occupy the remaining $n - 1$ seats in $(n - 1)!$ ways. (QED)</p>
+            </div>
+            <p class="mb-6"><strong>Example.</strong> Six friends around a round dinner table: $(6 - 1)! = 5! = 120$ arrangements. If the objects are beads on a necklace, where flipping the necklace over also yields the same arrangement, mirror symmetry halves the count again to $5!/2 = 60$.</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Stars and Bars</h2>
+            <p class="mb-6">A recurring question — in number theory especially — asks: in how many ways can a nonnegative integer $n$ be written as an ordered sum of $k$ nonnegative integers? Equivalently, how many nonnegative integer solutions $(x_1, x_2, \\dots, x_k)$ satisfy</p>
+            <p>$$x_1 + x_2 + \\cdots + x_k = n?$$</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">Stars and Bars Formula</p>
+                <p>$$\\text{number of nonnegative solutions } = C(n + k - 1, k - 1)$$</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+                <h3 class="font-semibold text-lg mb-4">Proof (The Visual Trick)</h3>
+                <p class="mb-4">Draw a solution as a row of $n$ identical stars, then drop $k - 1$ vertical bars into the gaps to split the stars into $k$ groups. The number of stars before the first bar is $x_1$, between the first and second bar is $x_2$, and so on; whatever stars remain after the last bar give $x_k$. Because bars are allowed to sit next to each other, empty groups are perfectly legal.</p>
+                <p class="mb-4">For example, with $n = 6$ and $k = 4$, the solution $(2, 0, 3, 1)$ becomes:</p>
+                <p>$$\\star \\star \\;\\; | \\;\\; | \\;\\; \\star \\star \\star \\;\\; | \\;\\; \\star$$</p>
+                <p class="mt-4">Every arrangement of $n$ stars and $k - 1$ bars corresponds to exactly one solution, and every solution to exactly one arrangement. So we simply count the ways to order $n$ identical stars and $k - 1$ identical bars: choose positions for the $k - 1$ bars among the $n + k - 1$ total positions, giving $C(n + k - 1, k - 1)$. (QED)</p>
+            </div>
+            <p class="mb-6"><strong>Example 1.</strong> Distributing 10 identical balls into 4 distinct boxes is exactly a sum $x_1 + x_2 + x_3 + x_4 = 10$ of nonnegative integers: $C(10 + 4 - 1, 4 - 1) = C(13, 3) = 286$ ways.</p>
+            <p class="mb-6"><strong>Example 2.</strong> For strictly positive solutions of $x_1 + x_2 + x_3 = 20$, substitute $y_i = x_i - 1 \\geq 0$; the equation becomes $y_1 + y_2 + y_3 = 17$, giving $C(17 + 3 - 1, 3 - 1) = C(19, 2) = 171$ positive solutions.</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">The Inclusion–Exclusion Principle</h2>
+            <p class="mb-6">The sum rule fails when the sets we are counting overlap, because naive addition counts every overlapping element twice. Inclusion–exclusion repairs this: add the individual sizes, subtract the pairwise intersections, add back the triple intersections, and so on, alternating the signs all the way down.</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">Inclusion–Exclusion (two and three sets)</p>
+                <p>$$|A \\cup B| = |A| + |B| - |A \\cap B|$$</p>
+                <p>$$|A \\cup B \\cup C| = |A| + |B| + |C| - |A \\cap B| - |A \\cap C| - |B \\cap C| + |A \\cap B \\cap C|$$</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+                <h3 class="font-semibold text-lg mb-4">Why It Works (Counting Each Element Once)</h3>
+                <p class="mb-4">Fix any element $x$ that belongs to the union and ask how many times the alternating sum counts it. If $x$ belongs to exactly one set, the sum counts it $1$ time. If it belongs to exactly two sets, it is counted $2$ by the single-set terms, then cancelled $1$ time by the pairwise subtraction: $2 - 1 = 1$. If it belongs to all three sets, it is counted $3 - 3 + 1 = 1$. Every element of the union is counted exactly once, and elements outside the union contribute nothing at all. That is exactly what a union count should do. (QED)</p>
+            </div>
+            <p class="mb-6"><strong>Example.</strong> Among the integers from $1$ to $100$, how many are divisible by 3 or by 5? Let $A$ be the multiples of 3, $|A| = 33$, and $B$ the multiples of 5, $|B| = 20$. The overlap is the multiples of 15, of which there are $|A \\cap B| = 6$. Inclusion–exclusion gives $33 + 20 - 6 = 47$.</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Derangements: When Nothing Stays Put</h2>
+            <p class="mb-6">Here is a classic puzzle. At a party, $n$ guests hand their hats to an attendant. At the end, the attendant returns the hats completely at random. In how many ways can the hats be returned so that no guest receives their own hat? Such orderings are called <strong>derangements</strong> — permutations in which no element stays fixed — and the number of them is written $!n$.</p>
+            <div class="bg-gray-100 p-6 rounded-xl my-6">
+                <p class="font-semibold mb-2">Formula (Derangements)</p>
+                <p>$$!n = n! \\sum_{k=0}^{n} \\frac{(-1)^k}{k!}$$</p>
+                <p class="mt-2">For example: $!3 = 6\\left(1 - 1 + \\frac{1}{2} - \\frac{1}{6}\\right) = 2$, and $!4 = 24\\left(1 - 1 + \\frac{1}{2} - \\frac{1}{6} + \\frac{1}{24}\\right) = 9$.</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+                <h3 class="font-semibold text-lg mb-4">Proof (By Inclusion–Exclusion)</h3>
+                <p class="mb-4">Start from all $n!$ permutations and remove those that fix at least one element. Let $A_i$ be the set of permutations that leave element $i$ fixed. Applying inclusion–exclusion to the $n$ sets $A_1, A_2, \\dots, A_n$:</p>
+                <p class="mb-4">To count the permutations that fix a chosen block of $k$ elements, pin those $k$ elements down and let the other $n - k$ elements permute freely, giving $(n - k)!$ permutations. There are $\\binom{n}{k}$ ways to pick which $k$ elements are fixed, so the total contribution of the $k$-fold intersections is $\\binom{n}{k}(n - k)! = \\frac{n!}{k!}$. Inclusion–exclusion therefore yields</p>
+                <p>$$!n = n! - \\frac{n!}{1!} + \\frac{n!}{2!} - \\frac{n!}{3!} + \\cdots + (-1)^n \\frac{n!}{n!} = n! \\sum_{k=0}^{n} \\frac{(-1)^k}{k!},$$</p>
+                <p class="mt-4">which is precisely the formula claimed. (QED)</p>
+            </div>
+            <p class="mb-6"><strong>Example.</strong> With 4 guests there are $!4 = 9$ scramblings in which nobody gets their own hat, out of $4! = 24$ total scramblings — a probability of $9/24 = 3/8$. A striking fact: as $n$ grows, this probability approaches $1/e \\approx 0.3679$. So if you ever return homework papers completely at random, roughly $37\\%$ of the time nobody gets the right paper back.</p>
+
+
            <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">The Pigeonhole Principle</h2>
            <p class="mb-6">If you have more pigeons than pigeonholes, then at least one pigeonhole must contain more than one pigeon.</p>
            <p class="mb-6">Example: Among 367 people, at least two people must share the same birthday.</p>
@@ -1020,7 +2499,7 @@ $$\\therefore \\gcd(252, 105) = 21$$
         title: { en: "How does finite shape become infinite?", bn: "সসীম ক্ষেত্রের ক্ষেত্রফল অসীম কি করে হলো?" },
         author: { en: "Md Radif Hasan", bn: "মোঃ রাদ্বীফ হাসান" },
         role: { en: "President", bn: "সভাপতি" },
-        date: { en: "Mar 06, 2026", bn: "৬ মার্চ, ২০২৬" },
+        date: { en: "Aug 06, 2026", bn: "৬ আগস্ট, ২০২৬" },
         readTime: { en: "4 min read", bn: "৪ মিনিট পাঠ" },
         desc: { 
             en: "Have you ever been thought, how do Equilateral Triangle and Circle have infinite area?", 
@@ -1047,7 +2526,7 @@ In the decimal system, we break numbers down into powers of 10. However, the geo
                <p>$123.45 = 1 \\times 10^{2} + 2 \\times 10^{1} + 3 \\times 10^{0} + 4 \\times 10^{-1} + 5 \\times 10^{-2}$</p>
            </div>
 
-If it could be expressed that way, the area would seem finite to us. Therefore, when calculating the area, it is better to keep it in terms of $\\pi$ or $\\sqrt{3}$ (such as $9\\pi$ or $4\sqrt{3}$). Otherwise, if you try to find the exact value, their numerical expression in decimals becomes infinite.    </p>`,
+If it could be expressed that way, the area would seem finite to us. Therefore, when calculating the area, it is better to keep it in terms of $\\pi$ or $\\sqrt{3}$ (such as $9\\pi$ or $4\\sqrt{3}$). Otherwise, if you try to find the exact value, their numerical expression in decimals becomes infinite.    </p>`,
 
 
 
@@ -1453,6 +2932,32 @@ function init() {
     updateBodyLang();
     window.addEventListener('popstate', handleRouting);
     window.addEventListener('keydown', handleLightboxKey);
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.vscode-copy');
+        if (!btn) return;
+        const lines = btn.closest('.vscode-window').querySelectorAll('.vscode-code');
+        const text = Array.from(lines, (el) => el.textContent).join('\n').replace(/\n+$/, '');
+        const label = btn.textContent;
+        const done = () => {
+            btn.textContent = 'Copied!';
+            setTimeout(() => { btn.textContent = label; }, 1200);
+        };
+        const fallback = () => {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); done(); } catch (_) { btn.textContent = 'Failed'; }
+            document.body.removeChild(ta);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done).catch(fallback);
+        } else {
+            fallback();
+        }
+    });
     handleRouting(); 
     startSlider();
     startEventSlideshow();
