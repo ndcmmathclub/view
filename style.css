@@ -45,11 +45,10 @@ body.lang-bn {
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
-/* Hide images until they are fully decoded so the page never shows a
-   half-rendered/tiled image mid-download; each one fades in smoothly the
-   moment it is complete. */
+/* Soften the appearance of images while they load (no hiding, so an image
+   that never fires onload can still never be stuck invisible). */
 .img-load {
-    opacity: 0;
+    opacity: 0.4;
     transition: opacity 0.4s ease;
 }
 .img-load.is-loaded {

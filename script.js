@@ -126,14 +126,14 @@ const NEWS_SLIDES = [
     {
         id: 1,
         tag: { en: "Recent Event", bn: "সাম্প্রতিক কার্যক্রম" },
-        title: { en: "Differentiation Bee 2026", bn: "অন্তরীকরণ প্রতিযোগিতা ২০২৬" },
-        desc: { en: "Took place on 30 July in Room 402.", bn: "৩০ জুলাই ৪০২ নং কক্ষে অনুষ্ঠিত হয়েছিলো" },
+        title: { en: "Speed Cubing Competition 2026", bn: "স্পিড কিউবিং প্রতিযোগিতা ২০২৬" },
+        desc: { en: "Took place on 02 September in Room 402.", bn: "২ সেপ্টেম্বর ৪০২ নং কক্ষে অনুষ্ঠিত হয়েছিলো" },
         color: "bg-ndcm-accent"
     },
     {
         id: 2,
         tag: { en: "Announcement", bn: "ঘোষণা" },
-        title: { en: "Speed Cubing Competition 2026", bn: "স্পিড কিউবিং প্রতিযোগিতা ২০২৬" },
+        title: { en: "Final Round of Differentiation Bee 2026", bn: "অন্তরীকরণ প্রতিযোগিতা ২০২৬ এর চূড়ান্ত পর্ব" },
         desc: { en: "Upcoming Wednesday at 12:00 PM in Room 402.", bn: "আসন্ন বুধবার দুপুর ১২:০০ টায় ৪০২ নং কক্ষে।" },
         color: "bg-ndcm-primary"
     }
@@ -1121,6 +1121,23 @@ function preloadImages(list) {
     (list || []).forEach(preloadImage);
 }
 
+// Mark one image fully loaded. Also re-arms the safety net so any image that
+// never fires onload (broken path, aggressive caching, render churn) is still
+// force-revealed shortly after, so nothing stays dim/hidden.
+window.markImgLoaded = function (img) {
+    if (img && img.classList && !img.classList.contains('is-loaded')) {
+        img.classList.add('is-loaded');
+    }
+    ensureImgReveal();
+};
+function ensureImgReveal() {
+    if (window.revealArmed) return;
+    window.revealArmed = true;
+    setTimeout(() => {
+        document.querySelectorAll('.img-load:not(.is-loaded)').forEach(img => img.classList.add('is-loaded'));
+    }, 6000);
+}
+
 // ISO Time
 function getEventStatus(dateISO) {
     if (!dateISO) return null;
@@ -1176,19 +1193,24 @@ function closeEventGallery() {
 }
 
 function openPdfViewer(evOrSrc, title) {
-    let src, pdfTitle;
+    let src;
     if (typeof evOrSrc === 'number') {
         const ev = EVENTS[evOrSrc];
         if (!ev || !ev.viewLink) return;
         src = ev.viewLink;
-        pdfTitle = ev.title;
     } else {
         src = evOrSrc;
-        pdfTitle = title || 'PDF Viewer';
     }
     if (!src) return;
-    state.pdfViewer = { open: true, src: encodeURI(src), title: pdfTitle, fullscreen: false };
-    render();
+    // Open the PDF in a new browser tab via the native viewer so it renders
+    // instantly instead of sitting in an embedded frame that streams the file
+    // in (which looked like a slow loading box). Resolve the relative path
+    // against the detected base so it works on GitHub Pages, local servers,
+    // and file:// hosting alike.
+    const base = (BASE_PATH === '' || BASE_PATH === '/') ? '' : BASE_PATH;
+    const clean = src.replace(/^\.?\/?/, '');
+    const url = base + '/' + clean;
+    window.open(url, '_blank', 'noopener');
 }
 function closePdfViewer() {
     state.pdfViewer.open = false;
@@ -1520,7 +1542,7 @@ function renderEventGalleryModal() {
                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
                             ${photos.map((src, idx) => `
                                 <button onclick="openLightbox(EVENTS[${state.eventGallery.eventIndex}].photos, ${idx})" aria-label="Open photo ${idx + 1}" class="group relative aspect-square rounded-xl overflow-hidden bg-slate-100 shadow-sm hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-ndcm-accent">
-                                    <img src="${src}" alt="${getLang(ev.title)} photo ${idx + 1}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 img-load" onload="this.classList.add('is-loaded')" loading="eager" decoding="async">
+                                    <img src="${src}" alt="${getLang(ev.title)} photo ${idx + 1}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 img-load" onload="markImgLoaded(this)" loading="eager" decoding="async">
                                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
                                 </button>
                             `).join('')}
@@ -1548,7 +1570,7 @@ function renderLightbox() {
                     ${ICONS.chevronRight}
                 </button>
             ` : ''}
-            <img src="${src}" alt="Activity photo ${index + 1}" class="max-w-[92vw] max-h-[82vh] object-contain rounded-lg shadow-2xl img-load" onload="this.classList.add('is-loaded')" loading="eager" fetchpriority="high">
+            <img src="${src}" alt="Activity photo ${index + 1}" class="max-w-[92vw] max-h-[82vh] object-contain rounded-lg shadow-2xl img-load" onload="markImgLoaded(this)" loading="eager" fetchpriority="high">
             ${images.length > 1 ? `
                 <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-xs font-bold tracking-widest">
                     ${index + 1} / ${images.length}
@@ -1592,7 +1614,7 @@ function renderPdfViewerModal() {
 function renderHeader() {
     const navLinks = ['HOME', 'MESSAGES', 'EVENTS', 'ARTICLES', 'RESOURCES', 'COMMITTEE', 'CONTACT'];
     const logoHtml = SITE_DATA.logo 
-        ? `<img src="${SITE_DATA.logo}" alt="Logo" width="40" height="40" class="w-10 h-10 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform bg-white img-load" onload="this.classList.add('is-loaded')" loading="eager" fetchpriority="high" decoding="async">`
+        ? `<img src="${SITE_DATA.logo}" alt="Logo" width="40" height="40" class="w-10 h-10 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform bg-white img-load" onload="markImgLoaded(this)" loading="eager" fetchpriority="high" decoding="async">`
         : `<div class="w-10 h-10 bg-ndcm-primary text-white rounded-full flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-ndcm-accent transition-colors">Σ</div>`;
 
     return `
@@ -1717,7 +1739,7 @@ function renderEvents() {
             <div class="mb-12 relative rounded-2xl overflow-hidden shadow-md h-64 md:h-80 bg-slate-100">
                 ${CLUB_PHOTOS.map((src, idx) => `
                     <div class="absolute inset-0 transition-opacity duration-700 ${state.eventSlideIndex === idx ? 'opacity-100' : 'opacity-0'}" data-event-slide="${idx}">
-                        <img src="${src}" class="w-full h-full object-cover img-load" alt="Club Activity" onload="this.classList.add('is-loaded')" loading="eager" fetchpriority="${idx === 0 ? 'high' : 'low'}" decoding="async">
+                        <img src="${src}" class="w-full h-full object-cover img-load" alt="Club Activity" onload="markImgLoaded(this)" loading="eager" fetchpriority="${idx === 0 ? 'high' : 'low'}" decoding="async">
                         <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/50 to-transparent">
                             <span class="text-white text-xs font-bold uppercase tracking-widest">${getLang(DICTIONARY.activities)}</span>
                         </div>
@@ -1789,7 +1811,7 @@ function renderMessages() {
                         <div class="w-full md:w-1/3">
                             <div class="relative">
                                 <div class="absolute inset-0 bg-ndcm-primary rounded-2xl transform rotate-3 scale-105 opacity-10"></div>
-                                <img src="${msg.img}" alt="${getLang(msg.name)}" class="relative w-full aspect-square object-cover rounded-2xl shadow-xl border-4 border-white img-load" onload="this.classList.add('is-loaded')">
+                                <img src="${msg.img}" alt="${getLang(msg.name)}" class="relative w-full aspect-square object-cover rounded-2xl shadow-xl border-4 border-white img-load" onload="markImgLoaded(this)">
                             </div>
                         </div>
                         <div class="w-full md:w-2/3 message-card p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
@@ -1818,7 +1840,7 @@ function renderArticles() {
                 ${ARTICLES.map(article => `
                     <div class="bg-white rounded-xl overflow-hidden border border-gray-100 card-hover flex flex-col md:flex-row h-full cursor-pointer" onclick="navigate('ARTICLES', {id: ${article.id}})">
                         <div class="md:w-2/5 h-48 md:h-auto bg-gray-200 relative overflow-hidden">
-                            <img src="${article.image}" alt="Article" class="absolute inset-0 w-full h-full object-cover img-load" onload="this.classList.add('is-loaded')">
+                            <img src="${article.image}" alt="Article" class="absolute inset-0 w-full h-full object-cover img-load" onload="markImgLoaded(this)">
                         </div>
                         <div class="p-6 md:w-3/5 flex flex-col justify-between">
                             <div>
@@ -1860,7 +1882,7 @@ function renderSingleArticle() {
                 <span>•</span>
                 <span>${getLang(article.readTime)}</span>
             </div>
-            <img src="${article.image}" class="w-full h-64 md:h-96 object-cover rounded-xl mb-8 shadow-sm img-load" onload="this.classList.add('is-loaded')">
+            <img src="${article.image}" class="w-full h-64 md:h-96 object-cover rounded-xl mb-8 shadow-sm img-load" onload="markImgLoaded(this)">
             <div class="article-content text-slate-700 text-lg leading-relaxed">
                 ${getLang(article.content)}
             </div>
@@ -1876,7 +1898,7 @@ function renderCommittee() {
                 ${COMMITTEE.map(member => `
                     <div class="bg-white rounded-xl overflow-hidden border border-gray-100 text-center p-6 card-hover">
                         <div class="w-24 h-24 mx-auto bg-gray-100 rounded-full mb-4 overflow-hidden border-2 border-ndcm-light">
-                            <img src="${member.img}" class="w-full h-full object-cover img-load" onload="this.classList.add('is-loaded')">
+                            <img src="${member.img}" class="w-full h-full object-cover img-load" onload="markImgLoaded(this)">
                         </div>
                         <h3 class="text-lg font-bold text-slate-900">${getLang(member.name)}</h3>
                         <div class="text-xs font-bold text-ndcm-accent uppercase tracking-wider mb-2">${getLang(member.pos)}</div>
