@@ -127,14 +127,21 @@ const NEWS_SLIDES = [
         id: 1,
         tag: { en: "Recent Event", bn: "সাম্প্রতিক কার্যক্রম" },
         title: { en: "Speed Cubing Competition 2026", bn: "স্পিড কিউবিং প্রতিযোগিতা ২০২৬" },
-        desc: { en: "Took place on 02 September in Room 402.", bn: "২ সেপ্টেম্বর ৪০২ নং কক্ষে অনুষ্ঠিত হয়েছিলো" },
+        desc: { en: "Took place on 02 September in Room 402", bn: "২ সেপ্টেম্বর ৪০২ নং কক্ষে অনুষ্ঠিত হয়েছিলো" },
         color: "bg-ndcm-accent"
     },
     {
         id: 2,
-        tag: { en: "Announcement", bn: "ঘোষণা" },
+        tag: { en: "Recent Event", bn: "সাম্প্রতিক কার্যক্রম" },
         title: { en: "Final Round of Differentiation Bee 2026", bn: "অন্তরীকরণ প্রতিযোগিতা ২০২৬ এর চূড়ান্ত পর্ব" },
-        desc: { en: "Upcoming Wednesday at 12:00 PM in Room 402.", bn: "আসন্ন বুধবার দুপুর ১২:০০ টায় ৪০২ নং কক্ষে।" },
+        desc: { en: "Took place on 16 September in Room 402 and 403", bn: "১৬ সেপ্টেম্বর ৪০২ এবং ৪০৩ নং কক্ষে অনুষ্ঠিত হয়েছিলো" },
+        color: "bg-ndcm-accent"
+    },
+    {
+        id: 3,
+        tag: { en: "Announcement", bn: "ঘোষণা"},
+        title: { en: "Integration Bee 2026", bn: "যোগজীকরণ প্রতিযোগিতা ২০২৬"},
+        desc: {en: "Upcoming Wednesday at 12:00 PM in Room 402", bn: "আসন্ন বুধবার দুপুর ১২:০০ টায় ৪০২ নং কক্ষে"},
         color: "bg-ndcm-primary"
     }
 ];
@@ -220,6 +227,41 @@ const EVENTS = [
 "./assets/activities/speed-cubing/IMG_3984.jpg",
 "./assets/activities/speed-cubing/IMG_3985.jpg",
         ],
+        noRsvp: true,
+    },
+    {
+        title: { en: "Differentiation Bee 2026 Final Round", bn: "অন্তরীকরণ প্রতিযোগিতা ২০২৬ চূড়ান্ত পর্ব" },
+        date: { en: "SEP 16", bn: "১৬ সেপ্টেম্বর" },
+        time: { en: "12:40 PM", bn: "দুপুর ১২:৪০" },
+        dateISO: "2026-09-16",
+        location: { en: "Room 402, 403", bn: "৪০২, ৪০৩ নং কক্ষ" },
+        type: { en: "Competition", bn: "প্রতিযোগিতা" },
+        desc: { en: "Math Olympiad", bn: "গণিত অলিম্পিয়াড" },
+        color: "bg-yellow-100 text-blue-800",
+        viewLink: "./assets/activities/differentiation_bee_final/differentiation_final.pdf",
+ /*       photos: [
+"./assets/activities/differentiation-bee/IMG_3715.jpg",
+"./assets/activities/differentiation-bee/IMG_3722.jpg",
+"./assets/activities/differentiation-bee/IMG_3723.jpg",
+"./assets/activities/differentiation-bee/IMG_3725.jpg",
+"./assets/activities/differentiation-bee/IMG_3727.jpg",
+"./assets/activities/differentiation-bee/IMG_3729.jpg",
+"./assets/activities/differentiation-bee/IMG_3731.jpg",
+"./assets/activities/differentiation-bee/IMG_3732.jpg",
+"./assets/activities/differentiation-bee/IMG_3741.jpg",
+"./assets/activities/differentiation-bee/IMG_3745.jpg",
+"./assets/activities/differentiation-bee/IMG_3749.jpg",
+"./assets/activities/differentiation-bee/IMG_3751.jpg",
+"./assets/activities/differentiation-bee/IMG_3755.jpg",
+"./assets/activities/differentiation-bee/IMG_3757.jpg",
+"./assets/activities/differentiation-bee/IMG_3758.jpg",
+"./assets/activities/differentiation-bee/IMG_3759.jpg",
+"./assets/activities/differentiation-bee/IMG_3762.jpg",
+"./assets/activities/differentiation-bee/IMG_3763.jpg",
+"./assets/activities/differentiation-bee/IMG_3767.jpg",
+"./assets/activities/differentiation-bee/IMG_3770.jpg",
+"./assets/activities/differentiation-bee/IMG_3772.jpg",
+"./assets/activities/differentiation-bee/IMG_3782.jpg"        ], */
         noRsvp: true,
     },
 ];
@@ -1006,10 +1048,16 @@ $$12 = 2 \\times 2 \\times 3 \\times 1 \\times 1$$</p>
 </ol>
 <p>The numbers that still remain uncrossed are <strong>exactly</strong> the primes from $2$ to $n$.</p>
 
+
 <div class="bg-gray-100 p-6 rounded-xl my-6">
     <h3 class="font-semibold text-lg mb-4">⧉ Worked Example: All Primes up to $n = 30$</h3>
-    <p class="mb-2">Write $2, 3, 4, \\dots, 30$. Start with $p = 2$ and cross out $4, 6, 8, 10, \\dots, 30$. The next uncrossed number is $3$; cross out $6, 9, 12, \\dots, 27$. The next uncrossed number is $5$; cross out $10, 15, 20, 25, 30$. Now $5 \\times 5 = 25 \\le 30$, so we continue: the next uncrossed number is $7$, but $7 \\times 7 = 49 > 30$, so we stop.</p>
-    <p>The numbers that remain are $2, 3, 5, 7, 11, 13, 17, 19, 23, 29$ — the ten primes below $30$.</p>
+    <p class="mb-4">Write down $2, 3, 4, 5, \\dots, 30$, and start with $p = 2$. Cross out its multiples $4, 6, 8, 10, \\dots, 30$.</p>
+    <p class="mb-4">The next uncrossed number is $3$; cross out $6, 9, 12, 15, \\dots, 27$.</p>
+    <p class="mb-4">The next uncrossed number is $5$; cross out $10, 15, 20, 25, 30$.</p>
+    <p class="mb-4">Now $5^2 = 25 \\le 30$, so we continue: the next uncrossed number is $7$, but $7^2 = 49 > 30$, so we stop. Any composite number up to $30$ has at least one prime divisor no greater than $\\sqrt{30}$, and all multiples of $2, 3, 5$ have already been crossed out.</p>
+    <p class="mb-4">The numbers that remain are $2, 3, 5, 7, 11, 13, 17, 19, 23, 29$ — the ten primes below $30$.</p>
+    <img src="./assets/articles/Animation_Sieve_of_Eratosth.gif" alt="Sieve of Eratosthenes animation" style="display: block; margin-left: auto; margin-right: auto; width: 500px; height: auto;">
+    <p class="text-xs text-gray-500 text-center mt-2">Source: Wikimedia Commons — animation of the Sieve of Eratosthenes</p>
 </div>
 
 <p class="mb-4">A simple implementation of the Sieve of Eratosthenes in the C language:</p>
@@ -1684,13 +1732,6 @@ $$\\therefore \\gcd(252, 105) = 21$$
     </div>
 </div>
 
-
-
-
-
-
-
-
 </p>
 <h1 class="text-2xl font-bold mb-4">⧉ মৌলিক সংখ্যা (Prime Numbers)</h1>
 <p>আমরা সবাই মৌলিক সংখ্যার সাথে কমবেশি পরিচিত। শুরু করা যাক প্রচলিত সংজ্ঞাটি দিয়েই— যে সংখ্যাটির ১ এবং ওই সংখ্যাটি ব্যতীত অন্য কোনো উৎপাদক নেই সেটিই মৌলিক সংখ্যা। ৫ এর কথাই ধরা যাক, যাকে ৫ এবং ১ এই দুইটি সংখ্যা ব্যতীত আর কোনো পূর্ণসংখ্যা দ্বারা ভাগ করা যায় না। তাই ৫ একটি মৌলিক সংখ্যা। অন্যদিকে ৬-কে ১ এবং ৬ ছাড়াও ২ এবং ৩ দ্বারা ভাগ করা যায়, তাই এটি যৌগিক সংখ্যা।
@@ -1741,10 +1782,19 @@ $$12 = 2 \\times 2 \\times 3 \\times 1 \\times 1$$</p>
 </ol>
 <p>যে সংখ্যাগুলো অকাটা থেকে যায় সেগুলোই <strong>ঠিক</strong> $2$ থেকে $n$ পর্যন্ত মৌলিক সংখ্যা।</p>
 
-<div class="bg-gray-100 p-6 rounded-xl my-6">
-    <h3 class="font-semibold text-lg mb-4">⧉ কাজের উদাহরণ: $n = 30$ পর্যন্ত সব মৌলিক সংখ্যা</h3>
-    <p class="mb-2">$2, 3, 4, \\dots, 30$ লেখো। $p = 2$ নিয়ে $4, 6, 8, 10, \\dots, 30$ কেটে দাও। পরের অকাটা সংখ্যা $3$; $6, 9, 12, \\dots, 27$ কেটে দাও। পরের অকাটা সংখ্যা $5$; $10, 15, 20, 25, 30$ কেটে দাও। এখন $5 \\times 5 = 25 \\le 30$, তাই চলতে থাকো: পরের অকাটা সংখ্যা $7$, কিন্তু $7 \\times 7 = 49 > 30$, তাই থেমে যাও।</p>
-    <p>অবশিষ্ট সংখ্যাগুলো হলো $2, 3, 5, 7, 11, 13, 17, 19, 23, 29$ — $30$-এর নিচে দশটি মৌলিক সংখ্যা।</p>
+<div class="bg-amber-50 border border-amber-200 p-6 rounded-xl my-8">
+    <h3 class="font-semibold text-lg mb-4">⧉ কাজের উদাহরণ: $n = 120$ পর্যন্ত সব মৌলিক সংখ্যা</h3>
+    <p class="mb-4">$2, 3, 4, \\dots, 120$ পর্যন্ত সব পূর্ণসংখ্যা লিখি। এবার এরাটোস্থেনিসের চালুনি (Sieve of Eratosthenes) পদ্ধতিতে যেসব সংখ্যা যৌগিক, সেগুলো একে একে বাদ দিই।</p>
+    <p class="mb-4">প্রথমে $p = 2$ নিই। $2$-এর চেয়ে বড় তার সব গুণিতক—$4, 6, 8, 10, \\dots, 120$—কেটে দিই।</p>
+    <p class="mb-4">এরপর যে সংখ্যাটি এখনও কাটা পড়েনি, সেটি $3$। তাই $3$-এর গুণিতকগুলো—$6, 9, 12, 15, \\dots, 120$—কেটে দিই।</p>
+    <p class="mb-4">পরের যে সংখ্যাটি এখনও কাটা পড়েনি, সেটি $5$। এবার $5$-এর গুণিতকগুলো—$10, 15, 20, 25, \\dots, 120$—কেটে দিই।</p>
+    <p class="mb-4">এরপর পাই $p = 7$। যেহেতু $7^2 = 49 \\le 120$, তাই $7$-এর গুণিতকগুলোও বাদ দিই।</p>
+    <p class="mb-4">এখন পরের সংখ্যাটি $11$, কিন্তু $11^2 = 121 > 120$। তাই আর কোনো সংখ্যা পরীক্ষা করার প্রয়োজন নেই। কারণ $120$-এর চেয়ে বড় নয় এমন কোনো যৌগিক সংখ্যার অন্তত একটি মৌলিক গুণনীয়ক অবশ্যই $\\sqrt{120}$-এর চেয়ে ছোট বা সমান হবে।</p>
+    <p class="mb-4">সুতরাং $120$ পর্যন্ত যেসব সংখ্যা অবশিষ্ট থাকে, সেগুলোই মৌলিক সংখ্যা:</p>
+    <p class="mb-4">$2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83,$<br> $89, 97, 101, 103, 107, 109, 113$</p>
+    <p class="mb-4">অর্থাৎ, $120$ পর্যন্ত মোট ৩০টি মৌলিক সংখ্যা রয়েছে।</p>
+    <img src="./assets/articles/Animation_Sieve_of_Eratosth.gif" alt="Sieve of Eratosthenes animation" style="display: block; margin-left: auto; margin-right: auto; width: 500px; height: auto;">
+    <p class="text-xs text-gray-500 text-center mt-2">https://upload.wikimedia.org/wikipedia/commons/9/94/Animation_Sieve_of_Eratosth.gif?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original?download</p>
 </div>
 
 <p class="mb-4">সি ভাষায় সিভ অফ ইরাটোস্থেনিসের একটি সহজ ইমপ্লিমেন্টেশন:</p>
